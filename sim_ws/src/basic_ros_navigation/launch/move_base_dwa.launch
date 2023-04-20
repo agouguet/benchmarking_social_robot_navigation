@@ -1,0 +1,22 @@
+<launch>
+
+  <node pkg="auto_clear_costmap" type="auto_clear_costmap_node" respawn="false" name="auto_clear_costmap" output="screen"/>
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+
+    <rosparam file="$(find example_submission)/params/dwa/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find example_submission)/params/dwa/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find example_submission)/params/dwa/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find example_submission)/params/dwa/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find example_submission)/params/dwa/base_local_planner_params.yaml" command="load" />
+
+    <param name="controller_frequency" value="8.0" />
+    <param name="planner_frequency" value="8.0" />
+
+    <remap from="cmd_vel" to="mobile_base_controller/cmd_vel" />
+    <remap from="/move_base/TrajectoryPlannerROS/local_plan" to="/move_base/local_plan"/>
+    <remap from="/move_base/TrajectoryPlannerROS/global_plan" to="/move_base/GlobalPlanner/plan"/>
+
+  </node>
+
+</launch>

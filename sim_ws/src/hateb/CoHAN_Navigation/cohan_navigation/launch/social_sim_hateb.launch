@@ -1,0 +1,35 @@
+<launch>
+  <arg name="localize" default="fake"/>
+  <arg name="gui" default="false"/>
+  <arg name="fast_mode" default="false"/>
+  <arg name="node_start_delay" default="4.0"/>
+
+  <!-- AGENT TRACKING -->
+  <node name="agents" pkg="bridge_socialsim2hateb" type="bridge.py" output="screen"/>
+  <!-- agent pose prediction, for the local-planning -->
+  <node pkg="agent_path_prediction" type="agent_path_prediction" name="agent_path_predict" output="screen" >
+    <remap from="/agent_path_predict/tracked_agents" to="/tracked_agents"/>
+    <remap from="/agent_path_predict/external_agent_trajs" to="/move_base_node/HATebLocalPlannerROS/agent_local_trajs"/>
+
+    <param name="velobs_mul" value="1.0"/>
+    <param name="velscale_mul" value="2.0"/>
+  </node>
+
+  <node pkg="agent_path_prediction" type="predict_goal.py" name="agent_goal_predict" output="screen"/>
+
+  <!-- Filter the agents from laser scan -->
+  <node pkg="cohan_layers" type="agent_filter_socialsim.py" name="agent_filter_laser" output="screen"/>
+
+  <!-- MOVE BASE -->
+  <include file="$(find cohan_navigation)/launch/include/move_base_nav.launch">
+  </include>
+
+
+
+  <!-- LOCALIZATION
+  <include file="$(find cohan_navigation)/launch/include/localization.launch">
+    <arg name="localize" value="$(arg localize)"/>
+  </include>
+  -->
+
+</launch>

@@ -27,10 +27,10 @@ We experimented with these 4 navigation modes through 4 typical scenarios encoun
 We have calculated performance metrics and social metrics that we compare in the paper associated with this benchmark.
 Additionally, we provide all the raw videos of all experiments, in the ```~/benchmark_social_navigation/social_sim_unity/recording ``` folder.
 
-We can also represent robot and human paths like this (example of HATEB method on doorway scenario) :
+We can also represent robot and human paths like this (example of doorway scenario) :
 
 <p align="center">
-    <img src="./sim_ws/data/results/door_passing_all.png"  width="400" height="420">
+    <img src="./assets/paths.png"  width="400" height="420">
 </p>
 
 
