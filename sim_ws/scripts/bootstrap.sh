@@ -49,6 +49,7 @@ apt-get install --no-install-recommends -y \
     libsvm-dev \
     libsdl-image1.2-dev \
     libsdl-dev \
+    libsuitesparse-dev \
     pcl-tools \
     python3-pip \
     python3-setuptools \
@@ -65,5 +66,6 @@ apt-get install -y \
 
 # pips
 pip3 install virtualenv
+pip3 install scipy
 
 apt-get clean && rm -rf /var/lib/apt/lists/*

@@ -42,7 +42,12 @@ apt-get update && apt-get install -y \
     ros-${ROS_DISTRO}-sbpl \
     ros-${ROS_DISTRO}-gazebo-ros-control \
     ros-${ROS_DISTRO}-navigation \
-    ros-${ROS_DISTRO}-navigation-experimental
+    ros-${ROS_DISTRO}-navigation-experimental \
+    ros-${ROS_DISTRO}-stage* \
+    ros-${ROS_DISTRO}-costmap-converter \
+    ros-${ROS_DISTRO}-mbf-costmap-core \
+    ros-${ROS_DISTRO}-mbf-msgs \
+    ros-${ROS_DISTRO}-libg2o
 
 
 apt-get clean && rm -rf /var/lib/apt/lists/*
