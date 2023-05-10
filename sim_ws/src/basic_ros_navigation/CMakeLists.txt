@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(example_submission)
+project(basic_ros_navigation)
 
 # Default to C++14
 if(NOT CMAKE_CXX_STANDARD)

@@ -38,6 +38,7 @@ social_sim_unity/[Aa]ssets/Plugins/Editor/JetBrains*
 
 # Visual Studio cache directory
 social_sim_unity/.vs/
+social_sim_unity/.vscode/
 
 # Gradle cache directory
 social_sim_unity/.gradle/

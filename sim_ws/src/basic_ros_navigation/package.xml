@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>example_submission</name>
+  <name>basic_ros_navigation</name>
   <version>0.1.0</version>
-  <description>The example_submission</description>
+  <description>Basic ROS Navigation</description>
 
-  <maintainer email="peter.yu@yale.edu">Peter Yu</maintainer>
+  <maintainer email="adam.gouguet@imt-nord-europe.fr">Adam Gouguet</maintainer>
 
   <license>BSD</license>
 
