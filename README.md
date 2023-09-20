@@ -4,6 +4,8 @@
     <img src="./assets/illustration.png">
 </p>
 
+*Vidéo youtube : [Benchmarking Off-the-shelf Human-Aware Robot Navigation Solutions](https://youtu.be/Mwo9m6YGXS0)*
+
 The objective of this project is to use the [SEAN](https://sean.interactive-machines.com) simulator to benchmark off-the-shelf social robot navigation. Off-the-shelf means that we only compared methods that were already available, open source and without any external modifications or additions needed.
 We have already made a comparison of different solutions with a somewhat modified version of the SEAN simulator, you will find below how to reproduce our experience.
 
