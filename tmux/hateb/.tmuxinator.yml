@@ -1,0 +1,42 @@
+name: HATEB
+
+pre_window: 
+  - source /opt/ros/noetic/setup.bash
+  - source ../../ros1_ws/devel/setup.bash
+
+windows:
+  - navstack:
+      layout: tiled
+      panes:
+        - shell:
+        #ROS1
+        - core:
+          - roscore
+        - move_base:
+          - roslaunch --wait cohan_navigation social_sim_hateb.launch
+        - map_publisher:
+          - rosrun social_sim_ros map_publisher.py
+        - rviz:
+          - rosrun rviz rviz -d $(rospack find social_sim_ros)/config/move.rviz
+
+        #ROS2
+        - bridge_unity:
+          - source /opt/ros/foxy/setup.bash
+          - source ../../ros2_ws/install/setup.bash
+          - ros2 run ros_tcp_endpoint default_server_endpoint
+        
+        - trial:
+          - source /opt/ros/foxy/setup.bash
+          - source ../../ros2_ws/install/setup.bash
+          - ros2 run unity_sim trial_info_listener.py --ros-args -p method:=hateb
+
+        # BRIDGE ROS1 to ROS2
+        - bridge:
+          - source /opt/ros/noetic/setup.bash
+          - source /opt/ros/foxy/setup.bash
+          - source ../../ros1_ws/devel/setup.bash
+          - source ../../ros2_ws/install/setup.bash
+          - source ../../ros1_bridge_ws/install/setup.bash
+          - rosparam load ../../ros2_ws/src/unity_sim/params/bridge_params.yaml
+          - ros2 run ros1_bridge parameter_bridge
+          # - ros2 run ros1_bridge dynamic_bridge --bridge-all-topics

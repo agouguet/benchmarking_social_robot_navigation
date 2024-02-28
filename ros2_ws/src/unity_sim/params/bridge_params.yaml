@@ -1,0 +1,47 @@
+topics:
+  # 2TO1
+  
+  -
+    topic: /clock
+    type: rosgraph_msgs/msg/Clock
+    queue_size: 10
+  -
+    topic: /social_sim/scene_info 
+    type: simulation_msgs/msg/SceneInfo
+    queue_size: 10 
+  -
+    topic: /scan 
+    type: sensor_msgs/msg/LaserScan
+    queue_size: 10   
+  -
+    topic: /odom 
+    type: nav_msgs/msg/Odometry
+    queue_size: 10 
+  -
+    topic: /global_goal
+    type: geometry_msgs/msg/PoseStamped
+    queue_size: 10 
+  -
+    topic: /tf
+    type: tf2_msgs/msg/TFMessage
+    queue_size: 10 
+  -
+    topic: /social_sim/agents
+    type: simulation_msgs/msg/AgentArray
+    queue_size: 10
+  -
+    topic: /social_sim/agent_positions
+    type: geometry_msgs/msg/PoseArray
+    queue_size: 10
+
+
+  # 1TO2
+  -
+    topic: /cmd_vel  
+    type: geometry_msgs/msg/Twist
+    queue_size: 10 
+
+  -
+    topic: /initialpose
+    type: geometry_msgs/msg/PoseWithCovarianceStamped
+    queue_size: 10

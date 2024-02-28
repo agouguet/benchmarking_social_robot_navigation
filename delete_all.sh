@@ -1,0 +1,1 @@
+rm -rf ros1_ws/build ros1_ws/devel ros2_ws/build ros2_ws/install ros2_ws/log ros1_bridge_ws/build ros1_bridge_ws/install ros1_bridge_ws/log

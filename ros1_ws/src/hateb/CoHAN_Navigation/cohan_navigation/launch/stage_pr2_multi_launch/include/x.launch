@@ -1,0 +1,39 @@
+<launch>
+  <!-- Node start delay to avoid crashing of navigation node -->
+  <arg name="ns" default="human1"/>
+  <arg name="node_start_delay" default="4.0" />
+  <arg name="localize" default="fake"/>
+  <arg name="num_agents" default="2"/>
+
+  <group ns="$(arg ns)">
+    <include file="$(find cohan_navigation)/launch/stage_pr2_multi_launch/include/agent_tracking.launch">
+      <arg name="ns" value="$(arg ns)"/>
+      <arg name="num_agents" value="$(arg num_agents)"/>
+    </include>
+
+    <node pkg="move_base" type="move_base" name="move_base" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' ">
+      <remap from="map" to="/map"/>
+
+      <rosparam file="$(find cohan_navigation)/config/stage_pr2_move_base_config/move_base_params.yaml" command="load" />
+      <rosparam file="$(find cohan_navigation)/config/stage_pr2_move_base_config/global_costmap_params_human.yaml" command="load" ns="global_costmap" />
+      <rosparam file="$(find cohan_navigation)/config/stage_pr2_move_base_config/local_costmap_params_human.yaml" command="load" ns="local_costmap" />
+      <rosparam file="$(find cohan_navigation)/config/stage_pr2_move_base_config/teb_local_planner_params.yaml" command="load" ns="TebLocalPlannerROS" />
+
+      <param name="ns" value="$(arg ns)"/>
+      <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+      <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+      <param name="GlobalPlanner/allow_unknown" value="true" />
+
+
+      <param name="global_costmap/robot_base_frame" value="$(arg ns)/base_link"/>
+      <param name="local_costmap/robot_base_frame" value="$(arg ns)/base_link"/>
+      <param name="local_costmap/global_frame" value="$(arg ns)/odom"/>
+    </node>
+
+    <include file="$(find cohan_navigation)/launch/stage_pr2_multi_launch/include/localization.launch">
+      <arg name="ns" value="$(arg ns)"/>
+      <arg name="localize" value="$(arg localize)"/>
+    </include>
+  </group>
+
+</launch>

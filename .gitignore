@@ -1,11 +1,13 @@
-sim_ws/build
-sim_ws/devel
+ros1_ws/build
+ros1_ws/devel
 
-sim_ws/src/ROS-TCP-Endpoint
-sim_ws/src/kuri
-sim_ws/src/depthimage_to_laserscan
-sim_ws/src/bag2video
+ros2_ws/log
+ros2_ws/build
+ros2_ws/install
 
+ros1_bridge_ws/log
+ros1_bridge_ws/build
+ros1_bridge_ws/install
 
 
 

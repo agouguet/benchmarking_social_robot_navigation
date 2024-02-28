@@ -1,0 +1,16 @@
+----- Performance Metrics -----
+Length (m):23.666013538384504
+Time To Reach Goal (s):209.0
+Error Distance to Target (m):0.2920105159282684
+Total Rotation (degres):2628.140407204628
+Time Not Moving (s):48.0
+Collision with Static Obstacle :0
+Movement Jerk (m/s^3) :0.0/0.448228020220995/0.08430219014416572
+
+----- Social Metrics -----
+Violation of Human Personal Space :2
+Violation of Human Personal Space While the Robot is Stationary :0
+Time of Robot Violate Human Personal Space (s):15.499999653548002
+Minimum Distance Between the Robot and the Closest Human (m):1.2445405721664429
+Collision with Human :0
+Minimum Time to Collision (m) :0.1418874656741445
