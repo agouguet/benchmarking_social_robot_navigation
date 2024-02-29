@@ -4,13 +4,8 @@ from rclpy.node import Node
 
 from std_msgs.msg import Header
 from visualization_msgs.msg import Marker, MarkerArray
-from geometry_msgs.msg import Pose, Point
-import visualization_msgs
-from simulation_msgs.msg import GraphNav
-from simulation_msgs.msg import GraphEdge
-from simulation_msgs.msg import GraphNode
-
-from agent_trajectory_prediction.msg import AgentTrajectories
+from geometry_msgs.msg import Pose
+from agents_msgs.msg import AgentTrajectories
 
 import networkx as nx
 

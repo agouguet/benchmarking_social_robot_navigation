@@ -32,7 +32,7 @@ public class GraphCreator : MonoBehaviour
     {
         // Use ROSTCP connector
         ros = ROSConnection.GetOrCreateInstance();
-        ros.RegisterPublisher<RosMessageTypes.Simulation.GraphNavMsg>(topicName);
+        ros.RegisterPublisher<RosMessageTypes.Graph.GraphNavMsg>(topicName);
 
         graph = GameObject.Find("CreateGraph/NavGraph");
 
@@ -41,7 +41,7 @@ public class GraphCreator : MonoBehaviour
 
     void publish()
     {
-        RosMessageTypes.Simulation.GraphNavMsg message = new RosMessageTypes.Simulation.GraphNavMsg();
+        RosMessageTypes.Graph.GraphNavMsg message = new RosMessageTypes.Graph.GraphNavMsg();
 
         // Header
         message.header.frame_id = "";
@@ -65,11 +65,11 @@ public class GraphCreator : MonoBehaviour
         }
 
         // Nodes
-        message.nodes = new RosMessageTypes.Simulation.GraphNodeMsg[nodes.Count];
+        message.nodes = new RosMessageTypes.Graph.GraphNodeMsg[nodes.Count];
         int i = 0;
         foreach(GameObject node in nodes)
         {
-            RosMessageTypes.Simulation.GraphNodeMsg nodeMsg = new RosMessageTypes.Simulation.GraphNodeMsg();
+            RosMessageTypes.Graph.GraphNodeMsg nodeMsg = new RosMessageTypes.Graph.GraphNodeMsg();
             nodeMsg.id = Convert.ToUInt64(node.name.Split(" ")[1]);
             nodeMsg.x = node.transform.position.z;
             nodeMsg.y = -node.transform.position.x;
@@ -77,11 +77,11 @@ public class GraphCreator : MonoBehaviour
         }
 
         // Edges
-        message.edges = new RosMessageTypes.Simulation.GraphEdgeMsg[edges.Count];
+        message.edges = new RosMessageTypes.Graph.GraphEdgeMsg[edges.Count];
         int j = 0;
         foreach(Edge edge in edges)
         {
-            RosMessageTypes.Simulation.GraphEdgeMsg edgeMsg = new RosMessageTypes.Simulation.GraphEdgeMsg();
+            RosMessageTypes.Graph.GraphEdgeMsg edgeMsg = new RosMessageTypes.Graph.GraphEdgeMsg();
             edgeMsg.id_n1 = Convert.ToUInt64(edge.n1.name.Split(" ")[1]);
             edgeMsg.id_n2 = Convert.ToUInt64(edge.n2.name.Split(" ")[1]);
             message.edges[j++] = edgeMsg;

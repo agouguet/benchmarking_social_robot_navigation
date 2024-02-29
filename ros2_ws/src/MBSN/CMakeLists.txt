@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(agent_trajectory_prediction)
+project(mbsn)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -17,18 +17,23 @@ find_package(geometry_msgs REQUIRED)
 find_package(actionlib_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
-# find_package(unity_sim REQUIRED)
 
 include_directories(include)
 
 ament_export_dependencies(rosidl_default_runtime)
 
+install(DIRECTORY
+  launch
+  params
+  DESTINATION share/${PROJECT_NAME}/
+)
+
 # Install Python modules
 ament_python_install_package(${PROJECT_NAME})
 
 install(PROGRAMS
-  scripts/agent_trajectory_prediction_publisher.py
-  scripts/agent_trajectory_prediction_visualization.py
+  scripts/graph_visualization.py
+  scripts/MBSN.py
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

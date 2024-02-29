@@ -18,14 +18,14 @@ namespace SEAN.Metrics
 
         public string TopicName = "/social_sim/metrics";
 
-        private RosMessageTypes.Simulation.TrialInfoMsg trialInfoMessage;
+        private RosMessageTypes.Metric.TrialInfoMsg trialInfoMessage;
 
 
         void Start()
         {
-            trialInfoMessage = new RosMessageTypes.Simulation.TrialInfoMsg();
+            trialInfoMessage = new RosMessageTypes.Metric.TrialInfoMsg();
             ros = ROSConnection.GetOrCreateInstance();
-            ros.RegisterPublisher<RosMessageTypes.Simulation.TrialInfoMsg>(TopicName);
+            ros.RegisterPublisher<RosMessageTypes.Metric.TrialInfoMsg>(TopicName);
             sean = SEAN.instance;
         }
 

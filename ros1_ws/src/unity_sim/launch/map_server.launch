@@ -1,0 +1,4 @@
+<launch>
+  <arg name="scene" default="static" />
+  <node pkg="map_server" name="map_server" type="map_server" args="$(find unity_sim)/maps/$(arg scene)/map.yaml" output="screen" />
+</launch>

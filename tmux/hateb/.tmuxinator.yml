@@ -15,9 +15,9 @@ windows:
         - move_base:
           - roslaunch --wait cohan_navigation social_sim_hateb.launch
         - map_publisher:
-          - rosrun social_sim_ros map_publisher.py
+          - rosrun unity_sim map_publisher.py
         - rviz:
-          - rosrun rviz rviz -d $(rospack find social_sim_ros)/config/move.rviz
+          - rosrun rviz rviz -d $(rospack find unity_sim)/config/move.rviz
 
         #ROS2
         - bridge_unity:
@@ -28,6 +28,7 @@ windows:
         - trial:
           - source /opt/ros/foxy/setup.bash
           - source ../../ros2_ws/install/setup.bash
+          - cd ../..
           - ros2 run unity_sim trial_info_listener.py --ros-args -p method:=hateb
 
         # BRIDGE ROS1 to ROS2

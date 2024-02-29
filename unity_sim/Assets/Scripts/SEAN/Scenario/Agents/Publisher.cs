@@ -30,7 +30,7 @@ namespace SEAN.Scenario.Agents
         void Start()
         {
             ros = ROSConnection.GetOrCreateInstance();
-            ros.RegisterPublisher<RosMessageTypes.Simulation.AgentArrayMsg>(topicName);
+            ros.RegisterPublisher<RosMessageTypes.Agents.AgentArrayMsg>(topicName);
             sean = SEAN.instance;
             // print("REGISTER AGENT" + topicName);
             // print(MessageRegistry.GetRosMessageName<RosMessageTypes.SocialSimRos.AgentArrayMsg>());
@@ -48,7 +48,7 @@ namespace SEAN.Scenario.Agents
         }
 
         private void PublishInformation(){
-            RosMessageTypes.Simulation.AgentArrayMsg message = new RosMessageTypes.Simulation.AgentArrayMsg();
+            RosMessageTypes.Agents.AgentArrayMsg message = new RosMessageTypes.Agents.AgentArrayMsg();
             message.header.frame_id = frame;
             message.header.stamp = sean.clock.LastPublishedTime();
 
@@ -59,15 +59,14 @@ namespace SEAN.Scenario.Agents
                     people.Add(agent.Key.GetComponent<TrackedAgent>());
             }
 
-            message.agents = new RosMessageTypes.Simulation.AgentMsg[sean.pedestrianBehavior.agents.Length];
+            message.agents = new RosMessageTypes.Agents.AgentMsg[sean.pedestrianBehavior.agents.Length];
             int i = 0;
             foreach (Trajectory.TrackedAgent person in sean.pedestrianBehavior.agents)
             {
-                RosMessageTypes.Simulation.AgentMsg agent = new RosMessageTypes.Simulation.AgentMsg();
-                agent.type = "person";
-                agent.track_id = person.track_id;
+                RosMessageTypes.Agents.AgentMsg agent = new RosMessageTypes.Agents.AgentMsg();
+                agent.id = person.track_id;
                 agent.pose = Util.Geometry.GetMPose(person.gameObject.transform);
-                agent.twist = Util.Geometry.GetMTwist(person.gameObject.GetComponent<SFAgent>().velocity);
+                agent.velocity = Util.Geometry.GetMTwist(person.gameObject.GetComponent<SFAgent>().velocity);
                 agent.visible_by_robot = people.Contains(person);
                 message.agents[i++] = agent;
             }

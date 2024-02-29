@@ -1,36 +1,18 @@
 <launch>
-  <arg name="real" default="false"/>
   <arg name="goal" default="/global_goal"/>
 
   <!-- move_base node with hateb in unity -->
-  <group if="$(eval arg('real') == false)">
-    <node pkg="move_base" type="move_base" name="move_base" output="screen">
-      <param name="base_global_planner" value="global_planner/GlobalPlanner" />
-      <param name="base_local_planner" value="hateb_local_planner/HATebLocalPlannerROS" />
-      <param name="GlobalPlanner/allow_unknown" value="true" />
+  
+  <node pkg="move_base" type="move_base" name="move_base" output="screen">
+    <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+    <param name="base_local_planner" value="hateb_local_planner/HATebLocalPlannerROS" />
+    <param name="GlobalPlanner/allow_unknown" value="true" />
 
-      <rosparam file="$(find cohan_navigation)/config/unity/move_base_params.yaml" command="load" />
-      <rosparam file="$(find cohan_navigation)/config/unity/global_costmap_params.yaml" command="load" ns="global_costmap"/>
-      <rosparam file="$(find cohan_navigation)/config/unity/local_costmap_params.yaml" command="load" ns="local_costmap"/>
-      <rosparam file="$(find cohan_navigation)/config/unity/hateb_local_planner_params.yaml" command="load" ns="HATebLocalPlannerROS" />
+    <rosparam file="$(find cohan_navigation)/config/unity/move_base_params.yaml" command="load" />
+    <rosparam file="$(find cohan_navigation)/config/unity/global_costmap_params.yaml" command="load" ns="global_costmap"/>
+    <rosparam file="$(find cohan_navigation)/config/unity/local_costmap_params.yaml" command="load" ns="local_costmap"/>
+    <rosparam file="$(find cohan_navigation)/config/unity/hateb_local_planner_params.yaml" command="load" ns="HATebLocalPlannerROS" />
 
-      <remap from="/move_base_simple/goal" to="$(arg goal)"/>
-    </node>
-  </group>
-
-  <!-- move_base node with hateb in real-life -->
-  <group if="$(eval arg('real') == true)">
-    <node pkg="move_base" type="move_base" name="move_base" output="screen">
-      <param name="base_global_planner" value="global_planner/GlobalPlanner" />
-      <param name="base_local_planner" value="hateb_local_planner/HATebLocalPlannerROS" />
-      <param name="GlobalPlanner/allow_unknown" value="true" />
-
-      <rosparam file="$(find cohan_navigation)/config/real/move_base_params.yaml" command="load" />
-      <rosparam file="$(find cohan_navigation)/config/real/global_costmap_params.yaml" command="load" ns="global_costmap"/>
-      <rosparam file="$(find cohan_navigation)/config/real/local_costmap_params.yaml" command="load" ns="local_costmap"/>
-      <rosparam file="$(find cohan_navigation)/config/real/hateb_local_planner_params.yaml" command="load" ns="HATebLocalPlannerROS" />
-
-      <remap from="/move_base_simple/goal" to="$(arg goal)"/>
-    </node>
-  </group>
+    <remap from="/move_base_simple/goal" to="$(arg goal)"/>
+  </node>
 </launch>

@@ -1,6 +1,0 @@
-<launch>
-
-  <node pkg="social_sim_teleop" type="joystick_override.py" name="joystick_override">
-  </node>
-
-</launch>

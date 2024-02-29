@@ -12,22 +12,26 @@ windows:
         #ROS2
         - bridge_unity:
           - ros2 run ros_tcp_endpoint default_server_endpoint
-        - nav:
-          - ros2 launch graph_nav local_nav2.launch.py
         - map_publisher:
           - ros2 run unity_sim map_publisher.py
+        - nav:
+          - ros2 launch mbsn local_nav.launch.py
+        
+
+        - graph_unity:
+          - ros2 run unity_sim graph_publisher.py
+        - graph_nav:
+          - ros2 run mbsn MBSN.py
+        - visualization_graph:
+          - ros2 run mbsn graph_visualization.py
+
+        - agent_trajectories:
+          - ros2 run agent_trajectory_prediction agent_trajectory_prediction_publisher.py 
+        - visualization_trajs:
+          - ros2 run agent_trajectory_prediction agent_trajectory_prediction_visualization.py
+
         - rviz:
           - ros2 launch unity_sim rviz.launch.py
         - trial:
           - cd ../..
           - ros2 run unity_sim trial_info_listener.py --ros-args -p method:=mdp
-        - graph_nav:
-          - ros2 run graph_nav nav_graph_goals.py
-        - graph_unity:
-          - ros2 run unity_sim graph_publisher.py
-        - agent_trajectories:
-          - ros2 run agent_trajectory_prediction agent_trajectory_prediction_publisher.py 
-        - visualization_graph:
-          - ros2 run graph_nav graph_visualization.py
-        - visualization_trajs:
-          - ros2 run agent_trajectory_prediction agent_trajectory_prediction_visualization.py

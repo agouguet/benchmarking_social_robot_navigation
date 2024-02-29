@@ -4,8 +4,7 @@ from rclpy.node import Node
 
 from std_msgs.msg import Header
 from geometry_msgs.msg import Point
-from simulation_msgs.msg import AgentArray
-from agent_trajectory_prediction.msg import AgentTrajectories, AgentTrajectory
+from agents_msgs.msg import AgentArray, AgentTrajectories, AgentTrajectory
 
 TIME_INTERVAL = 2 # seconds
 FUTURE_POS_NUMBER = 5
@@ -20,7 +19,6 @@ class AgentTrajectoryPublisher(Node):
 
 
     def agents_callback(self, msg_agents):
-        print("----------------")
         trajectories_msg = AgentTrajectories()
         trajectories = []
         for agent in msg_agents.agents:
@@ -28,9 +26,8 @@ class AgentTrajectoryPublisher(Node):
                 trajectory = AgentTrajectory()
                 trajectory.header =  Header()
                 trajectory.header.stamp = self.get_clock().now().to_msg()
-                trajectory.id = agent.track_id
-                vel = agent.twist.linear
-                print(vel)
+                trajectory.id = agent.id
+                vel = agent.velocity.linear
                 poses = []
                 for t in range(1, FUTURE_POS_NUMBER+1):
                     pose = Point()

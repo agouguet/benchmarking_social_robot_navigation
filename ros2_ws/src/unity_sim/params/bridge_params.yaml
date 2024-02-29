@@ -27,7 +27,7 @@ topics:
     queue_size: 10 
   -
     topic: /social_sim/agents
-    type: simulation_msgs/msg/AgentArray
+    type: agents_msgs/msg/AgentArray
     queue_size: 10
   -
     topic: /social_sim/agent_positions

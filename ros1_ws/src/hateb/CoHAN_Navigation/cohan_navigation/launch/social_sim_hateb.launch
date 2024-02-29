@@ -3,13 +3,11 @@
   <arg name="gui"               default="false"/>
   <arg name="fast_mode"         default="false"/>
   <arg name="node_start_delay"  default="4.0"/>
-  <arg name="real"              default="false"/>
   <arg name="goal"              default="/move_base_simple/goal"/>
   <param name="/use_sim_time" value="true"/>
 
   <!-- AGENT TRACKING -->
-  <node name="agents" pkg="bridge_socialsim2hateb" type="bridge.py" output="screen" if="$(eval arg('real') == false)"/>
-  <node name="agents" pkg="bridge_realpeople2hateb" type="bridge.py" output="screen" if="$(eval arg('real') == true)"/>
+  <node name="agents" pkg="bridge_socialsim2hateb" type="bridge.py" output="screen"/>
 
 
   <!-- agent pose prediction, for the local-planning -->
@@ -28,7 +26,6 @@
 
   <!-- MOVE BASE -->
   <include file="$(find cohan_navigation)/launch/include/move_base_nav.launch">
-    <param name="real" value="$(arg real)"/>
     <param name="goal" value="$(arg goal)"/>
   </include>
 

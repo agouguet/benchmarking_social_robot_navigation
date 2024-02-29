@@ -7,7 +7,7 @@ import sys
 import rospy
 import time
 from cohan_msgs.msg import TrackedAgents, TrackedAgent, TrackedSegment, TrackedSegmentType, AgentType
-from simulation_msgs.msg import AgentArray
+from agents_msgs.msg import AgentArray
 from nav_msgs.msg import Odometry
 import message_filters
 
@@ -43,10 +43,10 @@ class StageAgents(object):
                 agent_segment = TrackedSegment()
                 agent_segment.type = self.Segment_Type
                 agent_segment.pose.pose = agent.pose
-                agent_segment.twist.twist = agent.twist
+                agent_segment.twist.twist = agent.velocity
                 tracked_agent = TrackedAgent()
                 tracked_agent.type = AgentType.HUMAN
-                tracked_agent.name = PREFIX_AGENT+"_"+str(agent.track_id)
+                tracked_agent.name = PREFIX_AGENT+"_"+str(agent.id)
                 tracked_agent.segments.append(agent_segment)
                 tracked_agents.agents.append(tracked_agent)
         if(tracked_agents.agents):

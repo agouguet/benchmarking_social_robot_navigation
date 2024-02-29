@@ -10,7 +10,9 @@ import json
 
 from nav_msgs.msg import Path
 from std_msgs.msg import Float32MultiArray, Float32
-from simulation_msgs.msg import TrialInfo, SceneInfo, AgentArray
+from metric_msgs.msg import TrialInfo
+from simulation_msgs.msg import SceneInfo
+from agents_msgs.msg import AgentArray
 
 from collections import defaultdict
 
@@ -100,16 +102,6 @@ class TrialInfoListener(Node):
 
         self.global_plan = ":".join([_format_pose(pose_stamped) for pose_stamped in msg.poses])
 
-
-        # Compute post-hoc metrics:
-        # 'completed': msg.completed,
-        # 'targ_dist_norm': msg.targ_dist_norm,
-        # 'path_length': msg.path_length,
-        # 'mean_dist_to_target_not_moving': msg.mean_dist_to_target_not_moving,
-        # 'time_not_moving': msg.time_not_moving,
-        # 'episode_timed_out': msg.episode_timed_out,
-        # 'path_irregularity': msg.path_irregularity,
-        # 'path_efficiency': msg.path_efficiency
     def attention_l_callback(self, msg):
         data = np.array(msg.data)
         if self.attention_l is None:
@@ -260,10 +252,6 @@ class TrialInfoListener(Node):
 
 
 def main(args=None):
-    # parser = argparse.ArgumentParser(description='Show paths data given by social sim unity.')
-    # parser.add_argument('--method', help="name of robot navigation method.", required=False)
-    # args_parser = parser.parse_args()
-
     rclpy.init(args=args)
 
     minimal_publisher = TrialInfoListener()
