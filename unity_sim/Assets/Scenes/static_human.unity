@@ -8295,7 +8295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topicName: /social_sim/agent_positions
-  publishMessageFrequency: 0.5
+  publishMessageFrequency: 0.1
   frame: map
   detector: {fileID: 15344051}
   haveGlobalInformation: 0
@@ -8313,7 +8313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topicName: /social_sim/agents
   frame: map
-  publishMessageFrequency: 0.5
+  publishMessageFrequency: 0.1
   detector: {fileID: 15344051}
 --- !u!114 &1353101656
 MonoBehaviour:

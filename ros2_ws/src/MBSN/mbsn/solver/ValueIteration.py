@@ -13,16 +13,12 @@ class ValueIteration:
     def one_iteration(self):
         delta = 0
         for s in self.problem.states:
-            # print(s)
             temp = self.values[s]
             v_list = dict.fromkeys(self.problem.actions[s], 0)
             for a in self.problem.actions[s]:
-                # print("     ", a)
                 for s_prim in self.problem.states_prim[s][a]:
-                    # print("         ", s_prim)
                     p = self.problem.transition(s, a, s_prim)
                     v_list[a] += self.problem.reward(s, a, s_prim) + self.gamma * np.sum(p * self.values[s_prim])
-                    # print("         ", p, v_list[a], "         ", self.problem.reward(s, a, s_prim), np.sum(p * self.values[s_prim]))
             self.values[s] = max(v_list.values())
             self.full_values[s] = v_list
             delta = max(delta, abs(temp - self.values[s]))
@@ -37,9 +33,6 @@ class ValueIteration:
                 for s_prim in self.problem.states_prim[s][a]:
                     p = self.problem.transition(s, a, s_prim)
                     v_list[a] += self.problem.reward(s, a, s_prim) + self.gamma * np.sum(p * self.values[s_prim])
-                    if s.robot_node == 3 and s.humans_node == (6,) and s.goal == 12:
-                        print(s, a, s_prim, self.problem.reward(s, a, s_prim), self.values[s_prim])
-                        print(v_list)
 
             max_index = []
             max_val = max(v_list.values())
@@ -57,13 +50,10 @@ class ValueIteration:
             epoch += 1
             delta = self.one_iteration()
             delta_history.append(delta)
-            print(delta)
+            print("Delta: {:.4f}".format(delta))
             if delta < tol:
                 break
         self.policy = self.get_policy()
-
-        # print(f'# iterations of policy improvement: {len(delta_history)}')
-        # print(f'delta = {delta_history}')
 
         if plot is True:
             fig, ax = plt.subplots(1, 1, figsize=(3, 2), dpi=200)

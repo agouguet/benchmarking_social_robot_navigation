@@ -3573,7 +3573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topicName: /social_sim/agent_positions
-  publishMessageFrequency: 0.5
+  publishMessageFrequency: 0.1
   frame: map
   detector: {fileID: 2116103066}
   haveGlobalInformation: 0
@@ -3591,7 +3591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topicName: /social_sim/agents
   frame: map
-  publishMessageFrequency: 0.5
+  publishMessageFrequency: 0.1
   detector: {fileID: 2116103066}
 --- !u!114 &625101878
 MonoBehaviour:
@@ -6052,51 +6052,6 @@ Transform:
   m_Children:
   - {fileID: 1720825307}
   m_Father: {fileID: 1287283001}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &916169790
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 916169792}
-  - component: {fileID: 916169791}
-  m_Layer: 0
-  m_Name: Test
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &916169791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916169790}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 929b3cc5b3aee981284dfe360acb44fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TopicName: /unity_sim/pause
---- !u!4 &916169792
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916169790}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.288359, y: -10.152166, z: 13.668977}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &922309870
 GameObject:
@@ -13679,4 +13634,3 @@ SceneRoots:
   - {fileID: 835219005}
   - {fileID: 771306039}
   - {fileID: 1873198862}
-  - {fileID: 916169792}
