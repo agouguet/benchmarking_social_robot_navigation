@@ -81,16 +81,13 @@ class MDPBasedSocialNavigation(Node):
 
             path_policies_values = self.path_to_policies + self.scenario + "_values" + EXTENSION_FILE
 
-            # if os.path.isfile(PATH_TO_SAVE_POLICY + self.scenario + EXTENSION_FILE):
-            #     print("Load policy...", self.scenario + EXTENSION_FILE)
-            #     self.policy = pickle.load(open(PATH_TO_SAVE_POLICY + self.scenario + EXTENSION_FILE, 'rb'))
             if os.path.isfile(path_policies_values):
                 print("Load policy...", self.scenario + "_values" + EXTENSION_FILE)
                 self.policy = pickle.load(open(path_policies_values, 'rb'))
             else:
                 visibility_graph = VisibilityGraph(self.path_to_maps + self.scenario + "/", self.graph)
 
-                self.problem = GraphWorld(self.graph, visibility_graph.visibility_graph, numbers_human = 3, debug_mode=True)
+                self.problem = GraphWorld(self.graph, visibility_graph.visibility_graph, numbers_human = None, debug_mode=True)
                 print("Value Iteration...")
                 self.solver = ValueIteration(self.problem, gamma=0.2)
                 self.solver.train()

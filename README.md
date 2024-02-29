@@ -1,82 +1,74 @@
-# Benchmarking Off-the-shelf Social Robot Navigation Solutions
+# [IROS 2024] A Markov Decision Process for Human-Aware Robotic Navigation
 
 <p align="center">
     <img src="./assets/illustration.png">
 </p>
 
-*Vidéo youtube : [Benchmarking Off-the-shelf Human-Aware Robot Navigation Solutions](https://youtu.be/Mwo9m6YGXS0)*
+*Youtube video : [A Markov Decision Process for Human-Aware Robotic Navigation]()*
 
-The objective of this project is to use the [SEAN](https://sean.interactive-machines.com) simulator to benchmark off-the-shelf social robot navigation. Off-the-shelf means that we only compared methods that were already available, open source and without any external modifications or additions needed.
-We have already made a comparison of different solutions with a somewhat modified version of the SEAN simulator, you will find below how to reproduce our experience.
+The Markov Decision Process Based Social Navigation (MBSN) is a method allowing the robot to navigate in an environment populated by dynamic agents (humans).
+This method relies on Markovian Decision Processes (MDP) to define the optimal policy for the robot to follow, a sequence of decisions to take (i.e. actions) which have the greatest probability of gains. For more information, refer to the following paper:
 
- - [Dynamic Window Approach (DWA)](http://wiki.ros.org/dwa_local_planner). DWA is a collision avoidance strategy.
-The objective is to find the optimal direction and velocity that brings the robot to the
-goal without any collision.
- - [Timed Elastic Band (TEB)](http://wiki.ros.org/teb_local_planner). TEB uses the given path by the global planner
-(like A*), thus it can create a more realistic path in local scope.
- - [Human-Aware Timed Elastic Band (HATEB-2)](https://github.com/sphanit/cohan_planner_multi). HATEB is a navigation
-planner capable of planning cooperative trajectories. It offers co-navigation solu-
-tions by jointly calculating the trajectories of humans and robots using TEB.
- - [Socially Attentive Reinforcement Learning* (SARL*)](https://github.com/LeeKeyu/sarl_star). SARL* model is
-an improvement of SARL method, which is proposed to rethink pairwise interac-
-tions with a self-attention mechanism and joint Human-Robot and Human-Human
-interaction model using deep reinforcement learning framework.
-
-## Experiments
-
-We experimented with these 4 navigation modes through 4 typical scenarios encountered in everyday life, which are: crossing a corridor with static humans, overtaking a person, ending up in an intersection and a doorway.
-
-We have calculated performance metrics and social metrics that we compare in the paper associated with this benchmark.
-Additionally, we provide all the raw videos of all experiments, in the ```~/benchmark_social_navigation/social_sim_unity/recording ``` folder.
-
-We can also represent robot and human paths like this (example of doorway scenario) :
-
-<p align="center">
-    <img src="./assets/paths.png"  width="400" height="420">
-</p>
+This repository contains MBSN, [Human-Aware Timed Elastic Band (HATEB-2)](https://github.com/sphanit/cohan_planner_multi) method and a simulator to benchmark and compare different human-aware navigation methods.
+This benchmark is based on [SEAN](https://sean.interactive-machines.com), which is a simulator running under Unity3d allowing you to compare methods using metrics.
+On this new version, we have added the possibility of testing navigation methods under ROS2 by upgrading the simulator to ROS2. We added metrics and offered six everyday life scenarios.
+Thanks to the [ROS1_bridge](https://github.com/ros2/ros1_bridge) , a bridge between ROS1 and ROS2, we can compare methods under ROS1 with methods under ROS2, as we did with HATEB (ROS1) and MBSN (ROS2).
 
 
 ## Installation
 
-The experiments were conducted in Ubuntu 20.04 with ROS Noetic and Unity 2020.3.21f1.
+The experiments were conducted in Ubuntu 20.04 with ROS Noetic, ROS 2 Foxy and Unity 2022.3.10f1.
 
 ```console
-git clone https://github.com/agouguet/benchmarking_social_robot_navigation.git ~/benchmark_social_navigation
+git clone https://github.com/agouguet/benchmarking_social_robot_navigation.git -b ros2 ~/benchmark_social_navigation
 ```
+
+
+```
+.                   # ~/benchmark_social_navigation
+├── analyse         # Contains all results
+│   ├── data        # Raw data
+│   └── results     # Data analysis (path images, written metrics)
+├── assets
+├── ros1_bridge_ws  # ROS1_bridge Workspace
+├── ros1_ws         # ROS1 Workspace, contains HATEB
+├── ros2_ws         # ROS2 Workspace, contains TCP_Connector ROS2-Unity and MBSN
+├── tmux            
+│   ├── hateb       # Tmux file to launch HATEB
+│   └── MBSN        # Tmux file to launch MBSN
+└── unity_sim       # Unity Project
+
+```
+
 
 ### ROS packages
 
-The ```~/benchmark_social_navigation/sim_ws``` folder is the workspace containing the ROS packages. So we need to build all packages in this workspace, but before we need to install all necessary package.
+There are three bash scripts available at the root of the project allowing you to build all the necessary ROS packages, open three terminals:
 
+Terminal 1 (ROS1)
 ```
-cd ~/benchmark_social_navigation/sim_ws
-./scripts/setup.sh
-```
-
-Thus we can build all package with ```catkin_make``` command.
-
-```
-cd ~/benchmark_social_navigation/sim_ws
-catkin_make
+cd ~/benchmark_social_navigation
+source source_ros1.sh
 ```
 
-Add source to your .bashrc file :
+Terminal 2 (ROS2)
+```
+cd ~/benchmark_social_navigation
+source source_ros2.sh
+```
 
+Terminal 1 (ROS1_bridge)
 ```
-echo "source <path_to_sim_ws>/devel/setup.sh" > <path_to_your_home>/.bashrc
+cd ~/benchmark_social_navigation
+source source_bridge.sh
 ```
+
+These scripts will source the ROS packages if they have been built otherwise they will build them.
+
 
 ### Unity project
 
-In Unity Hub, select "Open" and choose ```~/benchmark_social_navigation/social_sim_unity``` directory. You can now open project in unity.
-
-### SARL* solution
-
-In order to use the SARL* navigation method, which was used under Ubuntu 16 and ROS kinetic, we provide a docker image for ease of use:
-
-```
-docker pull agouguet/benchmark-social-navigation:sarl_star
-```
+In Unity Hub, select "Open" and choose ```~/benchmark_social_navigation/unity_sim``` directory. You can now open project in unity. You need to build ROS message in Unity : Robotics -> Generate ROS Messages... -> *Select the msgs directory* (```~/benchmark_social_navigation/ros2_ws/src/msgs/```) and build each messages packages.
 
 ## Usage
 
@@ -86,16 +78,31 @@ You have to choose the scenario you want in Unity, in the scenes folder  ```<Uni
 
 ### In ROS
 
-We recommend installing ```Tmux``` which is a terminal multiplexer and ```Tmuxinator``` which is a tool that allows you to easily manage tmux sessions using yaml files, we have provided different yaml files for different navigation methods in the folder ```~/benchmark_social_navigation/sim_ws/tmux/sean_<navigation method>```. For example, to use DWA method :
+We recommend installing ```Tmux``` which is a terminal multiplexer and ```Tmuxinator``` which is a tool that allows you to easily manage tmux sessions using yaml files, we have provided different yaml files for different navigation methods in the folder ```~/benchmark_social_navigation/tmux/<navigation method>```. For example, to use MBSN method :
 
 ```
-cd ~/benchmark_social_navigation/sim_ws/tmux/sean_dwa
+cd ~/benchmark_social_navigation/tmux/MBSN
 tmuxinator
 ```
 
-*Specification for SARL\*: You must use the ```~/benchmark_social_navigation/sim_ws/tmux/sean/.yaml``` file with Tmuxinator and manually launch the navigation node with the docker listed above.*
 
 
+## Citations
+
+If you use our work, please cite these corresponding works:
+
+```
+@article{gouguet2023,
+    author = {Adam Gouguet and Abir Karami and Guillaume Lozenguez and Luc Fabresse},
+    title = {Benchmarking Off-the-shelf Human-Aware Robot Navigation Solutions},
+    journal = {Intelligent Systems Conference (IntelliSys)},
+    year = 2023
+}
+```
+
+```
+
+```
 
 ## Questions
 
