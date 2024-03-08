@@ -1,7 +1,7 @@
 # [IROS 2024] A Markov Decision Process for Human-Aware Robotic Navigation
 
 <p align="center">
-    <img src="./assets/illustration2.png">
+    <img src="./assets/illustration.png">
 </p>
 
 *Youtube video : [A Markov Decision Process for Human-Aware Robotic Navigation]()*
