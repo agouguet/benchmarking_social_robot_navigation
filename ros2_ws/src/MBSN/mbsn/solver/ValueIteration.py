@@ -1,42 +1,50 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from mbsn.model.graph.GraphState import GraphState
 
 
 class ValueIteration:
     def __init__(self, problem, gamma):
         self.problem = problem
         self.gamma = gamma
-        self.values = dict.fromkeys(self.problem.states, 0)
-        self.full_values = dict.fromkeys(self.problem.states, [])
+        self.values = {}
+        self.full_values = {}
         self.policy = None
 
     def one_iteration(self):
         delta = 0
-        for s in self.problem.states:
-            temp = self.values[s]
-            v_list = dict.fromkeys(self.problem.actions[s], 0)
-            for a in self.problem.actions[s]:
-                for s_prim in self.problem.states_prim[s][a]:
+        nb_state = 0
+        for i in self.problem.states():
+            s = GraphState(i[0], self.problem.goal_node, i[1])
+            if nb_state % 1000 == 0:
+                print(nb_state, s)
+            temp = self.values[s] if s in self.values else 0
+            v_list = dict.fromkeys(self.problem.action(s), 0)
+            for a in self.problem.action(s):
+                for s_prim in self.problem.states_prim(s, a):
                     p = self.problem.transition(s, a, s_prim)
-                    v_list[a] += self.problem.reward(s, a, s_prim) + self.gamma * np.sum(p * self.values[s_prim])
+                    # print(v_list, s, a, s_prim, p)
+                    v_list[a] += self.problem.reward(s, a, s_prim) + self.gamma * np.sum(p * self.values[s_prim]) if s_prim in self.values else self.problem.reward(s, a, s_prim) 
             self.values[s] = max(v_list.values())
             self.full_values[s] = v_list
             delta = max(delta, abs(temp - self.values[s]))
+            nb_state += 1
         
-        return delta
+        return delta    
 
     def get_policy(self):
-        pi = dict.fromkeys(self.problem.states, -1)
-        for s in self.problem.states:
-            v_list = dict.fromkeys(self.problem.actions[s], 0)
-            for a in self.problem.actions[s]:
-                for s_prim in self.problem.states_prim[s][a]:
+        pi = {}
+        for i in self.problem.states():
+            s = GraphState(i[0], self.problem.goal_node, i[1])
+            v_list = dict.fromkeys(self.problem.action(s), 0)
+            for a in self.problem.action(s):
+                for s_prim in self.problem.states_prim(s, a):
                     p = self.problem.transition(s, a, s_prim)
-                    v_list[a] += self.problem.reward(s, a, s_prim) + self.gamma * np.sum(p * self.values[s_prim])
+                    v_list[a] += self.problem.reward(s, a, s_prim) + self.gamma * np.sum(p * self.values[s_prim]) if s_prim in self.values else self.problem.reward(s, a, s_prim) 
 
             max_index = []
             max_val = max(v_list.values())
-            for a in self.problem.actions[s]:
+            for a in self.problem.action(s):
                 if v_list[a] == max_val:
                     max_index.append(a)
             pi[s] = np.random.choice(max_index)

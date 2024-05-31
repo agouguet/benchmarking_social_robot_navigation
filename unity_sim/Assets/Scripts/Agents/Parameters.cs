@@ -17,8 +17,8 @@
     public const float TAN_B = 0.08f;
 
     public const float MAX_VEL = 1f;//0.5f / 0.02f;
-    public const float NEXT_NAV_MIN_DIST = 1.0f;
-    public const float CLOSE_ENOUGH_MIN_DIST = 0.5f;
+    public const float NEXT_NAV_MIN_DIST = 0.3f;
+    public const float CLOSE_ENOUGH_MIN_DIST = 0.2f;
     public const float BACKWARD_DAMPENING = 20;
     public const float LATERAL_DAMPENING = 5;
     public const float ROBOT_REPULSION_DAMPENING_MIN = 0.5f;

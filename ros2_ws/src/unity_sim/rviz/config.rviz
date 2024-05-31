@@ -49,7 +49,7 @@ Visualization Manager:
           Enabled: true
           Name: MarkerArray
           Namespaces:
-            {}
+            "": true
           Topic:
             Depth: 5
             Durability Policy: Volatile
@@ -61,7 +61,7 @@ Visualization Manager:
           Enabled: true
           Name: MarkerArray
           Namespaces:
-            {}
+            "": true
           Topic:
             Depth: 5
             Durability Policy: Volatile

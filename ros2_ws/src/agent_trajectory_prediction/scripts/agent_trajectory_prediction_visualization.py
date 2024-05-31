@@ -32,7 +32,7 @@ class AgentTrajectoryPredictionVisualization(Node):
 
                 marker.header = Header()
                 marker.header.stamp = self.get_clock().now().to_msg()
-                marker.header.frame_id = "/map"
+                marker.header.frame_id = "map"
 
                 marker.id = i
                 marker.type = marker.SPHERE     

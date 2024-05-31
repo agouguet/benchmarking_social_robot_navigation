@@ -22,6 +22,10 @@ topics:
     type: geometry_msgs/msg/PoseStamped
     queue_size: 10 
   -
+    topic: /goal_pose
+    type: geometry_msgs/msg/PoseStamped
+    queue_size: 10 
+  -
     topic: /tf
     type: tf2_msgs/msg/TFMessage
     queue_size: 10 
@@ -33,7 +37,22 @@ topics:
     topic: /social_sim/agent_positions
     type: geometry_msgs/msg/PoseArray
     queue_size: 10
-
+  -
+    topic: /map
+    type: nav_msgs/msg/OccupancyGrid
+    queue_size: 10
+  -
+    topic: /agent/visual/trajectories
+    type: visualization_msgs/msg/MarkerArray
+    queue_size: 10
+  -
+    topic: /graph/visual/edges
+    type: visualization_msgs/msg/MarkerArray
+    queue_size: 10
+  -
+    topic: /graph/visual/nodes
+    type: visualization_msgs/msg/MarkerArray
+    queue_size: 10
 
   # 1TO2
   -

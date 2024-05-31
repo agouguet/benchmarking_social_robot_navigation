@@ -1,0 +1,54 @@
+name: MBSN
+
+pre_window: 
+  - source /opt/ros/foxy/setup.bash
+  - source ../../ros2_ws/install/setup.bash
+
+windows:
+  - navstack:
+      layout: tiled
+      panes:
+        - shell:
+        #ROS1
+        - core:
+          - source /opt/ros/noetic/setup.bash
+          - source ../../ros1_ws/devel/setup.bash
+          - roscore
+        - move_base:
+          - source /opt/ros/noetic/setup.bash
+          - source ../../ros1_ws/devel/setup.bash
+          - roslaunch --wait basic_ros_navigation move_base_dwa.launch 2> >(grep -v TF_REPEATED_DATA)
+        - map_publisher:
+          - source /opt/ros/noetic/setup.bash
+          - source ../../ros1_ws/devel/setup.bash
+          - rosrun unity_sim map_publisher.py
+        - rviz:
+          - source /opt/ros/noetic/setup.bash
+          - source ../../ros1_ws/devel/setup.bash
+          - rosrun rviz rviz -d $(rospack find unity_sim)/config/move.rviz
+
+        #ROS2
+        - bridge_unity:
+          - ros2 run ros_tcp_endpoint default_server_endpoint
+        - graph_unity:
+          - ros2 run unity_sim graph_publisher.py
+        - graph_nav:
+          - ros2 run mbsn MBSN.py
+        - visualization_graph:
+          - ros2 run mbsn graph_visualization.py
+
+        - agent_trajectories:
+          - ros2 run agent_trajectory_prediction agent_trajectory_prediction_publisher.py 
+        - visualization_trajs:
+          - ros2 run agent_trajectory_prediction agent_trajectory_prediction_visualization.py
+
+        # BRIDGE ROS1 to ROS2
+        - bridge:
+          - source /opt/ros/noetic/setup.bash
+          - source /opt/ros/foxy/setup.bash
+          - source ../../ros1_ws/devel/setup.bash
+          - source ../../ros2_ws/install/setup.bash
+          - source ../../ros1_bridge_ws/install/setup.bash
+          - rosparam load ../../ros2_ws/src/unity_sim/params/bridge_params.yaml
+          - ros2 run ros1_bridge parameter_bridge
+          # - ros2 run ros1_bridge dynamic_bridge --bridge-all-topics

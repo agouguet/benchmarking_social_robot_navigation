@@ -12,6 +12,9 @@ TagManager:
   - Actor
   - NavAgent
   - TTC
+  - TrackingViewCamera
+  - ThirdPersonViewCamera
+  - FirstPersonViewCamera
   layers:
   - Default
   - TransparentFX

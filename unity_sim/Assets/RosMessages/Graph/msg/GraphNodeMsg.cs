@@ -16,19 +16,22 @@ namespace RosMessageTypes.Graph
         public ulong id;
         public double x;
         public double y;
+        public bool occupied;
 
         public GraphNodeMsg()
         {
             this.id = 0;
             this.x = 0.0;
             this.y = 0.0;
+            this.occupied = false;
         }
 
-        public GraphNodeMsg(ulong id, double x, double y)
+        public GraphNodeMsg(ulong id, double x, double y, bool occupied)
         {
             this.id = id;
             this.x = x;
             this.y = y;
+            this.occupied = occupied;
         }
 
         public static GraphNodeMsg Deserialize(MessageDeserializer deserializer) => new GraphNodeMsg(deserializer);
@@ -38,6 +41,7 @@ namespace RosMessageTypes.Graph
             deserializer.Read(out this.id);
             deserializer.Read(out this.x);
             deserializer.Read(out this.y);
+            deserializer.Read(out this.occupied);
         }
 
         public override void SerializeTo(MessageSerializer serializer)
@@ -45,6 +49,7 @@ namespace RosMessageTypes.Graph
             serializer.Write(this.id);
             serializer.Write(this.x);
             serializer.Write(this.y);
+            serializer.Write(this.occupied);
         }
 
         public override string ToString()
@@ -52,7 +57,8 @@ namespace RosMessageTypes.Graph
             return "GraphNodeMsg: " +
             "\nid: " + id.ToString() +
             "\nx: " + x.ToString() +
-            "\ny: " + y.ToString();
+            "\ny: " + y.ToString() +
+            "\noccupied: " + occupied.ToString();
         }
 
 #if UNITY_EDITOR

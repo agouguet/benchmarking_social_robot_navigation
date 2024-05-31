@@ -23,7 +23,7 @@ class MapPublisherNode(Node):
     def scene_info_callback(self, msg_scene_info):
         _map = msg_scene_info.environment.lower()
         if self.map != _map:
-            self.stop_map()
+            # self.stop_map()
             self.publish_map(_map)
 
     def ros_command(self, _map):

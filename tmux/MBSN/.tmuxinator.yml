@@ -1,7 +1,7 @@
 name: MBSN
 
 pre_window: 
-  - source /opt/ros/foxy/setup.bash
+  - source /opt/ros/humble/setup.bash
   - source ../../ros2_ws/install/setup.bash
 
 windows:
@@ -22,6 +22,8 @@ windows:
           - ros2 run unity_sim graph_publisher.py
         - graph_nav:
           - ros2 run mbsn MBSN.py
+        - graph_map:
+          - ros2 run mbsn graph.py
         - visualization_graph:
           - ros2 run mbsn graph_visualization.py
 

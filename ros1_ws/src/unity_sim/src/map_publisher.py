@@ -39,6 +39,7 @@ ENV_TO_MAP = {
         'intersection' : 'intersection',
         'corner' : 'corner',
         'static' : 'static',
+        'hospital' : 'hospital',
 }
 
 def signal_process_and_children(pid, signal_to_send, wait=False):

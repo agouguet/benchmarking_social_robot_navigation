@@ -53,6 +53,11 @@ namespace SEAN.TF
             float deltaTime = Time.realtimeSinceStartup - previousRealTime;
             timeElapsed += Time.deltaTime;
 
+            if (timeElapsed <= publishMessageFrequency)
+            {
+                return;
+            }
+
             Vector3 linearVelocity = (PublishedTransform.position - previousPosition) / deltaTime;
             Vector3 angularVelocity = (PublishedTransform.rotation.eulerAngles - previousRotation.eulerAngles) / deltaTime;
 
@@ -60,10 +65,6 @@ namespace SEAN.TF
             previousPosition = PublishedTransform.position;
             previousRotation = PublishedTransform.rotation;
 
-            if (timeElapsed <= publishMessageFrequency)
-            {
-                return;
-            }
             SEAN.instance.clock.UpdateMHeader(message.header);
             message.twist.twist.linear = Util.Geometry.GetGeometryVector3(linearVelocity.To<FLU>());
             message.twist.twist.angular = Util.Geometry.GetGeometryVector3(-angularVelocity.To<FLU>());

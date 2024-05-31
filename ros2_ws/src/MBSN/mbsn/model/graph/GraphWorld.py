@@ -9,6 +9,8 @@ from mbsn.model.graph.GraphState import GraphState
 from scipy.spatial import distance
 from itertools import combinations 
 import networkx as nx
+import itertools
+
 
 PENALITY_DISTANCE_GOAL = 3
 PENALITY_COLLISION_HUMAN = 50
@@ -16,74 +18,71 @@ PENALITY_PROXIMITY_HUMAN =0.1
 
 
 class GraphWorld(IWorld):
-    def __init__(self, networkx_graph, visibility_graph, debug_mode = False, time_limit=1000, numbers_human = None):
+    def __init__(self, networkx_graph, visibility_graph, goal_node, debug_mode = False, time_limit=1000, numbers_human = None):
         self.graph = networkx_graph
         self.visibility_graph = visibility_graph
         self.time_limit = time_limit
         self.numbers_human = numbers_human
         self.astar_dict = self.astar_calculation()
-        self.init(debug_mode)
+        self.goal_node = goal_node
+        self.init()
 
     # |S| = N^2 * 2^N
-    def get_state_model(self):
-        S = []
-        
-        nodes = self.graph.nodes()
-        numbers = len(nodes)+1 if self.numbers_human == None else self.numbers_human+1
-        humans_presence_possibilities = []
+    def states(self):
+        # if self.S == None:
+        #     nodes = self.graph.nodes()
+        #     if self.numbers_human == None:
+        #         self.numbers_human = len(nodes)+1
+        #     else:
+        #         self.numbers_human += 1
+        #     # numbers = len(nodes)+1 if self.numbers_human == None else self.numbers_human+1
+        #     humans_presence_possibilities = []
 
-        for count in range(0, numbers): # O(h)
-            comb = combinations(nodes, count)   # O(n! / c! / (n-c)!)
-            for t in comb:
-                humans_presence_possibilities.append(t)
+        #     for count in range(0, self.numbers_human): # O(h)
+        #         comb = combinations(nodes, count)   # O(n! / c! / (n-c)!)
+        #         for t in comb:
+        #             humans_presence_possibilities.append(t)
 
-        for n in self.graph.nodes():
-            for goal in self.graph.nodes():
-                for human_presence in humans_presence_possibilities:
-                    S.append(GraphState(n, tuple(sorted(set(human_presence))), goal))
-        return S
+        #     for n in self.graph.nodes():
+        #         for goal in self.graph.nodes():
+        #             for human_presence in humans_presence_possibilities:
+        #                 self.S.append(GraphState(n, tuple(sorted(set(human_presence))), goal))
+        # return self.S
+        N = len(self.graph.nodes)
+        graph = itertools.product([0, 1], repeat=N)
+        robot_pos = range(N)
+        # robot_goal = range(N)
+        return itertools.product(robot_pos, graph)
 
-    def get_action_model(self):
-        A = {}
-        for s in self.states:
-            n = s.robot_node
-            actions = [GraphAction(n)]
-            for e in self.graph.edges([n]):
-                actions.append(GraphAction(e[1]))
-            A[s] = actions
-        return A
+    def action(self, state):
+        n = state.robot_node
+        actions = [GraphAction(n)]
+        for e in self.graph.edges([n]):
+            actions.append(GraphAction(e[1]))
+        return actions
+
+    def states_prim(self, state, action):
+        states_prim = [GraphState(action._node, self.goal_node, state.humans_node)]
+        for human_node in state.humans_node:
+            neighbor = [i for i in self.graph.neighbors(human_node)]
+            for n in neighbor:
+                occupied_nodes = tuple(sorted(set(state.humans_node + (n,))))
+                states_prim.append(GraphState(action._node, self.goal_node, occupied_nodes))
+        return states_prim
+
+
+    def reward(self, state, action, state_prim):
+        return - self.distance_cost(state, state_prim) - self.proximity_cost_to_humans(state_prim.robot_node, state_prim.humans_node) - self.proximity_cost_to_humans(state_prim.robot_node, state.humans_node)
+
+
+    def transition(self, state, action, state_prim):
+        return 1/len(self.states_prim(state, action))
 
     def get_state_from_pos(self, robot_node, human_node):
         for s in self.states:
             if s.robot_node == robot_node and s.human_node == human_node:
                 return s
         return None
-
-    def get_state_prim_model(self):
-        S_prim = {}
-        for s in self.states:
-            S_prim[s] = {}
-            for a in self.actions[s]:
-                S_prim[s][a] = [GraphState(a._node, s.humans_node, s.goal)]
-                for human_node in s.humans_node:
-                    neighbor = [i for i in self.graph.neighbors(human_node)]
-                    for n in neighbor:
-                        occupied_nodes = tuple(sorted(set(s.humans_node + (n,))))
-                        if len(occupied_nodes) <= self.numbers_human:
-                            S_prim[s][a].append(GraphState(a._node, occupied_nodes, s.goal))
-        return S_prim
-
-
-    def get_reward_function(self):
-        R = {}
-        for s in self.states:
-            R[s] = {}
-            for a in self.actions[s]:
-                R[s][a] = {}
-                for s_prim in self.states_prim[s][a]:
-                    R[s][a][s_prim] = - self.distance_cost(s, s_prim) - self.proximity_cost_to_humans(s_prim.robot_node, s_prim.humans_node) - self.proximity_cost_to_humans(s_prim.robot_node, s.humans_node)
-                            
-        return R
 
     def distance_cost(self, s, s_prim):
         cost = self.euclidean_distance_between_node(s.robot_node, s_prim.robot_node)

@@ -41,6 +41,7 @@ class MDPBasedSocialNavigation(Node):
         self.policy = None
         self.robot_goal = None
         self.scenario = None
+        self.current_state = None
         self.humans_position = []
         self.human_trajectories = []
 
@@ -65,13 +66,15 @@ class MDPBasedSocialNavigation(Node):
         # Scene
         self.scene_info_subscriber_ = self.create_subscription(SceneInfo, '/social_sim/scene_info', self.scene_info_callback, 10)
 
+    # INIT
+
     def scene_info_callback(self, msg_scene_info):
         if self.scenario != msg_scene_info.environment.lower():
             self.scenario = msg_scene_info.environment.lower()
             print("Set new scenario...", self.scenario)
 
     def graph_callback(self, msg_graph):
-        if self.graph == None and self.scenario != None:
+        if self.graph == None:
             print("Creation MDP...")
             self.graph = nx.Graph()
             for n in msg_graph.nodes:
@@ -79,37 +82,36 @@ class MDPBasedSocialNavigation(Node):
             for e in msg_graph.edges:
                 self.graph.add_edge(e.id_n1, e.id_n2)
 
-            path_policies_values = self.path_to_policies + self.scenario + "_values" + EXTENSION_FILE
+    def goal_callback(self, msg_goal):
+        pos = msg_goal.pose.position
+        if self.scenario != None and self.graph != None:
+            for n, p in self.graph.nodes.items():
+                if(self.robot_goal == None or self.euclidean_distance_from_node(pos, n) < self.euclidean_distance_from_node(pos, self.robot_goal)):
+                    self.robot_goal = n
+            if self.policy == None:
+                self.calcul_policy()
 
-            if os.path.isfile(path_policies_values):
-                print("Load policy...", self.scenario + "_values" + EXTENSION_FILE)
-                self.policy = pickle.load(open(path_policies_values, 'rb'))
-            else:
-                visibility_graph = VisibilityGraph(self.path_to_maps + self.scenario + "/", self.graph)
+    # RUN
 
-                self.problem = GraphWorld(self.graph, visibility_graph.visibility_graph, numbers_human = None, debug_mode=True)
-                print("Value Iteration...")
-                self.solver = ValueIteration(self.problem, gamma=0.2)
-                self.solver.train()
-                self.policy = self.solver.full_values
-                if self.save_policy:
-                    print("Save policy as ...", self.path_to_policies + self.scenario + EXTENSION_FILE)
-                    pickle.dump(self.policy, open(self.path_to_policies + self.scenario + EXTENSION_FILE, 'wb'))
-                    print("Save policy full values as ...", self.path_to_policies + self.scenario + "_values" + EXTENSION_FILE)
-                    pickle.dump(self.solver.full_values, open(self.path_to_policies + self.scenario + "_values" + EXTENSION_FILE, 'wb'))
-                    print("Save astar dict as ...", self.path_to_policies + self.scenario + "_astar" + EXTENSION_FILE)
-                    pickle.dump(self.problem.astar_dict, open(self.path_to_policies + self.scenario + "_astar" + EXTENSION_FILE, 'wb'))
+    def robot_odom_callback(self, msg_odom):
+        if self.current_state != None and self.robot_goal != None:
+            robot_position = msg_odom.pose.pose.position
+            self.robot_state = self.get_current_state_robot(robot_position)
+            occupied_node = self.get_current_state_humans([pos[0] for pos in self.humans_position], [traj[0] for traj in self.human_trajectories])
+            humans_node = [0 for n in self.graph.nodes]
+            for on in occupied_node:
+                humans_node[on] = 1
+            humans_node = tuple(humans_node)
 
-            self.robot_state = 0
-            self.humans_position = []
-            self.human_trajectories = []
-            self.robot_goal = None
+            current_state = (self.robot_state, self.robot_goal, humans_node)
 
-            self.current_state = (self.robot_state, (), self.robot_goal)
-
-    def euclidean_distance_from_node(self, position_robot, node):
-        return distance.euclidean((position_robot.x, position_robot.y), self.graph.nodes(data=True)[node]['pos'])
-
+            if(current_state != self.current_state):
+                print("NEW STATE:", self.current_state, "->", current_state)
+                self.current_state = current_state
+                action_values = self.policy[GraphState(self.robot_state, self.robot_goal, humans_node)]
+                action = max(action_values, key=action_values.get)
+                print("NEW GOAL:", action._node)
+                self.publish_goal(action)
 
     def get_current_state_robot(self, position):
         state = self.robot_state
@@ -139,23 +141,6 @@ class MDPBasedSocialNavigation(Node):
                 state = state + (state_of_pos,)
         return state
 
-    def robot_odom_callback(self, msg_odom):
-        if self.robot_goal != None:
-            robot_position = msg_odom.pose.pose.position
-            self.robot_state = self.get_current_state_robot(robot_position)
-            occupied_node = self.get_current_state_humans([pos[0] for pos in self.humans_position], [traj[0] for traj in self.human_trajectories])
-            occupied_node = tuple(sorted(set(occupied_node))) # remove duplicates and sort
-
-            current_state = (self.robot_state, occupied_node, self.robot_goal)
-
-            if(current_state != self.current_state):
-                print("NEW STATE:", self.current_state, "->", current_state)
-                self.current_state = current_state
-                action_values = self.policy[GraphState(self.robot_state, occupied_node, self.robot_goal)]
-                action = max(action_values, key=action_values.get)
-                print("NEW GOAL:", action._node)
-                self.publish_goal(action)
-
     def humans_position_callback(self, msg_position):
         for point in msg_position.poses:
             self.humans_position.append([point.position, time.time()])
@@ -176,13 +161,6 @@ class MDPBasedSocialNavigation(Node):
                 tmp.append(human_traj)
         self.human_trajectories = tmp
 
-    def goal_callback(self, msg_goal):
-        pos = msg_goal.pose.position
-        if self.policy != None:
-            for n, p in self.graph.nodes.items():
-                if(self.robot_goal == None or self.euclidean_distance_from_node(pos, n) < self.euclidean_distance_from_node(pos, self.robot_goal)):
-                    self.robot_goal = n
-
     def publish_goal(self, action):
         n = action._node
         x = self.graph.nodes(data=True)[n]['pos'][0]
@@ -196,6 +174,39 @@ class MDPBasedSocialNavigation(Node):
         msg.pose.position.y = float(y)
 
         self.goal_publisher_.publish(msg)
+
+    def calcul_policy(self):
+        path_policies_values = self.path_to_policies + self.scenario + "_values" + EXTENSION_FILE
+
+        if os.path.isfile(path_policies_values):
+            print("Load policy...", self.scenario + "_values" + EXTENSION_FILE)
+            self.policy = pickle.load(open(path_policies_values, 'rb'))
+        else:
+            visibility_graph = VisibilityGraph(self.path_to_maps + self.scenario + "/", self.graph)
+
+            self.problem = GraphWorld(self.graph, visibility_graph.visibility_graph, self.robot_goal, numbers_human = 4, debug_mode=True)
+            print("Value Iteration...")
+            self.solver = ValueIteration(self.problem, gamma=0.9)
+            self.solver.train()
+            self.policy = self.solver.full_values
+            if self.save_policy:
+                print("Save policy as ...", self.path_to_policies + self.scenario + EXTENSION_FILE)
+                pickle.dump(self.policy, open(self.path_to_policies + self.scenario + EXTENSION_FILE, 'wb'))
+                print("Save policy full values as ...", self.path_to_policies + self.scenario + "_values" + EXTENSION_FILE)
+                pickle.dump(self.solver.full_values, open(self.path_to_policies + self.scenario + "_values" + EXTENSION_FILE, 'wb'))
+                print("Save astar dict as ...", self.path_to_policies + self.scenario + "_astar" + EXTENSION_FILE)
+                pickle.dump(self.problem.astar_dict, open(self.path_to_policies + self.scenario + "_astar" + EXTENSION_FILE, 'wb'))
+
+        self.robot_state = 0
+        self.humans_position = []
+        self.human_trajectories = []
+        self.robot_goal = None
+
+        self.current_state = (self.robot_state, self.robot_goal, ())
+
+    
+    def euclidean_distance_from_node(self, position_robot, node):
+        return distance.euclidean((position_robot.x, position_robot.y), self.graph.nodes(data=True)[node]['pos'])
 
 def main(args=None):
     rclpy.init(args=args)

@@ -42,10 +42,10 @@ namespace SEAN.Control
             //    rb.AddRelativeTorque(Pid(targetAngVelocity, rb.transform.forward * rb.angularVelocity, Time.deltaTime));
             //}
 
-            if (Time.time - lastMessageTS > maxTimeDeltaSec)
-            {
-                targetAngVelocity = targetLinVelocity = 0;
-            }
+            // if (Time.time - lastMessageTS > maxTimeDeltaSec)
+            // {
+            //     targetAngVelocity = targetLinVelocity = 0;
+            // }
 
             if (targetAngVelocity == 0.0f)
             {
@@ -55,16 +55,17 @@ namespace SEAN.Control
             {
                 rb.angularVelocity = new Vector3(0, -1 * targetAngVelocity, 0);
             }
-            if (targetLinVelocity == 0.0f)
-            {
-                rb.velocity = new Vector3(0, rb.velocity.y, 0);
-            }
-            else
-            {
-                rb.velocity = rb.transform.forward * targetLinVelocity;
-                // print("velocity: " + rb.velocity);
-            }
-            //print("velocity: " + rb.velocity);
+            // if (targetLinVelocity == 0.0f)
+            // {
+            //     rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            // }
+            // else
+            // {
+            //     rb.velocity = rb.transform.forward * targetLinVelocity;
+            //     // print("velocity: " + rb.velocity);
+            // }
+            rb.velocity = rb.transform.forward * targetLinVelocity;
+            // print("velocity: " + rb.velocity + "     " + targetLinVelocity);
         }
 
         override sealed protected void CmdVelMessage(RosMessageTypes.Geometry.TwistMsg msg)

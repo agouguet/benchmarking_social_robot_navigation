@@ -22,10 +22,14 @@ public class GraphCreator : MonoBehaviour
 
     public string topicName = "/graph";
 
+    public double m_PublishRateSeconds = 10f;
+
     // Ros connection and Ros Messages
     ROSConnection ros;
 
     private GameObject graph;
+    double m_LastPublishTimeSeconds;
+    bool ShouldPublishMessage => SEAN.SEAN.instance.clock.LastMSecs > m_LastPublishTimeSeconds + (m_PublishRateSeconds*1000);
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +41,15 @@ public class GraphCreator : MonoBehaviour
         graph = GameObject.Find("CreateGraph/NavGraph");
 
         publish();
+    }
+
+    private void Update()
+    {   
+        if (ShouldPublishMessage)
+        {
+            publish();
+            m_LastPublishTimeSeconds = SEAN.SEAN.instance.clock.LastMSecs;
+        }
     }
 
     void publish()

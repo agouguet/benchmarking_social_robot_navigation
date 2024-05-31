@@ -27,14 +27,15 @@ class GraphVisualization(Node):
         marker_array = MarkerArray()
         markers = []
 
+        i = 0
         for n in nodes:
+            # SPHERE
             marker = Marker()
-
             marker.header = Header()
             marker.header.stamp = self.get_clock().now().to_msg()
-            marker.header.frame_id = "/map"
+            marker.header.frame_id = "map"
 
-            marker.id = n.id
+            marker.id = i = i+1
             marker.type = marker.SPHERE     
 
             marker.color.r = 0.0
@@ -52,6 +53,32 @@ class GraphVisualization(Node):
             marker.pose = p
             markers.append(marker)
 
+
+            # TEXT
+            marker = Marker()
+            marker.header = Header()
+            marker.header.stamp = self.get_clock().now().to_msg()
+            marker.header.frame_id = "map"
+
+            marker.id = i = i+1
+            marker.type = marker.TEXT_VIEW_FACING     
+
+            marker.color.r = 0.0
+            marker.color.g = 0.0
+            marker.color.b = 0.0
+            marker.color.a = 0.8
+            marker.scale.x = 0.15
+            marker.scale.y = 0.15
+            marker.scale.z = 0.15
+
+            p = Pose()
+            p.position.x = float(n.x)
+            p.position.y = float(n.y) - 0.15
+            p.position.z = 1.0
+            marker.pose = p
+            marker.text = str(n.id)
+            markers.append(marker)
+
         marker_array.markers = markers
 
         self.nodes_publisher_.publish(marker_array)
@@ -66,7 +93,7 @@ class GraphVisualization(Node):
 
             marker.header = Header()
             marker.header.stamp = self.get_clock().now().to_msg()
-            marker.header.frame_id = "/map"
+            marker.header.frame_id = "map"
 
             marker.id = i
             marker.type = marker.LINE_STRIP     
@@ -78,7 +105,6 @@ class GraphVisualization(Node):
             marker.scale.x = 0.03
             marker.scale.y = 0.03
             marker.scale.z = 0.03
-
             
             p1 = Point()
             p1.x = float(nodes[e.id_n1].x)

@@ -50,10 +50,6 @@ namespace SEAN.Scenario.Agents
                 {
                     avatarObject.AddComponent<IVI.SFAgent>();
                 }
-                else if (controller == LowLevelControl.ORCA)
-                {
-                    avatarObject.AddComponent<ORCA.Agent>();
-                }
             }
             avatarObject.transform.parent = transform;
         }
