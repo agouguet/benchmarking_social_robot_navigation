@@ -19,13 +19,11 @@ class MBSN(MDP):
 
     def __init__(
         self,
-        networkx_graph, 
-        visibility_graph, 
+        networkx_graph,
         robot_goal_node = None,
         discount_factor = 0.9
     ):
         self.graph = networkx_graph
-        self.visibility_graph = visibility_graph
         self.robot_goal_node = robot_goal_node
         self.astar_dict = self.astar_calculation()
         self.discount_factor = discount_factor
@@ -46,9 +44,9 @@ class MBSN(MDP):
     """ Return all actions with non-zero probability from this state """
     def get_actions(self, state):
         n = state.robot_node
-        actions = [GraphAction(n)]
+        actions = [GraphAction(n, n)]
         for e in self.graph.edges([n]):
-            actions.append(GraphAction(e[1]))
+            actions.append(GraphAction(n, e[1]))
         return actions
 
     def get_next_states(self, state, action):
@@ -57,6 +55,7 @@ class MBSN(MDP):
             neighbor = [i for i in self.graph.neighbors(human_node)]
             for n in neighbor:
                 occupied_nodes = state.humans_node.copy()
+                # print(occupied_nodes, n)
                 occupied_nodes[n] = 1
                 next_state = GraphState(action._node, state.goal, occupied_nodes)
                 if next_state not in next_states:
@@ -151,12 +150,7 @@ class MBSN(MDP):
 
     def distance_cost(self, s, next_state):
         cost = self.euclidean_distance_between_node(s.robot_node, next_state.robot_node)
-        if next_state.robot_node in self.visibility_graph[s.goal]:
-            cost += PENALITY_DISTANCE_GOAL * self.euclidean_distance_between_node(next_state.robot_node, s.goal)
-        else:
-            cost += PENALITY_DISTANCE_GOAL * self.astar_dict[next_state.robot_node][s.goal]
-        
-            
+        cost += PENALITY_DISTANCE_GOAL * self.astar_dict[next_state.robot_node][s.goal]
         return cost
 
     def proximity_cost_to_humans(self, robot_node, occupied_nodes):

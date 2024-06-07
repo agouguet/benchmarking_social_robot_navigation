@@ -45,8 +45,8 @@ class MDPBasedSocialNavigationMCTS(Interpreter):
     def update(self, new_state):
         if self.graph != None and self.scenario != None:
             if self.mcts == None:
-                visibility_graph = VisibilityGraph(self.path_to_maps + self.scenario + "/", self.graph).visibility_graph
-                self.mdp = MBSN(self.graph, visibility_graph, 4)
+                # visibility_graph = VisibilityGraph(self.path_to_maps + self.scenario + "/", self.graph).visibility_graph
+                self.mdp = MBSN(self.graph, 4)
                 qfunction = QTable()
                 self.mcts = MBSNAgentMCTS(self.mdp, qfunction, UpperConfidenceBounds())
 

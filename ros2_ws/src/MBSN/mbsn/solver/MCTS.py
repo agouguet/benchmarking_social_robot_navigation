@@ -48,7 +48,9 @@ class MBSNAgentNode:
             return self
         else:
             actions = list(self.children.keys())
+            # print("     ", self.state, "  ", actions)
             action = self.bandit.select(self.state, actions, self.qfunction)
+            
             return self.get_outcome_child(action).select()
 
 
@@ -131,8 +133,11 @@ class MBSNAgentMCTS:
         current_time = time.time()
         while current_time < start_time + timeout:
 
+            # print("{:.2f}".format(current_time-start_time), root_node.state)
             # Find a state node to expand
             selected_node = root_node.select()
+
+            
             
             if not self.mdp.is_terminal(selected_node.state):
                 child = selected_node.expand()

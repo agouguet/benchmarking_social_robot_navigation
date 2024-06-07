@@ -24,6 +24,7 @@ class UpperConfidenceBounds(MultiArmedBandit):
             value = qfunction.get_q_value(state, action) + math.sqrt(
                 (2 * math.log(self.total)) / self.times_selected[action]
             )
+            # print("         ", action, value)
             if value > max_value:
                 max_actions = [action]
                 max_value = value
@@ -35,4 +36,5 @@ class UpperConfidenceBounds(MultiArmedBandit):
         result = random.choice(max_actions)
         self.times_selected[result] = self.times_selected[result] + 1
         self.total += 1
+        # print("             ", result, self.times_selected[result])
         return result
