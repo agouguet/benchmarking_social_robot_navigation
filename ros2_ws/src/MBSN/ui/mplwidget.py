@@ -1,8 +1,5 @@
-# ------------------------------------------------------
-# -------------------- mplwidget.py --------------------
-# ------------------------------------------------------
 from PyQt5.QtWidgets import*
-from PyQt5.QtCore import pyqtSignal
+from PyQt5.QtCore import QObject, pyqtSignal, pyqtProperty
 from PyQt5 import QtWidgets, QtCore
 
 from matplotlib.backends.backend_qt5agg import FigureCanvas, FigureCanvasQTAgg, NavigationToolbar2QT as NavigationToolbar
@@ -10,145 +7,144 @@ from matplotlib.backend_bases import MouseButton
 
 from matplotlib.figure import Figure
 
-from netgraph import Graph
-from netgraph import EditableGraph, InteractiveGraph
-from netgraph._artists import NodeArtist, EdgeArtist
-
 from mbsn.model.graph.GraphState import GraphState
+from ui.mbsngraph import MBSNGraph
 
 import networkx as nx
 import numpy as np
 
-import math
+import math, copy
 
-NEUTRAL_COLOR = "#a6fbff"
-ROBOT_COLOR = "#ffdaa6"
-GOAL_COLOR = "#9aff75"
-OCCUPIED_COLOR = "#ffa6b3"
+class Human():
+    def __init__(self, path):
+        self._path = path
+        self._node = self._path.pop(0)
+        self._history = [self._node]
 
-class MyGraph(EditableGraph):
+    def next_state(self):
+        if len(self._path) > 0:
+            next_node = self._path.pop(0)
+            self._node = next_node
+            self._history.append(next_node)
+        else:
+            self._history.append(self._node)
+        # print("PATH=", self._path)
 
-    def __init__(self, state, *args, **kwargs):
-        EditableGraph.__init__(self, *args, **kwargs)
-        self.set_axes_limits()
+    def previous_state(self):
+        prev_node = self._history.pop(len(self._history)-1)
+        self._node = self._history[-1]
+        self._path.insert(0, prev_node)
+        # print("PATH=", self._path)
 
-        self.state = state
+    @property
+    def node(self):
+        return self._node
 
-        edge_labels = {x:round(math.dist(self.node_positions[x[0]], self.node_positions[x[1]]), 2) for i,x in enumerate(self.edges)}
-        
-        self.edge_label_fontdict = self._initialize_edge_label_fontdict(None)
-        self.edge_label_position = 0.5
-        self.edge_label_rotate = True
-        self.edge_label_artists = dict()
-        self.draw_edge_labels(edge_labels, self.edge_label_position, self.edge_label_rotate, self.edge_label_fontdict)
-        
-        self.node_type_to_place = "none"
-        self.emphasizeable_artists = []
-        self.update_color_node()
-
-    def _on_release(self, event):
-        if self._currently_clicking_on_artist is not None and not self._currently_dragging:
-            closest_node = 0
-            min_dist = math.inf
-            for n, pos in self.node_positions.items():
-                dist = math.dist(self._currently_clicking_on_artist.xy, pos)
-                if dist <  min_dist:
-                    closest_node = n
-                    min_dist = dist
-            if self.node_type_to_place == "robot":
-                self.state.robot_node = closest_node #GraphState(closest_node, self.state.goal, self.state.humans_node)
-            elif self.node_type_to_place == "goal":
-                self.state.goal = closest_node #GraphState(self.state.robot_node, closest_node, self.state.humans_node)
-            elif self.node_type_to_place == "human":
-                self.state.humans_node[closest_node] = not self.state.humans_node[closest_node]
-
-            self.update_color_node()
-        super()._on_release(event)
-        
-    def _move(self, event):
-        EditableGraph._move(self, event)
-        
-    def _add_node(self, event):
-        EditableGraph._add_node(self, event)
-        self.state.humans_node.append(0)
-        
-    def _update_edge_label_positions(self, edges):
-        EditableGraph._update_edge_label_positions(self, edges)
-        # edge_labels = {x:round(math.dist(self.node_positions[x[0]], self.node_positions[x[1]]), 2) for i,x in enumerate(self.edges)}
-        # self.draw_edge_labels(edge_labels, self.edge_label_position, self.edge_label_rotate, self.edge_label_fontdict)
-
-        xmin, xmax = self.ax.get_xlim()
-        ymin, ymax = self.ax.get_ylim()
-
-        for edge, edge_label_artist in self.edge_label_artists.items():
-            x = edge_label_artist._x
-            y = edge_label_artist._y
-            if x > xmin and x < xmax and y > ymin and y < ymax:
-                edge_label_artist.set_visible(True)
-                edge_label_artist.set_text(round(math.dist(self.node_positions[edge[0]], self.node_positions[edge[1]]), 2))
-            else:
-                edge_label_artist.set_visible(False)
+    @node.setter
+    def node(self, node):
+        self._node = node
 
 
-    def _update_node_label_positions(self):
-        EditableGraph._update_node_label_positions(self)
-        xmin, xmax = self.ax.get_xlim()
-        ymin, ymax = self.ax.get_ylim()
+class GraphModel(QObject):
+    graph_created = pyqtSignal(nx.Graph)
+    graph_updated = pyqtSignal(nx.Graph)
+    state_updated = pyqtSignal(GraphState)
 
-        for node, node_label_artist in self.node_label_artists.items():
-            x = node_label_artist._x
-            y = node_label_artist._y
-            if x > xmin and x < xmax and y > ymin and y < ymax:
-                node_label_artist.set_visible(True)
-            else:
-                node_label_artist.set_visible(False)
+    def __init__(self, parent=None):
+        super(GraphModel, self).__init__(parent)
+        self._G = nx.Graph()
+        self._state = GraphState(None, None, None)
+        self._humans = []
+        self._robot_path_traveled = []
+        self._history = []
+    
+    def new_graph(self, G):
+        self._G = G
+        self.graph_created.emit(self._G)
 
-    def update_color_node(self):
-        for node, node_artist in self.node_artists.items():
-            node_artist.set_facecolor(NEUTRAL_COLOR)
-            if self.state.humans_node[node]:
-                node_artist.set_facecolor(OCCUPIED_COLOR)
-            if node == self.state.goal:
-                node_artist.set_facecolor(GOAL_COLOR)
-            if node == self.state.robot_node:
-                node_artist.set_facecolor(ROBOT_COLOR)
-        self.fig.canvas.draw_idle()
+    def previous_state(self):
+        if len(self._robot_path_traveled) > 1:
+            self._history.pop()
+            prev_node = self._robot_path_traveled.pop()
+            for h in self._humans:
+                h.previous_state()
+            self.state = self._history.pop()
 
-    def set_axes_limits(self, pad=0.5):
-        node_positions = list(self.node_positions.values())
-        current_xmin, current_xmax, current_ymin, current_ymax = self.ax.axis()
-        xmin = min(min(node_positions, key = lambda t: t[0])[0] - pad, current_xmin)
-        xmax = max(max(node_positions, key = lambda t: t[0])[0] + pad, current_xmax) 
-        ymin = min(min(node_positions, key = lambda t: t[1])[1] - pad, current_ymin)
-        ymax = max(max(node_positions, key = lambda t: t[1])[1] + pad, current_ymax)
+    def next_state(self, action):
+        self._robot_path_traveled.append(action._node)
+        for h in self._humans:
+            h.next_state()
+        return self.update_state(next_node=action._node)
 
-        self.ax.axis([xmin, xmax, ymin, ymax])
-            
+    def update_state(self, next_node=None, next_goal=None):
+        if next_node is None:
+            next_node = self._state.robot_node
+        if next_goal is None:
+            next_goal = self._state.goal
+        occupied_nodes = [0 for n in self._G.nodes]
+        for h in self._humans:
+            occupied_nodes[h.node] = 1
+        return GraphState(next_node, next_goal, occupied_nodes)
+
+    def add_human_path(self, start, end):
+        self._history = []
+        short_path = nx.shortest_path(self._G, source=start, target=end, weight=math.dist(self._G.nodes[start]['pos'],self._G.nodes[end]['pos']))
+        self._humans.append(Human(short_path))
+        self.state = self.update_state()
+
+    def is_state_valid(self):
+        return self._state is not None and self._state.robot_node is not None and self._state.goal is not None
+
+    @pyqtProperty(nx.Graph, notify=graph_updated)
+    def G(self):
+        return self._G
+
+    @G.setter
+    def G(self, G):
+        self._G = G
+        self.graph_updated.emit(self._G)
+
+    @pyqtProperty(GraphState, notify=state_updated)
+    def state(self):
+        return self._state
+
+    @state.setter
+    def state(self, state):
+        self._state = state
+        if self.is_state_valid:
+            self._history.append(self._state)
+            # self._history.append(copy.deepcopy(self))
+            # self._history.append([self._robot_path_traveled, self._humans])
+        self.state_updated.emit(self._state)
+
+    @pyqtProperty(list)
+    def history(self):
+        return self._history
+
+    def change_robot_node(self, node):
+        self._history = []
+        self.state = GraphState(node, self.state.goal, self.state.humans_node)
+        self._robot_path_traveled = [node]
+
+    def change_goal_node(self, node):
+        self._history = []
+        self.state = GraphState(self.state.robot_node, node, self.state.humans_node)
+
+    def get_robot_path(self):
+        return self._robot_path_traveled
+
+    def get_humans_path(self):
+        hp = []
+        for h in self._humans:
+            hp.append(h._history)
+        return hp
+
+
 class MplCanvas(FigureCanvasQTAgg):
     def __init__(self, parent=None, width=5, height=4, dpi=100):
         super(MplCanvas, self).__init__(Figure(figsize=(width, height), dpi=dpi))
         self.setParent(parent)
         self.axes = self.figure.add_subplot(111)
-        self.axes.patch.set_edgecolor('black')
-        self.axes.patch.set_linewidth(1)
-        self.mpl_connect('draw_event', self.on_resize)
-
-        self.select_type_node = "none"
-        self.graph = None
-        self.state = None
-    
-    def draw(self):
-        FigureCanvasQTAgg.draw(self)
-
-        if self.graph is not None:
-            self.graph._update_view()
-        # self.axes.cla()
-        # self.axes.patch.set_edgecolor('black')
-        # self.axes.patch.set_linewidth(1)
-
-    def on_resize(self, event):
-
-        print(event)
 
 class GraphMplWidget(QWidget):
     updated = pyqtSignal(str)
@@ -169,51 +165,17 @@ class GraphMplWidget(QWidget):
 
         self.setLayout(vertical_layout)
 
-    def init(self, G):
-        self.G = G
-        self.pos = nx.get_node_attributes(G,'pos')
-        self.state = GraphState(None, None, [0 for n in self.G.nodes])
-        self.graph = MyGraph(self.state, self.G,
-                                    node_layout=self.pos, 
-                                    node_size=10,
-                                    node_edge_width = 2,
-                                    node_labels=True,
-                                    node_label_fontdict=dict(size=10),
-                                    edge_width=3,
-                                    ax=self.canvas.axes)
+        self.graph = None
 
-        self.updated.emit("New environment: " + str(self.G))
-        # self.parent().statusBar().showMessage()
+    def set_model(self, model):
+        self.model = model
+        self.model.graph_created.connect(self.new_graph)
 
-    def update(self, state):
-        self.state = state
-        if self.state is not None:
-            self.updated.emit("New state: " + str(self.state))
-
-
-
-
-
-
-
-
-
-
-    def set_graph(self, G):
+    def new_graph(self, G):
         self.canvas.axes.cla()
-        self.G = G
-        self.pos = nx.get_node_attributes(G,'pos')
-        self.state = GraphState(None, None, [0 for n in self.G.nodes])
-        self.graph = MyGraph(self.state, self.G,
-                                    node_layout=self.pos, 
-                                    node_size=10,
-                                    node_edge_width = 2,
-                                    node_labels=True,
-                                    node_label_fontdict=dict(size=10),
-                                    edge_width=3,
-                                    ax=self.canvas.axes)
         self.canvas.axes.patch.set_edgecolor('black')
         self.canvas.axes.patch.set_linewidth(1)
+        self.graph = MBSNGraph(self.model, ax=self.canvas.axes)
 
     def set_select_type_node(self, str_type):
         self.graph.node_type_to_place = str_type
@@ -231,7 +193,4 @@ class GraphMplWidget(QWidget):
         G.add_edges_from(edges)
 
         return G
-
-    def is_state_valid(self):
-        return self.state is not None and self.state.robot_node is not None and self.state.goal is not None
         

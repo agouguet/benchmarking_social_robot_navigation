@@ -3,7 +3,7 @@ import time
 import random
 from collections import defaultdict
 from mbsn.model.graph.GraphState import GraphState
-
+from mbsn.solver.heuristicfunction import *
 
 class MBSNAgentNode:
     # Record a unique node id to distinguish duplicated states
@@ -48,9 +48,8 @@ class MBSNAgentNode:
             return self
         else:
             actions = list(self.children.keys())
-            # print("     ", self.state, "  ", actions)
             action = self.bandit.select(self.state, actions, self.qfunction)
-            
+            # print("     ", self.state, "  ", actions, "  ", action)
             return self.get_outcome_child(action).select()
 
 
@@ -115,13 +114,17 @@ class MBSNAgentNode:
     def get_visits(self):
         return MBSNAgentNode.visits[self.state]
 
+    def reset_visits():
+        MBSNAgentNode.next_node_id = 0
+        MBSNAgentNode.visits = defaultdict(lambda: 0)
 
 
 class MBSNAgentMCTS:
-    def __init__(self, mdp, qfunction, bandit):
+    def __init__(self, mdp, qfunction, bandit, heuristic_function=random_function):
         self.mdp = mdp
         self.qfunction = qfunction
         self.bandit = bandit
+        self._heuristic_function = heuristic_function
 
     """
     Execute the MCTS algorithm from the initial state given, with timeout in seconds
@@ -131,35 +134,41 @@ class MBSNAgentMCTS:
 
         start_time = time.time()
         current_time = time.time()
+        num_rollouts = 0
         while current_time < start_time + timeout:
 
             # print("{:.2f}".format(current_time-start_time), root_node.state)
             # Find a state node to expand
             selected_node = root_node.select()
+            # print("SELECTION: ", selected_node.state)
 
-            
-            
             if not self.mdp.is_terminal(selected_node.state):
                 child = selected_node.expand()
+                # print(child.state)
                 reward = self.simulate(child)
                 selected_node.back_propagate(reward, child)
+                num_rollouts += 1
 
             current_time = time.time()
 
-        return root_node
+        return root_node, num_rollouts
 
     """ Choose a random action. Heustics can be used here to improve simulations. """
     def choose(self, state):
-        return random.choice(self.mdp.get_actions(state))
+        return self._heuristic_function(self.mdp, state) #random.choice(self.mdp.get_actions(state))
 
     """ Simulate until a terminal state """
     def simulate(self, node):
         state = node.state
+        # print("     CHILD:", state)
         cumulative_reward = 0.0
         depth = 0
         while not self.mdp.is_terminal(state):
+            
             # Choose an action to execute
             action = self.choose(state)
+            # if depth == 0:
+            # print("         - ", action)
 
             # Execute the action
             (next_state, reward) = self.mdp.execute(state, action)
@@ -170,4 +179,5 @@ class MBSNAgentMCTS:
 
             state = next_state
 
+        # print("     REWARD:", cumulative_reward)
         return cumulative_reward

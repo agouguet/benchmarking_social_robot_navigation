@@ -9,7 +9,7 @@ class UpperConfidenceBounds(MultiArmedBandit):
         # number of times each action has been chosen
         self.times_selected = {}
 
-    def select(self, state, actions, qfunction):
+    def select(self, state, actions, qfunction, c_param=0.0):
 
         # First execute each action one time
         for action in actions:
@@ -21,7 +21,7 @@ class UpperConfidenceBounds(MultiArmedBandit):
         max_actions = []
         max_value = float("-inf")
         for action in actions:
-            value = qfunction.get_q_value(state, action) + math.sqrt(
+            value = qfunction.get_q_value(state, action) + c_param * math.sqrt(
                 (2 * math.log(self.total)) / self.times_selected[action]
             )
             # print("         ", action, value)

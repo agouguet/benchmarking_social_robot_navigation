@@ -12,8 +12,9 @@ import random
 
 
 PENALITY_DISTANCE_GOAL = 3
-PENALITY_COLLISION_HUMAN = 50
+PENALITY_COLLISION_HUMAN = 1000
 PENALITY_PROXIMITY_HUMAN =0.1
+REWARD_GOAL = 100
 
 class MBSN(MDP):
 
@@ -21,12 +22,16 @@ class MBSN(MDP):
         self,
         networkx_graph,
         robot_goal_node = None,
-        discount_factor = 0.9
+        distance_factor=1.0,
+        social_factor=1.0, 
+        discount_factor = 0.99
     ):
         self.graph = networkx_graph
         self.robot_goal_node = robot_goal_node
         self.astar_dict = self.astar_calculation()
         self.discount_factor = discount_factor
+        self._social_factor = social_factor
+        self._distance_factor = distance_factor
 
     """Return all states of this MDP"""
     def get_states(self):
@@ -76,7 +81,16 @@ class MBSN(MDP):
         nextState via action
     """
     def get_reward(self, state, action, next_state):
-        return - self.distance_cost(state, next_state) - self.proximity_cost_to_humans(next_state.robot_node, next_state.humans_node) - self.proximity_cost_to_humans(next_state.robot_node, state.humans_node)
+        reward = 0
+        reward -= self._distance_factor * self.distance_cost(state, next_state)
+        if state.humans_node[state.robot_node] or state.humans_node[next_state.robot_node]:
+            reward -= self._social_factor * PENALITY_COLLISION_HUMAN
+        # if next_state.robot_node == state.goal:
+        #     reward += REWARD_GOAL
+        if state.robot_node == state.goal:
+            reward += REWARD_GOAL
+        # reward -= self._social_factor * (self.proximity_cost_to_humans(next_state.robot_node, next_state.humans_node) + self.proximity_cost_to_humans(next_state.robot_node, state.humans_node))
+        return reward
 
     """ Return true if and only if state is a terminal state of this MDP """
     def is_terminal(self, state):
@@ -149,12 +163,13 @@ class MBSN(MDP):
 
 
     def distance_cost(self, s, next_state):
+        return self.astar_dict[s.robot_node][next_state.robot_node]
         cost = self.euclidean_distance_between_node(s.robot_node, next_state.robot_node)
         cost += PENALITY_DISTANCE_GOAL * self.astar_dict[next_state.robot_node][s.goal]
         return cost
 
     def proximity_cost_to_humans(self, robot_node, occupied_nodes):
-        if len(occupied_nodes) == 0:
+        if not np.any(occupied_nodes,  where=1):
             return 0
         min_distance = math.inf
         for occupied_node in occupied_nodes:
@@ -173,7 +188,6 @@ class MBSN(MDP):
         return distance.euclidean(self.get_pos_of_node(node1), self.get_pos_of_node(node2))
 
     def astar_calculation(self):
-        print("Calcul all astar distance ...")
         astardict = {}
         for n in self.graph.nodes():
             astardict[n] = {}

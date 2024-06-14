@@ -1,0 +1,110 @@
+digraph G {
+	dpi=300
+	1267 [label="V(s(24, 26, [18, 19, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+0.00\nN = 11" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1267 -> "a(24, 25)1267" [label="a(24, 25)"]
+	1267 -> "a(24, 23)1267" [label="a(24, 23)"]
+	1267 -> "a(24, 24)1267" [label="a(24, 24)"]
+	1267 -> "a(24, 26)1267" [label="a(24, 26)"]
+	1267 -> "a(24, 29)1267" [label="a(24, 29)"]
+	"a(24, 25)1267" [label="a(24, 25)1267" shape=point style=filled width=0.25]
+	"a(24, 25)1267" -> 1268 [label=0.08]
+	"a(24, 25)1267" [label="a(24, 25)1267" shape=point style=filled width=0.25]
+	"a(24, 25)1267" -> 1273 [label=0.08]
+	1268 [label="V(s(25, 26, [18, 19, 20, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1273 [label="V(s(25, 26, [18, 19, 24, 25, 28, 30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-1005.50\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1273 -> "a(25, 24)1273" [label="a(25, 24)"]
+	"a(25, 24)1273" [label="a(25, 24)1273" shape=point style=filled width=0.25]
+	"a(25, 24)1273" -> 1274 [label=0.09]
+	1274 [label="V(s(24, 26, [18, 19, 24, 25, 26, 28, 30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	"a(24, 23)1267" [label="a(24, 23)1267" shape=point style=filled width=0.25]
+	"a(24, 23)1267" -> 1269 [label=0.08]
+	"a(24, 23)1267" [label="a(24, 23)1267" shape=point style=filled width=0.25]
+	"a(24, 23)1267" -> 1275 [label=0.08]
+	1269 [label="V(s(23, 26, [18, 19, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1275 [label="V(s(23, 26, [18, 19, 20, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-1005.50\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1275 -> "a(23, 24)1275" [label="a(23, 24)"]
+	"a(23, 24)1275" [label="a(23, 24)1275" shape=point style=filled width=0.25]
+	"a(23, 24)1275" -> 1276 [label=0.09]
+	1276 [label="V(s(24, 26, [14, 18, 19, 20, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	"a(24, 24)1267" [label="a(24, 24)1267" shape=point style=filled width=0.25]
+	"a(24, 24)1267" -> 1270 [label=0.08]
+	"a(24, 24)1267" [label="a(24, 24)1267" shape=point style=filled width=0.25]
+	"a(24, 24)1267" -> 1277 [label=0.08]
+	1270 [label="V(s(24, 26, [18, 19, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 45, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1277 [label="V(s(24, 26, [18, 19, 24, 25, 28, 30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+0.00\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1277 -> "a(24, 26)1277" [label="a(24, 26)"]
+	"a(24, 26)1277" [label="a(24, 26)1277" shape=point style=filled width=0.25]
+	"a(24, 26)1277" -> 1278 [label=0.09]
+	1278 [label="V(s(26, 26, [18, 19, 20, 24, 25, 28, 30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	"a(24, 26)1267" [label="a(24, 26)1267" shape=point style=filled width=0.25]
+	"a(24, 26)1267" -> 1271 [label=0.08]
+	"a(24, 26)1267" [label="a(24, 26)1267" shape=point style=filled width=0.25]
+	"a(24, 26)1267" -> 1279 [label=0.08]
+	"a(24, 26)1267" [label="a(24, 26)1267" shape=point style=filled width=0.25]
+	"a(24, 26)1267" -> 1282 [label=0.08]
+	"a(24, 26)1267" [label="a(24, 26)1267" shape=point style=filled width=0.25]
+	"a(24, 26)1267" -> 1283 [label=0.08]
+	"a(24, 26)1267" [label="a(24, 26)1267" shape=point style=filled width=0.25]
+	"a(24, 26)1267" -> 1284 [label=0.08]
+	"a(24, 26)1267" [label="a(24, 26)1267" shape=point style=filled width=0.25]
+	"a(24, 26)1267" -> 1285 [label=0.08]
+	"a(24, 26)1267" [label="a(24, 26)1267" shape=point style=filled width=0.25]
+	"a(24, 26)1267" -> 1286 [label=0.08]
+	"a(24, 26)1267" [label="a(24, 26)1267" shape=point style=filled width=0.25]
+	"a(24, 26)1267" -> 1287 [label=0.08]
+	"a(24, 26)1267" [label="a(24, 26)1267" shape=point style=filled width=0.25]
+	"a(24, 26)1267" -> 1288 [label=0.08]
+	"a(24, 26)1267" [label="a(24, 26)1267" shape=point style=filled width=0.25]
+	"a(24, 26)1267" -> 1289 [label=0.08]
+	"a(24, 26)1267" [label="a(24, 26)1267" shape=point style=filled width=0.25]
+	"a(24, 26)1267" -> 1290 [label=0.08]
+	"a(24, 26)1267" [label="a(24, 26)1267" shape=point style=filled width=0.25]
+	"a(24, 26)1267" -> 1291 [label=0.08]
+	1271 [label="V(s(26, 26, [18, 19, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 46, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1279 [label="V(s(26, 26, [18, 19, 22, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1282 [label="V(s(26, 26, [18, 19, 20, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1283 [label="V(s(26, 26, [18, 19, 24, 25, 28, 29, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1284 [label="V(s(26, 26, [18, 19, 24, 25, 28, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1285 [label="V(s(26, 26, [18, 19, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1286 [label="V(s(26, 26, [14, 18, 19, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1287 [label="V(s(26, 26, [18, 19, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 45, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1288 [label="V(s(26, 26, [18, 19, 24, 25, 26, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1289 [label="V(s(26, 26, [18, 19, 23, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1290 [label="V(s(26, 26, [18, 19, 21, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1291 [label="V(s(26, 26, [18, 19, 24, 25, 28, 30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	"a(24, 29)1267" [label="a(24, 29)1267" shape=point style=filled width=0.25]
+	"a(24, 29)1267" -> 1272 [label=0.08]
+	"a(24, 29)1267" [label="a(24, 29)1267" shape=point style=filled width=0.25]
+	"a(24, 29)1267" -> 1280 [label=0.08]
+	1272 [label="V(s(29, 26, [18, 19, 22, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1280 [label="V(s(29, 26, [18, 19, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 46, 47])) =
+-1997.35\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1280 -> "a(29, 29)1280" [label="a(29, 29)"]
+	"a(29, 29)1280" [label="a(29, 29)1280" shape=point style=filled width=0.25]
+	"a(29, 29)1280" -> 1281 [label=0.09]
+	1281 [label="V(s(29, 26, [18, 19, 22, 24, 25, 28, 30, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 46, 47])) =
+-10000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+}
