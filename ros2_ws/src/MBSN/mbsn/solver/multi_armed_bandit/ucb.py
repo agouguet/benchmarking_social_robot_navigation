@@ -24,7 +24,7 @@ class UpperConfidenceBounds(MultiArmedBandit):
             value = qfunction.get_q_value(state, action) + c_param * math.sqrt(
                 (2 * math.log(self.total)) / self.times_selected[action]
             )
-            # print("         ", action, value)
+            # print("         ", action, value, qfunction.get_q_value(state, action))
             if value > max_value:
                 max_actions = [action]
                 max_value = value

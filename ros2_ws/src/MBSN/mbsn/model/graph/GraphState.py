@@ -1,4 +1,5 @@
 from mbsn.model.interfaces.IState import IState
+import json
 
 class GraphState(IState):
     def __init__(self, robot_node, goal, humans_node):
@@ -17,4 +18,12 @@ class GraphState(IState):
 
     def __hash__(self):
         return hash((self.robot_node, tuple(self.humans_node), self.goal))
+
+    def toJson(self):
+        _dict ={
+            "robot_node": self.robot_node,
+            "goal": self.goal,
+            "humans_node": self.humans_node,
+        }
+        return _dict
 

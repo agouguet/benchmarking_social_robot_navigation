@@ -8,12 +8,13 @@ from matplotlib.backend_bases import MouseButton
 from matplotlib.figure import Figure
 
 from mbsn.model.graph.GraphState import GraphState
-from ui.mbsngraph import MBSNGraph
 
 import networkx as nx
 import numpy as np
 
 import math, copy
+
+from ui.mbsn_threads import *
 
 class Human():
     def __init__(self, path):
@@ -28,13 +29,11 @@ class Human():
             self._history.append(next_node)
         else:
             self._history.append(self._node)
-        # print("PATH=", self._path)
 
     def previous_state(self):
         prev_node = self._history.pop(len(self._history)-1)
         self._node = self._history[-1]
         self._path.insert(0, prev_node)
-        # print("PATH=", self._path)
 
     @property
     def node(self):
@@ -43,6 +42,10 @@ class Human():
     @node.setter
     def node(self, node):
         self._node = node
+
+    @property
+    def path(self):
+        return [self._node] + self._path
 
 
 class GraphModel(QObject):
@@ -61,6 +64,14 @@ class GraphModel(QObject):
     def new_graph(self, G):
         self._G = G
         self.graph_created.emit(self._G)
+
+    def reset(self):
+        while len(self._robot_path_traveled) > 1:
+            self.previous_state()
+        # self.history = []
+        # self.state = reset_state
+        # self.robot_path = [self.state.robot_node]
+        # self._humans = reset_humans
 
     def previous_state(self):
         if len(self._robot_path_traveled) > 1:
@@ -113,84 +124,44 @@ class GraphModel(QObject):
         self._state = state
         if self.is_state_valid:
             self._history.append(self._state)
-            # self._history.append(copy.deepcopy(self))
-            # self._history.append([self._robot_path_traveled, self._humans])
         self.state_updated.emit(self._state)
 
     @pyqtProperty(list)
     def history(self):
         return self._history
 
+    @history.setter
+    def history(self, history):
+        self._history = history
+
+    @pyqtProperty(list)
+    def robot_path(self):
+        return self._robot_path_traveled
+    
+    @robot_path.setter
+    def robot_path(self, path):
+        self._robot_path_traveled = path
+
+    @pyqtProperty(list)
+    def humans(self):
+        return self._humans
+
+    @humans.setter
+    def humans(self, humans):
+        self._humans = humans
+
+
     def change_robot_node(self, node):
-        self._history = []
+        self.history = []
         self.state = GraphState(node, self.state.goal, self.state.humans_node)
         self._robot_path_traveled = [node]
 
     def change_goal_node(self, node):
-        self._history = []
+        self.history = []
         self.state = GraphState(self.state.robot_node, node, self.state.humans_node)
-
-    def get_robot_path(self):
-        return self._robot_path_traveled
 
     def get_humans_path(self):
         hp = []
         for h in self._humans:
             hp.append(h._history)
         return hp
-
-
-class MplCanvas(FigureCanvasQTAgg):
-    def __init__(self, parent=None, width=5, height=4, dpi=100):
-        super(MplCanvas, self).__init__(Figure(figsize=(width, height), dpi=dpi))
-        self.setParent(parent)
-        self.axes = self.figure.add_subplot(111)
-
-class GraphMplWidget(QWidget):
-    updated = pyqtSignal(str)
-    
-    def __init__(self, parent = None):
-        QWidget.__init__(self, parent)
-        self.setParent(parent)
-
-        self.canvas = MplCanvas(self)
-        self.canvas.setFocusPolicy(QtCore.Qt.ClickFocus)
-        self.canvas.setFocus()
-
-        self.toolbar = NavigationToolbar(self.canvas, self)
-
-        vertical_layout = QVBoxLayout()
-        vertical_layout.addWidget(self.toolbar)
-        vertical_layout.addWidget(self.canvas)
-
-        self.setLayout(vertical_layout)
-
-        self.graph = None
-
-    def set_model(self, model):
-        self.model = model
-        self.model.graph_created.connect(self.new_graph)
-
-    def new_graph(self, G):
-        self.canvas.axes.cla()
-        self.canvas.axes.patch.set_edgecolor('black')
-        self.canvas.axes.patch.set_linewidth(1)
-        self.graph = MBSNGraph(self.model, ax=self.canvas.axes)
-
-    def set_select_type_node(self, str_type):
-        self.graph.node_type_to_place = str_type
-
-    def get_networkx_graph_from_interactive_graph(self):
-        node_positions = self.graph.node_positions
-        edges = list(self.graph.edge_artists.keys())
-
-        G = nx.Graph()
-
-        G.add_nodes_from(list(node_positions.keys()))
-        for n, p in node_positions.items():
-            G.nodes[n]['pos'] = p
-
-        G.add_edges_from(edges)
-
-        return G
-        

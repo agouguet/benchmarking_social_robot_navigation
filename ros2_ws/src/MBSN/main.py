@@ -1,10 +1,8 @@
-# ------------------------------------------------------
-# ---------------------- main.py -----------------------
-# ------------------------------------------------------
-import os, sys, math, random, copy, yaml, cv2, warnings, pickle, numpy as np, networkx as nx
+import os, sys, math, random, copy, yaml, cv2, warnings, pickle, json, numpy as np, networkx as nx
+from collections import defaultdict
 from PyQt5.QtWidgets import*
 from PyQt5.uic import loadUi
-from PyQt5.QtCore import QObject, QThread, pyqtSignal
+from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
 from PyQt5 import QtCore, QtWidgets
 
 from matplotlib.backends.backend_qt5agg import (NavigationToolbar2QT as NavigationToolbar)
@@ -13,16 +11,19 @@ from shapely.geometry import box, LineString, MultiLineString, Point, MultiPoint
 from mbsn.model.graph.MBSN import MBSN
 from mbsn.utils.visibility_graph import VisibilityGraph
 from mbsn.solver.MCTS import MBSNAgentMCTS, MBSNAgentNode
+from mbsn.solver.ValueIteration import ValueIteration
 from mbsn.solver.qtable import QTable
 from mbsn.solver.multi_armed_bandit.ucb import UpperConfidenceBounds
 from mbsn.utils.graph_visualisation import GraphVisualisation
 from mbsn.model.graph.GraphState import GraphState
 from mbsn.model.graph.GraphAction import GraphAction
-import matplotlib.pyplot as plt
-from mbsn.solver.heuristicfunction import *
 
-from ui.mplwidget import *
-from ui.graphvizwidget import *
+import matplotlib.pyplot as plt
+import mbsn.solver.heuristicfunction
+
+from ui.mbsn_canvas import *
+from ui.model import *
+from ui.mbsn_threads import *
 
 GRAPH_DIRECTORY = "graphs/"
 MINIMAL_DISTANCE_TO_CREATE_VECTOR = 10
@@ -34,46 +35,6 @@ def find_graph_file(root_directory):
         if file.endswith(".pickle"):
             graph_files.append(file)
     return graph_files
-
-def reset_random_seed():
-    seed = random.randrange(sys.maxsize)
-    # rng = random.Random(seed)
-    print("Seed was:", seed)
-
-class MCTSWorker(QtCore.QThread):
-    dataSent = QtCore.pyqtSignal(MBSNAgentNode, GraphAction, int)
-
-    def __init__(self, agent, state, timeout, until_end, multiple_time=None, parent=None):
-        super(MCTSWorker, self).__init__(parent)
-        self._agent = agent
-        self._state = copy.deepcopy(state)
-        self._timeout = timeout
-        self._until_end = until_end
-        self._multiple_time = multiple_time
-
-    def run(self):
-        # reset_random_seed()
-        if self._multiple_time is None:
-            if not self._until_end:
-                root_node, num_rollouts = self._agent.mcts(self._state, timeout=self._timeout)
-                best_action = root_node.get_value()[0]
-                self.dataSent.emit(root_node, best_action, num_rollouts)
-            else:
-                while 1:
-                    root_node, num_rollouts = self._agent.mcts(self._state, timeout=self._timeout)
-                    if root_node.mdp.is_terminal(root_node.state):
-                        break
-                    best_action = root_node.get_value()[0]
-                    new_state = copy.deepcopy(root_node.get_outcome_child(best_action).state)
-                    self._state = new_state
-                    self.dataSent.emit(root_node, best_action, num_rollouts)
-        else:
-            for i in range(self._multiple_time):
-                self._agent.qfunction = QTable(default=-10000)
-                MBSNAgentNode.reset_visits()
-                root_node, num_rollouts = self._agent.mcts(self._state, timeout=self._timeout)
-                best_action = root_node.get_value()[0]
-                self.dataSent.emit(root_node, best_action, num_rollouts)
 
 class GraphVisualisationWorker(QtCore.QThread):
     dataSent = QtCore.pyqtSignal(bool)
@@ -97,12 +58,21 @@ class VLine(QFrame):
 
 class MatplotlibWidget(QMainWindow):
     
+    '''
+    MatplotlibWidget Main Application
+
+    Inherits from QMainWindow to 
+
+    '''
     def __init__(self):
         
         QMainWindow.__init__(self)
 
         loadUi("ui/main.ui", self)
         self.setWindowTitle("MBSN GUI")
+
+        self.model = GraphModel()
+        self.qfunction = QTable()
 
         self.setup()
 
@@ -115,14 +85,16 @@ class MatplotlibWidget(QMainWindow):
 
         self.numberOfTimeSpinBox.valueChanged.connect(self.number_of_time_updated)
         self.number_of_time_updated(self.numberOfTimeSpinBox.value())
+        self.listHeuristicFunctionComboBox.currentIndexChanged.connect(self.updateHeuristicFunction)
 
         self.previousButton.clicked.connect(self.previous_state)
         self.nextButton.clicked.connect(self.next)
-        self.endButton.clicked.connect(lambda: self.next(True))
-        self.multipleTimeButton.clicked.connect(self.multiple_time)
+        self.endButton.clicked.connect(lambda: self.complete_run(False))
+        self.multipleTimeButton.clicked.connect(lambda: self.next(True))
+        self.multipleTimeCompleteButton.clicked.connect(lambda: self.complete_run(True))
+        self.valueIterationButton.clicked.connect(self.value_iteration)
 
-        self.model = GraphModel()
-        self.qfunction = QTable()
+        
 
         self.model.state_updated.connect(self.state_updated)
         # self.model.state_changed.connect(self.state_on_graph_changed)
@@ -136,8 +108,16 @@ class MatplotlibWidget(QMainWindow):
 
         self.fileName = None
 
+        self.policy = None
+
+        self.threadpool = QThreadPool()
+        print("Multithreading with maximum %d threads" % self.threadpool.maxThreadCount())
+
     def setup(self):
         self.setup_list_graph_combo_box()
+        self.setup_list_heuristic_function_combo_box()
+        self.updateHeuristicFunction()
+        self.button_update()
 
         self.num_rollouts_label = QLabel("")
         self.count_label = QLabel("")
@@ -153,6 +133,11 @@ class MatplotlibWidget(QMainWindow):
         graph_files = find_graph_file(GRAPH_DIRECTORY)
         for file in graph_files:
             self.listGraphComboBox.addItem(file.split(".")[0])
+
+    def setup_list_heuristic_function_combo_box(self):
+        for hf in mbsn.solver.heuristicfunction.HEURISTIC_FUNCTIONS:
+            self.listHeuristicFunctionComboBox.addItem(hf)
+        self.listHeuristicFunctionComboBox.setCurrentText(mbsn.solver.heuristicfunction.DEFAULT_HEURISTIC_FUNCTION)
 
     def load_graph(self):
         current_map_combo_box = self.listGraphComboBox.currentText()
@@ -215,79 +200,262 @@ class MatplotlibWidget(QMainWindow):
 
     def number_of_time_updated(self, value):
         self.multipleTimeButton.setText(str(value) + "x")
+        self.multipleTimeCompleteButton.setText("⏭ " + str(value) + "x")
+
+    def updateHeuristicFunction(self):
+        self.heuristic_function = getattr(mbsn.solver.heuristicfunction, self.listHeuristicFunctionComboBox.currentText())
 
     def previous_state(self):
         self.model.previous_state()
 
-    def next(self, until_end=False, multiple_time=False):
-        if self.model.is_state_valid():
-            state = self.model.state
-            G = self.model.G
-            mdp = MBSN(G, state.goal, 
-                            distance_factor=(self.distanceFactorSlider.value()/100), 
-                            social_factor=(self.socialFactorSlider.value()/100))
-            
-            self.qfunction = QTable(default=-10000)
-            print(self.qfunction.qtable["T"])
-            # return
+    def current_mbsn_agent(self, reset=True):
+        if reset:
+            self.qfunction = QTable(default=-1e10)
             MBSNAgentNode.reset_visits()
-            agent = MBSNAgentMCTS(mdp, self.qfunction, UpperConfidenceBounds(), heuristic_function=closest_node_to_goal)
+        state = self.model.state
+        G = self.model.G
+        mdp = MBSN(G, state.goal, number_of_detected_human=len(self.model._humans),
+                        distance_factor=(self.distanceFactorSlider.value()/100), 
+                        social_factor=(self.socialFactorSlider.value()/100))
+        
+        return MBSNAgentMCTS(mdp, self.qfunction, UpperConfidenceBounds(), heuristic_function=self.heuristic_function)
 
-            self._worker = MCTSWorker(agent, state, float(self.timeOutSpinBox.value()), until_end)
-            self._worker.dataSent.connect(self.handleDataSent)
-            self._worker.start()
-
-    def multiple_time(self):
-        number = self.numberOfTimeSpinBox.value()
+    def next(self, multiple_time=False):
         action_count = {}
+        number = self.numberOfTimeSpinBox.value()
+        
+        # One Time
+        def one_iteration(progress_callback):
+            agent = self.current_mbsn_agent()
+            state = self.model.state
+            root_node, _ = agent.mcts(state, timeout=float(self.timeOutSpinBox.value()))
+            action, value = root_node.get_value()
+            progress_callback.emit(action)
+            return root_node
 
-        def add_action_to_count(root_node, action, num_rollouts):
+        def update_state(action):
+            new_state = self.model.next_state(action)
+            self.history_state.append(new_state)
+            self.model.state = new_state
+
+        def result(node):
+            debug_str = str(node.state) + ":\n"
+            for k, v in self.qfunction.qtable.items():
+                if k[0] == node.state:
+                    debug_str += "      " + str(k[1]) + ": " + str(v) + "\n"
+            self.labelDebugOne.setText(debug_str)
+
+            if self.displayGraphCheckBox.isChecked():
+                graph_worker = GraphVisualisationWorker(node, parent=self)
+                graph_worker.dataSent.connect(self.set_graph_image_on_image_widget)
+                graph_worker.start()
+
+        # N Time
+        def n_iteration(progress_callback):
+            for n in range(number):
+                agent = self.current_mbsn_agent()
+                state = self.model.state
+                root_node, _ = agent.mcts(state, timeout=float(self.timeOutSpinBox.value()))
+                action, value = root_node.get_value()
+                progress_callback.emit(action)
+            return action_count
+
+        def add_action_to_count(action):
             if action not in action_count:
                 action_count[action] = 0
             action_count[action] += 1
             self.count_label.setText(str(sum(action_count.values()))+"/"+str(number))
 
+        def display_action_count(action_count):
+            print(action_count)
+
+        # Start Thread
+        if not multiple_time:
+            worker = Worker(one_iteration)
+            worker.signals.progress.connect(update_state)
+            worker.signals.result.connect(result)
+            self.threadpool.start(worker)
+        else:
+            worker = Worker(n_iteration)
+            worker.signals.progress.connect(add_action_to_count)
+            worker.signals.result.connect(display_action_count)
+            self.threadpool.start(worker)
+
+    def complete_run(self, multiple_time=False):
+        robot_paths = []
+        number = self.numberOfTimeSpinBox.value()
+
+        # One Run
+        def one_run(progress_callback):
+            agent = self.current_mbsn_agent()
+            state = self.model.state
+            while 1:
+                root_node, _ = agent.mcts(state, timeout=float(self.timeOutSpinBox.value()))
+                if root_node.mdp.is_terminal(root_node.state):
+                    break
+                action, value = root_node.get_value()
+                state = self.model.next_state(action)
+                progress_callback.emit(state)
+
+        def update_state(new_state):
+            self.history_state.append(new_state)
+            self.model.state = new_state
+
+        # N Run
+        def n_run(progress_callback):
+            original_state = self.model.state
+            original_humans = self.model.humans
+            for n in range(number):
+                agent = self.current_mbsn_agent()
+                self.model.reset()
+                path = []
+                while 1:
+                    root_node, _ = agent.mcts(self.model.state, timeout=float(self.timeOutSpinBox.value()))
+                    if root_node.mdp.is_terminal(root_node.state):
+                        path.append([self.model.state, None])
+                        progress_callback.emit(path)
+                        break
+                    action, value = root_node.get_value()
+                    path.append([self.model.state, action])
+                    self.model.state = self.model.next_state(action)
+                    time.sleep(0.1)
+            self.model.reset()
+            return robot_paths
+
+        def add_path(path):
+            robot_paths.append(path)
+            nb = len(robot_paths)
+            self.count_label.setText(str(nb)+"/"+str(number))   
+
+        def display_robot_paths(robot_paths):
+            edge_count = defaultdict(lambda: 0)
+
+            for path in robot_paths:
+                for state, action in path:
+                    if action is not None:
+                        edge = (action._position, action._node)
+                        edge_count[edge]+=1
+
+            G = self.model.G
+            for n in G.nodes():
+                G.add_edge(n, n)
+
+            for u,v in G.edges():
+                G[u][v]['used'] = 1
+
+            for e, v in edge_count.items():
+                n1, n2 = e
+                G[n1][n2]['used'] = v
+
+            # weights = [G[u][v]['used'] for u,v in G.edges()]
+            edge_width={(u,v):weight for u,v,weight in G.edges(data='used')}
+
+
+            for e in G.edges():
+                print(e)
+
+            fig, ax = plt.subplots(figsize=(5,4))
+            MBSNGraph(self.model, G=G, 
+                                # edge_width=edge_width, 
+                                # edge_label_fontdict=dict(size=3), 
+                                legend=False, 
+                                ax=ax)
+            fig.savefig('test.pdf', dpi=plt.gcf().dpi)    
+
+
+            def robot_path_to_dict():
+                _dict = []
+                for path in robot_paths:
+                    _path_dict = []
+                    for state, action in path:
+                        if action is not None:
+                            print(type(state.toJson()))
+                            _path_dict.append([state.toJson(), action.toJson()])
+                        else:
+                            _path_dict.append([state.toJson(), None])
+                    _dict.append(_path_dict)
+                return _dict
+            
+            # nx.draw(G, nx.get_node_attributes(G,'pos'), width=weights)
+            # plt.savefig("filename.png")
+            agent = self.current_mbsn_agent()
+
+            json_data = {
+                # "mdp": agent.mdp,
+                "humans": [[h._node] + h._path for h in self.model.humans],
+                "heuristic": agent._heuristic_function.__name__ ,
+                "paths": robot_path_to_dict(),
+            }
+
+            #TODO pickle data (G, mdp, etc...)
+
+            for k,v in json_data.items():
+                print(k, type(v), v)
+
+            with open("results/log/%s.pickle" % self.listGraphComboBox.currentText(), "wb") as output_file:
+                pickle.dump(json_data, output_file)
+
+            with open("results/log/%s.json" % self.listGraphComboBox.currentText(), 'w') as f:
+                json.dump(json_data, f, indent=4)
+
+            for p in robot_paths:
+                print(p)
+
+        # Start Thread
+        if not multiple_time:
+            worker = Worker(one_run)
+            worker.signals.progress.connect(update_state)
+            self.threadpool.start(worker)
+        else:
+            worker = Worker(n_run)
+            worker.signals.progress.connect(add_path)
+            worker.signals.result.connect(display_robot_paths)
+            self.threadpool.start(worker)
+            
+    def value_iteration(self):
         if self.model.is_state_valid():
             state = self.model.state
             G = self.model.G
-            mdp = MBSN(G, state.goal, 
-                            distance_factor=(self.distanceFactorSlider.value()/100), 
-                            social_factor=(self.socialFactorSlider.value()/100))
-            
-            agent = MBSNAgentMCTS(mdp, self.qfunction, UpperConfidenceBounds(), heuristic_function=closest_node_to_goal)
+            if self.policy is None:
+                print(len(self.model._humans))
+                mdp = MBSN(G, state.goal, number_of_detected_human=len(self.model._humans),
+                                distance_factor=(self.distanceFactorSlider.value()/100), 
+                                social_factor=(self.socialFactorSlider.value()/100))
 
-            worker = MCTSWorker(agent, state, float(self.timeOutSpinBox.value()), until_end=False, multiple_time=number)
-            worker.dataSent.connect(add_action_to_count)
+                # for state in mdp.get_states():
+                #     print(state)
 
-            def print_action_count():
-                print(action_count)
-                worker.deleteLater()
+                solver = ValueIteration(mdp, gamma=0.9)
+                solver.train()
+                self.policy = solver.full_values
+            else:
+                action_values = self.policy[state]
+                action = max(action_values, key=action_values.get)
+                print("STATE:", state, "   ACTION:", action)
 
-            worker.finished.connect(print_action_count)
-            worker.start()
 
 
-    def handleDataSent(self, root_node, action, num_rollouts):
-        # print(root_node.visits)
+    def handleDataSent(self, root_node, action):
+        print(root_node.state)
 
         # for (child, _) in root_node.children[action]:
         #     print(child, child.get_value())
 
         debug_str = str(self.model.state) + ":\n"
-        # for k, v in self.qfunction.qtable.items():
-        #     if k[0] == self.model.state:
-        #         debug_str += "      " + str(k[1]) + ": " + str(v) + "\n"
+        for k, v in self.qfunction.qtable.items():
+            if k[0] == self.model.state:
+                debug_str += "      " + str(k[1]) + ": " + str(v) + "\n"
         self.labelDebugOne.setText(debug_str)
 
         new_state = self.model.next_state(action)
         self.history_state.append(new_state)
         self.model.state = new_state
-        if num_rollouts is not None:
-            self.num_rollouts_label.setText(str(num_rollouts))
 
-        graph_worker = GraphVisualisationWorker(root_node, parent=self)
-        graph_worker.dataSent.connect(self.set_graph_image_on_image_widget)
-        graph_worker.start()
+
+        if self.displayGraphCheckBox.isChecked():
+            graph_worker = GraphVisualisationWorker(root_node, parent=self)
+            graph_worker.dataSent.connect(self.set_graph_image_on_image_widget)
+            graph_worker.start()
 
     def reset_state_history(self):
         self.history_state = []
@@ -298,12 +466,28 @@ class MatplotlibWidget(QMainWindow):
     def state_updated(self, state, num_rollouts=None):
         self.statusBar().showMessage("Current state:" + str(state))
         self.history_state_updated()
-        
+        self.button_update()
+    
+    def button_update(self):
+        if self.model.is_state_valid():
+            self.nextButton.setEnabled(True)
+            self.endButton.setEnabled(True)
+            self.multipleTimeButton.setEnabled(True)
+            self.multipleTimeCompleteButton.setEnabled(True)
+        else:
+            self.nextButton.setEnabled(False)
+            self.endButton.setEnabled(False)
+            self.multipleTimeButton.setEnabled(False)
+            self.multipleTimeCompleteButton.setEnabled(False)
+
+        if len(self.model._robot_path_traveled) > 1:
+            self.previousButton.setEnabled(True)
+        else:
+            self.previousButton.setEnabled(False)
+
     def history_state_updated(self):
         for i in reversed(range(self.stateHistoryVerticalLayout.count())): 
             self.stateHistoryVerticalLayout.itemAt(i).widget().setParent(None)
-        # for state, humans_path in self.model.history:
-        #     self.stateHistoryVerticalLayout.addWidget(QPushButton(str(state), self))
         for state in self.model.history:
             self.stateHistoryVerticalLayout.addWidget(QPushButton(str(state), self))
 

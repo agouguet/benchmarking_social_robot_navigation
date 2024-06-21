@@ -11,10 +11,11 @@ import math
 import random
 
 
-PENALITY_DISTANCE_GOAL = 3
+PENALITY_DISTANCE_GOAL = 1
 PENALITY_COLLISION_HUMAN = 1000
-PENALITY_PROXIMITY_HUMAN =0.1
+PENALITY_PROXIMITY_HUMAN = 0.1
 REWARD_GOAL = 100
+PENALITY_WAIT = 1
 
 class MBSN(MDP):
 
@@ -22,13 +23,18 @@ class MBSN(MDP):
         self,
         networkx_graph,
         robot_goal_node = None,
+        number_of_detected_human = None,
         distance_factor=1.0,
         social_factor=1.0, 
         discount_factor = 0.99
     ):
         self.graph = networkx_graph
+        for e in self.graph.edges():
+            self.graph[e[0]][e[1]]['weight'] = distance.euclidean(self.get_pos_of_node(e[0]), self.get_pos_of_node(e[1]))
         self.robot_goal_node = robot_goal_node
+        self.number_of_detected_human = number_of_detected_human
         self.astar_dict = self.astar_calculation()
+        self.betweenness_centrality = nx.betweenness_centrality(self.graph, weight="weight")
         self.discount_factor = discount_factor
         self._social_factor = social_factor
         self._distance_factor = distance_factor
@@ -44,7 +50,11 @@ class MBSN(MDP):
         else:
             for robot_node in range(N):
                 for occupied_node in itertools.product([0, 1], repeat=N):
-                    yield GraphState(robot_node, self.robot_goal_node, list(occupied_node))
+                    if self.number_of_detected_human is None:
+                        yield GraphState(robot_node, self.robot_goal_node, list(occupied_node))
+                    else:
+                        if list(occupied_node).count(1) <= max(2, self.number_of_detected_human*2):
+                            yield GraphState(robot_node, self.robot_goal_node, list(occupied_node))
 
     """ Return all actions with non-zero probability from this state """
     def get_actions(self, state):
@@ -60,11 +70,23 @@ class MBSN(MDP):
             neighbor = [i for i in self.graph.neighbors(human_node)]
             for n in neighbor:
                 occupied_nodes = state.humans_node.copy()
-                # print(occupied_nodes, n)
+                occupied_nodes[human_node] = 0
                 occupied_nodes[n] = 1
                 next_state = GraphState(action._node, state.goal, occupied_nodes)
                 if next_state not in next_states:
                     next_states.append(next_state)
+                
+                
+                occupied_nodes = state.humans_node.copy()
+                occupied_nodes[n] = 1
+                next_state = GraphState(action._node, state.goal, occupied_nodes)
+                if next_state not in next_states:
+                    if self.number_of_detected_human is not None:
+                        # print(state, next_states)
+                        if state.humans_node.count(1) < self.number_of_detected_human*2:
+                            next_states.append(next_state)
+                    else:
+                        next_states.append(next_state)
         return next_states
 
     """ Return all non-zero probability transitions for this action
@@ -89,6 +111,8 @@ class MBSN(MDP):
         #     reward += REWARD_GOAL
         if state.robot_node == state.goal:
             reward += REWARD_GOAL
+        if next_state.robot_node == state.robot_node:
+            reward -= PENALITY_WAIT
         # reward -= self._social_factor * (self.proximity_cost_to_humans(next_state.robot_node, next_state.humans_node) + self.proximity_cost_to_humans(next_state.robot_node, state.humans_node))
         return reward
 
@@ -99,18 +123,12 @@ class MBSN(MDP):
         if state.robot_node == state.goal:
             return True
         return False
+        return state.humans_node[state.robot_node]
 
     """ Return the discount factor for this MDP """
     def get_discount_factor(self):
         return self.discount_factor
 
-    # """ Return the initial state of this MDP """
-    # @abstractmethod
-    # def get_initial_state(self):
-
-    # """ Return all goal states of this MDP """
-    # @abstractmethod
-    # def get_goal_states(self):
 
     """ Return a new state and a reward for executing action in state,
     based on the underlying probability. This can be used for
@@ -163,9 +181,10 @@ class MBSN(MDP):
 
 
     def distance_cost(self, s, next_state):
-        return self.astar_dict[s.robot_node][next_state.robot_node]
-        cost = self.euclidean_distance_between_node(s.robot_node, next_state.robot_node)
-        cost += PENALITY_DISTANCE_GOAL * self.astar_dict[next_state.robot_node][s.goal]
+        # return self.astar_dict[s.robot_node][next_state.robot_node]
+        # cost = self.euclidean_distance_between_node(s.robot_node, next_state.robot_node)
+        cost = self.astar_dict[s.robot_node][next_state.robot_node]
+        # cost += PENALITY_DISTANCE_GOAL * self.astar_dict[next_state.robot_node][s.goal]
         return cost
 
     def proximity_cost_to_humans(self, robot_node, occupied_nodes):
@@ -188,12 +207,17 @@ class MBSN(MDP):
         return distance.euclidean(self.get_pos_of_node(node1), self.get_pos_of_node(node2))
 
     def astar_calculation(self):
+        def dist(u, v):
+            (x1, y1) = self.graph.nodes(data=True)[u]['pos']
+            (x2, y2) = self.graph.nodes(data=True)[v]['pos']
+            return ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5
+
         astardict = {}
         for n in self.graph.nodes():
             astardict[n] = {}
             for m in self.graph.nodes():
                 if n != m:
-                    path = nx.astar_path(self.graph, n, m)
+                    path = nx.astar_path(self.graph, n, m, heuristic=dist)
                     sum_dist = 0
                     for i in range(1, len(path)):
                         sum_dist += self.euclidean_distance_between_node(path[i-1], path[i])

@@ -88,6 +88,7 @@ class MBSNAgentNode:
         # Find the corresponding state and return if this already exists
         for (child, _) in self.children[action]:
             if next_state == child.state:
+                # print("STATE:", self.state, "CHILD:", child.state)
                 return child
 
         # This outcome has not occured from this state-action pair previously
@@ -129,7 +130,8 @@ class MBSNAgentMCTS:
     """
     Execute the MCTS algorithm from the initial state given, with timeout in seconds
     """
-    def mcts(self, state, timeout=1):
+    def mcts(self, state, timeout=1, sleep=True):
+        self.first=True
         root_node = MBSNAgentNode(self.mdp, None, state, self.qfunction, self.bandit)
 
         start_time = time.time()
@@ -140,27 +142,35 @@ class MBSNAgentMCTS:
             # print("{:.2f}".format(current_time-start_time), root_node.state)
             # Find a state node to expand
             selected_node = root_node.select()
-            # print("SELECTION: ", selected_node.state)
+            # if self.first:
+            # print("SELECTION: ", selected_node.state, MBSNAgentNode.visits[selected_node.state])
 
             if not self.mdp.is_terminal(selected_node.state):
                 child = selected_node.expand()
-                # print(child.state)
                 reward = self.simulate(child)
                 selected_node.back_propagate(reward, child)
                 num_rollouts += 1
 
             current_time = time.time()
+            if sleep:
+                time.sleep(0.000001)
 
         return root_node, num_rollouts
 
     """ Choose a random action. Heustics can be used here to improve simulations. """
     def choose(self, state):
-        return self._heuristic_function(self.mdp, state) #random.choice(self.mdp.get_actions(state))
+        action_choosen = self._heuristic_function(self.mdp, state) #random.choice(self.mdp.get_actions(state))
+        # if self.first:
+        #     print(state, action_choosen)
+        #     self.first=False
+        # print(state, action_choosen)
+        return action_choosen
 
     """ Simulate until a terminal state """
     def simulate(self, node):
         state = node.state
-        # print("     CHILD:", state)
+        # if self.first:
+        #     print("     CHILD:", state)
         cumulative_reward = 0.0
         depth = 0
         while not self.mdp.is_terminal(state):
