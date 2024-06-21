@@ -27,15 +27,14 @@ from ui.mbsn_threads import *
 
 GRAPH_DIRECTORY = "graphs/"
 TIMEOUT = 0.5
-graph = "door_passing"
-robot_node = 0
-goal_node = 12
+graph = "mini_door_passing"
+robot_node = 1
+goal_node = 6
 hs = [
-    [12, 0]
+    [3, 0]
 ]
 
 heuristic_function = getattr(mbsn.solver.heuristicfunction, "farthest_from_human")
-
 
 def one_run(agent, model):
     while 1:
@@ -71,16 +70,20 @@ with open(GRAPH_DIRECTORY  + graph + ".pickle", 'rb') as file:
 
     mdp = MBSN(G, model.state.goal, number_of_detected_human=len(hs))
     qfunction = QTable(default=-1e10)
+
+    heuristic_function(mdp, model.state)
+
+
     
-    agent = MBSNAgentMCTS(mdp, qfunction, UpperConfidenceBounds(), heuristic_function=heuristic_function)
+    # agent = MBSNAgentMCTS(mdp, qfunction, UpperConfidenceBounds(), heuristic_function=heuristic_function)
 
-    human_paths = []
-    for h in model.humans:
-        human_paths.append(h.path)
+    # human_paths = []
+    # for h in model.humans:
+    #     human_paths.append(h.path)
 
-    paths = n_run(agent, model, 5)
+    # paths = n_run(agent, model, 5)
 
-    print(paths)
+    # print(paths)
 
     
 

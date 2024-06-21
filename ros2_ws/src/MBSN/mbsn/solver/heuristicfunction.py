@@ -10,6 +10,8 @@ HEURISTIC_FUNCTIONS = [
 
 DEFAULT_HEURISTIC_FUNCTION = "avoid_humans"
 
+LIMIT_DISTANCE_TO_OTHER_AGENT = 1.5
+
 def random_function(mdp, state):
     return random.choice(mdp.get_actions(state))
 
@@ -17,7 +19,7 @@ def closest_node_to_goal(mdp, state):
     actions = mdp.get_actions(state)
     return min(actions, key=lambda a: (mdp.astar_dict[a._node][state.goal]))
 
-def farthest_from_human(mdp, state, w1=0.0, w2=1.0):
+def farthest_from_human(mdp, state, w1=1.0, w2=1000.0, w3=1.0):
     actions = mdp.get_actions(state)
     actions = sorted(actions, key=lambda a: (mdp.astar_dict[a._node][state.goal]))
     
@@ -29,7 +31,53 @@ def farthest_from_human(mdp, state, w1=0.0, w2=1.0):
         dist_from_each_human = [mdp.astar_dict[n][h] for h in human_idx]
         return min(dist_from_each_human)
 
+    
+    d={a:(w1*mdp.astar_dict[a._node][state.goal] - w2*min_dist_with_human(a._node)) for a in actions}
+    a = min(d, key=d.get)
+    print(state, a, d)
+
+    dm_dict = {act:mdp.astar_dict[state.robot_node][act._node] for act in actions}
+
+    dm_norm = {act:(dm_dict[act]-min(dm_dict.values()))/(max(dm_dict.values())-min(dm_dict.values())) for act in actions}
+
+    dg_dict = {act:mdp.astar_dict[act._node][state.goal] for act in actions}
+
+    dg_norm = {act:(dg_dict[act]-min(dg_dict.values()))/(max(dg_dict.values())-min(dg_dict.values())) for act in actions}
+
+    dnear_dict = {act:min_dist_with_human(act._node) for act in actions}
+
+    dnear_norm = {act:(dnear_dict[act]-min(dnear_dict.values()))/(max(dnear_dict.values())-min(dnear_dict.values()) + 10e-6) for act in actions}
+
+    dnear_pwnorm = {act:dnear_dict[act]/1.5 if dnear_dict[act]<= LIMIT_DISTANCE_TO_OTHER_AGENT else 1.0 for act in actions}
+
+
+    print(dm_dict)
+
+    print("               DM  DG  DNEAR")
+    for act in actions:
+        dm = dm_dict[act]
+        dg = dg_dict[act]
+        # dnear = dnear_dict[act]
+        alpha=1.0
+        dnear = math.exp(-alpha*(dnear_dict[act] + 10e-6))
+        test = math.exp(-alpha*(dnear_pwnorm[act] + 10e-6))
+
+        v = - w1*dg - w2*dnear - w3*dm
+        v_norm = 1 - (w1*dg_norm[act] + w2*test + w3*dm_norm[act]) / (w1+w2+w3)
+
+        print("     ", act)
+        
+        print("         v:", '%.2f' % v)
+        print("             ", '%.2f' % dm, '%.2f' % dg, '%.2f' % dnear, '%.2f' % dnear_dict[act], '%.2f' % dnear_pwnorm[act])
+        print("         v_norm:", '%.2f' % v_norm)
+        print("             ", '%.2f' % dm_norm[act], '%.2f' % dg_norm[act], '%.2f' % test, '%.2f' % dnear)
+
+    return a
+
+
+
     actions = sorted(actions, key=lambda a: (w1*mdp.astar_dict[a._node][state.goal] - w2*min_dist_with_human(a._node)))
+    
     a = actions[0]
     print(state, a, w1*mdp.astar_dict[a._node][state.goal] + w2*min_dist_with_human(a._node))
     return a
