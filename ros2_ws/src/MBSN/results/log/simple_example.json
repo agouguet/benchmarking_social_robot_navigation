@@ -1,10 +1,5 @@
 {
-    "humans": [
-        [
-            0,
-            0
-        ]
-    ],
+    "humans": [],
     "heuristic": "avoid_humans",
     "paths": [
         [
@@ -15,28 +10,28 @@
                     "humans_node": [
                         0,
                         0,
-                        1,
+                        0,
                         0
                     ]
                 },
                 {
                     "from": 0,
-                    "to": 1
+                    "to": 2
                 }
             ],
             [
                 {
-                    "robot_node": 1,
+                    "robot_node": 2,
                     "goal": 3,
                     "humans_node": [
-                        1,
+                        0,
                         0,
                         0,
                         0
                     ]
                 },
                 {
-                    "from": 1,
+                    "from": 2,
                     "to": 3
                 }
             ],
@@ -45,7 +40,7 @@
                     "robot_node": 3,
                     "goal": 3,
                     "humans_node": [
-                        1,
+                        0,
                         0,
                         0,
                         0
@@ -62,7 +57,7 @@
                     "humans_node": [
                         0,
                         0,
-                        1,
+                        0,
                         0
                     ]
                 },
@@ -76,7 +71,7 @@
                     "robot_node": 1,
                     "goal": 3,
                     "humans_node": [
-                        1,
+                        0,
                         0,
                         0,
                         0
@@ -92,7 +87,7 @@
                     "robot_node": 3,
                     "goal": 3,
                     "humans_node": [
-                        1,
+                        0,
                         0,
                         0,
                         0
@@ -109,7 +104,7 @@
                     "humans_node": [
                         0,
                         0,
-                        1,
+                        0,
                         0
                     ]
                 },
@@ -123,7 +118,7 @@
                     "robot_node": 1,
                     "goal": 3,
                     "humans_node": [
-                        1,
+                        0,
                         0,
                         0,
                         0
@@ -139,7 +134,7 @@
                     "robot_node": 3,
                     "goal": 3,
                     "humans_node": [
-                        1,
+                        0,
                         0,
                         0,
                         0
@@ -156,7 +151,7 @@
                     "humans_node": [
                         0,
                         0,
-                        1,
+                        0,
                         0
                     ]
                 },
@@ -170,7 +165,7 @@
                     "robot_node": 1,
                     "goal": 3,
                     "humans_node": [
-                        1,
+                        0,
                         0,
                         0,
                         0
@@ -186,7 +181,7 @@
                     "robot_node": 3,
                     "goal": 3,
                     "humans_node": [
-                        1,
+                        0,
                         0,
                         0,
                         0
@@ -203,7 +198,7 @@
                     "humans_node": [
                         0,
                         0,
-                        1,
+                        0,
                         0
                     ]
                 },
@@ -217,7 +212,7 @@
                     "robot_node": 1,
                     "goal": 3,
                     "humans_node": [
-                        1,
+                        0,
                         0,
                         0,
                         0
@@ -233,7 +228,242 @@
                     "robot_node": 3,
                     "goal": 3,
                     "humans_node": [
-                        1,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                null
+            ]
+        ],
+        [
+            [
+                {
+                    "robot_node": 0,
+                    "goal": 3,
+                    "humans_node": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "from": 0,
+                    "to": 2
+                }
+            ],
+            [
+                {
+                    "robot_node": 2,
+                    "goal": 3,
+                    "humans_node": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "from": 2,
+                    "to": 3
+                }
+            ],
+            [
+                {
+                    "robot_node": 3,
+                    "goal": 3,
+                    "humans_node": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                null
+            ]
+        ],
+        [
+            [
+                {
+                    "robot_node": 0,
+                    "goal": 3,
+                    "humans_node": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "from": 0,
+                    "to": 2
+                }
+            ],
+            [
+                {
+                    "robot_node": 2,
+                    "goal": 3,
+                    "humans_node": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "from": 2,
+                    "to": 3
+                }
+            ],
+            [
+                {
+                    "robot_node": 3,
+                    "goal": 3,
+                    "humans_node": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                null
+            ]
+        ],
+        [
+            [
+                {
+                    "robot_node": 0,
+                    "goal": 3,
+                    "humans_node": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "from": 0,
+                    "to": 2
+                }
+            ],
+            [
+                {
+                    "robot_node": 2,
+                    "goal": 3,
+                    "humans_node": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "from": 2,
+                    "to": 3
+                }
+            ],
+            [
+                {
+                    "robot_node": 3,
+                    "goal": 3,
+                    "humans_node": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                null
+            ]
+        ],
+        [
+            [
+                {
+                    "robot_node": 0,
+                    "goal": 3,
+                    "humans_node": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "from": 0,
+                    "to": 2
+                }
+            ],
+            [
+                {
+                    "robot_node": 2,
+                    "goal": 3,
+                    "humans_node": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "from": 2,
+                    "to": 3
+                }
+            ],
+            [
+                {
+                    "robot_node": 3,
+                    "goal": 3,
+                    "humans_node": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                null
+            ]
+        ],
+        [
+            [
+                {
+                    "robot_node": 0,
+                    "goal": 3,
+                    "humans_node": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "from": 0,
+                    "to": 2
+                }
+            ],
+            [
+                {
+                    "robot_node": 2,
+                    "goal": 3,
+                    "humans_node": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "from": 2,
+                    "to": 3
+                }
+            ],
+            [
+                {
+                    "robot_node": 3,
+                    "goal": 3,
+                    "humans_node": [
+                        0,
                         0,
                         0,
                         0

@@ -6,8 +6,8 @@ from std_msgs.msg import Header
 from geometry_msgs.msg import Point
 from agents_msgs.msg import AgentArray, AgentTrajectories, AgentTrajectory
 
-TIME_INTERVAL = 2 # seconds
-FUTURE_POS_NUMBER = 5
+TIME_INTERVAL = 1.5 # seconds
+FUTURE_POS_NUMBER = 3
 
 class AgentTrajectoryPublisher(Node):
 

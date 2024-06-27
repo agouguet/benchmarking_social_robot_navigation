@@ -9,7 +9,7 @@ class UpperConfidenceBounds(MultiArmedBandit):
         # number of times each action has been chosen
         self.times_selected = {}
 
-    def select(self, state, actions, qfunction, c_param=0.0):
+    def select(self, state, actions, qfunction, c_param=1.41):
 
         # First execute each action one time
         for action in actions:

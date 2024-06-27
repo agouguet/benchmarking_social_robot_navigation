@@ -16,6 +16,7 @@ DWA = "DWA"
 TEB = "TEB"
 HATEB = "HATEB"
 SARL = "SARL*"
+TEST = "test"
 
 # SCENARIO
 DOOR = "door_passing"
@@ -24,6 +25,7 @@ OVERTAKING = "overtaking"
 STATIC = "static"
 CORNER = "corner"
 FRONTAL = "frontal"
+HOSPITAL = "hospital"
 
 # TASK
 LEAD = "lead"
@@ -53,6 +55,7 @@ SUBPLOT_DIMENSION = {
     OVERTAKING: [-12, 12, -12, 12],
     STATIC: [-12, 12, -12, 12],
     FRONTAL: [-12, 12, -12, 12],
+    HOSPITAL: [-35, 35, -35, 35],
 }
 
 X_LIMIT_DIMENSION = {
@@ -62,6 +65,7 @@ X_LIMIT_DIMENSION = {
     STATIC: [-12,12],
     CORNER: [-12,3],
     FRONTAL: [-12,12],
+    HOSPITAL: [-35, 35],
 }
 
 Y_LIMIT_DIMENSION = {
@@ -71,6 +75,7 @@ Y_LIMIT_DIMENSION = {
     STATIC: [-1.5,1.5],
     CORNER: [-1.5,11],
     FRONTAL: [-1.5,1.5],
+    HOSPITAL: [-35, 35],
 }
 
 def get_indices_of_duplicates_elements(arr):
@@ -183,7 +188,7 @@ def path(method, scenario, task, show=False, animate=False):
             ratio.append(1)
 
         # axtext = fig.add_axes([0.0,0.84,0.27,0.05])
-        time = ax.text(-11,1.4, str(0), ha="left", va="top")
+        time = ax.text(X_LIMIT_DIMENSION[scenario][0]+1,Y_LIMIT_DIMENSION[scenario][1]-1, str(0), ha="left", va="top")
 
         scatters = []
         cmaps_anim = []
@@ -224,8 +229,8 @@ def path(method, scenario, task, show=False, animate=False):
 
         def init():
             ax.tick_params(left = False, right = False , labelleft = False , labelbottom = False, bottom = False)
-            ax.set_xlim(-12,12)
-            ax.set_ylim(-1.5,1.5)
+            ax.set_xlim(X_LIMIT_DIMENSION[scenario][0],X_LIMIT_DIMENSION[scenario][1])
+            ax.set_ylim(Y_LIMIT_DIMENSION[scenario][0],Y_LIMIT_DIMENSION[scenario][1])
             ax.axis("off")
             ax.imshow(img, extent=SUBPLOT_DIMENSION[scenario], alpha=0.9, zorder=-1)
             f.tight_layout()
@@ -236,10 +241,10 @@ def path(method, scenario, task, show=False, animate=False):
             time.set_text("Time:" + str(frame) + "(s)")
 
             for i in range(len(x_humans)):
-                im = ax.scatter(x_humans[i][:frame,np.newaxis], y_humans[i][:frame,np.newaxis], label='Human', s=30)
+                im = ax.scatter(x_humans[i][:frame,np.newaxis], y_humans[i][:frame,np.newaxis], label='Human', s=5)
                 im.set_color(cmaps_anim[i+1](norms_anim[i+1](stp_humans[i][:frame])))
 
-            im = ax.scatter(x_robot[:frame,np.newaxis], y_robot[:frame,np.newaxis], label='Robot', s=30)
+            im = ax.scatter(x_robot[:frame,np.newaxis], y_robot[:frame,np.newaxis], label='Robot', s=5)
             im.set_color(cmaps_anim[0](norms_anim[0](stp_robot[:frame])))
 
             return []
@@ -247,8 +252,8 @@ def path(method, scenario, task, show=False, animate=False):
         ani = animation.FuncAnimation(f, update, frames=np.arange(max(stp_robot)), interval=20, init_func=init, blit=True, repeat=False)
 
         # To save the animation using Pillow as a gif
-        writer = animation.PillowWriter(fps=20)
-        ani.save('results/paths/'+method+'/result_'+method+'_'+scenario_and_task+'.gif', writer=writer, dpi=300)
+        writer = animation.PillowWriter(fps=15)
+        ani.save('results/paths/'+method+'/result_'+method+'_'+scenario_and_task+'.gif', writer=writer, dpi=100)
 
         # ani.save('results/paths/'+method+'/result_'+method+'_'+scenario_and_task+'.mp4', fps=20, extra_args=['-vcodec', 'libx264'])
         if(show):
@@ -280,7 +285,7 @@ def path(method, scenario, task, show=False, animate=False):
         clb = plt.colorbar(im, cax=cax)
         clb.set_label('Robot Movement (s)', size=9)
 
-        ax.imshow(img, extent=[-12, 12, -12, 12], alpha=0.9, zorder=-1)
+        ax.imshow(img, extent=[-35, 35, -35, 35], alpha=0.9, zorder=-1)
         ax.set_xlim(X_LIMIT_DIMENSION[scenario][0], X_LIMIT_DIMENSION[scenario][1])
         ax.set_ylim(Y_LIMIT_DIMENSION[scenario][0], Y_LIMIT_DIMENSION[scenario][1])
         ax.axis('off')

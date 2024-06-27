@@ -54,6 +54,8 @@ class RosPublisher(RosSender):
         # message_type = type(self.msg)
         # message = deserialize_message(data, message_type)
 
+        # print("DATA:", data, message)
+
         self.pub.publish(data)
 
         return None

@@ -192,6 +192,7 @@ class ClientThread(threading.Thread):
         try:
             while not halt_event.is_set():
                 destination, data = self.read_message(self.conn)
+                # print("READ:", data)
 
                 # Process this message that was sent from Unity
                 if self.tcp_server.pending_srv_id is not None:

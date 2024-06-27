@@ -24,6 +24,7 @@ from mbsn.solver.ValueIteration import ValueIteration
 from mbsn.utils.visibility_graph import VisibilityGraph
 
 from mbsn.interpreter.interpreter import Interpreter
+from mbsn.solver.heuristicfunction import *
 
 from ament_index_python.packages import get_package_prefix
 
@@ -41,17 +42,18 @@ class MDPBasedSocialNavigationMCTS(Interpreter):
     def __init__(self, publish_graph = True, save_policy = True):
         super().__init__(publish_graph, save_policy)
         self.mcts = None
+        self.qfunction = QTable(default=-1e10)
 
     def update(self, new_state):
         if self.graph != None and self.scenario != None:
-            if self.mcts == None:
+            if self.robot_goal is not None and self.mcts is None:
                 # visibility_graph = VisibilityGraph(self.path_to_maps + self.scenario + "/", self.graph).visibility_graph
-                self.mdp = MBSN(self.graph, 4)
-                qfunction = QTable()
-                self.mcts = MBSNAgentMCTS(self.mdp, qfunction, UpperConfidenceBounds())
+                self.mdp = MBSN(self.graph, self.robot_goal, number_of_detected_human=len(self.humans_position))
+                # qfunction = QTable()
+                self.mcts = MBSNAgentMCTS(self.mdp, self.qfunction, UpperConfidenceBounds(), heuristic_function=furthest_from_human)
 
 
-            node = self.mcts.mcts(new_state, timeout=2)
+            node, _ = self.mcts.mcts(new_state, timeout=2)
             action, value = node.get_value()
             print("\n----------------")
             print("Update:")

@@ -168,6 +168,9 @@
             <height>30</height>
            </size>
           </property>
+          <property name="maximum">
+           <double>100000000.000000000000000</double>
+          </property>
           <property name="value">
            <double>0.500000000000000</double>
           </property>

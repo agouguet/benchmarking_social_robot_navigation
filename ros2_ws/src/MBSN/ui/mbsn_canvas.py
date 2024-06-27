@@ -97,7 +97,7 @@ class MBSNGraph(EditableGraph):
                                         node_edge_width = 2,
                                         node_labels=True,
                                         # node_label_fontdict=dict(size=10),
-                                        # edge_label_fontdict=dict(size=1),
+                                        # edge_label_fontdict=edge_label_fontdict,
                                         *args, **kwargs)
         self.set_axes_limits()
 

@@ -5,10 +5,10 @@ HEURISTIC_FUNCTIONS = [
     "random_function",
     "closest_node_to_goal",
     "avoid_humans",
-    "farthest_from_human",
+    "furthest_from_human",
 ]
 
-DEFAULT_HEURISTIC_FUNCTION = "avoid_humans"
+
 
 LIMIT_DISTANCE_TO_OTHER_AGENT = 1.5
 
@@ -19,68 +19,70 @@ def closest_node_to_goal(mdp, state):
     actions = mdp.get_actions(state)
     return min(actions, key=lambda a: (mdp.astar_dict[a._node][state.goal]))
 
-def farthest_from_human(mdp, state, w1=1.0, w2=1000.0, w3=1.0):
+def furthest_from_human(mdp, state, w1=1.0, w2=1.5, w3=0.2, debug=False):
     actions = mdp.get_actions(state)
     actions = sorted(actions, key=lambda a: (mdp.astar_dict[a._node][state.goal]))
-    
+
     if not np.any(state.humans_node,  where=1):
         return actions[0]
 
     def min_dist_with_human(n):
         human_idx = [h for h in range(len(state.humans_node)) if state.humans_node[h] != 0]
+        if len(human_idx) == 0:
+            return float("inf")
         dist_from_each_human = [mdp.astar_dict[n][h] for h in human_idx]
         return min(dist_from_each_human)
 
-    
-    d={a:(w1*mdp.astar_dict[a._node][state.goal] - w2*min_dist_with_human(a._node)) for a in actions}
-    a = min(d, key=d.get)
-    print(state, a, d)
-
     dm_dict = {act:mdp.astar_dict[state.robot_node][act._node] for act in actions}
-
-    dm_norm = {act:(dm_dict[act]-min(dm_dict.values()))/(max(dm_dict.values())-min(dm_dict.values())) for act in actions}
+    min_dm = min(dm_dict.values())
+    max_dm = max(dm_dict.values())
 
     dg_dict = {act:mdp.astar_dict[act._node][state.goal] for act in actions}
-
-    dg_norm = {act:(dg_dict[act]-min(dg_dict.values()))/(max(dg_dict.values())-min(dg_dict.values())) for act in actions}
+    min_dg = min(dg_dict.values())
+    max_dg = max(dg_dict.values())
 
     dnear_dict = {act:min_dist_with_human(act._node) for act in actions}
 
-    dnear_norm = {act:(dnear_dict[act]-min(dnear_dict.values()))/(max(dnear_dict.values())-min(dnear_dict.values()) + 10e-6) for act in actions}
+    def score_of_movement(action):
+        return 1 - (dm_dict[action]-min_dm)/(max_dm-min_dm) 
 
-    dnear_pwnorm = {act:dnear_dict[act]/1.5 if dnear_dict[act]<= LIMIT_DISTANCE_TO_OTHER_AGENT else 1.0 for act in actions}
+    def score_from_goal(action):
+        return 1 - (dg_dict[action]-min_dg)/(max_dg-min_dg)
 
+    def score_from_closest_agent(action, limit=LIMIT_DISTANCE_TO_OTHER_AGENT):
+        return dnear_dict[action]/limit
+        # return dnear_dict[action]/limit if dnear_dict[action]<=limit else 1.0
 
-    print(dm_dict)
+    def standard_deviation(action, k=0.5, alpha=0.1):
+        dg = score_from_goal(action)
+        # dnear = score_from_closest_agent(action, 10.0)
+        dnear = 1-math.exp(-alpha*score_from_closest_agent(action, 1.5))
+        dm = score_of_movement(action)
 
-    print("               DM  DG  DNEAR")
-    for act in actions:
-        dm = dm_dict[act]
-        dg = dg_dict[act]
-        # dnear = dnear_dict[act]
-        alpha=1.0
-        dnear = math.exp(-alpha*(dnear_dict[act] + 10e-6))
-        test = math.exp(-alpha*(dnear_pwnorm[act] + 10e-6))
-
-        v = - w1*dg - w2*dnear - w3*dm
-        v_norm = 1 - (w1*dg_norm[act] + w2*test + w3*dm_norm[act]) / (w1+w2+w3)
-
-        print("     ", act)
+        sum_weighted_score = w1*dg + w2*dnear + w3*dm
+        mean = sum_weighted_score/(w1+w2+w3)
+        weighted_variance = (w1*(dg-mean)**2 + w2*(dnear-mean)**2 + w3*(dm-mean)**2)/(w1+w2+w3)
+        weighted_standard_deviation = round(math.sqrt(weighted_variance), 3)
+        score = round(mean - k*weighted_standard_deviation, 3)
         
-        print("         v:", '%.2f' % v)
-        print("             ", '%.2f' % dm, '%.2f' % dg, '%.2f' % dnear, '%.2f' % dnear_dict[act], '%.2f' % dnear_pwnorm[act])
-        print("         v_norm:", '%.2f' % v_norm)
-        print("             ", '%.2f' % dm_norm[act], '%.2f' % dg_norm[act], '%.2f' % test, '%.2f' % dnear)
 
-    return a
+        if debug:
+            print("", action, score, "%.2f" % mean, "%.2f" % weighted_standard_deviation)
+            print("     ", "%.2f" % dg, "%.2f" % dnear, "%.2f" % dm)
 
+        return score
 
-
-    actions = sorted(actions, key=lambda a: (w1*mdp.astar_dict[a._node][state.goal] - w2*min_dist_with_human(a._node)))
-    
-    a = actions[0]
-    print(state, a, w1*mdp.astar_dict[a._node][state.goal] + w2*min_dist_with_human(a._node))
-    return a
+    max_actions = []
+    max_value = float("-inf")
+    for action in actions:
+        value = round(standard_deviation(action), 3)
+        if value > max_value:
+            max_actions = [action]
+            max_value = value
+        elif value == max_value:
+            max_actions += [action]
+    result = random.choice(max_actions)
+    return result
 
 
 def avoid_humans(mdp, state):
@@ -120,4 +122,5 @@ def avoid_humans(mdp, state):
         if action._node == state.robot_node:
             return action
 
-    return actions[0]
+DEFAULT_HEURISTIC_FUNCTION_STR = "furthest_from_human"
+DEFAULT_HEURISTIC_FUNCTION = globals()[DEFAULT_HEURISTIC_FUNCTION_STR]

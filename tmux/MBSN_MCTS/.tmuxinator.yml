@@ -35,4 +35,4 @@ windows:
           - ros2 launch unity_sim rviz.launch.py
         - trial:
           - cd ../..
-          - ros2 run unity_sim trial_info_listener.py --ros-args -p method:=mdp
+          - ros2 run unity_sim trial_info_listener.py --ros-args -p method:=mbsn_mcts

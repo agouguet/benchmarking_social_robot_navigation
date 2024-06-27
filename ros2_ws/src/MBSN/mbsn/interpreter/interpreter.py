@@ -96,7 +96,7 @@ class Interpreter(Node):
             for n, p in self.graph.nodes.items():
                 if(self.robot_goal == None or self.euclidean_distance_from_node(pos, n) < self.euclidean_distance_from_node(pos, self.robot_goal)):
                     self.robot_goal = n
-                    print("Get New Global Goal:", self.robot_goal)
+            print("Get New Global Goal:", self.robot_goal)
 
     # RUN
 
@@ -107,9 +107,9 @@ class Interpreter(Node):
                 return 
             occupied_node = self.get_current_state_humans([pos[0] for pos in self.humans_position], [traj[0] for traj in self.human_trajectories])
             new_state = GraphState(self.robot_node, self.robot_goal, occupied_node)
-
             if self.current_state == None or new_state != self.current_state:
                 self.current_state = new_state
+                
                 self.update(new_state)
 
     def humans_position_callback(self, msg_position):

@@ -59,7 +59,9 @@ class MBSN(MDP):
     """ Return all actions with non-zero probability from this state """
     def get_actions(self, state):
         n = state.robot_node
-        actions = [GraphAction(n, n)]
+        actions = []
+        if state.humans_node.count(1) > 0:
+            actions.append(GraphAction(n, n))
         for e in self.graph.edges([n]):
             actions.append(GraphAction(n, e[1]))
         return actions

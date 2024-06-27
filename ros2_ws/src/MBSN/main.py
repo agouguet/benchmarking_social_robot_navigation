@@ -137,7 +137,7 @@ class MatplotlibWidget(QMainWindow):
     def setup_list_heuristic_function_combo_box(self):
         for hf in mbsn.solver.heuristicfunction.HEURISTIC_FUNCTIONS:
             self.listHeuristicFunctionComboBox.addItem(hf)
-        self.listHeuristicFunctionComboBox.setCurrentText(mbsn.solver.heuristicfunction.DEFAULT_HEURISTIC_FUNCTION)
+        self.listHeuristicFunctionComboBox.setCurrentText(mbsn.solver.heuristicfunction.DEFAULT_HEURISTIC_FUNCTION_STR)
 
     def load_graph(self):
         current_map_combo_box = self.listGraphComboBox.currentText()
@@ -214,9 +214,11 @@ class MatplotlibWidget(QMainWindow):
             MBSNAgentNode.reset_visits()
         state = self.model.state
         G = self.model.G
-        mdp = MBSN(G, state.goal, number_of_detected_human=len(self.model._humans),
-                        distance_factor=(self.distanceFactorSlider.value()/100), 
-                        social_factor=(self.socialFactorSlider.value()/100))
+        mdp =  MBSN(G, state.goal, number_of_detected_human=len(self.model._humans),
+                        distance_factor=20.0, social_factor=1.0,
+                        # distance_factor=(self.distanceFactorSlider.value()/100), 
+                        # social_factor=(self.socialFactorSlider.value()/100)
+                    )
         
         return MBSNAgentMCTS(mdp, self.qfunction, UpperConfidenceBounds(), heuristic_function=self.heuristic_function)
 
@@ -347,7 +349,7 @@ class MatplotlibWidget(QMainWindow):
                 n1, n2 = e
                 G[n1][n2]['used'] = v
 
-            # weights = [G[u][v]['used'] for u,v in G.edges()]
+            weights = [G[u][v]['used'] for u,v in G.edges()]
             edge_width={(u,v):weight for u,v,weight in G.edges(data='used')}
 
 
@@ -376,8 +378,8 @@ class MatplotlibWidget(QMainWindow):
                     _dict.append(_path_dict)
                 return _dict
             
-            # nx.draw(G, nx.get_node_attributes(G,'pos'), width=weights)
-            # plt.savefig("filename.png")
+            nx.draw(G, nx.get_node_attributes(G,'pos'), width=weights)
+            plt.savefig("filename.png")
             agent = self.current_mbsn_agent()
 
             json_data = {

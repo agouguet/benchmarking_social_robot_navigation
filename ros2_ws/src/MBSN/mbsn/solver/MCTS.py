@@ -121,7 +121,7 @@ class MBSNAgentNode:
 
 
 class MBSNAgentMCTS:
-    def __init__(self, mdp, qfunction, bandit, heuristic_function=random_function):
+    def __init__(self, mdp, qfunction, bandit, heuristic_function=DEFAULT_HEURISTIC_FUNCTION):
         self.mdp = mdp
         self.qfunction = qfunction
         self.bandit = bandit
@@ -143,7 +143,7 @@ class MBSNAgentMCTS:
             # Find a state node to expand
             selected_node = root_node.select()
             # if self.first:
-            # print("SELECTION: ", selected_node.state, MBSNAgentNode.visits[selected_node.state])
+            #     print("SELECTION: ", selected_node.state, MBSNAgentNode.visits[selected_node.state])
 
             if not self.mdp.is_terminal(selected_node.state):
                 child = selected_node.expand()
