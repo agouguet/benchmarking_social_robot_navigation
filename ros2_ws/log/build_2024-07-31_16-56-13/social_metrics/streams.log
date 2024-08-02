@@ -1,0 +1,76 @@
+[0.286s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake /home/adam/Desktop/SBSN/ros2_ws/src/social_metrics -DCMAKE_INSTALL_PREFIX=/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics
+[0.395s] -- The C compiler identification is GNU 11.4.0
+[0.454s] -- The CXX compiler identification is GNU 11.4.0
+[0.464s] -- Detecting C compiler ABI info
+[0.512s] -- Detecting C compiler ABI info - done
+[0.529s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.530s] -- Detecting C compile features
+[0.530s] -- Detecting C compile features - done
+[0.536s] -- Detecting CXX compiler ABI info
+[0.606s] -- Detecting CXX compiler ABI info - done
+[0.622s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.622s] -- Detecting CXX compile features
+[0.623s] -- Detecting CXX compile features - done
+[0.624s] [0msocial_metrics: You did not request a specific build type: Choosing 'Release' for maximum performance[0m
+[0.625s] -- Found rclpy: 3.3.13 (/opt/ros/humble/share/rclpy/cmake)
+[0.626s] -- Found builtin_interfaces: 1.2.1 (/opt/ros/humble/share/builtin_interfaces/cmake)
+[0.725s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter
+[0.838s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.842s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.850s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.871s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.903s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.920s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.929s] -- Found std_msgs: 4.2.4 (/opt/ros/humble/share/std_msgs/cmake)
+[0.966s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.010s] -- Found actionlib_msgs: 4.2.4 (/opt/ros/humble/share/actionlib_msgs/cmake)
+[1.072s] -- Found visualization_msgs: 4.2.4 (/opt/ros/humble/share/visualization_msgs/cmake)
+[1.344s] -- Found nav_msgs: 4.2.4 (/opt/ros/humble/share/nav_msgs/cmake)
+[1.569s] -- Configuring done (1.2s)
+[1.573s] -- Generating done (0.0s)
+[1.575s] -- Build files have been written to: /home/adam/Desktop/SBSN/ros2_ws/build/social_metrics
+[1.592s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake /home/adam/Desktop/SBSN/ros2_ws/src/social_metrics -DCMAKE_INSTALL_PREFIX=/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics
+[1.593s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/social_metrics -- -j16 -l16
+[1.672s] Built target ament_cmake_python_copy_social_metrics
+[1.870s] running egg_info
+[1.870s] creating social_metrics.egg-info
+[1.871s] writing social_metrics.egg-info/PKG-INFO
+[1.871s] writing dependency_links to social_metrics.egg-info/dependency_links.txt
+[1.871s] writing top-level names to social_metrics.egg-info/top_level.txt
+[1.871s] writing manifest file 'social_metrics.egg-info/SOURCES.txt'
+[1.873s] reading manifest file 'social_metrics.egg-info/SOURCES.txt'
+[1.873s] writing manifest file 'social_metrics.egg-info/SOURCES.txt'
+[1.896s] Built target ament_cmake_python_build_social_metrics_egg
+[1.909s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/social_metrics -- -j16 -l16
+[1.993s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/social_metrics
+[2.050s] -- Install configuration: "Release"
+[2.050s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics//launch
+[2.051s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics//params
+[2.051s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/pythonpath.sh
+[2.051s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/pythonpath.dsv
+[2.052s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics-0.0.0-py3.10.egg-info
+[2.052s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics-0.0.0-py3.10.egg-info/dependency_links.txt
+[2.052s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics-0.0.0-py3.10.egg-info/SOURCES.txt
+[2.052s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics-0.0.0-py3.10.egg-info/PKG-INFO
+[2.052s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics-0.0.0-py3.10.egg-info/top_level.txt
+[2.052s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics
+[2.053s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics/__init__.py
+[2.078s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics'...
+[2.078s] Compiling '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics/__init__.py'...
+[2.084s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/ament_index/resource_index/package_run_dependencies/social_metrics
+[2.085s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/ament_index/resource_index/parent_prefix_path/social_metrics
+[2.085s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/ament_prefix_path.sh
+[2.085s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/ament_prefix_path.dsv
+[2.085s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/path.sh
+[2.085s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/path.dsv
+[2.085s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/local_setup.bash
+[2.085s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/local_setup.sh
+[2.085s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/local_setup.zsh
+[2.085s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/local_setup.dsv
+[2.085s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.dsv
+[2.085s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/ament_index/resource_index/packages/social_metrics
+[2.086s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/cmake/ament_cmake_export_dependencies-extras.cmake
+[2.086s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/cmake/social_metricsConfig.cmake
+[2.086s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/cmake/social_metricsConfig-version.cmake
+[2.086s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.xml
+[2.096s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/social_metrics

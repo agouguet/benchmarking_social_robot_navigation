@@ -1,0 +1,41 @@
+[0.068s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction -- -j16 -l16
+[0.399s] Built target ament_cmake_python_copy_agent_trajectory_prediction
+[0.473s] running egg_info
+[0.474s] writing agent_trajectory_prediction.egg-info/PKG-INFO
+[0.474s] writing dependency_links to agent_trajectory_prediction.egg-info/dependency_links.txt
+[0.475s] writing top-level names to agent_trajectory_prediction.egg-info/top_level.txt
+[0.478s] reading manifest file 'agent_trajectory_prediction.egg-info/SOURCES.txt'
+[0.479s] writing manifest file 'agent_trajectory_prediction.egg-info/SOURCES.txt'
+[0.526s] Built target ament_cmake_python_build_agent_trajectory_prediction_egg
+[0.547s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction -- -j16 -l16
+[0.678s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction
+[0.790s] -- Install configuration: "Release"
+[0.790s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/environment/pythonpath.sh
+[0.790s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/environment/pythonpath.dsv
+[0.790s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/local/lib/python3.10/dist-packages/agent_trajectory_prediction-0.0.0-py3.10.egg-info
+[0.790s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/local/lib/python3.10/dist-packages/agent_trajectory_prediction-0.0.0-py3.10.egg-info/dependency_links.txt
+[0.790s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/local/lib/python3.10/dist-packages/agent_trajectory_prediction-0.0.0-py3.10.egg-info/SOURCES.txt
+[0.791s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/local/lib/python3.10/dist-packages/agent_trajectory_prediction-0.0.0-py3.10.egg-info/PKG-INFO
+[0.791s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/local/lib/python3.10/dist-packages/agent_trajectory_prediction-0.0.0-py3.10.egg-info/top_level.txt
+[0.791s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/local/lib/python3.10/dist-packages/agent_trajectory_prediction
+[0.792s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/local/lib/python3.10/dist-packages/agent_trajectory_prediction/__init__.py
+[0.814s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/local/lib/python3.10/dist-packages/agent_trajectory_prediction'...
+[0.820s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/lib/agent_trajectory_prediction/agent_trajectory_prediction_publisher.py
+[0.820s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/lib/agent_trajectory_prediction/agent_trajectory_prediction_visualization.py
+[0.820s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/ament_index/resource_index/package_run_dependencies/agent_trajectory_prediction
+[0.820s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/ament_index/resource_index/parent_prefix_path/agent_trajectory_prediction
+[0.820s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/environment/ament_prefix_path.sh
+[0.820s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/environment/ament_prefix_path.dsv
+[0.820s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/environment/path.sh
+[0.821s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/environment/path.dsv
+[0.823s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/local_setup.bash
+[0.824s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/local_setup.sh
+[0.824s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/local_setup.zsh
+[0.824s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/local_setup.dsv
+[0.824s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/package.dsv
+[0.824s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/ament_index/resource_index/packages/agent_trajectory_prediction
+[0.824s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.824s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/cmake/agent_trajectory_predictionConfig.cmake
+[0.824s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/cmake/agent_trajectory_predictionConfig-version.cmake
+[0.824s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/package.xml
+[0.857s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction

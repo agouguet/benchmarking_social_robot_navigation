@@ -46,11 +46,7 @@ install(DIRECTORY
 ament_python_install_package(${PROJECT_NAME})
 
 install(PROGRAMS
-  scripts/graph_visualization.py
-  scripts/MBSN.py
-  scripts/MBSN_MCTS.py
-  scripts/local_graph.py
-  scripts/graph.py
+  scripts/MBSN_hexagonal.py
   DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

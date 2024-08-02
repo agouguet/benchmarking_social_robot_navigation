@@ -1,0 +1,32 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from simulation_msgs/msg/PersonEntry.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+#include "geometry_msgs/msg/Twist.idl"
+#include "std_msgs/msg/Header.idl"
+
+module simulation_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "Message defining an entry of a person")
+    struct PersonEntry {
+      @verbatim (language="comment", text=
+        "Age of the track")
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "Unique ID for each person")
+      uint64 track_id;
+
+      @verbatim (language="comment", text=
+        "The following fields are extracted from the Kalman state x and its covariance C" "\n"
+        "Pose of the track")
+      geometry_msgs::msg::Pose pose;
+
+      @verbatim (language="comment", text=
+        "Velocity of the track")
+      geometry_msgs::msg::Twist twist;
+    };
+  };
+};

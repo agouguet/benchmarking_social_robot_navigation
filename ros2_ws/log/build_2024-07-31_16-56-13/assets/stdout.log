@@ -1,0 +1,94 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.9 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter
+-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (0.7s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/adam/Desktop/SBSN/ros2_ws/build/assets
+-- Install configuration: "Release"
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/open
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/open/map_server_params.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/open/map.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/open/short_map.jpg
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/hospital_simplified
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/hospital_simplified/segmented.png
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/hospital_simplified/short_map.png
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/hospital_simplified/map.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/hospital
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/hospital/short_map.png
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/hospital/map.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/overtaking
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/overtaking/map.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/overtaking/short_map.jpg
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/corner
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/corner/map.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/corner/short_map.jpg
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/complete
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/complete/short_map_hr.jpg
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/complete/map_server_params.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/complete/map.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/complete/short_map.jpg
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/corridor
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/corridor/map.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/corridor/short_map.jpg
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/static
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/static/map.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/static/short_map.jpg
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/intersection
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/intersection/map.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/intersection/short_map.jpg
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/frontal
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/frontal/map.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/frontal/short_map.jpg
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/door_passing
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/door_passing/short_map.jpg~
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/door_passing/map_server_params.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/door_passing/map.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/door_passing/short_map.jpg
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/door_passing/short_map.jpg.kra
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/test
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/test/map_server_params.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/test/map.yaml
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//maps/test/short_map.jpg
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//graphs
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//graphs/distance.pickle
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//graphs/distance_with_human.pickle
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//graphs/overtaking.pickle
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//graphs/hospital.pickle
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//graphs/test.pickle
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//graphs/mini_door_passing.pickle
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//graphs/simple_example.pickle
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets//graphs/door_passing.pickle
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/ament_index/resource_index/package_run_dependencies/assets
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/ament_index/resource_index/parent_prefix_path/assets
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/environment/ament_prefix_path.sh
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/environment/ament_prefix_path.dsv
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/environment/path.sh
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/environment/path.dsv
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/local_setup.bash
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/local_setup.sh
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/local_setup.zsh
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/local_setup.dsv
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/package.dsv
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/ament_index/resource_index/packages/assets
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/cmake/assetsConfig.cmake
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/cmake/assetsConfig-version.cmake
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/package.xml

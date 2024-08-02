@@ -1,0 +1,200 @@
+[0.041s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs -- -j16 -l16
+[0.389s] [  1%] Built target agents_msgs__cpp
+[0.389s] [ 12%] Built target agents_msgs__rosidl_generator_c
+[0.389s] [ 12%] Built target ament_cmake_python_copy_agents_msgs
+[0.389s] [ 23%] Built target agents_msgs__rosidl_typesupport_cpp
+[0.389s] [ 34%] Built target agents_msgs__rosidl_typesupport_introspection_cpp
+[0.389s] [ 45%] Built target agents_msgs__rosidl_typesupport_fastrtps_cpp
+[0.389s] [ 58%] Built target agents_msgs__rosidl_typesupport_introspection_c
+[0.389s] [ 69%] Built target agents_msgs__rosidl_typesupport_c
+[0.389s] [ 78%] Built target agents_msgs__rosidl_typesupport_fastrtps_c
+[0.389s] [ 78%] Built target agents_msgs
+[0.389s] [ 80%] Built target agents_msgs__py
+[0.389s] [ 89%] Built target agents_msgs__rosidl_generator_py
+[0.390s] [ 92%] Built target agents_msgs__rosidl_typesupport_fastrtps_c__pyext
+[0.390s] [ 96%] Built target agents_msgs__rosidl_typesupport_c__pyext
+[0.390s] [100%] Built target agents_msgs__rosidl_typesupport_introspection_c__pyext
+[0.478s] running egg_info
+[0.479s] writing agents_msgs.egg-info/PKG-INFO
+[0.479s] writing dependency_links to agents_msgs.egg-info/dependency_links.txt
+[0.479s] writing top-level names to agents_msgs.egg-info/top_level.txt
+[0.482s] reading manifest file 'agents_msgs.egg-info/SOURCES.txt'
+[0.483s] writing manifest file 'agents_msgs.egg-info/SOURCES.txt'
+[0.539s] [100%] Built target ament_cmake_python_build_agents_msgs_egg
+[0.563s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs -- -j16 -l16
+[0.884s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs
+[0.981s] -- Install configuration: "Release"
+[0.983s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/ament_index/resource_index/rosidl_interfaces/agents_msgs
+[0.983s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs
+[0.983s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg
+[0.983s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/agent_array.h
+[0.983s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/agent.h
+[0.983s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/agent_trajectory.h
+[0.983s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail
+[0.983s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectories__type_support.h
+[0.983s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectories__struct.h
+[0.983s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent__type_support.h
+[0.983s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent__functions.c
+[0.984s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_array__functions.c
+[0.984s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent__struct.h
+[0.984s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectory__functions.c
+[0.984s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectories__functions.h
+[0.985s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectory__type_support.h
+[0.985s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectory__functions.h
+[0.987s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_array__struct.h
+[0.987s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent__functions.h
+[0.987s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectory__struct.h
+[0.987s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_array__type_support.h
+[0.987s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectories__functions.c
+[0.988s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_array__functions.h
+[0.988s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/agent_trajectories.h
+[0.988s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/rosidl_generator_c__visibility_control.h
+[0.988s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/environment/library_path.sh
+[0.988s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/environment/library_path.dsv
+[0.988s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/lib/libagents_msgs__rosidl_generator_c.so
+[0.988s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs
+[0.988s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg
+[0.988s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[0.988s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail
+[0.988s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent__rosidl_typesupport_fastrtps_c.h
+[0.988s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_array__rosidl_typesupport_fastrtps_c.h
+[0.988s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectory__rosidl_typesupport_fastrtps_c.h
+[0.988s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectories__rosidl_typesupport_fastrtps_c.h
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/lib/libagents_msgs__rosidl_typesupport_fastrtps_c.so
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/agent_trajectory.hpp
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/agent_array.hpp
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/agent_trajectories.hpp
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/agent.hpp
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectories__struct.hpp
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectory__traits.hpp
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectories__traits.hpp
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectories__builder.hpp
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_array__struct.hpp
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent__traits.hpp
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent__struct.hpp
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectory__builder.hpp
+[0.989s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent__builder.hpp
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectory__struct.hpp
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_array__builder.hpp
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_array__traits.hpp
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent__rosidl_typesupport_fastrtps_cpp.hpp
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_array__rosidl_typesupport_fastrtps_cpp.hpp
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/dds_fastrtps
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectories__rosidl_typesupport_fastrtps_cpp.hpp
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectory__rosidl_typesupport_fastrtps_cpp.hpp
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/lib/libagents_msgs__rosidl_typesupport_fastrtps_cpp.so
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent__rosidl_typesupport_introspection_c.h
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_array__type_support.c
+[0.990s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectory__rosidl_typesupport_introspection_c.h
+[0.991s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_array__rosidl_typesupport_introspection_c.h
+[0.991s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectory__type_support.c
+[0.992s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent__type_support.c
+[0.992s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectories__rosidl_typesupport_introspection_c.h
+[0.992s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectories__type_support.c
+[0.992s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/lib/libagents_msgs__rosidl_typesupport_introspection_c.so
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/lib/libagents_msgs__rosidl_typesupport_c.so
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectory__type_support.cpp
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent__rosidl_typesupport_introspection_cpp.hpp
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectories__rosidl_typesupport_introspection_cpp.hpp
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_array__rosidl_typesupport_introspection_cpp.hpp
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectories__type_support.cpp
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_trajectory__rosidl_typesupport_introspection_cpp.hpp
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent_array__type_support.cpp
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/include/agents_msgs/agents_msgs/msg/detail/agent__type_support.cpp
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/lib/libagents_msgs__rosidl_typesupport_introspection_cpp.so
+[0.994s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/lib/libagents_msgs__rosidl_typesupport_cpp.so
+[0.994s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/environment/pythonpath.sh
+[0.994s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/environment/pythonpath.dsv
+[0.994s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs-0.0.0-py3.10.egg-info
+[0.994s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs-0.0.0-py3.10.egg-info/dependency_links.txt
+[0.994s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs-0.0.0-py3.10.egg-info/SOURCES.txt
+[0.994s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs-0.0.0-py3.10.egg-info/PKG-INFO
+[0.994s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs-0.0.0-py3.10.egg-info/top_level.txt
+[0.994s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs
+[0.994s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/agents_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/_agents_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/msg
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/msg/_agent_trajectory.py
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/msg/_agent.py
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/msg/_agent_array.py
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/msg/_agent_array_s.c
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/msg/_agent_trajectories.py
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/msg/__init__.py
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/msg/_agent_trajectories_s.c
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/msg/_agent_s.c
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/msg/_agent_trajectory_s.c
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/agents_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/_agents_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/libagents_msgs__rosidl_generator_py.so
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/__init__.py
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/agents_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[0.997s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/_agents_msgs_s.ep.rosidl_typesupport_c.c
+[1.036s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs'...
+[1.036s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/msg'...
+[1.036s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/agents_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[1.036s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/agents_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[1.036s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/local/lib/python3.10/dist-packages/agents_msgs/agents_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[1.036s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/lib/libagents_msgs__rosidl_generator_py.so
+[1.036s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/msg/Agent.idl
+[1.036s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/msg/AgentArray.idl
+[1.036s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/msg/AgentTrajectory.idl
+[1.036s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/msg/AgentTrajectories.idl
+[1.038s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/msg/Agent.msg
+[1.039s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/msg/AgentArray.msg
+[1.039s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/msg/AgentTrajectory.msg
+[1.039s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/msg/AgentTrajectories.msg
+[1.039s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/bridge_mapping.yaml
+[1.039s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/ament_index/resource_index/package_run_dependencies/agents_msgs
+[1.039s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/ament_index/resource_index/parent_prefix_path/agents_msgs
+[1.040s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/environment/ament_prefix_path.sh
+[1.040s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/environment/ament_prefix_path.dsv
+[1.040s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/environment/path.sh
+[1.040s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/environment/path.dsv
+[1.040s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/local_setup.bash
+[1.040s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/local_setup.sh
+[1.040s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/local_setup.zsh
+[1.040s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/local_setup.dsv
+[1.040s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/package.dsv
+[1.040s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/ament_index/resource_index/packages/agents_msgs
+[1.041s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/export_agents_msgs__rosidl_generator_cExport.cmake
+[1.041s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/export_agents_msgs__rosidl_generator_cExport-release.cmake
+[1.042s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/export_agents_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[1.042s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/export_agents_msgs__rosidl_typesupport_fastrtps_cExport-release.cmake
+[1.042s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/export_agents_msgs__rosidl_generator_cppExport.cmake
+[1.042s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/export_agents_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[1.042s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/export_agents_msgs__rosidl_typesupport_fastrtps_cppExport-release.cmake
+[1.042s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/agents_msgs__rosidl_typesupport_introspection_cExport.cmake
+[1.042s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/agents_msgs__rosidl_typesupport_introspection_cExport-release.cmake
+[1.042s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/agents_msgs__rosidl_typesupport_cExport.cmake
+[1.042s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/agents_msgs__rosidl_typesupport_cExport-release.cmake
+[1.042s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/agents_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[1.042s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/agents_msgs__rosidl_typesupport_introspection_cppExport-release.cmake
+[1.042s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/agents_msgs__rosidl_typesupport_cppExport.cmake
+[1.043s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/agents_msgs__rosidl_typesupport_cppExport-release.cmake
+[1.043s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/export_agents_msgs__rosidl_generator_pyExport.cmake
+[1.043s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/export_agents_msgs__rosidl_generator_pyExport-release.cmake
+[1.043s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/rosidl_cmake-extras.cmake
+[1.043s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.043s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.043s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[1.043s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[1.043s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[1.043s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[1.044s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/agents_msgsConfig.cmake
+[1.044s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/cmake/agents_msgsConfig-version.cmake
+[1.045s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/package.xml
+[1.053s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs

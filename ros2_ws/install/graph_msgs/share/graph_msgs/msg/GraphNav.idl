@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from graph_msgs/msg/GraphNav.msg
+// generated code does not contain a copyright notice
+
+#include "graph_msgs/msg/GraphEdge.idl"
+#include "graph_msgs/msg/GraphNode.idl"
+#include "std_msgs/msg/Header.idl"
+
+module graph_msgs {
+  module msg {
+    struct GraphNav {
+      std_msgs::msg::Header header;
+
+      sequence<graph_msgs::msg::GraphEdge> edges;
+
+      sequence<graph_msgs::msg::GraphNode> nodes;
+    };
+  };
+};

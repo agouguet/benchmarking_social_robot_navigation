@@ -1,0 +1,10 @@
+/home/adam/Desktop/SBSN/ros2_ws/build/my_controller/CMakeFiles/uninstall.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/my_controller/CMakeFiles/my_controller_uninstall.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/my_controller/CMakeFiles/my_controller.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/my_controller/CMakeFiles/test.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/my_controller/CMakeFiles/edit_cache.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/my_controller/CMakeFiles/rebuild_cache.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/my_controller/CMakeFiles/list_install_components.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/my_controller/CMakeFiles/install.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/my_controller/CMakeFiles/install/local.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/my_controller/CMakeFiles/install/strip.dir

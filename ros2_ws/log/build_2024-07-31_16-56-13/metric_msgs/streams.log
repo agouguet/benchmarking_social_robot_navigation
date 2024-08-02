@@ -1,0 +1,267 @@
+[0.053s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake /home/adam/Desktop/SBSN/ros2_ws/src/msgs/metric_msgs -DCMAKE_INSTALL_PREFIX=/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs
+[0.308s] -- The C compiler identification is GNU 11.4.0
+[0.310s] -- The CXX compiler identification is GNU 11.4.0
+[0.319s] -- Detecting C compiler ABI info
+[0.382s] -- Detecting C compiler ABI info - done
+[0.397s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.398s] -- Detecting C compile features
+[0.398s] -- Detecting C compile features - done
+[0.404s] -- Detecting CXX compiler ABI info
+[0.467s] -- Detecting CXX compiler ABI info - done
+[0.484s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.484s] -- Detecting CXX compile features
+[0.485s] -- Detecting CXX compile features - done
+[0.485s] [0mmetric_msgs: You did not request a specific build type: Choosing 'Release' for maximum performance[0m
+[0.491s] -- Found ament_cmake: 1.3.9 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.599s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter
+[0.693s] -- Found std_msgs: 4.2.4 (/opt/ros/humble/share/std_msgs/cmake)
+[0.743s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.749s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.756s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.775s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.800s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.871s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.922s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[1.331s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[2.003s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.236s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.238s] [33mCMake Warning (dev) at /opt/ros/humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:20 (find_package):
+[2.238s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[2.238s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[2.238s]   the cmake_policy command to set the policy and suppress this warning.
+[2.239s] 
+[2.239s] Call Stack (most recent call first):
+[2.239s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[2.239s]   /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[2.239s]   CMakeLists.txt:42 (rosidl_generate_interfaces)
+[2.239s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[2.239s] [0m
+[2.261s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6")
+[2.262s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[2.262s] [33mCMake Warning (dev) at /opt/ros/humble/share/python_cmake_module/cmake/Modules/FindPythonExtra.cmake:52 (find_package):
+[2.262s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[2.263s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[2.263s]   the cmake_policy command to set the policy and suppress this warning.
+[2.263s] 
+[2.263s] Call Stack (most recent call first):
+[2.263s]   /opt/ros/humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:23 (find_package)
+[2.263s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[2.263s]   /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[2.263s]   CMakeLists.txt:42 (rosidl_generate_interfaces)
+[2.263s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[2.264s] [0m
+[2.281s] [33mCMake Warning (dev) at /opt/ros/humble/share/python_cmake_module/cmake/Modules/FindPythonExtra.cmake:140 (find_package):
+[2.281s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[2.281s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[2.282s]   the cmake_policy command to set the policy and suppress this warning.
+[2.282s] 
+[2.282s] Call Stack (most recent call first):
+[2.282s]   /opt/ros/humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:23 (find_package)
+[2.282s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[2.282s]   /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[2.283s]   CMakeLists.txt:42 (rosidl_generate_interfaces)
+[2.283s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[2.283s] [0m
+[2.287s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5")
+[2.287s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.287s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[2.287s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[2.303s] -- Found PythonExtra: .so
+[2.371s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.387s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.388s] -- Added test 'lint_cmake' to check CMake code style
+[2.389s] -- Added test 'xmllint' to check XML markup files
+[2.391s] -- Configuring done (2.3s)
+[2.429s] -- Generating done (0.0s)
+[2.430s] -- Build files have been written to: /home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs
+[2.447s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake /home/adam/Desktop/SBSN/ros2_ws/src/msgs/metric_msgs -DCMAKE_INSTALL_PREFIX=/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs
+[2.448s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs -- -j16 -l16
+[2.538s] [  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[2.541s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[2.544s] [  6%] Built target ament_cmake_python_copy_metric_msgs
+[2.837s] running egg_info
+[2.837s] creating metric_msgs.egg-info
+[2.838s] writing metric_msgs.egg-info/PKG-INFO
+[2.838s] writing dependency_links to metric_msgs.egg-info/dependency_links.txt
+[2.838s] writing top-level names to metric_msgs.egg-info/top_level.txt
+[2.838s] writing manifest file 'metric_msgs.egg-info/SOURCES.txt'
+[2.840s] reading manifest file 'metric_msgs.egg-info/SOURCES.txt'
+[2.840s] writing manifest file 'metric_msgs.egg-info/SOURCES.txt'
+[2.864s] [  6%] Built target ament_cmake_python_build_metric_msgs_egg
+[3.169s] [  6%] Built target metric_msgs__cpp
+[3.176s] [  9%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[3.179s] [ 12%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[3.183s] [ 16%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[3.280s] [ 19%] [32mBuilding C object CMakeFiles/metric_msgs__rosidl_generator_c.dir/rosidl_generator_c/metric_msgs/msg/detail/trial_info__functions.c.o[0m
+[3.596s] [ 22%] [32m[1mLinking C shared library libmetric_msgs__rosidl_generator_c.so[0m
+[3.730s] [ 22%] Built target metric_msgs__rosidl_generator_c
+[3.734s] [ 25%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[3.738s] [ 29%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[3.741s] [ 32%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[4.437s] [ 35%] [32mBuilding CXX object CMakeFiles/metric_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/metric_msgs/msg/detail/dds_fastrtps/trial_info__type_support.cpp.o[0m
+[4.611s] [ 38%] [32mBuilding CXX object CMakeFiles/metric_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/metric_msgs/msg/trial_info__type_support.cpp.o[0m
+[4.760s] [ 41%] [32mBuilding CXX object CMakeFiles/metric_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/metric_msgs/msg/detail/trial_info__type_support.cpp.o[0m
+[5.182s] [ 48%] [32m[1mLinking CXX shared library libmetric_msgs__rosidl_typesupport_cpp.so[0m
+[5.182s] [ 48%] [32mBuilding C object CMakeFiles/metric_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/metric_msgs/msg/detail/trial_info__type_support.c.o[0m
+[5.203s] [ 51%] [32mBuilding CXX object CMakeFiles/metric_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/metric_msgs/msg/trial_info__type_support.cpp.o[0m
+[5.217s] [ 51%] Built target metric_msgs__rosidl_typesupport_cpp
+[5.242s] [ 54%] [32m[1mLinking CXX shared library libmetric_msgs__rosidl_typesupport_c.so[0m
+[5.245s] [ 58%] [32m[1mLinking C shared library libmetric_msgs__rosidl_typesupport_introspection_c.so[0m
+[5.267s] [ 58%] Built target metric_msgs__rosidl_typesupport_introspection_c
+[5.280s] [ 58%] Built target metric_msgs__rosidl_typesupport_c
+[5.310s] [ 61%] [32m[1mLinking CXX shared library libmetric_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[5.312s] [ 64%] [32mBuilding CXX object CMakeFiles/metric_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/metric_msgs/msg/detail/trial_info__type_support_c.cpp.o[0m
+[5.419s] [ 64%] Built target metric_msgs__rosidl_typesupport_fastrtps_cpp
+[5.488s] [ 67%] [32m[1mLinking CXX shared library libmetric_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[5.652s] [ 67%] Built target metric_msgs__rosidl_typesupport_introspection_cpp
+[5.979s] [ 70%] [32m[1mLinking CXX shared library libmetric_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[6.101s] [ 70%] Built target metric_msgs__rosidl_typesupport_fastrtps_c
+[6.114s] [ 70%] Built target metric_msgs
+[6.126s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[6.878s] [ 74%] Built target metric_msgs__py
+[6.895s] [ 77%] [32mBuilding C object CMakeFiles/metric_msgs__rosidl_generator_py.dir/rosidl_generator_py/metric_msgs/msg/_trial_info_s.c.o[0m
+[7.068s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/metric_msgs/libmetric_msgs__rosidl_generator_py.so[0m
+[7.122s] [ 80%] Built target metric_msgs__rosidl_generator_py
+[7.139s] [ 83%] [32mBuilding C object CMakeFiles/metric_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/metric_msgs/_metric_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[7.139s] [ 87%] [32mBuilding C object CMakeFiles/metric_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/metric_msgs/_metric_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[7.143s] [ 90%] [32mBuilding C object CMakeFiles/metric_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/metric_msgs/_metric_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[7.238s] [ 93%] [32m[1mLinking C shared library rosidl_generator_py/metric_msgs/metric_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[7.260s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/metric_msgs/metric_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[7.263s] [100%] [32m[1mLinking C shared library rosidl_generator_py/metric_msgs/metric_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[7.267s] [100%] Built target metric_msgs__rosidl_typesupport_fastrtps_c__pyext
+[7.295s] [100%] Built target metric_msgs__rosidl_typesupport_introspection_c__pyext
+[7.296s] [100%] Built target metric_msgs__rosidl_typesupport_c__pyext
+[7.317s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs -- -j16 -l16
+[7.434s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs
+[7.522s] -- Install configuration: "Release"
+[7.522s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/ament_index/resource_index/rosidl_interfaces/metric_msgs
+[7.522s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs
+[7.523s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg
+[7.523s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/trial_info.h
+[7.523s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail
+[7.523s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__functions.c
+[7.524s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__functions.h
+[7.524s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__type_support.h
+[7.524s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__struct.h
+[7.524s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/rosidl_generator_c__visibility_control.h
+[7.524s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/library_path.sh
+[7.525s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/library_path.dsv
+[7.525s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_generator_c.so
+[7.525s] -- Set non-toolchain portion of runtime path of "/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_generator_c.so" to ""
+[7.526s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs
+[7.526s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg
+[7.526s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[7.526s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail
+[7.526s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__rosidl_typesupport_fastrtps_c.h
+[7.527s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_fastrtps_c.so
+[7.527s] -- Set non-toolchain portion of runtime path of "/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[7.527s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs
+[7.527s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg
+[7.527s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/trial_info.hpp
+[7.528s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail
+[7.528s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__builder.hpp
+[7.528s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__struct.hpp
+[7.528s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__traits.hpp
+[7.528s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs
+[7.528s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg
+[7.528s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[7.529s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail
+[7.529s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__rosidl_typesupport_fastrtps_cpp.hpp
+[7.529s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/dds_fastrtps
+[7.529s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_fastrtps_cpp.so
+[7.529s] -- Set non-toolchain portion of runtime path of "/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[7.529s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs
+[7.530s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg
+[7.530s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail
+[7.530s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__rosidl_typesupport_introspection_c.h
+[7.530s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__type_support.c
+[7.530s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[7.530s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_introspection_c.so
+[7.530s] -- Set non-toolchain portion of runtime path of "/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_introspection_c.so" to ""
+[7.531s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_c.so
+[7.531s] -- Set non-toolchain portion of runtime path of "/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_c.so" to ""
+[7.531s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs
+[7.531s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg
+[7.531s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail
+[7.531s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__rosidl_typesupport_introspection_cpp.hpp
+[7.531s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__type_support.cpp
+[7.532s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_introspection_cpp.so
+[7.532s] -- Set non-toolchain portion of runtime path of "/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[7.532s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_cpp.so
+[7.532s] -- Set non-toolchain portion of runtime path of "/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_cpp.so" to ""
+[7.532s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/pythonpath.sh
+[7.532s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/pythonpath.dsv
+[7.533s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs-0.0.0-py3.10.egg-info
+[7.533s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs-0.0.0-py3.10.egg-info/dependency_links.txt
+[7.533s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs-0.0.0-py3.10.egg-info/SOURCES.txt
+[7.533s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs-0.0.0-py3.10.egg-info/PKG-INFO
+[7.533s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs-0.0.0-py3.10.egg-info/top_level.txt
+[7.533s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs
+[7.533s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/msg
+[7.533s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/msg/__init__.py
+[7.534s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/msg/_trial_info_s.c
+[7.534s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/msg/_trial_info.py
+[7.534s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/_metric_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[7.534s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/metric_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[7.534s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/__init__.py
+[7.535s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/metric_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[7.535s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/_metric_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[7.535s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/_metric_msgs_s.ep.rosidl_typesupport_c.c
+[7.535s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/libmetric_msgs__rosidl_generator_py.so
+[7.535s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/metric_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[7.578s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs'...
+[7.578s] Compiling '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/__init__.py'...
+[7.578s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/msg'...
+[7.578s] Compiling '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/msg/__init__.py'...
+[7.578s] Compiling '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/msg/_trial_info.py'...
+[7.583s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/metric_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[7.583s] -- Set non-toolchain portion of runtime path of "/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/metric_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[7.584s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/metric_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[7.584s] -- Set non-toolchain portion of runtime path of "/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/metric_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[7.585s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/metric_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[7.585s] -- Set non-toolchain portion of runtime path of "/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/metric_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[7.585s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_generator_py.so
+[7.586s] -- Set non-toolchain portion of runtime path of "/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_generator_py.so" to ""
+[7.586s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/msg/TrialInfo.idl
+[7.586s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/msg/TrialInfo.msg
+[7.587s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/bridge_mapping.yaml
+[7.587s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/ament_index/resource_index/package_run_dependencies/metric_msgs
+[7.587s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/ament_index/resource_index/parent_prefix_path/metric_msgs
+[7.587s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/ament_prefix_path.sh
+[7.587s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/ament_prefix_path.dsv
+[7.588s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/path.sh
+[7.588s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/path.dsv
+[7.588s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/local_setup.bash
+[7.588s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/local_setup.sh
+[7.589s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/local_setup.zsh
+[7.589s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/local_setup.dsv
+[7.589s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/package.dsv
+[7.589s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/ament_index/resource_index/packages/metric_msgs
+[7.589s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_generator_cExport.cmake
+[7.590s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_generator_cExport-release.cmake
+[7.590s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[7.590s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_typesupport_fastrtps_cExport-release.cmake
+[7.590s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_generator_cppExport.cmake
+[7.591s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[7.591s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_typesupport_fastrtps_cppExport-release.cmake
+[7.591s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_introspection_cExport.cmake
+[7.591s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_introspection_cExport-release.cmake
+[7.591s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_cExport.cmake
+[7.592s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_cExport-release.cmake
+[7.592s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[7.592s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_introspection_cppExport-release.cmake
+[7.592s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_cppExport.cmake
+[7.592s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_cppExport-release.cmake
+[7.592s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_generator_pyExport.cmake
+[7.592s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_generator_pyExport-release.cmake
+[7.592s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/rosidl_cmake-extras.cmake
+[7.592s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[7.593s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[7.593s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[7.593s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[7.593s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[7.593s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[7.593s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgsConfig.cmake
+[7.593s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgsConfig-version.cmake
+[7.593s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/package.xml
+[7.611s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs

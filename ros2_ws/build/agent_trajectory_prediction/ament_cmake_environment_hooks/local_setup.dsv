@@ -1,0 +1,3 @@
+source;share/agent_trajectory_prediction/environment/ament_prefix_path.sh
+source;share/agent_trajectory_prediction/environment/path.sh
+source;share/agent_trajectory_prediction/environment/pythonpath.sh

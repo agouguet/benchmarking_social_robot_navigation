@@ -1,0 +1,41 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from simulation_msgs/msg/TrialStart.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+#include "geometry_msgs/msg/PoseArray.idl"
+#include "std_msgs/msg/Header.idl"
+
+module simulation_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "Message containing the parameters to start an A-B navigation trial")
+    struct TrialStart {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "Which trial name are we running")
+      string trial_name;
+
+      @verbatim (language="comment", text=
+        "Which trial number are we running")
+      uint16 trial_number;
+
+      @verbatim (language="comment", text=
+        "Robot spawn position")
+      geometry_msgs::msg::Pose spawn;
+
+      @verbatim (language="comment", text=
+        "Robot target position")
+      geometry_msgs::msg::Pose target;
+
+      @verbatim (language="comment", text=
+        "People spawn positions")
+      geometry_msgs::msg::PoseArray people;
+
+      @verbatim (language="comment", text=
+        "Time limit for the trial (in seconds)")
+      double time_limit;
+    };
+  };
+};

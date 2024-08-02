@@ -1,0 +1,4 @@
+source;share/graph_msgs/local_setup.bash
+source;share/graph_msgs/local_setup.dsv
+source;share/graph_msgs/local_setup.sh
+source;share/graph_msgs/local_setup.zsh

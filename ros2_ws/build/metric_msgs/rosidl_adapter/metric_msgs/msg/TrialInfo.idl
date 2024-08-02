@@ -1,0 +1,119 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from metric_msgs/msg/TrialInfo.msg
+// generated code does not contain a copyright notice
+
+#include "builtin_interfaces/msg/Time.idl"
+#include "geometry_msgs/msg/Pose.idl"
+#include "std_msgs/msg/Header.idl"
+
+module metric_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "Message containing the information of running a single A-B navigation trial")
+    struct TrialInfo {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "Information about the current interaction" "\n"
+        "When did we start tracking metrics for this trial")
+      builtin_interfaces::msg::Time trial_start;
+
+      @verbatim (language="comment", text=
+        "How long is allowed for the episode have to complete?")
+      double timeout_time;
+
+      @verbatim (language="comment", text=
+        "Which trial name are we running")
+      string trial_name;
+
+      @verbatim (language="comment", text=
+        "Which trial number are we running")
+      uint16 trial_number;
+
+      @verbatim (language="comment", text=
+        "How many people in the scene?")
+      uint32 num_actors;
+
+      @verbatim (language="comment", text=
+        "Robot start / goal locations")
+      geometry_msgs::msg::Pose robot_start;
+
+      geometry_msgs::msg::Pose robot_goal;
+
+      @verbatim (language="comment", text=
+        "Robot location / distance relative to start / goal" "\n"
+        "Current distance to target")
+      double dist_to_target;
+
+      @verbatim (language="comment", text=
+        "Closest difference to the target the robot has come")
+      double min_dist_to_target;
+
+      @verbatim (language="comment", text=
+        "Poses of the robot over the episode")
+      sequence<geometry_msgs::msg::Pose> robot_poses;
+
+      @verbatim (language="comment", text=
+        "Timestamps of the robot poses over the episode")
+      sequence<builtin_interfaces::msg::Time> robot_poses_ts;
+
+      @verbatim (language="comment", text=
+        "Robot location relative to pedestrians" "\n"
+        "Minimum distance to any pedestrian throughout the trial")
+      double min_dist_to_ped;
+
+      @verbatim (language="comment", text=
+        "Collisions between robots and people" "\n"
+        "Robot passes w/in the intimate distance of a pedestrian")
+      uint32 robot_on_person_intimate_dist_violations;
+
+      @verbatim (language="comment", text=
+        "A person passes w/in the intimate distance of the robot")
+      uint32 person_on_robot_intimate_dist_violations;
+
+      @verbatim (language="comment", text=
+        "Robot passes w/in the personal distance of a pedestrian")
+      uint32 robot_on_person_personal_dist_violations;
+
+      @verbatim (language="comment", text=
+        "A person passes w/in the personal distance of the robot")
+      uint32 person_on_robot_personal_dist_violations;
+
+      @verbatim (language="comment", text=
+        "Number of times that the robot collided with a person")
+      uint32 robot_on_person_collisions;
+
+      @verbatim (language="comment", text=
+        "Number of times that a person collided with the robot")
+      uint32 person_on_robot_collisions;
+
+      @verbatim (language="comment", text=
+        "Collisions w/ static objects" "\n"
+        "Number of times that the robot collided with a static object")
+      uint32 obj_collisions;
+
+      @verbatim (language="comment", text=
+        " Computed post-hoc" "\n"
+        "bool                     completed                                      # was the robots finals distance to the goal within the desired distance?" "\n"
+        "float64                  targ_dist_norm                                 # dist_to_target normalized by path length" "\n"
+        " Approximate distance traveled by robot")
+      double path_length;
+
+      @verbatim (language="comment", text=
+        "float64                  mean_dist_to_target_not_moving                 # How far away from the target was the robot while not moving" "\n"
+        "bool                     episode_timed_out")
+      double path_irregularity;
+
+      @verbatim (language="comment", text=
+        "float64                  path_efficiency" "\n"
+        " Seconds the robot was not moving. Computed by checking if the robot moved more than 0.05m since a check the last 1s ago. If not, accumulate the time since the last check.")
+      double time_not_moving;
+
+      double time_in_personal_space;
+
+      double minimum_time_to_collision;
+
+      double movement_jerk;
+    };
+  };
+};

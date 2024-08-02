@@ -1,0 +1,6 @@
+Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake /home/adam/Desktop/SBSN/ros2_ws/src/msgs/graph_msgs -DCMAKE_INSTALL_PREFIX=/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs
+Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake /home/adam/Desktop/SBSN/ros2_ws/src/msgs/graph_msgs -DCMAKE_INSTALL_PREFIX=/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs
+Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs -- -j16 -l16
+Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs -- -j16 -l16
+Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs
+Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs

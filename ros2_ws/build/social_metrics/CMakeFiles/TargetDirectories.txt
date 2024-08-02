@@ -1,0 +1,11 @@
+/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics/CMakeFiles/uninstall.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics/CMakeFiles/social_metrics_uninstall.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics/CMakeFiles/ament_cmake_python_copy_social_metrics.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics/CMakeFiles/ament_cmake_python_build_social_metrics_egg.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics/CMakeFiles/test.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics/CMakeFiles/edit_cache.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics/CMakeFiles/rebuild_cache.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics/CMakeFiles/list_install_components.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics/CMakeFiles/install.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics/CMakeFiles/install/local.dir
+/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics/CMakeFiles/install/strip.dir

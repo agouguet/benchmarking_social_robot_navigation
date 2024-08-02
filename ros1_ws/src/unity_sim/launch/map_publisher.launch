@@ -1,4 +1,0 @@
-<launch>
-  <node pkg="unity_sim" name="map_publisher" type="map_publisher.py" output="screen" />
-</launch>
-

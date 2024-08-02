@@ -1,0 +1,6 @@
+msg/GraphEdge.idl
+msg/GraphEdge.msg
+msg/GraphNav.idl
+msg/GraphNav.msg
+msg/GraphNode.idl
+msg/GraphNode.msg

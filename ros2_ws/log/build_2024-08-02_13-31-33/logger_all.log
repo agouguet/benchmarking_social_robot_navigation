@@ -1,0 +1,831 @@
+[0.104s] DEBUG:colcon:Command line arguments: ['/home/adam/.local/bin/colcon', 'build']
+[0.104s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7318f35bb310>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7318f38e3e20>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7318f38e3e20>>)
+[0.283s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.284s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.284s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.284s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.284s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.284s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.284s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/adam/Desktop/SBSN/ros2_ws'
+[0.284s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.284s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.284s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.284s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.284s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.284s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.284s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.284s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.284s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.293s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/MBSN) by extensions ['ignore', 'ignore_ament_install']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/MBSN) by extension 'ignore'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/MBSN) by extension 'ignore_ament_install'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/MBSN) by extensions ['colcon_pkg']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/MBSN) by extension 'colcon_pkg'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/MBSN) by extensions ['colcon_meta']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/MBSN) by extension 'colcon_meta'
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/MBSN) by extensions ['ros']
+[0.294s] Level 1:colcon.colcon_core.package_identification:_identify(src/MBSN) by extension 'ros'
+[0.296s] DEBUG:colcon.colcon_core.package_identification:Package 'src/MBSN' with type 'ros.ament_cmake' and name 'mbsn'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extensions ['ignore', 'ignore_ament_install']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extension 'ignore'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extension 'ignore_ament_install'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extensions ['colcon_pkg']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extension 'colcon_pkg'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extensions ['colcon_meta']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extension 'colcon_meta'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extensions ['ros']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extension 'ros'
+[0.297s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ROS-TCP-Endpoint' with type 'ros.ament_python' and name 'ros_tcp_endpoint'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(src/agent_trajectory_prediction) by extensions ['ignore', 'ignore_ament_install']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(src/agent_trajectory_prediction) by extension 'ignore'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(src/agent_trajectory_prediction) by extension 'ignore_ament_install'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(src/agent_trajectory_prediction) by extensions ['colcon_pkg']
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(src/agent_trajectory_prediction) by extension 'colcon_pkg'
+[0.297s] Level 1:colcon.colcon_core.package_identification:_identify(src/agent_trajectory_prediction) by extensions ['colcon_meta']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/agent_trajectory_prediction) by extension 'colcon_meta'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/agent_trajectory_prediction) by extensions ['ros']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/agent_trajectory_prediction) by extension 'ros'
+[0.298s] DEBUG:colcon.colcon_core.package_identification:Package 'src/agent_trajectory_prediction' with type 'ros.ament_cmake' and name 'agent_trajectory_prediction'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/assets) by extensions ['ignore', 'ignore_ament_install']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/assets) by extension 'ignore'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/assets) by extension 'ignore_ament_install'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/assets) by extensions ['colcon_pkg']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/assets) by extension 'colcon_pkg'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/assets) by extensions ['colcon_meta']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/assets) by extension 'colcon_meta'
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/assets) by extensions ['ros']
+[0.298s] Level 1:colcon.colcon_core.package_identification:_identify(src/assets) by extension 'ros'
+[0.299s] DEBUG:colcon.colcon_core.package_identification:Package 'src/assets' with type 'ros.ament_cmake' and name 'assets'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs) by extension 'ignore'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs) by extension 'ignore_ament_install'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs) by extensions ['colcon_pkg']
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs) by extension 'colcon_pkg'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs) by extensions ['colcon_meta']
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs) by extension 'colcon_meta'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs) by extensions ['ros']
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs) by extension 'ros'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs) by extensions ['cmake', 'python']
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs) by extension 'cmake'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs) by extension 'python'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs) by extensions ['python_setup_py']
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs) by extension 'python_setup_py'
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/agents_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.299s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/agents_msgs) by extension 'ignore'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/agents_msgs) by extension 'ignore_ament_install'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/agents_msgs) by extensions ['colcon_pkg']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/agents_msgs) by extension 'colcon_pkg'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/agents_msgs) by extensions ['colcon_meta']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/agents_msgs) by extension 'colcon_meta'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/agents_msgs) by extensions ['ros']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/agents_msgs) by extension 'ros'
+[0.300s] DEBUG:colcon.colcon_core.package_identification:Package 'src/msgs/agents_msgs' with type 'ros.ament_cmake' and name 'agents_msgs'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/graph_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/graph_msgs) by extension 'ignore'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/graph_msgs) by extension 'ignore_ament_install'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/graph_msgs) by extensions ['colcon_pkg']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/graph_msgs) by extension 'colcon_pkg'
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/graph_msgs) by extensions ['colcon_meta']
+[0.300s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/graph_msgs) by extension 'colcon_meta'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/graph_msgs) by extensions ['ros']
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/graph_msgs) by extension 'ros'
+[0.301s] DEBUG:colcon.colcon_core.package_identification:Package 'src/msgs/graph_msgs' with type 'ros.ament_cmake' and name 'graph_msgs'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/metric_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/metric_msgs) by extension 'ignore'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/metric_msgs) by extension 'ignore_ament_install'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/metric_msgs) by extensions ['colcon_pkg']
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/metric_msgs) by extension 'colcon_pkg'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/metric_msgs) by extensions ['colcon_meta']
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/metric_msgs) by extension 'colcon_meta'
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/metric_msgs) by extensions ['ros']
+[0.301s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/metric_msgs) by extension 'ros'
+[0.302s] DEBUG:colcon.colcon_core.package_identification:Package 'src/msgs/metric_msgs' with type 'ros.ament_cmake' and name 'metric_msgs'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/simulation_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/simulation_msgs) by extension 'ignore'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/simulation_msgs) by extension 'ignore_ament_install'
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/simulation_msgs) by extensions ['colcon_pkg']
+[0.302s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/simulation_msgs) by extension 'colcon_pkg'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/simulation_msgs) by extensions ['colcon_meta']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/simulation_msgs) by extension 'colcon_meta'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/simulation_msgs) by extensions ['ros']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(src/msgs/simulation_msgs) by extension 'ros'
+[0.304s] DEBUG:colcon.colcon_core.package_identification:Package 'src/msgs/simulation_msgs' with type 'ros.ament_cmake' and name 'simulation_msgs'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller) by extension 'ignore'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller) by extension 'ignore_ament_install'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller) by extensions ['colcon_pkg']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller) by extension 'colcon_pkg'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller) by extensions ['colcon_meta']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller) by extension 'colcon_meta'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller) by extensions ['ros']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller) by extension 'ros'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller) by extensions ['cmake', 'python']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller) by extension 'cmake'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller) by extension 'python'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller) by extensions ['python_setup_py']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller) by extension 'python_setup_py'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller/my_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller/my_controller) by extension 'ignore'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller/my_controller) by extension 'ignore_ament_install'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller/my_controller) by extensions ['colcon_pkg']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller/my_controller) by extension 'colcon_pkg'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller/my_controller) by extensions ['colcon_meta']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller/my_controller) by extension 'colcon_meta'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller/my_controller) by extensions ['ros']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(src/nav2_my_controller/my_controller) by extension 'ros'
+[0.307s] DEBUG:colcon.colcon_core.package_identification:Package 'src/nav2_my_controller/my_controller' with type 'ros.ament_cmake' and name 'my_controller'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/social_metrics) by extensions ['ignore', 'ignore_ament_install']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/social_metrics) by extension 'ignore'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/social_metrics) by extension 'ignore_ament_install'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(src/social_metrics) by extensions ['colcon_pkg']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/social_metrics) by extension 'colcon_pkg'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/social_metrics) by extensions ['colcon_meta']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/social_metrics) by extension 'colcon_meta'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/social_metrics) by extensions ['ros']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/social_metrics) by extension 'ros'
+[0.308s] DEBUG:colcon.colcon_core.package_identification:Package 'src/social_metrics' with type 'ros.ament_cmake' and name 'social_metrics'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(src/unity_sim) by extensions ['ignore', 'ignore_ament_install']
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(src/unity_sim) by extension 'ignore'
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(src/unity_sim) by extension 'ignore_ament_install'
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(src/unity_sim) by extensions ['colcon_pkg']
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(src/unity_sim) by extension 'colcon_pkg'
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(src/unity_sim) by extensions ['colcon_meta']
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(src/unity_sim) by extension 'colcon_meta'
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(src/unity_sim) by extensions ['ros']
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(src/unity_sim) by extension 'ros'
+[0.309s] DEBUG:colcon.colcon_core.package_identification:Package 'src/unity_sim' with type 'ros.ament_cmake' and name 'unity_sim'
+[0.309s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.309s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.309s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.309s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.309s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.337s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.337s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.339s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 337 installed packages in /opt/ros/humble
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agent_trajectory_prediction' build argument 'cmake_args' from command line to 'None'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agent_trajectory_prediction' build argument 'cmake_target' from command line to 'None'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agent_trajectory_prediction' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agent_trajectory_prediction' build argument 'cmake_clean_cache' from command line to 'False'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agent_trajectory_prediction' build argument 'cmake_clean_first' from command line to 'False'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agent_trajectory_prediction' build argument 'cmake_force_configure' from command line to 'False'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agent_trajectory_prediction' build argument 'ament_cmake_args' from command line to 'None'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agent_trajectory_prediction' build argument 'catkin_cmake_args' from command line to 'None'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agent_trajectory_prediction' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.383s] DEBUG:colcon.colcon_core.verb:Building package 'agent_trajectory_prediction' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction', 'merge_install': False, 'path': '/home/adam/Desktop/SBSN/ros2_ws/src/agent_trajectory_prediction', 'symlink_install': False, 'test_result_base': None}
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agents_msgs' build argument 'cmake_args' from command line to 'None'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agents_msgs' build argument 'cmake_target' from command line to 'None'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agents_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agents_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agents_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agents_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agents_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agents_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.383s] Level 5:colcon.colcon_core.verb:set package 'agents_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.383s] DEBUG:colcon.colcon_core.verb:Building package 'agents_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs', 'merge_install': False, 'path': '/home/adam/Desktop/SBSN/ros2_ws/src/msgs/agents_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'assets' build argument 'cmake_args' from command line to 'None'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'assets' build argument 'cmake_target' from command line to 'None'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'assets' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'assets' build argument 'cmake_clean_cache' from command line to 'False'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'assets' build argument 'cmake_clean_first' from command line to 'False'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'assets' build argument 'cmake_force_configure' from command line to 'False'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'assets' build argument 'ament_cmake_args' from command line to 'None'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'assets' build argument 'catkin_cmake_args' from command line to 'None'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'assets' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.384s] DEBUG:colcon.colcon_core.verb:Building package 'assets' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/adam/Desktop/SBSN/ros2_ws/build/assets', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/adam/Desktop/SBSN/ros2_ws/install/assets', 'merge_install': False, 'path': '/home/adam/Desktop/SBSN/ros2_ws/src/assets', 'symlink_install': False, 'test_result_base': None}
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'graph_msgs' build argument 'cmake_args' from command line to 'None'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'graph_msgs' build argument 'cmake_target' from command line to 'None'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'graph_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'graph_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'graph_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'graph_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'graph_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'graph_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'graph_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.384s] DEBUG:colcon.colcon_core.verb:Building package 'graph_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs', 'merge_install': False, 'path': '/home/adam/Desktop/SBSN/ros2_ws/src/msgs/graph_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'mbsn' build argument 'cmake_args' from command line to 'None'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'mbsn' build argument 'cmake_target' from command line to 'None'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'mbsn' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'mbsn' build argument 'cmake_clean_cache' from command line to 'False'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'mbsn' build argument 'cmake_clean_first' from command line to 'False'
+[0.384s] Level 5:colcon.colcon_core.verb:set package 'mbsn' build argument 'cmake_force_configure' from command line to 'False'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'mbsn' build argument 'ament_cmake_args' from command line to 'None'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'mbsn' build argument 'catkin_cmake_args' from command line to 'None'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'mbsn' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.385s] DEBUG:colcon.colcon_core.verb:Building package 'mbsn' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/adam/Desktop/SBSN/ros2_ws/build/mbsn', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn', 'merge_install': False, 'path': '/home/adam/Desktop/SBSN/ros2_ws/src/MBSN', 'symlink_install': False, 'test_result_base': None}
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'metric_msgs' build argument 'cmake_args' from command line to 'None'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'metric_msgs' build argument 'cmake_target' from command line to 'None'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'metric_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'metric_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'metric_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'metric_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'metric_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'metric_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'metric_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.385s] DEBUG:colcon.colcon_core.verb:Building package 'metric_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs', 'merge_install': False, 'path': '/home/adam/Desktop/SBSN/ros2_ws/src/msgs/metric_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'my_controller' build argument 'cmake_args' from command line to 'None'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'my_controller' build argument 'cmake_target' from command line to 'None'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'my_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'my_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'my_controller' build argument 'cmake_clean_first' from command line to 'False'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'my_controller' build argument 'cmake_force_configure' from command line to 'False'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'my_controller' build argument 'ament_cmake_args' from command line to 'None'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'my_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[0.385s] Level 5:colcon.colcon_core.verb:set package 'my_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.385s] DEBUG:colcon.colcon_core.verb:Building package 'my_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/adam/Desktop/SBSN/ros2_ws/build/my_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller', 'merge_install': False, 'path': '/home/adam/Desktop/SBSN/ros2_ws/src/nav2_my_controller/my_controller', 'symlink_install': False, 'test_result_base': None}
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_args' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_target' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_clean_cache' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_clean_first' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_force_configure' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'ament_cmake_args' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'catkin_cmake_args' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.386s] DEBUG:colcon.colcon_core.verb:Building package 'ros_tcp_endpoint' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/adam/Desktop/SBSN/ros2_ws/build/ros_tcp_endpoint', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint', 'merge_install': False, 'path': '/home/adam/Desktop/SBSN/ros2_ws/src/ROS-TCP-Endpoint', 'symlink_install': False, 'test_result_base': None}
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'simulation_msgs' build argument 'cmake_args' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'simulation_msgs' build argument 'cmake_target' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'simulation_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'simulation_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'simulation_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'simulation_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'simulation_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'simulation_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'simulation_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.386s] DEBUG:colcon.colcon_core.verb:Building package 'simulation_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs', 'merge_install': False, 'path': '/home/adam/Desktop/SBSN/ros2_ws/src/msgs/simulation_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'social_metrics' build argument 'cmake_args' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'social_metrics' build argument 'cmake_target' from command line to 'None'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'social_metrics' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.386s] Level 5:colcon.colcon_core.verb:set package 'social_metrics' build argument 'cmake_clean_cache' from command line to 'False'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'social_metrics' build argument 'cmake_clean_first' from command line to 'False'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'social_metrics' build argument 'cmake_force_configure' from command line to 'False'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'social_metrics' build argument 'ament_cmake_args' from command line to 'None'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'social_metrics' build argument 'catkin_cmake_args' from command line to 'None'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'social_metrics' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.387s] DEBUG:colcon.colcon_core.verb:Building package 'social_metrics' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics', 'merge_install': False, 'path': '/home/adam/Desktop/SBSN/ros2_ws/src/social_metrics', 'symlink_install': False, 'test_result_base': None}
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'unity_sim' build argument 'cmake_args' from command line to 'None'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'unity_sim' build argument 'cmake_target' from command line to 'None'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'unity_sim' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'unity_sim' build argument 'cmake_clean_cache' from command line to 'False'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'unity_sim' build argument 'cmake_clean_first' from command line to 'False'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'unity_sim' build argument 'cmake_force_configure' from command line to 'False'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'unity_sim' build argument 'ament_cmake_args' from command line to 'None'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'unity_sim' build argument 'catkin_cmake_args' from command line to 'None'
+[0.387s] Level 5:colcon.colcon_core.verb:set package 'unity_sim' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.387s] DEBUG:colcon.colcon_core.verb:Building package 'unity_sim' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/adam/Desktop/SBSN/ros2_ws/build/unity_sim', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim', 'merge_install': False, 'path': '/home/adam/Desktop/SBSN/ros2_ws/src/unity_sim', 'symlink_install': False, 'test_result_base': None}
+[0.387s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.388s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.389s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/adam/Desktop/SBSN/ros2_ws/src/agent_trajectory_prediction' with build type 'ament_cmake'
+[0.389s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/adam/Desktop/SBSN/ros2_ws/src/agent_trajectory_prediction'
+[0.392s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.392s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.392s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.397s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/adam/Desktop/SBSN/ros2_ws/src/msgs/agents_msgs' with build type 'ament_cmake'
+[0.398s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/adam/Desktop/SBSN/ros2_ws/src/msgs/agents_msgs'
+[0.398s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.398s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.400s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/adam/Desktop/SBSN/ros2_ws/src/assets' with build type 'ament_cmake'
+[0.401s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/adam/Desktop/SBSN/ros2_ws/src/assets'
+[0.401s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.401s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.403s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/adam/Desktop/SBSN/ros2_ws/src/msgs/graph_msgs' with build type 'ament_cmake'
+[0.403s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/adam/Desktop/SBSN/ros2_ws/src/msgs/graph_msgs'
+[0.403s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.403s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.406s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/adam/Desktop/SBSN/ros2_ws/src/MBSN' with build type 'ament_cmake'
+[0.406s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/adam/Desktop/SBSN/ros2_ws/src/MBSN'
+[0.406s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.407s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.410s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/adam/Desktop/SBSN/ros2_ws/src/msgs/metric_msgs' with build type 'ament_cmake'
+[0.410s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/adam/Desktop/SBSN/ros2_ws/src/msgs/metric_msgs'
+[0.410s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.410s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.413s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/adam/Desktop/SBSN/ros2_ws/src/nav2_my_controller/my_controller' with build type 'ament_cmake'
+[0.413s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/adam/Desktop/SBSN/ros2_ws/src/nav2_my_controller/my_controller'
+[0.413s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.413s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.415s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/adam/Desktop/SBSN/ros2_ws/src/ROS-TCP-Endpoint' with build type 'ament_python'
+[0.416s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_tcp_endpoint', 'ament_prefix_path')
+[0.416s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/ament_prefix_path.ps1'
+[0.417s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/ament_prefix_path.dsv'
+[0.417s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/ament_prefix_path.sh'
+[0.418s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.418s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.422s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/adam/Desktop/SBSN/ros2_ws/src/msgs/simulation_msgs' with build type 'ament_cmake'
+[0.422s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/adam/Desktop/SBSN/ros2_ws/src/msgs/simulation_msgs'
+[0.423s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.423s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.427s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/adam/Desktop/SBSN/ros2_ws/src/social_metrics' with build type 'ament_cmake'
+[0.427s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/adam/Desktop/SBSN/ros2_ws/src/social_metrics'
+[0.428s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.428s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.431s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/adam/Desktop/SBSN/ros2_ws/src/unity_sim' with build type 'ament_cmake'
+[0.431s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/adam/Desktop/SBSN/ros2_ws/src/unity_sim'
+[0.432s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.432s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.444s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction -- -j16 -l16
+[0.448s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs -- -j16 -l16
+[0.451s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/assets': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/assets -- -j16 -l16
+[0.455s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs -- -j16 -l16
+[0.462s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/mbsn': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/mbsn -- -j16 -l16
+[0.469s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs -- -j16 -l16
+[0.476s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/my_controller': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/my_controller -- -j16 -l16
+[0.730s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/adam/Desktop/SBSN/ros2_ws/src/ROS-TCP-Endpoint'
+[0.730s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.730s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.736s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs -- -j16 -l16
+[0.739s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/social_metrics -- -j16 -l16
+[0.754s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/unity_sim': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/unity_sim -- -j16 -l16
+[0.755s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/assets' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/assets -- -j16 -l16
+[0.757s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/my_controller' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/my_controller -- -j16 -l16
+[0.819s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction -- -j16 -l16
+[0.838s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs -- -j16 -l16
+[0.853s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/mbsn' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/mbsn -- -j16 -l16
+[0.857s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs -- -j16 -l16
+[0.958s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/my_controller': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/my_controller
+[0.961s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/assets': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/assets
+[0.963s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction
+[0.964s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/mbsn': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/mbsn
+[0.966s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs -- -j16 -l16
+[1.020s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs
+[1.043s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(assets)
+[1.044s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/assets' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/assets
+[1.053s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/assets' for CMake module files
+[1.057s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/assets' for CMake config files
+[1.058s] Level 1:colcon.colcon_core.shell:create_environment_hook('assets', 'cmake_prefix_path')
+[1.058s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/hook/cmake_prefix_path.ps1'
+[1.058s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/hook/cmake_prefix_path.dsv'
+[1.059s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/hook/cmake_prefix_path.sh'
+[1.060s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/assets/bin'
+[1.060s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/assets/lib/pkgconfig/assets.pc'
+[1.060s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/assets/lib/python3.10/site-packages'
+[1.060s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/assets/bin'
+[1.060s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/package.ps1'
+[1.061s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/package.dsv'
+[1.062s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/package.sh'
+[1.063s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/package.bash'
+[1.063s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/package.zsh'
+[1.064s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/colcon-core/packages/assets)
+[1.068s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs
+[1.068s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(my_controller)
+[1.069s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller' for CMake module files
+[1.070s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/my_controller' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/my_controller
+[1.070s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller' for CMake config files
+[1.070s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_controller', 'cmake_prefix_path')
+[1.071s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/hook/cmake_prefix_path.ps1'
+[1.071s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/hook/cmake_prefix_path.dsv'
+[1.072s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/hook/cmake_prefix_path.sh'
+[1.072s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/lib'
+[1.072s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_controller', 'ld_library_path_lib')
+[1.073s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/hook/ld_library_path_lib.ps1'
+[1.073s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/hook/ld_library_path_lib.dsv'
+[1.073s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/hook/ld_library_path_lib.sh'
+[1.074s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/bin'
+[1.074s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/lib/pkgconfig/my_controller.pc'
+[1.074s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/lib/python3.10/site-packages'
+[1.075s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/bin'
+[1.075s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/package.ps1'
+[1.077s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/package.dsv'
+[1.078s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/package.sh'
+[1.078s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/package.bash'
+[1.079s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/package.zsh'
+[1.081s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/colcon-core/packages/my_controller)
+[1.093s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mbsn)
+[1.093s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn' for CMake module files
+[1.094s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn' for CMake config files
+[1.095s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/mbsn' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/mbsn
+[1.095s] Level 1:colcon.colcon_core.shell:create_environment_hook('mbsn', 'cmake_prefix_path')
+[1.096s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/hook/cmake_prefix_path.ps1'
+[1.096s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/hook/cmake_prefix_path.dsv'
+[1.097s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/hook/cmake_prefix_path.sh'
+[1.097s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/lib'
+[1.097s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/bin'
+[1.097s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/lib/pkgconfig/mbsn.pc'
+[1.098s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/lib/python3.10/site-packages'
+[1.098s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/bin'
+[1.098s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/package.ps1'
+[1.099s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/package.dsv'
+[1.099s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/package.sh'
+[1.100s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/package.bash'
+[1.100s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/package.zsh'
+[1.100s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/colcon-core/packages/mbsn)
+[1.103s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(agent_trajectory_prediction)
+[1.103s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction' for CMake module files
+[1.104s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/agent_trajectory_prediction
+[1.105s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction' for CMake config files
+[1.105s] Level 1:colcon.colcon_core.shell:create_environment_hook('agent_trajectory_prediction', 'cmake_prefix_path')
+[1.105s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/hook/cmake_prefix_path.ps1'
+[1.106s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/hook/cmake_prefix_path.dsv'
+[1.106s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/hook/cmake_prefix_path.sh'
+[1.107s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/lib'
+[1.107s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/bin'
+[1.107s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/lib/pkgconfig/agent_trajectory_prediction.pc'
+[1.107s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/lib/python3.10/site-packages'
+[1.108s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/bin'
+[1.108s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/package.ps1'
+[1.111s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/package.dsv'
+[1.112s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/package.sh'
+[1.116s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/package.bash'
+[1.119s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/package.zsh'
+[1.120s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/colcon-core/packages/agent_trajectory_prediction)
+[1.123s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs
+[1.166s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/social_metrics -- -j16 -l16
+[1.174s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(graph_msgs)
+[1.174s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs' for CMake module files
+[1.175s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/graph_msgs
+[1.175s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs' for CMake config files
+[1.177s] Level 1:colcon.colcon_core.shell:create_environment_hook('graph_msgs', 'cmake_prefix_path')
+[1.177s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/hook/cmake_prefix_path.ps1'
+[1.178s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/hook/cmake_prefix_path.dsv'
+[1.178s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/hook/cmake_prefix_path.sh'
+[1.179s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/lib'
+[1.179s] Level 1:colcon.colcon_core.shell:create_environment_hook('graph_msgs', 'ld_library_path_lib')
+[1.179s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/hook/ld_library_path_lib.ps1'
+[1.179s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/hook/ld_library_path_lib.dsv'
+[1.180s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/hook/ld_library_path_lib.sh'
+[1.180s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/bin'
+[1.180s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/lib/pkgconfig/graph_msgs.pc'
+[1.181s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/lib/python3.10/site-packages'
+[1.181s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/bin'
+[1.181s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/package.ps1'
+[1.183s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/package.dsv'
+[1.185s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/package.sh'
+[1.187s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/package.bash'
+[1.189s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/package.zsh'
+[1.189s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/colcon-core/packages/graph_msgs)
+[1.191s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(assets)
+[1.192s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/assets' for CMake module files
+[1.192s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/assets' for CMake config files
+[1.193s] Level 1:colcon.colcon_core.shell:create_environment_hook('assets', 'cmake_prefix_path')
+[1.193s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/hook/cmake_prefix_path.ps1'
+[1.194s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/hook/cmake_prefix_path.dsv'
+[1.194s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/hook/cmake_prefix_path.sh'
+[1.195s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/assets/bin'
+[1.195s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/assets/lib/pkgconfig/assets.pc'
+[1.195s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/assets/lib/python3.10/site-packages'
+[1.195s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/assets/bin'
+[1.196s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/package.ps1'
+[1.196s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/package.dsv'
+[1.197s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/package.sh'
+[1.197s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/package.bash'
+[1.198s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/assets/package.zsh'
+[1.198s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/assets/share/colcon-core/packages/assets)
+[1.198s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(my_controller)
+[1.199s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller' for CMake module files
+[1.199s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller' for CMake config files
+[1.200s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_controller', 'cmake_prefix_path')
+[1.200s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/hook/cmake_prefix_path.ps1'
+[1.200s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/hook/cmake_prefix_path.dsv'
+[1.200s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/hook/cmake_prefix_path.sh'
+[1.201s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/lib'
+[1.201s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_controller', 'ld_library_path_lib')
+[1.201s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/hook/ld_library_path_lib.ps1'
+[1.201s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/hook/ld_library_path_lib.dsv'
+[1.202s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/hook/ld_library_path_lib.sh'
+[1.202s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/bin'
+[1.202s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/lib/pkgconfig/my_controller.pc'
+[1.202s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/lib/python3.10/site-packages'
+[1.202s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/bin'
+[1.203s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/package.ps1'
+[1.203s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/package.dsv'
+[1.203s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/package.sh'
+[1.204s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/package.bash'
+[1.204s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/package.zsh'
+[1.204s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/colcon-core/packages/my_controller)
+[1.207s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/unity_sim' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/unity_sim -- -j16 -l16
+[1.208s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(agents_msgs)
+[1.209s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs' for CMake module files
+[1.212s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/agents_msgs
+[1.212s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs' for CMake config files
+[1.212s] Level 1:colcon.colcon_core.shell:create_environment_hook('agents_msgs', 'cmake_prefix_path')
+[1.213s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/hook/cmake_prefix_path.ps1'
+[1.213s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/hook/cmake_prefix_path.dsv'
+[1.213s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/hook/cmake_prefix_path.sh'
+[1.214s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/lib'
+[1.214s] Level 1:colcon.colcon_core.shell:create_environment_hook('agents_msgs', 'ld_library_path_lib')
+[1.214s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/hook/ld_library_path_lib.ps1'
+[1.214s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/hook/ld_library_path_lib.dsv'
+[1.215s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/hook/ld_library_path_lib.sh'
+[1.215s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/bin'
+[1.215s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/lib/pkgconfig/agents_msgs.pc'
+[1.215s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/lib/python3.10/site-packages'
+[1.215s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/bin'
+[1.215s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/package.ps1'
+[1.216s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/package.dsv'
+[1.216s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/package.sh'
+[1.217s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/package.bash'
+[1.217s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/package.zsh'
+[1.217s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/colcon-core/packages/agents_msgs)
+[1.220s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mbsn)
+[1.220s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn' for CMake module files
+[1.221s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn' for CMake config files
+[1.221s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/src/ROS-TCP-Endpoint': PYTHONPATH=/home/adam/Desktop/SBSN/ros2_ws/build/ros_tcp_endpoint/prefix_override:/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/ros_tcp_endpoint build --build-base /home/adam/Desktop/SBSN/ros2_ws/build/ros_tcp_endpoint/build install --record /home/adam/Desktop/SBSN/ros2_ws/build/ros_tcp_endpoint/install.log --install-scripts $base/lib/ros_tcp_endpoint --single-version-externally-managed install_data
+[1.222s] Level 1:colcon.colcon_core.shell:create_environment_hook('mbsn', 'cmake_prefix_path')
+[1.223s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/hook/cmake_prefix_path.ps1'
+[1.223s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/hook/cmake_prefix_path.dsv'
+[1.224s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/hook/cmake_prefix_path.sh'
+[1.224s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/lib'
+[1.224s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/bin'
+[1.224s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/lib/pkgconfig/mbsn.pc'
+[1.224s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/lib/python3.10/site-packages'
+[1.225s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/bin'
+[1.225s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/package.ps1'
+[1.225s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/package.dsv'
+[1.226s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/package.sh'
+[1.226s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/package.bash'
+[1.226s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/package.zsh'
+[1.226s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/colcon-core/packages/mbsn)
+[1.228s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs -- -j16 -l16
+[1.229s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(agent_trajectory_prediction)
+[1.230s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction' for CMake module files
+[1.230s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction' for CMake config files
+[1.231s] Level 1:colcon.colcon_core.shell:create_environment_hook('agent_trajectory_prediction', 'cmake_prefix_path')
+[1.231s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/hook/cmake_prefix_path.ps1'
+[1.231s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/hook/cmake_prefix_path.dsv'
+[1.232s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/hook/cmake_prefix_path.sh'
+[1.233s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/lib'
+[1.233s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/bin'
+[1.233s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/lib/pkgconfig/agent_trajectory_prediction.pc'
+[1.233s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/lib/python3.10/site-packages'
+[1.234s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/bin'
+[1.234s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/package.ps1'
+[1.235s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/package.dsv'
+[1.235s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/package.sh'
+[1.236s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/package.bash'
+[1.236s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/agent_trajectory_prediction/package.zsh'
+[1.238s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/agent_trajectory_prediction/share/colcon-core/packages/agent_trajectory_prediction)
+[1.251s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(metric_msgs)
+[1.251s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs' for CMake module files
+[1.252s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs
+[1.252s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs' for CMake config files
+[1.253s] Level 1:colcon.colcon_core.shell:create_environment_hook('metric_msgs', 'cmake_prefix_path')
+[1.253s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/hook/cmake_prefix_path.ps1'
+[1.254s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/hook/cmake_prefix_path.dsv'
+[1.254s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/hook/cmake_prefix_path.sh'
+[1.255s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib'
+[1.255s] Level 1:colcon.colcon_core.shell:create_environment_hook('metric_msgs', 'ld_library_path_lib')
+[1.255s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/hook/ld_library_path_lib.ps1'
+[1.255s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/hook/ld_library_path_lib.dsv'
+[1.256s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/hook/ld_library_path_lib.sh'
+[1.256s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/bin'
+[1.256s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/pkgconfig/metric_msgs.pc'
+[1.256s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/python3.10/site-packages'
+[1.257s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/bin'
+[1.257s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/package.ps1'
+[1.258s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/package.dsv'
+[1.258s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/package.sh'
+[1.259s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/package.bash'
+[1.259s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/package.zsh'
+[1.259s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/colcon-core/packages/metric_msgs)
+[1.262s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/social_metrics
+[1.288s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/unity_sim': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/unity_sim
+[1.327s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(graph_msgs)
+[1.328s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs' for CMake module files
+[1.328s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs' for CMake config files
+[1.328s] Level 1:colcon.colcon_core.shell:create_environment_hook('graph_msgs', 'cmake_prefix_path')
+[1.329s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/hook/cmake_prefix_path.ps1'
+[1.329s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/hook/cmake_prefix_path.dsv'
+[1.329s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/hook/cmake_prefix_path.sh'
+[1.330s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/lib'
+[1.330s] Level 1:colcon.colcon_core.shell:create_environment_hook('graph_msgs', 'ld_library_path_lib')
+[1.330s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/hook/ld_library_path_lib.ps1'
+[1.330s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/hook/ld_library_path_lib.dsv'
+[1.331s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/hook/ld_library_path_lib.sh'
+[1.331s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/bin'
+[1.331s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/lib/pkgconfig/graph_msgs.pc'
+[1.331s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/lib/python3.10/site-packages'
+[1.331s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/bin'
+[1.332s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/package.ps1'
+[1.332s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/package.dsv'
+[1.333s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/package.sh'
+[1.333s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/package.bash'
+[1.333s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/graph_msgs/package.zsh'
+[1.333s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/graph_msgs/share/colcon-core/packages/graph_msgs)
+[1.364s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(social_metrics)
+[1.365s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics' for CMake module files
+[1.365s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/social_metrics
+[1.366s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics' for CMake config files
+[1.366s] Level 1:colcon.colcon_core.shell:create_environment_hook('social_metrics', 'cmake_prefix_path')
+[1.366s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/hook/cmake_prefix_path.ps1'
+[1.367s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/hook/cmake_prefix_path.dsv'
+[1.367s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/hook/cmake_prefix_path.sh'
+[1.368s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/bin'
+[1.368s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/lib/pkgconfig/social_metrics.pc'
+[1.368s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/lib/python3.10/site-packages'
+[1.368s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/bin'
+[1.369s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.ps1'
+[1.369s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.dsv'
+[1.370s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.sh'
+[1.370s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.bash'
+[1.370s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.zsh'
+[1.370s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/colcon-core/packages/social_metrics)
+[1.372s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(agents_msgs)
+[1.372s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs' for CMake module files
+[1.373s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs' for CMake config files
+[1.373s] Level 1:colcon.colcon_core.shell:create_environment_hook('agents_msgs', 'cmake_prefix_path')
+[1.373s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/hook/cmake_prefix_path.ps1'
+[1.374s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/hook/cmake_prefix_path.dsv'
+[1.374s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/hook/cmake_prefix_path.sh'
+[1.374s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/lib'
+[1.374s] Level 1:colcon.colcon_core.shell:create_environment_hook('agents_msgs', 'ld_library_path_lib')
+[1.374s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/hook/ld_library_path_lib.ps1'
+[1.375s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/hook/ld_library_path_lib.dsv'
+[1.375s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/hook/ld_library_path_lib.sh'
+[1.375s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/bin'
+[1.375s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/lib/pkgconfig/agents_msgs.pc'
+[1.376s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/lib/python3.10/site-packages'
+[1.376s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/bin'
+[1.376s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/package.ps1'
+[1.376s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/package.dsv'
+[1.377s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/package.sh'
+[1.378s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/package.bash'
+[1.378s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/agents_msgs/package.zsh'
+[1.379s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/agents_msgs/share/colcon-core/packages/agents_msgs)
+[1.380s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(metric_msgs)
+[1.380s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs' for CMake module files
+[1.381s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs' for CMake config files
+[1.390s] Level 1:colcon.colcon_core.shell:create_environment_hook('metric_msgs', 'cmake_prefix_path')
+[1.391s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/hook/cmake_prefix_path.ps1'
+[1.392s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/hook/cmake_prefix_path.dsv'
+[1.392s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/hook/cmake_prefix_path.sh'
+[1.392s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib'
+[1.393s] Level 1:colcon.colcon_core.shell:create_environment_hook('metric_msgs', 'ld_library_path_lib')
+[1.393s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/hook/ld_library_path_lib.ps1'
+[1.393s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/hook/ld_library_path_lib.dsv'
+[1.393s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/hook/ld_library_path_lib.sh'
+[1.394s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/bin'
+[1.394s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/pkgconfig/metric_msgs.pc'
+[1.394s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/python3.10/site-packages'
+[1.394s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/bin'
+[1.395s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/package.ps1'
+[1.395s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/package.dsv'
+[1.395s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/package.sh'
+[1.396s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/package.bash'
+[1.396s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/package.zsh'
+[1.396s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/colcon-core/packages/metric_msgs)
+[1.398s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(unity_sim)
+[1.399s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim' for CMake module files
+[1.399s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs
+[1.399s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/unity_sim' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/unity_sim
+[1.400s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim' for CMake config files
+[1.400s] Level 1:colcon.colcon_core.shell:create_environment_hook('unity_sim', 'cmake_prefix_path')
+[1.401s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/hook/cmake_prefix_path.ps1'
+[1.401s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/hook/cmake_prefix_path.dsv'
+[1.401s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/hook/cmake_prefix_path.sh'
+[1.402s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/lib'
+[1.402s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/bin'
+[1.402s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/lib/pkgconfig/unity_sim.pc'
+[1.402s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/lib/python3.10/site-packages'
+[1.403s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/bin'
+[1.403s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/package.ps1'
+[1.403s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/package.dsv'
+[1.404s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/package.sh'
+[1.404s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/package.bash'
+[1.404s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/package.zsh'
+[1.405s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/colcon-core/packages/unity_sim)
+[1.483s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(social_metrics)
+[1.483s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics' for CMake module files
+[1.484s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics' for CMake config files
+[1.485s] Level 1:colcon.colcon_core.shell:create_environment_hook('social_metrics', 'cmake_prefix_path')
+[1.485s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/hook/cmake_prefix_path.ps1'
+[1.485s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/hook/cmake_prefix_path.dsv'
+[1.486s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/hook/cmake_prefix_path.sh'
+[1.486s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/bin'
+[1.486s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/lib/pkgconfig/social_metrics.pc'
+[1.486s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/lib/python3.10/site-packages'
+[1.487s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/bin'
+[1.487s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.ps1'
+[1.487s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.dsv'
+[1.487s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.sh'
+[1.488s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.bash'
+[1.488s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.zsh'
+[1.488s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/colcon-core/packages/social_metrics)
+[1.504s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint' for CMake module files
+[1.506s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/src/ROS-TCP-Endpoint' returned '0': PYTHONPATH=/home/adam/Desktop/SBSN/ros2_ws/build/ros_tcp_endpoint/prefix_override:/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/ros_tcp_endpoint build --build-base /home/adam/Desktop/SBSN/ros2_ws/build/ros_tcp_endpoint/build install --record /home/adam/Desktop/SBSN/ros2_ws/build/ros_tcp_endpoint/install.log --install-scripts $base/lib/ros_tcp_endpoint --single-version-externally-managed install_data
+[1.507s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint' for CMake config files
+[1.507s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/lib'
+[1.507s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/bin'
+[1.507s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/lib/pkgconfig/ros_tcp_endpoint.pc'
+[1.508s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/lib/python3.10/site-packages'
+[1.508s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_tcp_endpoint', 'pythonpath')
+[1.508s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/pythonpath.ps1'
+[1.509s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/pythonpath.dsv'
+[1.509s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/pythonpath.sh'
+[1.509s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/bin'
+[1.509s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros_tcp_endpoint)
+[1.510s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.ps1'
+[1.510s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.dsv'
+[1.511s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.sh'
+[1.511s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.bash'
+[1.511s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.zsh'
+[1.512s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/ros_tcp_endpoint/share/colcon-core/packages/ros_tcp_endpoint)
+[1.513s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(simulation_msgs)
+[1.513s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs' for CMake module files
+[1.514s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs
+[1.515s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs' for CMake config files
+[1.516s] Level 1:colcon.colcon_core.shell:create_environment_hook('simulation_msgs', 'cmake_prefix_path')
+[1.516s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/hook/cmake_prefix_path.ps1'
+[1.516s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/hook/cmake_prefix_path.dsv'
+[1.517s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/hook/cmake_prefix_path.sh'
+[1.517s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/lib'
+[1.517s] Level 1:colcon.colcon_core.shell:create_environment_hook('simulation_msgs', 'ld_library_path_lib')
+[1.518s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/hook/ld_library_path_lib.ps1'
+[1.518s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/hook/ld_library_path_lib.dsv'
+[1.519s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/hook/ld_library_path_lib.sh'
+[1.520s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/bin'
+[1.520s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/lib/pkgconfig/simulation_msgs.pc'
+[1.520s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/lib/python3.10/site-packages'
+[1.520s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/bin'
+[1.521s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/package.ps1'
+[1.521s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/package.dsv'
+[1.521s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/package.sh'
+[1.522s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/package.bash'
+[1.522s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/package.zsh'
+[1.522s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/colcon-core/packages/simulation_msgs)
+[1.524s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(unity_sim)
+[1.524s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim' for CMake module files
+[1.524s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim' for CMake config files
+[1.525s] Level 1:colcon.colcon_core.shell:create_environment_hook('unity_sim', 'cmake_prefix_path')
+[1.525s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/hook/cmake_prefix_path.ps1'
+[1.525s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/hook/cmake_prefix_path.dsv'
+[1.525s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/hook/cmake_prefix_path.sh'
+[1.526s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/lib'
+[1.526s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/bin'
+[1.526s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/lib/pkgconfig/unity_sim.pc'
+[1.526s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/lib/python3.10/site-packages'
+[1.526s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/bin'
+[1.526s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/package.ps1'
+[1.527s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/package.dsv'
+[1.527s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/package.sh'
+[1.527s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/package.bash'
+[1.528s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/unity_sim/package.zsh'
+[1.528s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/unity_sim/share/colcon-core/packages/unity_sim)
+[1.939s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(simulation_msgs)
+[1.940s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs' for CMake module files
+[1.941s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs' for CMake config files
+[1.943s] Level 1:colcon.colcon_core.shell:create_environment_hook('simulation_msgs', 'cmake_prefix_path')
+[1.943s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/hook/cmake_prefix_path.ps1'
+[1.945s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/hook/cmake_prefix_path.dsv'
+[1.945s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/hook/cmake_prefix_path.sh'
+[1.947s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/lib'
+[1.947s] Level 1:colcon.colcon_core.shell:create_environment_hook('simulation_msgs', 'ld_library_path_lib')
+[1.948s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/hook/ld_library_path_lib.ps1'
+[1.949s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/hook/ld_library_path_lib.dsv'
+[1.950s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/hook/ld_library_path_lib.sh'
+[1.950s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/bin'
+[1.951s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/lib/pkgconfig/simulation_msgs.pc'
+[1.951s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/lib/python3.10/site-packages'
+[1.952s] Level 1:colcon.colcon_core.environment:checking '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/bin'
+[1.953s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/package.ps1'
+[1.954s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/package.dsv'
+[1.955s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/package.sh'
+[1.956s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/package.bash'
+[1.957s] INFO:colcon.colcon_core.shell:Creating package script '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/package.zsh'
+[1.958s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/colcon-core/packages/simulation_msgs)
+[1.959s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.959s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.960s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.960s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.974s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[1.975s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.975s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.975s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[2.002s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[2.003s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/adam/Desktop/SBSN/ros2_ws/install/local_setup.ps1'
+[2.005s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/adam/Desktop/SBSN/ros2_ws/install/_local_setup_util_ps1.py'
+[2.009s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/adam/Desktop/SBSN/ros2_ws/install/setup.ps1'
+[2.012s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/adam/Desktop/SBSN/ros2_ws/install/local_setup.sh'
+[2.013s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/adam/Desktop/SBSN/ros2_ws/install/_local_setup_util_sh.py'
+[2.014s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/adam/Desktop/SBSN/ros2_ws/install/setup.sh'
+[2.016s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/adam/Desktop/SBSN/ros2_ws/install/local_setup.bash'
+[2.017s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/adam/Desktop/SBSN/ros2_ws/install/setup.bash'
+[2.019s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/adam/Desktop/SBSN/ros2_ws/install/local_setup.zsh'
+[2.021s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/adam/Desktop/SBSN/ros2_ws/install/setup.zsh'

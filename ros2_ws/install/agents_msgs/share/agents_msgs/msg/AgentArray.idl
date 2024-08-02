@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from agents_msgs/msg/AgentArray.msg
+// generated code does not contain a copyright notice
+
+#include "agents_msgs/msg/Agent.idl"
+#include "std_msgs/msg/Header.idl"
+
+module agents_msgs {
+  module msg {
+    struct AgentArray {
+      std_msgs::msg::Header header;
+
+      sequence<agents_msgs::msg::Agent> agents;
+    };
+  };
+};

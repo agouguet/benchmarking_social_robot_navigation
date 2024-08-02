@@ -1,0 +1,40 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from simulation_msgs/msg/SceneInfo.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+#include "std_msgs/msg/Header.idl"
+
+module simulation_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "Message containing the parameters for Unity Scene trials")
+    struct SceneInfo {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "Which scene we are running")
+      string scenario_name;
+
+      @verbatim (language="comment", text=
+        "Pose of robot start location")
+      geometry_msgs::msg::Pose robot_start_pose;
+
+      @verbatim (language="comment", text=
+        "Pose of robot target location")
+      geometry_msgs::msg::Pose robot_target_pose;
+
+      @verbatim (language="comment", text=
+        "Number of people in scene")
+      uint16 num_people;
+
+      @verbatim (language="comment", text=
+        "Number of groups in scene")
+      uint16 num_groups;
+
+      @verbatim (language="comment", text=
+        "Which environment")
+      string environment;
+    };
+  };
+};

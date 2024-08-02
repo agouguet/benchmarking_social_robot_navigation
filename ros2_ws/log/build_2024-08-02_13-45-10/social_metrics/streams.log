@@ -1,0 +1,41 @@
+[0.340s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/social_metrics -- -j16 -l16
+[0.454s] Built target ament_cmake_python_copy_social_metrics
+[0.744s] running egg_info
+[0.748s] writing social_metrics.egg-info/PKG-INFO
+[0.749s] writing dependency_links to social_metrics.egg-info/dependency_links.txt
+[0.749s] writing top-level names to social_metrics.egg-info/top_level.txt
+[0.749s] reading manifest file 'social_metrics.egg-info/SOURCES.txt'
+[0.749s] writing manifest file 'social_metrics.egg-info/SOURCES.txt'
+[0.786s] Built target ament_cmake_python_build_social_metrics_egg
+[0.816s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/social_metrics -- -j16 -l16
+[0.916s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/social_metrics
+[0.984s] -- Install configuration: "Release"
+[0.985s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics//launch
+[0.985s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics//params
+[0.985s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/pythonpath.sh
+[0.985s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/pythonpath.dsv
+[0.985s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics-0.0.0-py3.10.egg-info
+[0.985s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics-0.0.0-py3.10.egg-info/dependency_links.txt
+[0.985s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics-0.0.0-py3.10.egg-info/SOURCES.txt
+[0.985s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics-0.0.0-py3.10.egg-info/PKG-INFO
+[0.985s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics-0.0.0-py3.10.egg-info/top_level.txt
+[0.985s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics
+[0.985s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics/__init__.py
+[1.009s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics'...
+[1.013s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/ament_index/resource_index/package_run_dependencies/social_metrics
+[1.013s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/ament_index/resource_index/parent_prefix_path/social_metrics
+[1.013s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/ament_prefix_path.sh
+[1.013s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/ament_prefix_path.dsv
+[1.013s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/path.sh
+[1.014s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/path.dsv
+[1.014s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/local_setup.bash
+[1.014s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/local_setup.sh
+[1.014s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/local_setup.zsh
+[1.014s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/local_setup.dsv
+[1.014s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.dsv
+[1.014s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/ament_index/resource_index/packages/social_metrics
+[1.014s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.014s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/cmake/social_metricsConfig.cmake
+[1.014s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/cmake/social_metricsConfig-version.cmake
+[1.014s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.xml
+[1.025s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/social_metrics' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/social_metrics

@@ -1,0 +1,10 @@
+{
+  "package_name": "simulation_msgs",
+  "non_idl_tuples": [
+    "/home/adam/Desktop/SBSN/ros2_ws/src/msgs/simulation_msgs:msg/PersonEntry.msg",
+    "/home/adam/Desktop/SBSN/ros2_ws/src/msgs/simulation_msgs:msg/PersonEntryArray.msg",
+    "/home/adam/Desktop/SBSN/ros2_ws/src/msgs/simulation_msgs:msg/RealDepthImage.msg",
+    "/home/adam/Desktop/SBSN/ros2_ws/src/msgs/simulation_msgs:msg/SceneInfo.msg",
+    "/home/adam/Desktop/SBSN/ros2_ws/src/msgs/simulation_msgs:msg/TrialStart.msg"
+  ]
+}

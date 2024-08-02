@@ -1,0 +1,4 @@
+source;share/assets/local_setup.bash
+source;share/assets/local_setup.dsv
+source;share/assets/local_setup.sh
+source;share/assets/local_setup.zsh

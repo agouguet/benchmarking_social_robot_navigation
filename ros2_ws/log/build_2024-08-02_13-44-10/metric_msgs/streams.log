@@ -1,0 +1,143 @@
+[0.085s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs -- -j16 -l16
+[0.364s] [  3%] Built target metric_msgs__cpp
+[0.364s] [ 12%] Built target metric_msgs__rosidl_generator_c
+[0.364s] [ 12%] Built target ament_cmake_python_copy_metric_msgs
+[0.364s] [ 22%] Built target metric_msgs__rosidl_typesupport_introspection_cpp
+[0.365s] [ 32%] Built target metric_msgs__rosidl_typesupport_fastrtps_cpp
+[0.365s] [ 41%] Built target metric_msgs__rosidl_typesupport_cpp
+[0.365s] [ 51%] Built target metric_msgs__rosidl_typesupport_introspection_c
+[0.365s] [ 61%] Built target metric_msgs__rosidl_typesupport_fastrtps_c
+[0.365s] [ 70%] Built target metric_msgs__rosidl_typesupport_c
+[0.365s] [ 70%] Built target metric_msgs
+[0.365s] [ 74%] Built target metric_msgs__py
+[0.365s] [ 80%] Built target metric_msgs__rosidl_generator_py
+[0.366s] [ 87%] Built target metric_msgs__rosidl_typesupport_introspection_c__pyext
+[0.366s] [ 93%] Built target metric_msgs__rosidl_typesupport_c__pyext
+[0.366s] [100%] Built target metric_msgs__rosidl_typesupport_fastrtps_c__pyext
+[0.417s] running egg_info
+[0.417s] writing metric_msgs.egg-info/PKG-INFO
+[0.417s] writing dependency_links to metric_msgs.egg-info/dependency_links.txt
+[0.417s] writing top-level names to metric_msgs.egg-info/top_level.txt
+[0.419s] reading manifest file 'metric_msgs.egg-info/SOURCES.txt'
+[0.420s] writing manifest file 'metric_msgs.egg-info/SOURCES.txt'
+[0.456s] [100%] Built target ament_cmake_python_build_metric_msgs_egg
+[0.474s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs -- -j16 -l16
+[0.598s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs
+[0.691s] -- Install configuration: "Release"
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/ament_index/resource_index/rosidl_interfaces/metric_msgs
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/trial_info.h
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__functions.c
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__functions.h
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__type_support.h
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__struct.h
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/rosidl_generator_c__visibility_control.h
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/library_path.sh
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/library_path.dsv
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_generator_c.so
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__rosidl_typesupport_fastrtps_c.h
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_fastrtps_c.so
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/trial_info.hpp
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__builder.hpp
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__struct.hpp
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__traits.hpp
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__rosidl_typesupport_fastrtps_cpp.hpp
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/dds_fastrtps
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_fastrtps_cpp.so
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__rosidl_typesupport_introspection_c.h
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__type_support.c
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_introspection_c.so
+[0.694s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_c.so
+[0.694s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs
+[0.694s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg
+[0.694s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail
+[0.694s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__rosidl_typesupport_introspection_cpp.hpp
+[0.694s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/include/metric_msgs/metric_msgs/msg/detail/trial_info__type_support.cpp
+[0.694s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_introspection_cpp.so
+[0.694s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_typesupport_cpp.so
+[0.694s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/pythonpath.sh
+[0.694s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/pythonpath.dsv
+[0.694s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs-0.0.0-py3.10.egg-info
+[0.694s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs-0.0.0-py3.10.egg-info/dependency_links.txt
+[0.694s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs-0.0.0-py3.10.egg-info/SOURCES.txt
+[0.694s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs-0.0.0-py3.10.egg-info/PKG-INFO
+[0.694s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs-0.0.0-py3.10.egg-info/top_level.txt
+[0.694s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/msg
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/msg/__init__.py
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/msg/_trial_info_s.c
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/msg/_trial_info.py
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/_metric_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/metric_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/__init__.py
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/metric_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/_metric_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/_metric_msgs_s.ep.rosidl_typesupport_c.c
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/libmetric_msgs__rosidl_generator_py.so
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/metric_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[0.714s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs'...
+[0.714s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/msg'...
+[0.721s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/metric_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[0.721s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/metric_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[0.721s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/local/lib/python3.10/dist-packages/metric_msgs/metric_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[0.721s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/lib/libmetric_msgs__rosidl_generator_py.so
+[0.721s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/msg/TrialInfo.idl
+[0.721s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/msg/TrialInfo.msg
+[0.721s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/bridge_mapping.yaml
+[0.721s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/ament_index/resource_index/package_run_dependencies/metric_msgs
+[0.721s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/ament_index/resource_index/parent_prefix_path/metric_msgs
+[0.721s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/ament_prefix_path.sh
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/ament_prefix_path.dsv
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/path.sh
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/environment/path.dsv
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/local_setup.bash
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/local_setup.sh
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/local_setup.zsh
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/local_setup.dsv
+[0.722s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/package.dsv
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/ament_index/resource_index/packages/metric_msgs
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_generator_cExport.cmake
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_generator_cExport-release.cmake
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_typesupport_fastrtps_cExport-release.cmake
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_generator_cppExport.cmake
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_typesupport_fastrtps_cppExport-release.cmake
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_introspection_cExport.cmake
+[0.722s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_introspection_cExport-release.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_cExport.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_cExport-release.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_introspection_cppExport-release.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_cppExport.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgs__rosidl_typesupport_cppExport-release.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_generator_pyExport.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/export_metric_msgs__rosidl_generator_pyExport-release.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/rosidl_cmake-extras.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgsConfig.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/cmake/metric_msgsConfig-version.cmake
+[0.723s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/metric_msgs/share/metric_msgs/package.xml
+[0.754s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/metric_msgs

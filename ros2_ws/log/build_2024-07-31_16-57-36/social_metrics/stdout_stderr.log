@@ -1,0 +1,37 @@
+Built target ament_cmake_python_copy_social_metrics
+running egg_info
+writing social_metrics.egg-info/PKG-INFO
+writing dependency_links to social_metrics.egg-info/dependency_links.txt
+writing top-level names to social_metrics.egg-info/top_level.txt
+reading manifest file 'social_metrics.egg-info/SOURCES.txt'
+writing manifest file 'social_metrics.egg-info/SOURCES.txt'
+Built target ament_cmake_python_build_social_metrics_egg
+-- Install configuration: "Release"
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics//launch
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics//params
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/pythonpath.sh
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/pythonpath.dsv
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics-0.0.0-py3.10.egg-info
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics-0.0.0-py3.10.egg-info/dependency_links.txt
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics-0.0.0-py3.10.egg-info/SOURCES.txt
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics-0.0.0-py3.10.egg-info/PKG-INFO
+-- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics-0.0.0-py3.10.egg-info/top_level.txt
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics/__init__.py
+Listing '/home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/local/lib/python3.10/dist-packages/social_metrics'...
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/ament_index/resource_index/package_run_dependencies/social_metrics
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/ament_index/resource_index/parent_prefix_path/social_metrics
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/ament_prefix_path.sh
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/path.sh
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/environment/path.dsv
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/local_setup.bash
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/local_setup.sh
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/local_setup.zsh
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/local_setup.dsv
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.dsv
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/ament_index/resource_index/packages/social_metrics
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/cmake/social_metricsConfig.cmake
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/cmake/social_metricsConfig-version.cmake
+-- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/social_metrics/share/social_metrics/package.xml

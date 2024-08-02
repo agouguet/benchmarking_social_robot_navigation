@@ -1,0 +1,219 @@
+[0.306s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs -- -j16 -l16
+[0.388s] [  1%] Built target simulation_msgs__cpp
+[0.390s] [ 12%] Built target simulation_msgs__rosidl_generator_c
+[0.391s] [ 12%] Built target ament_cmake_python_copy_simulation_msgs
+[0.406s] [ 23%] Built target simulation_msgs__rosidl_typesupport_cpp
+[0.408s] [ 34%] Built target simulation_msgs__rosidl_typesupport_introspection_c
+[0.408s] [ 49%] Built target simulation_msgs__rosidl_typesupport_c
+[0.408s] [ 57%] Built target simulation_msgs__rosidl_typesupport_fastrtps_c
+[0.409s] [ 68%] Built target simulation_msgs__rosidl_typesupport_introspection_cpp
+[0.411s] [ 79%] Built target simulation_msgs__rosidl_typesupport_fastrtps_cpp
+[0.421s] [ 79%] Built target simulation_msgs
+[0.430s] [ 80%] Built target simulation_msgs__py
+[0.445s] [ 90%] Built target simulation_msgs__rosidl_generator_py
+[0.459s] [ 93%] Built target simulation_msgs__rosidl_typesupport_c__pyext
+[0.459s] [ 96%] Built target simulation_msgs__rosidl_typesupport_fastrtps_c__pyext
+[0.459s] [100%] Built target simulation_msgs__rosidl_typesupport_introspection_c__pyext
+[0.646s] running egg_info
+[0.647s] writing simulation_msgs.egg-info/PKG-INFO
+[0.647s] writing dependency_links to simulation_msgs.egg-info/dependency_links.txt
+[0.647s] writing top-level names to simulation_msgs.egg-info/top_level.txt
+[0.650s] reading manifest file 'simulation_msgs.egg-info/SOURCES.txt'
+[0.650s] writing manifest file 'simulation_msgs.egg-info/SOURCES.txt'
+[0.680s] [100%] Built target ament_cmake_python_build_simulation_msgs_egg
+[0.712s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs -- -j16 -l16
+[0.885s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs
+[0.953s] -- Install configuration: "Release"
+[0.953s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/ament_index/resource_index/rosidl_interfaces/simulation_msgs
+[0.953s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs
+[0.953s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg
+[0.953s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/person_entry.h
+[0.953s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/trial_start.h
+[0.954s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail
+[0.954s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry_array__type_support.h
+[0.954s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry_array__functions.h
+[0.954s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry__functions.h
+[0.954s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/real_depth_image__functions.c
+[0.954s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/scene_info__functions.h
+[0.955s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/trial_start__functions.h
+[0.955s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/real_depth_image__functions.h
+[0.955s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/real_depth_image__type_support.h
+[0.955s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/scene_info__struct.h
+[0.955s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry_array__functions.c
+[0.955s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry__type_support.h
+[0.955s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/trial_start__type_support.h
+[0.956s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/trial_start__struct.h
+[0.956s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry__struct.h
+[0.956s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/scene_info__functions.c
+[0.956s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/scene_info__type_support.h
+[0.956s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/trial_start__functions.c
+[0.956s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/real_depth_image__struct.h
+[0.956s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry__functions.c
+[0.957s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry_array__struct.h
+[0.957s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/rosidl_generator_c__visibility_control.h
+[0.957s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/real_depth_image.h
+[0.957s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/scene_info.h
+[0.957s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/person_entry_array.h
+[0.957s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/environment/library_path.sh
+[0.957s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/environment/library_path.dsv
+[0.957s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/lib/libsimulation_msgs__rosidl_generator_c.so
+[0.958s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs
+[0.958s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg
+[0.958s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[0.958s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail
+[0.958s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/real_depth_image__rosidl_typesupport_fastrtps_c.h
+[0.958s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/trial_start__rosidl_typesupport_fastrtps_c.h
+[0.958s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry__rosidl_typesupport_fastrtps_c.h
+[0.958s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/scene_info__rosidl_typesupport_fastrtps_c.h
+[0.959s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry_array__rosidl_typesupport_fastrtps_c.h
+[0.959s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/lib/libsimulation_msgs__rosidl_typesupport_fastrtps_c.so
+[0.959s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs
+[0.959s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg
+[0.959s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/person_entry_array.hpp
+[0.959s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/real_depth_image.hpp
+[0.959s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/scene_info.hpp
+[0.960s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail
+[0.960s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/scene_info__builder.hpp
+[0.960s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry_array__traits.hpp
+[0.960s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry__builder.hpp
+[0.960s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/real_depth_image__traits.hpp
+[0.960s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/real_depth_image__builder.hpp
+[0.961s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/trial_start__traits.hpp
+[0.961s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/scene_info__traits.hpp
+[0.961s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/scene_info__struct.hpp
+[0.961s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/trial_start__struct.hpp
+[0.961s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry_array__struct.hpp
+[0.961s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/trial_start__builder.hpp
+[0.961s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry_array__builder.hpp
+[0.961s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry__traits.hpp
+[0.962s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry__struct.hpp
+[0.962s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/real_depth_image__struct.hpp
+[0.963s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/person_entry.hpp
+[0.963s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/trial_start.hpp
+[0.963s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs
+[0.963s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg
+[0.964s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[0.964s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail
+[0.964s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry_array__rosidl_typesupport_fastrtps_cpp.hpp
+[0.964s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/scene_info__rosidl_typesupport_fastrtps_cpp.hpp
+[0.964s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/trial_start__rosidl_typesupport_fastrtps_cpp.hpp
+[0.964s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/dds_fastrtps
+[0.964s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry__rosidl_typesupport_fastrtps_cpp.hpp
+[0.965s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/real_depth_image__rosidl_typesupport_fastrtps_cpp.hpp
+[0.965s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/lib/libsimulation_msgs__rosidl_typesupport_fastrtps_cpp.so
+[0.965s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs
+[0.965s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg
+[0.965s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail
+[0.966s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry__type_support.c
+[0.966s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/scene_info__type_support.c
+[0.966s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry_array__type_support.c
+[0.966s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/scene_info__rosidl_typesupport_introspection_c.h
+[0.966s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/trial_start__type_support.c
+[0.966s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/real_depth_image__rosidl_typesupport_introspection_c.h
+[0.966s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/trial_start__rosidl_typesupport_introspection_c.h
+[0.967s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/real_depth_image__type_support.c
+[0.967s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry__rosidl_typesupport_introspection_c.h
+[0.967s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry_array__rosidl_typesupport_introspection_c.h
+[0.967s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[0.967s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/lib/libsimulation_msgs__rosidl_typesupport_introspection_c.so
+[0.967s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/lib/libsimulation_msgs__rosidl_typesupport_c.so
+[0.967s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs
+[0.967s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg
+[0.967s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail
+[0.967s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry__type_support.cpp
+[0.967s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/scene_info__rosidl_typesupport_introspection_cpp.hpp
+[0.968s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry_array__type_support.cpp
+[0.968s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/scene_info__type_support.cpp
+[0.968s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry_array__rosidl_typesupport_introspection_cpp.hpp
+[0.968s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/real_depth_image__type_support.cpp
+[0.968s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/real_depth_image__rosidl_typesupport_introspection_cpp.hpp
+[0.968s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/trial_start__rosidl_typesupport_introspection_cpp.hpp
+[0.968s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/trial_start__type_support.cpp
+[0.968s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/include/simulation_msgs/simulation_msgs/msg/detail/person_entry__rosidl_typesupport_introspection_cpp.hpp
+[0.968s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/lib/libsimulation_msgs__rosidl_typesupport_introspection_cpp.so
+[0.968s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/lib/libsimulation_msgs__rosidl_typesupport_cpp.so
+[0.968s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/environment/pythonpath.sh
+[0.969s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/environment/pythonpath.dsv
+[0.969s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs-0.0.0-py3.10.egg-info
+[0.969s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs-0.0.0-py3.10.egg-info/dependency_links.txt
+[0.969s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs-0.0.0-py3.10.egg-info/SOURCES.txt
+[0.969s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs-0.0.0-py3.10.egg-info/PKG-INFO
+[0.969s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs-0.0.0-py3.10.egg-info/top_level.txt
+[0.969s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs
+[0.969s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/msg
+[0.969s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/msg/_person_entry_array_s.c
+[0.969s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/msg/_person_entry_array.py
+[0.970s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/msg/_scene_info_s.c
+[0.970s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/msg/_scene_info.py
+[0.970s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/msg/_person_entry_s.c
+[0.970s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/msg/_trial_start_s.c
+[0.970s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/msg/_person_entry.py
+[0.970s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/msg/_real_depth_image_s.c
+[0.970s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/msg/__init__.py
+[0.970s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/msg/_real_depth_image.py
+[0.970s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/msg/_trial_start.py
+[0.970s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/_simulation_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[0.970s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/libsimulation_msgs__rosidl_generator_py.so
+[0.971s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/__init__.py
+[0.971s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/simulation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[0.971s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/simulation_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[0.971s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/_simulation_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[0.971s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/_simulation_msgs_s.ep.rosidl_typesupport_c.c
+[0.971s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/simulation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[0.985s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs'...
+[0.985s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/msg'...
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/simulation_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[0.993s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/simulation_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[0.994s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/local/lib/python3.10/dist-packages/simulation_msgs/simulation_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[0.994s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/lib/libsimulation_msgs__rosidl_generator_py.so
+[0.994s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/msg/PersonEntry.idl
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/msg/PersonEntryArray.idl
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/msg/RealDepthImage.idl
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/msg/SceneInfo.idl
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/msg/TrialStart.idl
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/msg/PersonEntry.msg
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/msg/PersonEntryArray.msg
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/msg/RealDepthImage.msg
+[0.995s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/msg/SceneInfo.msg
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/msg/TrialStart.msg
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/bridge_mapping.yaml
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/ament_index/resource_index/package_run_dependencies/simulation_msgs
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/ament_index/resource_index/parent_prefix_path/simulation_msgs
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/environment/ament_prefix_path.sh
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/environment/ament_prefix_path.dsv
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/environment/path.sh
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/environment/path.dsv
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/local_setup.bash
+[0.996s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/local_setup.sh
+[0.997s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/local_setup.zsh
+[0.997s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/local_setup.dsv
+[0.997s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/package.dsv
+[0.997s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/ament_index/resource_index/packages/simulation_msgs
+[0.997s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/export_simulation_msgs__rosidl_generator_cExport.cmake
+[0.997s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/export_simulation_msgs__rosidl_generator_cExport-release.cmake
+[0.997s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/export_simulation_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[0.997s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/export_simulation_msgs__rosidl_typesupport_fastrtps_cExport-release.cmake
+[0.998s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/export_simulation_msgs__rosidl_generator_cppExport.cmake
+[0.998s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/export_simulation_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[0.998s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/export_simulation_msgs__rosidl_typesupport_fastrtps_cppExport-release.cmake
+[0.998s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/simulation_msgs__rosidl_typesupport_introspection_cExport.cmake
+[0.998s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/simulation_msgs__rosidl_typesupport_introspection_cExport-release.cmake
+[0.999s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/simulation_msgs__rosidl_typesupport_cExport.cmake
+[0.999s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/simulation_msgs__rosidl_typesupport_cExport-release.cmake
+[0.999s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/simulation_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[0.999s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/simulation_msgs__rosidl_typesupport_introspection_cppExport-release.cmake
+[0.999s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/simulation_msgs__rosidl_typesupport_cppExport.cmake
+[0.999s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/simulation_msgs__rosidl_typesupport_cppExport-release.cmake
+[0.999s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/export_simulation_msgs__rosidl_generator_pyExport.cmake
+[0.999s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/export_simulation_msgs__rosidl_generator_pyExport-release.cmake
+[1.000s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/rosidl_cmake-extras.cmake
+[1.000s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.000s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.000s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[1.000s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[1.000s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[1.001s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[1.001s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/simulation_msgsConfig.cmake
+[1.001s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/cmake/simulation_msgsConfig-version.cmake
+[1.001s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/simulation_msgs/share/simulation_msgs/package.xml
+[1.015s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/simulation_msgs

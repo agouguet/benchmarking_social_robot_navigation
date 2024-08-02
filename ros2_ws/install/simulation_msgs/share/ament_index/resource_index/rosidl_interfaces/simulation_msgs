@@ -1,0 +1,10 @@
+msg/PersonEntry.idl
+msg/PersonEntry.msg
+msg/PersonEntryArray.idl
+msg/PersonEntryArray.msg
+msg/RealDepthImage.idl
+msg/RealDepthImage.msg
+msg/SceneInfo.idl
+msg/SceneInfo.msg
+msg/TrialStart.idl
+msg/TrialStart.msg

@@ -1,0 +1,131 @@
+[0.052s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/mbsn': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/mbsn -- -j16 -l16
+[0.363s] Built target ament_cmake_python_copy_mbsn
+[0.411s] running egg_info
+[0.412s] writing mbsn.egg-info/PKG-INFO
+[0.413s] writing dependency_links to mbsn.egg-info/dependency_links.txt
+[0.413s] writing top-level names to mbsn.egg-info/top_level.txt
+[0.416s] reading manifest file 'mbsn.egg-info/SOURCES.txt'
+[0.416s] writing manifest file 'mbsn.egg-info/SOURCES.txt'
+[0.460s] Built target ament_cmake_python_build_mbsn_egg
+[0.479s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/mbsn' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/mbsn -- -j16 -l16
+[0.609s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/mbsn': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/mbsn
+[0.689s] -- Install configuration: "Release"
+[0.689s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn//launch
+[0.689s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn//launch/my_nav.launch.py
+[0.689s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn//launch/local_nav_teb.launch.py
+[0.689s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn//launch/local_nav.launch.py
+[0.689s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn//params
+[0.689s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn//params/nav2_my_params.yaml
+[0.690s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn//params/nav2_params.yaml
+[0.690s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn//params/nav2_params_teb.yaml
+[0.690s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/environment/pythonpath.sh
+[0.690s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/environment/pythonpath.dsv
+[0.690s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn-0.0.0-py3.10.egg-info
+[0.690s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn-0.0.0-py3.10.egg-info/dependency_links.txt
+[0.690s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn-0.0.0-py3.10.egg-info/SOURCES.txt
+[0.690s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn-0.0.0-py3.10.egg-info/PKG-INFO
+[0.690s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn-0.0.0-py3.10.egg-info/top_level.txt
+[0.690s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn
+[0.690s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils
+[0.690s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation
+[0.690s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter
+[0.690s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/segment.py
+[0.690s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/server.py
+[0.690s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/default.yml
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/debugging
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/debugging/visualization.py
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/debugging/__init__.py
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/debugging/debugging_factory.py
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/debugging/animation.py
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/merge.py
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/map_alignment.py
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/over_segment.py
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/evaluate
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/evaluate/__init__.py
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/evaluate/__main__.py
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/custom.yml
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/__init__.py
+[0.691s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/modules.py
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/graph.py
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/__main__.py
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/visibility_graph.py
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/map_loader.py
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/util.py
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/graph_visualisation.py
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/__init__.py
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver/multi_armed_bandit
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver/multi_armed_bandit/ucb.py
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver/multi_armed_bandit/.epsilon_greedy.py.swp
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver/multi_armed_bandit/epsilon_decreasing.py
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver/multi_armed_bandit/multi_armed_bandit.py
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver/multi_armed_bandit/__init__.py
+[0.692s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver/multi_armed_bandit/.epsilon_decreasing.py.swp
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver/multi_armed_bandit/softmax.py
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver/multi_armed_bandit/epsilon_greedy.py
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver/ValueIteration.py
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver/qfunction.py
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver/heuristicfunction.py
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver/qtable.py
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver/MCTS.py
+[0.693s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/interpreter
+[0.694s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/interpreter/environment_interpreter_to_graph.py
+[0.694s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/interpreter/environment_interpreter.py
+[0.694s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/interpreter/environment_interpreter_to_polygon.py
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/graph
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/graph/GraphWorld.py
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/graph/GraphAction.py
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/graph/GraphState.py
+[0.695s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/graph/MBSN.py
+[0.696s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/interfaces
+[0.696s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/interfaces/IAction.py
+[0.696s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/interfaces/IState.py
+[0.696s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/interfaces/MDP.py
+[0.696s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/polygon
+[0.696s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/polygon/environment_state.py
+[0.696s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/polygon/human.py
+[0.696s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/polygon/MDP.py
+[0.696s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/polygon/NavPolygonMDP.py
+[0.696s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/polygon/State.py
+[0.697s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/polygon/NavRoomByVisibilityWithHumanMDP.py
+[0.697s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/polygon/Action.py
+[0.697s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/polygon
+[0.697s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/polygon/nav_room.py
+[0.697s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/polygon/nav_square.py
+[0.697s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/polygon/nav_polygon.py
+[0.697s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/polygon/nav_hexagon.py
+[0.697s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/polygon/visibility.py
+[0.697s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/polygon/nav_map.py
+[0.727s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn'...
+[0.728s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/interpreter'...
+[0.728s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model'...
+[0.728s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/graph'...
+[0.728s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/interfaces'...
+[0.728s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/model/polygon'...
+[0.728s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/polygon'...
+[0.729s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver'...
+[0.729s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/solver/multi_armed_bandit'...
+[0.729s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils'...
+[0.729s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation'...
+[0.729s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter'...
+[0.729s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/debugging'...
+[0.729s] Listing '/home/adam/Desktop/SBSN/ros2_ws/install/mbsn/local/lib/python3.10/dist-packages/mbsn/utils/segmentation/py_floor_plan_segmenter/evaluate'...
+[0.733s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/lib/mbsn/MBSN_hexagonal.py
+[0.734s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/ament_index/resource_index/package_run_dependencies/mbsn
+[0.734s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/ament_index/resource_index/parent_prefix_path/mbsn
+[0.734s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/environment/ament_prefix_path.sh
+[0.734s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/environment/ament_prefix_path.dsv
+[0.734s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/environment/path.sh
+[0.738s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/environment/path.dsv
+[0.739s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/local_setup.bash
+[0.739s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/local_setup.sh
+[0.739s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/local_setup.zsh
+[0.739s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/local_setup.dsv
+[0.739s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/package.dsv
+[0.739s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/ament_index/resource_index/packages/mbsn
+[0.739s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.742s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/cmake/mbsnConfig.cmake
+[0.742s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/cmake/mbsnConfig-version.cmake
+[0.742s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/mbsn/share/mbsn/package.xml
+[0.758s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/mbsn' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/mbsn

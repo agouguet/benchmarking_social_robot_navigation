@@ -1,0 +1,32 @@
+[0.064s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/my_controller': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/my_controller -- -j16 -l16
+[0.367s] [100%] Built target my_controller
+[0.370s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/my_controller' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/my_controller -- -j16 -l16
+[0.579s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/my_controller': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/my_controller
+[0.651s] -- Install configuration: "Release"
+[0.651s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/lib/libmy_controller.so
+[0.651s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/include/
+[0.653s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/include//my_controller
+[0.654s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/include//my_controller/controller.hpp
+[0.654s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/environment/library_path.sh
+[0.654s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/environment/library_path.dsv
+[0.654s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/plugin.xml
+[0.654s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/ament_index/resource_index/package_run_dependencies/my_controller
+[0.654s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/ament_index/resource_index/parent_prefix_path/my_controller
+[0.654s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/environment/ament_prefix_path.sh
+[0.654s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/environment/ament_prefix_path.dsv
+[0.654s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/environment/path.sh
+[0.654s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/environment/path.dsv
+[0.654s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/local_setup.bash
+[0.655s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/local_setup.sh
+[0.655s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/local_setup.zsh
+[0.655s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/local_setup.dsv
+[0.655s] -- Installing: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/package.dsv
+[0.655s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/ament_index/resource_index/packages/my_controller
+[0.655s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/ament_index/resource_index/nav2_core__pluginlib__plugin/my_controller
+[0.655s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.655s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/cmake/ament_cmake_export_libraries-extras.cmake
+[0.656s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.656s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/cmake/my_controllerConfig.cmake
+[0.656s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/cmake/my_controllerConfig-version.cmake
+[0.656s] -- Up-to-date: /home/adam/Desktop/SBSN/ros2_ws/install/my_controller/share/my_controller/package.xml
+[0.666s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/my_controller' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/my_controller

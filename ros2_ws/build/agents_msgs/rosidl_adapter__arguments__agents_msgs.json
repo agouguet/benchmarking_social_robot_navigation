@@ -1,0 +1,9 @@
+{
+  "package_name": "agents_msgs",
+  "non_idl_tuples": [
+    "/home/adam/Desktop/SBSN/ros2_ws/src/msgs/agents_msgs:msg/Agent.msg",
+    "/home/adam/Desktop/SBSN/ros2_ws/src/msgs/agents_msgs:msg/AgentArray.msg",
+    "/home/adam/Desktop/SBSN/ros2_ws/src/msgs/agents_msgs:msg/AgentTrajectory.msg",
+    "/home/adam/Desktop/SBSN/ros2_ws/src/msgs/agents_msgs:msg/AgentTrajectories.msg"
+  ]
+}
