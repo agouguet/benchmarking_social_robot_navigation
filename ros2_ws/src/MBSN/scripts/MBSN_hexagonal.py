@@ -9,6 +9,7 @@ from mbsn.solver.qtable import QTable
 import rclpy # type: ignore
 
 from shapely import LineString, Point
+from shapely.ops import nearest_points
 from geometry_msgs.msg import Pose, Point as RosPoint # type: ignore
 from mbsn.interpreter.environment_interpreter import EnvironmentInterpreter
 from mbsn.model.polygon.NavPolygonMDP import NavPolygonMDP
@@ -49,7 +50,7 @@ class EnvironmentInterpreterToPolygon(EnvironmentInterpreter):
             self.scenario = msg_scene_info.environment.lower()
             self.get_logger().info('Scenario received: ' + str(self.scenario))
 
-            self.map_polygon = NavMap(self.scenario)
+            self.map_polygon = NavMap(self.scenario, type="hexagon")
             rooms = self.map_polygon.rooms
             self.global_mdp = NavPolygonMDP(rooms)
             self.global_solver = ValueIteration(self.global_mdp, 0.99)
@@ -89,7 +90,7 @@ class EnvironmentInterpreterToPolygon(EnvironmentInterpreter):
 
     def local_state_updated(self):
         self.can_publish_local_goal = False
-        self.local_mdp = NavRoomByVisibilityWithHumanMDP(self.map_polygon, self.current_pos, discount_factor=10.0, social_factor=2.0)
+        self.local_mdp = NavRoomByVisibilityWithHumanMDP(self.map_polygon, self.current_pos, discount_factor=1.0, social_factor=1.0)
         self.publish_polygon_map_vizualisation()
 
         # A* to find the local goal
@@ -125,19 +126,21 @@ class EnvironmentInterpreterToPolygon(EnvironmentInterpreter):
         # MCTS
         self.local_solver = MBSNAgentMCTS(self.local_mdp, self.local_qfunction, self.local_bandit)
         
-        root_node, _ = self.local_solver.mcts(local_state, timeout=1.0)
+        root_node, _ = self.local_solver.mcts(local_state, timeout=2.0)
         self.local_action, _ = root_node.get_value()
         # self.robot_path.append(self.local_action)
 
         # print(self.local_solver.qfunction.qtable)
 
-        # for (s, a), v in self.local_solver.qfunction.qtable.items():
-        #     print(s, a, v)
+        for (s, a), v in self.local_solver.qfunction.qtable.items():
+            print(s, a, v)
 
         local_goal = self.local_mdp.polygons[self.local_action][0].centroid
+        p1, p2 = nearest_points(self.local_mdp.polygons[self.local_action][0].polygon, self.local_mdp.polygons[local_goal_id][0].centroid)
+        print(p1, p2)
 
         self.get_logger().info('New local goal: ' + str(self.local_mdp.polygons[self.local_action][0].id))
-        self.publish_local_goal(local_goal)
+        self.publish_local_goal(p1)
 
 
     def get_occupied_polygon(self):

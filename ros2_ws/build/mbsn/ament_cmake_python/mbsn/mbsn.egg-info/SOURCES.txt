@@ -1,6 +1,0 @@
-setup.py
-mbsn/__init__.py
-mbsn.egg-info/PKG-INFO
-mbsn.egg-info/SOURCES.txt
-mbsn.egg-info/dependency_links.txt
-mbsn.egg-info/top_level.txt

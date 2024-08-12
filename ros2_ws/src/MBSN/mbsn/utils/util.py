@@ -123,25 +123,8 @@ def astar(start, goal, grid):
             path.reverse()
             return path
 
-        # print(current)
-        # if current == 980:
-        #     print("C=", current)
-        #     for poly in grid[current]:
-        #         print(poly.neighbors)
-
-        #     for neighbor in grid[current][0].neighbors:
-        #         for poly in grid[current]:
-        #             print("     ", neighbor.id, poly.polygon.buffer(0.02).intersects(neighbor.polygon), neighbor.id in grid)
-        
         neighbors = []
-        # print(current)
-        # for poly in grid[current]:
-        #     for n in poly.neighbors:
-        #         if n not in neighbors:
-        #             neighbors.append(n)
-                
-
-
+    
         for neighbor in grid[current].neighbors:
             close_enough = False
             if grid[current].polygon.buffer(0.01).intersects(neighbor.polygon) and neighbor.id in grid:

@@ -1,6 +1,0 @@
-setup.py
-agent_trajectory_prediction/__init__.py
-agent_trajectory_prediction.egg-info/PKG-INFO
-agent_trajectory_prediction.egg-info/SOURCES.txt
-agent_trajectory_prediction.egg-info/dependency_links.txt
-agent_trajectory_prediction.egg-info/top_level.txt

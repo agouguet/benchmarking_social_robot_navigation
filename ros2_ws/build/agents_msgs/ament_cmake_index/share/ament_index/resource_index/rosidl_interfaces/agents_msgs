@@ -1,8 +1,0 @@
-msg/Agent.idl
-msg/Agent.msg
-msg/AgentArray.idl
-msg/AgentArray.msg
-msg/AgentTrajectories.idl
-msg/AgentTrajectories.msg
-msg/AgentTrajectory.idl
-msg/AgentTrajectory.msg

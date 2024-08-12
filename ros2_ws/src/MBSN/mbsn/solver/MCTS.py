@@ -79,9 +79,9 @@ class MBSNAgentNode:
 
 
         (next_state, test_reward) = self.mdp.execute(self.state, action)
-        print("     BACK PROPA:", self.state, action, test_reward, reward, q_value, delta, self.qfunction.qtable[(self.state, action)])
+        # print("     BACK PROPA:", self.state, action, test_reward, reward, q_value, delta, self.qfunction.qtable[(self.state, action)])
 
-        print("\n")
+        # print("\n")
 
         if self.parent != None:
             self.parent.back_propagate(self.reward + reward, self)
@@ -176,7 +176,7 @@ class MBSNAgentMCTS:
     def simulate(self, node):
         state = node.state
         # if self.first:
-        print("     CHILD:", state)
+        # print("     CHILD:", state)
         cumulative_reward = 0.0
         depth = 0
         while not self.mdp.is_terminal(state):
@@ -192,10 +192,10 @@ class MBSNAgentMCTS:
             # Discount the reward
             cumulative_reward += pow(self.mdp.get_discount_factor(), depth) * reward
 
-            print("         - ", action, next_state, reward, cumulative_reward)
+            # print("         - ", action, next_state, reward, cumulative_reward)
             depth += 1
 
             state = next_state
 
-        print("     REWARD:", cumulative_reward)
+        # print("     REWARD:", cumulative_reward)
         return cumulative_reward

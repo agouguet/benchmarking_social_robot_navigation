@@ -98,7 +98,9 @@ def astar(start, goal, mdp):
 def closest_to_goal(mdp, state):
     cell_goal = mdp.get_state_from_continuous_position(mdp.goal)
     astar_path = astar(state, cell_goal, mdp)
-    return astar_path[1]
+    if astar_path is not None:
+        return astar_path[1]
+    return state
 
 def social_heuristic(mdp, state):
     cell_goal = mdp.get_state_from_continuous_position(mdp.goal)

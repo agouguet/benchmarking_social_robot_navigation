@@ -23,12 +23,10 @@ class NavMap(NavPolygon):
 
         if type == 'hexagon':
             # self.grid = self.create_grid_of_hexagon(polygon=polygon, hexagon_size=0.5)
-            self.grid = self.new_grid(polygon=polygon, hexagon_size=0.5)
+            self.grid = self.create_grid_of_hexagon(polygon=polygon, hexagon_size=0.5)
         elif type == 'square':
             self.grid = self.create_grid_of_squares(polygon=polygon, square_size=1.0)
         
-        # self.grid_rooms = self.create_grid_from_room()
-        # self.grid_rooms = self.grid
         self.visibility_polygon = VisibilityPolygon(vertices, polygon)
         
 
@@ -64,7 +62,7 @@ class NavMap(NavPolygon):
             polygon = self.polygon
         minx, miny, maxx, maxy = polygon.bounds
         
-        squares = []
+        squares = {}
         square_dict = {}
         
         x = minx
@@ -74,7 +72,7 @@ class NavMap(NavPolygon):
                 square_polygon = box(x, y, x + square_size, y + square_size)
                 if polygon.intersects(square_polygon):
                     square = NavPolygon(square_polygon)
-                    squares.append(square)
+                    squares[square.id] = square
                     square_dict[(x, y)] = square
                 y += square_size
             x += square_size
@@ -92,77 +90,7 @@ class NavMap(NavPolygon):
         
         return squares
     
-
     def create_grid_of_hexagon(self, polygon=None, hexagon_size=10.0):
-        if polygon is None:
-            polygon = self.polygon
-
-        minx, miny, maxx, maxy = polygon.bounds
-        
-        hexagons = []
-        hexagon_dict = {}
-
-        hex_width = hexagon_size * 2
-        hex_height = hexagon_size * 3 ** 0.5
-
-        xo = hexagon_size * (1 + cos(radians(60)))  # X offset
-        yo = hexagon_size * sin(radians(60)) * 2  # Y offset
-
-        minx = ceil((minx - xo) / xo)
-        maxx = ceil((maxx + xo) / xo)
-        miny = ceil((miny - yo) / yo)
-        maxy = ceil((maxy + yo) / yo)
-
-        x = minx
-        while x < maxx:
-            y = miny
-            while y < maxy:
-                hex_x = x * hex_width * 0.75
-                hex_y = y * hex_height + (x % 2) * hex_height / 2
-                hexagon_polygon = NavHexagon((hex_x, hex_y), hexagon_size)
-                if polygon.buffer(0).intersects(hexagon_polygon.polygon):
-                    hexagons.append(hexagon_polygon)
-                    hexagon_dict[(x, y)] = hexagon_polygon
-                y += 1
-            x += 1
-
-        directions = [
-            (+1, 0), (-1, 0), 
-            (+1, +1), (-1, +1), 
-            (0, +1), (0, -1)
-        ]
-
-        for (x, y), hexagon in hexagon_dict.items():
-            for nx, ny in directions:
-                if (x+nx, y+ny) in hexagon_dict:
-                    neighbor_hexagon = hexagon_dict[(x+nx, y+ny)]
-                    hexagon.add_neighbor(neighbor_hexagon)
-
-        return hexagons
-    
-    def create_grid_from_room(self, buffer_size=0.05):
-        grid = defaultdict(list)
-
-        for cell in self.grid:
-            if self.polygon.intersects(cell.polygon):
-                inter = self.polygon.intersection(cell.polygon)
-                if isinstance(inter, MultiPolygon) or isinstance(inter, GeometryCollection):
-                    for poly in inter.geoms:
-                        if isinstance(poly, Polygon) and self.polygon.intersects(poly):
-                            new_cell = NavPolygon(poly)
-                            for n in cell.neighbors:
-                                if new_cell.polygon.buffer(buffer_size).intersects(n.polygon):
-                                    new_cell.add_neighbor(n)
-                            grid[new_cell.id].append(new_cell)
-                elif isinstance(inter, Polygon):
-                    new_cell = NavPolygon(inter)
-                    for n in cell.neighbors:
-                        if new_cell.polygon.buffer(buffer_size).intersects(n.polygon):
-                            new_cell.add_neighbor(n)
-                    grid[new_cell.id].append(new_cell)
-        return grid
-    
-    def new_grid(self, polygon=None, hexagon_size=10.0):
         if polygon is None:
             polygon = self.polygon
 

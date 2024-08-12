@@ -1,4 +1,0 @@
-source;share/agent_trajectory_prediction/local_setup.bash
-source;share/agent_trajectory_prediction/local_setup.dsv
-source;share/agent_trajectory_prediction/local_setup.sh
-source;share/agent_trajectory_prediction/local_setup.zsh

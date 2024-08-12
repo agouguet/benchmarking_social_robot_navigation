@@ -1,6 +1,0 @@
-{
-  "package_name": "metric_msgs",
-  "non_idl_tuples": [
-    "/home/adam/Desktop/SBSN/ros2_ws/src/msgs/metric_msgs:msg/TrialInfo.msg"
-  ]
-}

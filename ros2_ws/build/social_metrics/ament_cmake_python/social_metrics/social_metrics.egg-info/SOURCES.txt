@@ -1,6 +1,0 @@
-setup.py
-social_metrics/__init__.py
-social_metrics.egg-info/PKG-INFO
-social_metrics.egg-info/SOURCES.txt
-social_metrics.egg-info/dependency_links.txt
-social_metrics.egg-info/top_level.txt

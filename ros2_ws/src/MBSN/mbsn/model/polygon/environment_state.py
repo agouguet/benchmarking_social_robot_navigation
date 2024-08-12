@@ -14,6 +14,7 @@ from mbsn.solver.multi_armed_bandit.ucb import UpperConfidenceBounds
 from mbsn.solver.qtable import QTable
 from shapely.plotting import plot_line, plot_points, plot_polygon
 
+from mbsn.utils.graph_visualisation import GraphVisualisation
 from mbsn.utils.util import astar
 
 
@@ -78,7 +79,7 @@ class EnvironmentState():
         
     def local_state_updated(self):
         
-        self.local_mdp = NavRoomByVisibilityWithHumanMDP(self.map_polygon, self.current_pos, discount_factor=10.0, social_factor=2.0)
+        self.local_mdp = NavRoomByVisibilityWithHumanMDP(self.map_polygon, self.current_pos, global_goal=self.global_goal ,discount_factor=1.0, social_factor=100.0)
 
         # A* to find the local goal
         grid = self.map_polygon.grid
@@ -124,6 +125,10 @@ class EnvironmentState():
             if s == local_state:
                 print(s, a, v)
 
+        # GV = GraphVisualisation()
+        # g = GV.single_agent_mcts_to_graph(root_node)
+        # g.render()
+
     def update(self):
         return 
     
@@ -143,7 +148,7 @@ class EnvironmentState():
                 p.plot(ax=ax, add_id=True)
 
         if self.current_pos is not None:
-            circle = plt.Circle((self.current_pos.x, self.current_pos.y), radius=0.2)
+            circle = plt.Circle((self.current_pos.x, self.current_pos.y), radius=0.15)
             ax.add_patch(circle)
             label = ax.annotate("R", xy=(self.current_pos.x, self.current_pos.y), fontsize=10, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
             # ax.plot(self.current_pos.x, self.current_pos.y, marker="o",  markersize=10)
@@ -153,10 +158,10 @@ class EnvironmentState():
             ax.add_patch(circle)
             label = ax.annotate("G", xy=(self.global_goal.x, self.global_goal.y), fontsize=10, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
 
-        if self.local_goal is not None:
-            circle = plt.Circle((self.local_goal.x, self.local_goal.y), radius=0.2, color="red")
+        if self.local_mdp.goal is not None:
+            circle = plt.Circle((self.local_mdp.goal.x, self.local_mdp.goal.y), radius=0.2, color="red")
             ax.add_patch(circle)
-            label = ax.annotate("L", xy=(self.local_goal.x, self.local_goal.y), fontsize=10, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
+            label = ax.annotate("L", xy=(self.local_mdp.goal.x, self.local_mdp.goal.y), fontsize=10, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
 
             if isinstance(self.local_mdp.visibility_polygon, Polygon):
                 x, y = self.local_mdp.visibility_polygon.exterior.xy

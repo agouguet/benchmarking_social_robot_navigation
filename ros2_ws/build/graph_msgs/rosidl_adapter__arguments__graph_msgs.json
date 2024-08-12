@@ -1,8 +1,0 @@
-{
-  "package_name": "graph_msgs",
-  "non_idl_tuples": [
-    "/home/adam/Desktop/SBSN/ros2_ws/src/msgs/graph_msgs:msg/GraphNode.msg",
-    "/home/adam/Desktop/SBSN/ros2_ws/src/msgs/graph_msgs:msg/GraphNav.msg",
-    "/home/adam/Desktop/SBSN/ros2_ws/src/msgs/graph_msgs:msg/GraphEdge.msg"
-  ]
-}

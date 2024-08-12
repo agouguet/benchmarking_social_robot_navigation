@@ -1,6 +1,0 @@
-Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/assets': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake /home/adam/Desktop/SBSN/ros2_ws/src/assets -DCMAKE_INSTALL_PREFIX=/home/adam/Desktop/SBSN/ros2_ws/install/assets
-Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/assets' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake /home/adam/Desktop/SBSN/ros2_ws/src/assets -DCMAKE_INSTALL_PREFIX=/home/adam/Desktop/SBSN/ros2_ws/install/assets
-Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/assets': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/assets -- -j16 -l16
-Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/assets' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --build /home/adam/Desktop/SBSN/ros2_ws/build/assets -- -j16 -l16
-Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/build/assets': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/assets
-Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/build/assets' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/adam/.local/bin/cmake --install /home/adam/Desktop/SBSN/ros2_ws/build/assets

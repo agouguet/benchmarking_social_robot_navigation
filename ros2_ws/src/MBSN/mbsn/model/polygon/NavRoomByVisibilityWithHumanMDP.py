@@ -25,6 +25,7 @@ class NavRoomByVisibilityWithHumanMDP(MDP):
         map_polygon,
         robot_position,
         goal=None,
+        global_goal=None,
         number_of_detected_human = 0,
         distance_factor=1.0,
         social_factor=1.0, 
@@ -47,6 +48,7 @@ class NavRoomByVisibilityWithHumanMDP(MDP):
                     self.polygons[cell.id].append(cell)
 
         self.goal = goal
+        self.global_goal = global_goal
 
         self.number_of_detected_human = number_of_detected_human
         self.discount_factor = discount_factor
@@ -65,8 +67,9 @@ class NavRoomByVisibilityWithHumanMDP(MDP):
 
     """ Return all actions with non-zero probability from this state """
     def get_actions(self, state):
-        if self.get_state_from_continuous_position(self.goal) == state.robot:
+        if self.get_state_from_continuous_position(self.global_goal) == state.robot:
             return ["find_goal"]
+        #     return [state.robot]
         actions = [state.robot]
         polygons = self.polygons[state.robot]
         for poly in polygons:
@@ -105,7 +108,7 @@ class NavRoomByVisibilityWithHumanMDP(MDP):
         reward = 0
 
         # Penalty Time
-        reward -= 1
+        reward -= 5
 
         # Penalty Stationary
         if state.robot == action:
@@ -115,7 +118,7 @@ class NavRoomByVisibilityWithHumanMDP(MDP):
         reward += self._distance_factor * (self.goal.distance(self.get_position_of_state(state.robot)) - self.goal.distance(self.get_position_of_state(next_state.robot)))
 
         # Penalty Human
-        if not (state.occupied[state.robot] or state.occupied[next_state.robot]):
+        if (state.occupied[state.robot] or state.occupied[next_state.robot]):
             reward -= self._social_factor * PENALITY_COLLISION_HUMAN
 
         for polygon in self.polygons[state.robot]:

@@ -1,0 +1,16 @@
+*.pyc
+*.iml
+*.swp
+.project
+.pydevproject
+.DS_Store
+.idea
+
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# colcon/CMake output
+ros2_ws/build/*
+ros2_ws/install/*
+ros2_ws/log/*

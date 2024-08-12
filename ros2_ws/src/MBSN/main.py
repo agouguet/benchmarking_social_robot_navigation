@@ -25,20 +25,20 @@ from mbsn.polygon.nav_map import NavMap
 from mbsn.solver.ValueIteration import ValueIteration
 
 
-SCENARIO = "hospital_simplified"
+SCENARIO = "door_passing"
 
-robot_pos = Point(-8.0, -15.0)
+robot_pos = Point(12.0, 0.0)
 print("ROBOT =", robot_pos)
 
-human1 = Human(Point(-9.0, -13.0))
+human1 = Human(Point(-12.0, 0.0))
 human2 = Human((2.0, -12.0))
 human3 = Human((-0.0, -11.75))
 
-goal_pos = Point(9.5, 15.0)
+goal_pos = Point(-12, 0.0)
 print("GOAL =", goal_pos)
 
 
-map_polygon = NavMap(SCENARIO)
+map_polygon = NavMap(SCENARIO, type="square")
 
 matplotlib.use('Qt5Agg')
 fig, ax = plt.subplots()
@@ -63,7 +63,7 @@ test = EnvironmentState(map_polygon)
 test.start_navigation(goal_pos)
 
 # test.human_updated([human1, human2, human3])
-action = test.robot_position_updated(Point(-8, -15.0))
+action = test.robot_position_updated(Point(12, 0.0))
 # action = test.robot_position_updated(Point(0, 4.0))
 next_cell = test.local_mdp.polygons[action]
 
@@ -72,7 +72,7 @@ matplotlib.use('Qt5Agg')
 
 i = 0
 while 1:
-    if i % 20 == 0 and i != 0:
+    if i % 5 == 0 and i != 0:
         fig, ax = plt.subplots()
         test.plot(ax)
         # ax.set_xlim(test.current_pos.x-8, test.current_pos.x+8)
@@ -86,9 +86,9 @@ while 1:
 
     t = time.time()
 
-    human1.move(0.8, 0.0)
+    human1.move(1.0, 0.0)
     human2.move(-0.5, 0.0)
-    # test.human_updated([human1, human2, human3])
+    test.human_updated([human1, human2, human3])
 
     action = test.robot_position_updated(MultiPolygon([p.polygon for p in next_cell]).centroid)
     if action != "find_goal":
