@@ -85,7 +85,7 @@ def astar(start, goal, mdp):
             path.reverse()
             return path
 
-        for neighbor in mdp.get_actions(State(current,start.occupied)):
+        for neighbor in mdp.get_actions(State(current,start.humans)):
             tentative_g_score = g_score[current] + 1
             if neighbor not in g_score or tentative_g_score < g_score[neighbor]:
                 came_from[neighbor] = current
@@ -102,13 +102,18 @@ def closest_to_goal(mdp, state):
         return astar_path[1]
     return state
 
-def social_heuristic(mdp, state):
+def social_heuristic(mdp, state, actions=None):
+    if len(state.humans) == 0:
+        return closest_to_goal(mdp, state)
+
+
     cell_goal = mdp.get_state_from_continuous_position(mdp.goal)
-    actions = mdp.get_actions(state)
+    if actions is None:
+        actions = mdp.get_actions(state)
     sorted_actions = []
 
     for action in actions:
-        astar_path = astar(State(action, state.occupied), cell_goal, mdp)
+        astar_path = astar(State(action, state.humans), cell_goal, mdp)
         if astar_path is None:
             continue
         dist = 0
@@ -122,17 +127,57 @@ def social_heuristic(mdp, state):
     actions = [a[0] for a in sorted(sorted_actions, key=lambda a:a[1])]
 
     for action in actions:
-        astar_path = astar(State(action, state.occupied), cell_goal, mdp)
+        astar_path = astar(State(action, state.humans), cell_goal, mdp)
         human_on_path = False
         for cell in astar_path:
-            for h in [h for h, o in state.occupied.items() if o == 1]:
-                if mdp.polygons[cell][0].centroid.distance(mdp.polygons[h][0].centroid) <= 1.2:
+            for h in state.humans:
+                if mdp.polygons[cell][0].centroid.distance(h.position) <= 1.2:
                     human_on_path = True
+
+
+            # for h in [h for h, o in state.occupied.items() if o == 1]:
+            #     if mdp.polygons[cell][0].centroid.distance(mdp.polygons[h][0].centroid) <= 1.2:
+            #         human_on_path = True
         
         if not human_on_path:
             return action
-        
+    
+
+    #                     |||
+    # NEED TO CHANGE THIS vvv
+    #
+    best_action = actions[0]
+    _, max_value = mdp.execute(state, best_action)
+
+    for i in range(1, len(actions)):
+        _, v = mdp.execute(state, actions[i])
+        if v > max_value:
+            max_value = v
+            best_action = actions[i]
+
+
+    return best_action
+
     return closest_to_goal(mdp, state)
+
+    def min_dist_with_human(s):
+        human_pos = [h.position for h in state.humans]
+        dist_from_each_human = [mdp.polygons[s][0].centroid.distance(h_pos) for h_pos in human_pos]
+        return min(dist_from_each_human)
+
+    farthest_action_to_human = actions[0]
+    dist_of_farthest_action_to_human = min_dist_with_human(farthest_action_to_human)
+
+    for i in range(1, len(actions)):
+        dist = min_dist_with_human(actions[i])
+        if dist > dist_of_farthest_action_to_human:
+            farthest_action_to_human = actions[i]
+            dist_of_farthest_action_to_human = dist
+
+    return farthest_action_to_human
+
+    
+    
 
 DEFAULT_HEURISTIC_FUNCTION_STR = "social_heuristic"
 DEFAULT_HEURISTIC_FUNCTION = globals()[DEFAULT_HEURISTIC_FUNCTION_STR]

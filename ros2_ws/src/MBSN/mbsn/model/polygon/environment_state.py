@@ -8,7 +8,8 @@ from shapely import Point, Polygon
 from mbsn.model.polygon.NavRoomByVisibilityWithHumanMDP import NavRoomByVisibilityWithHumanMDP
 from mbsn.model.polygon.NavPolygonMDP import NavPolygonMDP
 from mbsn.model.polygon.State import State
-from mbsn.solver.MCTS import MBSNAgentMCTS
+from mbsn.model.trajectory_prediction.human_trajctory_prediction_model import simple_human_trajectory_prediction
+from mbsn.solver.MCTS import MBSNAgentMCTS, MBSNAgentNode
 from mbsn.solver.ValueIteration import ValueIteration
 from mbsn.solver.multi_armed_bandit.ucb import UpperConfidenceBounds
 from mbsn.solver.qtable import QTable
@@ -79,10 +80,16 @@ class EnvironmentState():
         
     def local_state_updated(self):
         
-        self.local_mdp = NavRoomByVisibilityWithHumanMDP(self.map_polygon, self.current_pos, global_goal=self.global_goal ,discount_factor=1.0, social_factor=100.0)
+        self.local_mdp = NavRoomByVisibilityWithHumanMDP(self.map_polygon, 
+                                                         self.current_pos, 
+                                                         human_trajectory_prediction_function=simple_human_trajectory_prediction, 
+                                                         global_goal=self.global_goal, 
+                                                         distance_factor=20.0, 
+                                                         social_factor=1.0)
 
         # A* to find the local goal
-        grid = self.map_polygon.grid
+        # grid = self.map_polygon.grid
+        grid = self.map_polygon.test_grid
         current_state = get_cell_id_in_dict_from_continuous_position(grid, self.current_pos)
         goal_state = get_cell_id_in_dict_from_continuous_position(grid, self.global_goal)
         astar_path = astar(current_state, goal_state, grid)
@@ -94,32 +101,37 @@ class EnvironmentState():
         self.local_mdp.goal = self.local_mdp.polygons[local_goal_id][0].centroid
 
         # Human
-        occupied_polygon = {poly_id:0 for poly_id in self.local_mdp.polygons.keys()}
+        # occupied_polygon = {poly_id:0 for poly_id in self.local_mdp.polygons.keys()}
+        # for h in self.humans:
+        #     human_state = self.local_mdp.get_state_from_continuous_position(h.position)
+        #     if human_state is not None:
+        #         occupied_polygon[human_state] = 1
+
+
+        visible_human = []
+
         for h in self.humans:
-            human_state = self.local_mdp.get_state_from_continuous_position(h.position)
-            if human_state is not None:
-                occupied_polygon[human_state] = 1
+            if h.position.distance(self.current_pos) <= 5.0:
+                visible_human.append(h)
 
-
-        local_state = State(self.local_mdp.get_state_from_continuous_position(self.current_pos), occupied_polygon)
-
-        # print(self.map_polygon.grid[155].neighbors)
-
-        # print(local_state)
-        # for a in self.local_mdp.get_actions(local_state):
-        #     print("    ", a)
-        #     for (new_state, probability) in self.local_mdp.get_transitions(local_state, a):
-        #         print("        ", new_state, probability, self.local_mdp.get_reward(local_state, a, new_state))
-
-
-        # time.sleep(20)
+        # local_state = State(self.local_mdp.get_state_from_continuous_position(self.current_pos), occupied_polygon)
+        local_state = State(self.local_mdp.get_state_from_continuous_position(self.current_pos), visible_human)
 
         # MCTS
         self.local_solver = MBSNAgentMCTS(self.local_mdp, self.local_qfunction, self.local_bandit)
         
-        root_node, _ = self.local_solver.mcts(local_state, timeout=2.0)
+        root_node, _ = self.local_solver.mcts(local_state, timeout=1.0)
         self.local_action, _ = root_node.get_value()
         self.robot_path.append(self.local_action)
+
+
+
+
+        print(local_state)
+        for a in self.local_mdp.get_actions(local_state):
+            print("    ", a)
+            for (new_state, probability) in self.local_mdp.get_transitions(local_state, a):
+                print("        ", new_state, probability, self.local_mdp.get_reward(local_state, a, new_state))
 
         for (s, a), v in self.local_solver.qfunction.qtable.items():
             if s == local_state:

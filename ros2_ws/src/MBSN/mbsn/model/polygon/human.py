@@ -1,8 +1,11 @@
 import itertools
+import math
 
 from matplotlib import pyplot as plt
 import numpy as np
 from shapely import Point
+from geometry_msgs.msg import Point as ROSMsgPoint, Quaternion
+from mbsn.utils.util import euler_from_quaternion# type: ignore
 
 class Human():
 
@@ -23,6 +26,9 @@ class Human():
             self._position = Point(position[0], position[1])
         elif isinstance(position, Point):
             self._position = position
+        elif isinstance(position, ROSMsgPoint):
+            self._position = Point(position.x, position.y)
+
 
     @property
     def orientation(self):
@@ -30,7 +36,11 @@ class Human():
     
     @orientation.setter
     def orientation(self, orientation):
-        self._orientation = orientation
+        if isinstance(orientation, int) or isinstance(orientation, float):
+            self._orientation = orientation
+        elif isinstance(orientation, Quaternion):
+            r, p, y = euler_from_quaternion(orientation.x, orientation.y, orientation.z, orientation.w)
+            self._orientation = math.degrees(y)
 
     def move(self, x, y):
         self._position = Point(self.position.x + x, self.position.y + y)
@@ -49,3 +59,16 @@ class Human():
         dy = arrow_length * np.sin(angle_rad)
         arrow = plt.Arrow(self.position.x, self.position.y, dx, dy, width=0.05, edgecolor='red', facecolor='red')
         ax.add_patch(arrow)
+
+    def __eq__(self, other):
+        return other != None and self.position == other.position and self.orientation == other.orientation
+    
+    def __hash__(self):
+        return hash((self.id, self.position, self.orientation))
+
+    def __str__(self):
+        return  "((" + str(self.position.x) + ", " + str(self.position.y) + "), " + str(self.orientation) + ")"
+    
+    def __repr__(self) -> str:
+        return self.__str__()
+    

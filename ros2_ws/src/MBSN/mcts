@@ -1,180 +1,428 @@
 digraph G {
 	dpi=300
-	376 [label="V(s(663, [])) =
--353733.16\nN = 36" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	376 -> 698376 [label=698]
-	376 -> 662376 [label=662]
-	376 -> 627376 [label=627]
-	376 -> 626376 [label=626]
-	376 -> 663376 [label=663]
-	376 -> 664376 [label=664]
-	376 -> 699376 [label=699]
-	698376 [label=698376 shape=point style=filled width=0.25]
-	698376 -> 377 [label=1.00]
-	377 [label="V(s(698, [])) =
+	2210 [label="V(s(126, [((-1.0, 0.0), 180)])) =
+-54.89\nN = 67" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2210 -> 1232210 [label=123]
+	2210 -> 1252210 [label=125]
+	2210 -> 1272210 [label=127]
+	2210 -> 1262210 [label=126]
+	2210 -> 1292210 [label=129]
+	1232210 [label=1232210 shape=point style=filled width=0.25]
+	1232210 -> 2211 [label=0.75]
+	1232210 [label=1232210 shape=point style=filled width=0.25]
+	1232210 -> 2275 [label=0.05]
+	1232210 [label=1232210 shape=point style=filled width=0.25]
+	1232210 -> 2278 [label=0.05]
+	1232210 [label=1232210 shape=point style=filled width=0.25]
+	1232210 -> 2284 [label=0.05]
+	1232210 [label=1232210 shape=point style=filled width=0.25]
+	1232210 -> 2287 [label=0.05]
+	2211 [label="V(s(123, [((-2.0, 1.2246467991473532e-16), 180)])) =
+-41.17\nN = 12" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2211 -> 1202211 [label=120]
+	2211 -> 1222211 [label=122]
+	2211 -> 1242211 [label=124]
+	2211 -> 1232211 [label=123]
+	2211 -> 1262211 [label=126]
+	1202211 [label=1202211 shape=point style=filled width=0.25]
+	1202211 -> 2277 [label=0.75]
+	2277 [label="V(s(120, [((-3.0, 2.4492935982947064e-16), 180)])) =
 -1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	662376 [label=662376 shape=point style=filled width=0.25]
-	662376 -> 378 [label=1.00]
-	378 [label="V(s(662, [])) =
+	1222211 [label=1222211 shape=point style=filled width=0.25]
+	1222211 -> 2281 [label=0.05]
+	2281 [label="V(s(122, [((-2.0, 1.0000000000000002), 90)])) =
 -1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	627376 [label=627376 shape=point style=filled width=0.25]
-	627376 -> 379 [label=1.00]
-	379 [label="V(s(627, [])) =
--1000000.00\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	379 -> 592379 [label=592]
-	592379 [label=592379 shape=point style=filled width=0.25]
-	592379 -> 384 [label=1.00]
-	384 [label="V(s(592, [])) =
+	1242211 [label=1242211 shape=point style=filled width=0.25]
+	1242211 -> 2282 [label=0.75]
+	2282 [label="V(s(124, [((-3.0, 2.4492935982947064e-16), 180)])) =
 -1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	626376 [label=626376 shape=point style=filled width=0.25]
-	626376 -> 380 [label=1.00]
-	380 [label="V(s(626, [])) =
+	1232211 [label=1232211 shape=point style=filled width=0.25]
+	1232211 -> 2283 [label=0.75]
+	2283 [label="V(s(123, [((-3.0, 2.4492935982947064e-16), 180)])) =
 -1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	663376 [label=663376 shape=point style=filled width=0.25]
-	663376 -> 381 [label=1.00]
-	381 [label="V(s(663, [])) =
--353733.16\nN = 36" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	381 -> 626381 [label=626]
-	626381 [label=626381 shape=point style=filled width=0.25]
-	626381 -> 385 [label=1.00]
-	385 [label="V(s(626, [])) =
+	1262211 [label=1262211 shape=point style=filled width=0.25]
+	1262211 -> 2286 [label=0.05]
+	1262211 [label=1262211 shape=point style=filled width=0.25]
+	1262211 -> 2289 [label=0.75]
+	1262211 [label=1262211 shape=point style=filled width=0.25]
+	1262211 -> 2293 [label=0.05]
+	1262211 [label=1262211 shape=point style=filled width=0.25]
+	1262211 -> 2296 [label=0.05]
+	2286 [label="V(s(126, [((-2.0, 1.0000000000000002), 90)])) =
 -1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	664376 [label=664376 shape=point style=filled width=0.25]
-	664376 -> 382 [label=1.00]
-	382 [label="V(s(664, [])) =
--67301.79\nN = 25" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	382 -> 628382 [label=628]
-	382 -> 700382 [label=700]
-	382 -> 664382 [label=664]
-	382 -> 663382 [label=663]
-	382 -> 699382 [label=699]
-	382 -> 665382 [label=665]
-	382 -> 627382 [label=627]
-	628382 [label=628382 shape=point style=filled width=0.25]
-	628382 -> 386 [label=1.00]
-	386 [label="V(s(628, [])) =
--222022.35\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	386 -> 628386 [label=628]
-	628386 [label=628386 shape=point style=filled width=0.25]
-	628386 -> 394 [label=1.00]
-	394 [label="V(s(628, [])) =
--222022.35\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	700382 [label=700382 shape=point style=filled width=0.25]
-	700382 -> 388 [label=1.00]
-	388 [label="V(s(700, [])) =
--222029.07\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	388 -> 700388 [label=700]
-	700388 [label=700388 shape=point style=filled width=0.25]
-	700388 -> 395 [label=1.00]
-	395 [label="V(s(700, [])) =
--222029.07\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	664382 [label=664382 shape=point style=filled width=0.25]
-	664382 -> 389 [label=1.00]
-	389 [label="V(s(664, [])) =
--67301.79\nN = 25" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	663382 [label=663382 shape=point style=filled width=0.25]
-	663382 -> 390 [label=1.00]
-	390 [label="V(s(663, [])) =
--353733.16\nN = 36" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	699382 [label=699382 shape=point style=filled width=0.25]
-	699382 -> 391 [label=1.00]
-	391 [label="V(s(699, [])) =
--222029.07\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	665382 [label=665382 shape=point style=filled width=0.25]
-	665382 -> 392 [label=1.00]
-	392 [label="V(s(665, [])) =
--15144.82\nN = 16" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	392 -> 664392 [label=664]
-	392 -> 666392 [label=666]
-	392 -> 700392 [label=700]
-	392 -> 701392 [label=701]
-	392 -> 629392 [label=629]
-	392 -> 628392 [label=628]
-	392 -> 665392 [label=665]
-	664392 [label=664392 shape=point style=filled width=0.25]
-	664392 -> 396 [label=1.00]
-	396 [label="V(s(664, [])) =
--67301.79\nN = 25" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	666392 [label=666392 shape=point style=filled width=0.25]
-	666392 -> 397 [label=1.00]
-	397 [label="V(s(666, [])) =
-0.00\nN = 6" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	397 -> 629397 [label=629]
-	397 -> 701397 [label=701]
-	397 -> 666397 [label=666]
-	397 -> 702397 [label=702]
-	397 -> 630397 [label=630]
-	629397 [label=629397 shape=point style=filled width=0.25]
-	629397 -> 403 [label=1.00]
-	403 [label="V(s(629, [])) =
--2000.21\nN = 2" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	701397 [label=701397 shape=point style=filled width=0.25]
-	701397 -> 406 [label=1.00]
-	406 [label="V(s(701, [])) =
--22002.88\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	666397 [label=666397 shape=point style=filled width=0.25]
-	666397 -> 408 [label=1.00]
-	408 [label="V(s(666, [])) =
-0.00\nN = 6" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	702397 [label=702397 shape=point style=filled width=0.25]
-	702397 -> 409 [label=1.00]
-	409 [label="V(s(702, [])) =
+	2289 [label="V(s(126, [((-3.0, 2.4492935982947064e-16), 180)])) =
+-27.27\nN = 5" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2289 -> 1232289 [label=123]
+	2289 -> 1252289 [label=125]
+	2289 -> 1272289 [label=127]
+	2289 -> 1262289 [label=126]
+	2289 -> 1292289 [label=129]
+	1232289 [label=1232289 shape=point style=filled width=0.25]
+	1232289 -> 2290 [label=0.75]
+	2290 [label="V(s(123, [((-4.0, 3.6739403974420594e-16), 180)])) =
 -1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	630397 [label=630397 shape=point style=filled width=0.25]
-	630397 -> 410 [label=1.00]
-	410 [label="V(s(630, [])) =
--22002.19\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	410 -> 629410 [label=629]
-	629410 [label=629410 shape=point style=filled width=0.25]
-	629410 -> 411 [label=1.00]
-	411 [label="V(s(629, [])) =
--2000.21\nN = 2" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	700392 [label=700392 shape=point style=filled width=0.25]
-	700392 -> 398 [label=1.00]
-	398 [label="V(s(700, [])) =
--222029.07\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	701392 [label=701392 shape=point style=filled width=0.25]
-	701392 -> 399 [label=1.00]
-	399 [label="V(s(701, [])) =
--22002.88\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	399 -> 701399 [label=701]
-	701399 [label=701399 shape=point style=filled width=0.25]
-	701399 -> 404 [label=1.00]
-	404 [label="V(s(701, [])) =
--22002.88\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	629392 [label=629392 shape=point style=filled width=0.25]
-	629392 -> 400 [label=1.00]
-	400 [label="V(s(629, [])) =
--2000.21\nN = 2" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	400 -> 666400 [label=666]
-	400 -> 593400 [label=593]
-	666400 [label=666400 shape=point style=filled width=0.25]
-	666400 -> 405 [label=1.00]
-	405 [label="V(s(666, [])) =
-0.00\nN = 6" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	593400 [label=593400 shape=point style=filled width=0.25]
-	593400 -> 407 [label=1.00]
-	407 [label="V(s(593, [])) =
+	1252289 [label=1252289 shape=point style=filled width=0.25]
+	1252289 -> 2291 [label=0.75]
+	2291 [label="V(s(125, [((-4.0, 3.6739403974420594e-16), 180)])) =
 -1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	628392 [label=628392 shape=point style=filled width=0.25]
-	628392 -> 401 [label=1.00]
-	401 [label="V(s(628, [])) =
--222022.35\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	665392 [label=665392 shape=point style=filled width=0.25]
-	665392 -> 402 [label=1.00]
-	402 [label="V(s(665, [])) =
--15144.82\nN = 16" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	627382 [label=627382 shape=point style=filled width=0.25]
-	627382 -> 393 [label=1.00]
-	393 [label="V(s(627, [])) =
--1000000.00\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	699376 [label=699376 shape=point style=filled width=0.25]
-	699376 -> 383 [label=1.00]
-	383 [label="V(s(699, [])) =
--222029.07\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
-	383 -> 700383 [label=700]
-	700383 [label=700383 shape=point style=filled width=0.25]
-	700383 -> 387 [label=1.00]
-	387 [label="V(s(700, [])) =
--222029.07\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1272289 [label=1272289 shape=point style=filled width=0.25]
+	1272289 -> 2292 [label=0.75]
+	2292 [label="V(s(127, [((-4.0, 3.6739403974420594e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1262289 [label=1262289 shape=point style=filled width=0.25]
+	1262289 -> 2295 [label=0.75]
+	2295 [label="V(s(126, [((-4.0, 3.6739403974420594e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1292289 [label=1292289 shape=point style=filled width=0.25]
+	1292289 -> 2298 [label=0.75]
+	2298 [label="V(s(129, [((-4.0, 3.6739403974420594e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2293 [label="V(s(126, [((-1.0, -1.2246467991473532e-16), 360)])) =
+-7.88\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2293 -> 1232293 [label=123]
+	1232293 [label=1232293 shape=point style=filled width=0.25]
+	1232293 -> 2294 [label=0.75]
+	2294 [label="V(s(123, [((0.0, -3.6739403974420594e-16), 360)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2296 [label="V(s(126, [((-2.707106781186548, -0.7071067811865474), 225)])) =
+-7.88\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2296 -> 1232296 [label=123]
+	1232296 [label=1232296 shape=point style=filled width=0.25]
+	1232296 -> 2297 [label=0.75]
+	2297 [label="V(s(123, [((-3.414213562373096, -1.414213562373095), 225)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2275 [label="V(s(123, [((-1.7071067811865477, -0.7071067811865475), 225)])) =
+-9.80\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2275 -> 1202275 [label=120]
+	1202275 [label=1202275 shape=point style=filled width=0.25]
+	1202275 -> 2276 [label=0.75]
+	2276 [label="V(s(120, [((-2.4142135623730954, -1.414213562373095), 225)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2278 [label="V(s(123, [((-1.7071067811865475, 0.7071067811865476), 135)])) =
+-12.38\nN = 2" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2278 -> 1202278 [label=120]
+	2278 -> 1222278 [label=122]
+	1202278 [label=1202278 shape=point style=filled width=0.25]
+	1202278 -> 2279 [label=0.05]
+	2279 [label="V(s(120, [((-2.414213562373095, 1.1102230246251565e-16), 225)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1222278 [label=1222278 shape=point style=filled width=0.25]
+	1222278 -> 2280 [label=0.75]
+	2280 [label="V(s(122, [((-2.414213562373095, 1.4142135623730951), 135)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2284 [label="V(s(123, [((-0.9999999999999999, 1.0), 90)])) =
+-25.44\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2284 -> 1262284 [label=126]
+	1262284 [label=1262284 shape=point style=filled width=0.25]
+	1262284 -> 2285 [label=0.05]
+	2285 [label="V(s(126, [((-2.0, 1.0000000000000002), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2287 [label="V(s(123, [((-1.0000000000000002, -1.0), 270)])) =
+-15.80\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2287 -> 1262287 [label=126]
+	1262287 [label=1262287 shape=point style=filled width=0.25]
+	1262287 -> 2288 [label=0.05]
+	2288 [label="V(s(126, [((-2.0, -0.9999999999999999), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1252210 [label=1252210 shape=point style=filled width=0.25]
+	1252210 -> 2212 [label=0.75]
+	1252210 [label=1252210 shape=point style=filled width=0.25]
+	1252210 -> 2221 [label=0.05]
+	1252210 [label=1252210 shape=point style=filled width=0.25]
+	1252210 -> 2224 [label=0.05]
+	1252210 [label=1252210 shape=point style=filled width=0.25]
+	1252210 -> 2228 [label=0.05]
+	1252210 [label=1252210 shape=point style=filled width=0.25]
+	1252210 -> 2230 [label=0.05]
+	1252210 [label=1252210 shape=point style=filled width=0.25]
+	1252210 -> 2242 [label=0.05]
+	2212 [label="V(s(125, [((-2.0, 1.2246467991473532e-16), 180)])) =
+-31.31\nN = 13" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2212 -> 1222212 [label=122]
+	2212 -> 1252212 [label=125]
+	2212 -> 1262212 [label=126]
+	2212 -> 1282212 [label=128]
+	1222212 [label=1222212 shape=point style=filled width=0.25]
+	1222212 -> 2223 [label=0.75]
+	2223 [label="V(s(122, [((-3.0, 2.4492935982947064e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1252212 [label=1252212 shape=point style=filled width=0.25]
+	1252212 -> 2226 [label=0.75]
+	1252212 [label=1252212 shape=point style=filled width=0.25]
+	1252212 -> 2236 [label=0.05]
+	1252212 [label=1252212 shape=point style=filled width=0.25]
+	1252212 -> 2240 [label=0.05]
+	2226 [label="V(s(125, [((-3.0, 2.4492935982947064e-16), 180)])) =
+-20.20\nN = 3" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2226 -> 1222226 [label=122]
+	2226 -> 1252226 [label=125]
+	2226 -> 1262226 [label=126]
+	1222226 [label=1222226 shape=point style=filled width=0.25]
+	1222226 -> 2234 [label=0.05]
+	2234 [label="V(s(122, [((-3.707106781186548, -0.7071067811865472), 225)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1252226 [label=1252226 shape=point style=filled width=0.25]
+	1252226 -> 2238 [label=0.05]
+	2238 [label="V(s(125, [((-3.0, -0.9999999999999998), 270)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1262226 [label=1262226 shape=point style=filled width=0.25]
+	1262226 -> 2244 [label=0.75]
+	2244 [label="V(s(126, [((-4.0, 3.6739403974420594e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2236 [label="V(s(125, [((-2.7071067811865475, 0.7071067811865477), 135)])) =
+-12.38\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2236 -> 1222236 [label=122]
+	1222236 [label=1222236 shape=point style=filled width=0.25]
+	1222236 -> 2237 [label=0.75]
+	2237 [label="V(s(122, [((-3.414213562373095, 1.4142135623730954), 135)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2240 [label="V(s(125, [((-2.0, -0.9999999999999999), 270)])) =
+-12.44\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2240 -> 1222240 [label=122]
+	1222240 [label=1222240 shape=point style=filled width=0.25]
+	1222240 -> 2241 [label=0.05]
+	2241 [label="V(s(122, [((-2.707106781186548, -1.7071067811865475), 225)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1262212 [label=1262212 shape=point style=filled width=0.25]
+	1262212 -> 2227 [label=0.75]
+	2227 [label="V(s(126, [((-3.0, 2.4492935982947064e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1282212 [label=1282212 shape=point style=filled width=0.25]
+	1282212 -> 2233 [label=0.75]
+	2233 [label="V(s(128, [((-3.0, 2.4492935982947064e-16), 180)])) =
+-5.76\nN = 4" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2233 -> 1252233 [label=125]
+	2233 -> 1282233 [label=128]
+	2233 -> 1312233 [label=131]
+	2233 -> 1292233 [label=129]
+	1252233 [label=1252233 shape=point style=filled width=0.25]
+	1252233 -> 2235 [label=0.05]
+	2235 [label="V(s(125, [((-2.0, 0.0), 360)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1282233 [label=1282233 shape=point style=filled width=0.25]
+	1282233 -> 2245 [label=0.05]
+	2245 [label="V(s(128, [((-3.7071067811865475, 0.7071067811865478), 135)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1312233 [label=1312233 shape=point style=filled width=0.25]
+	1312233 -> 2246 [label=0.75]
+	2246 [label="V(s(131, [((-4.0, 3.6739403974420594e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1292233 [label=1292233 shape=point style=filled width=0.25]
+	1292233 -> 2247 [label=0.75]
+	2247 [label="V(s(129, [((-4.0, 3.6739403974420594e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2221 [label="V(s(125, [((-1.0000000000000002, -1.0), 270)])) =
+-5.94\nN = 3" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2221 -> 1262221 [label=126]
+	2221 -> 1222221 [label=122]
+	2221 -> 1252221 [label=125]
+	1262221 [label=1262221 shape=point style=filled width=0.25]
+	1262221 -> 2222 [label=0.75]
+	2222 [label="V(s(126, [((-1.0000000000000004, -2.0), 270)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1222221 [label=1222221 shape=point style=filled width=0.25]
+	1222221 -> 2232 [label=0.75]
+	2232 [label="V(s(122, [((-1.0000000000000004, -2.0), 270)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1252221 [label=1252221 shape=point style=filled width=0.25]
+	1252221 -> 2239 [label=0.05]
+	2239 [label="V(s(125, [((-2.0, -0.9999999999999999), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2224 [label="V(s(125, [((0.0, -2.4492935982947064e-16), 360)])) =
+-8.23\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2224 -> 1282224 [label=128]
+	1282224 [label=1282224 shape=point style=filled width=0.25]
+	1282224 -> 2225 [label=0.05]
+	2225 [label="V(s(128, [((0.7071067811865477, 0.7071067811865471), 405)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2228 [label="V(s(125, [((-1.7071067811865477, -0.7071067811865475), 225)])) =
+-31.82\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2228 -> 1222228 [label=122]
+	1222228 [label=1222228 shape=point style=filled width=0.25]
+	1222228 -> 2229 [label=0.05]
+	2229 [label="V(s(122, [((-2.707106781186548, -0.7071067811865474), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2230 [label="V(s(125, [((-1.7071067811865475, 0.7071067811865476), 135)])) =
+-12.38\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2230 -> 1222230 [label=122]
+	1222230 [label=1222230 shape=point style=filled width=0.25]
+	1222230 -> 2231 [label=0.75]
+	2231 [label="V(s(122, [((-2.414213562373095, 1.4142135623730951), 135)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2242 [label="V(s(125, [((-0.9999999999999999, 1.0), 90)])) =
+-8.23\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2242 -> 1282242 [label=128]
+	1282242 [label=1282242 shape=point style=filled width=0.25]
+	1282242 -> 2243 [label=0.75]
+	2243 [label="V(s(128, [((-0.9999999999999998, 2.0), 90)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1272210 [label=1272210 shape=point style=filled width=0.25]
+	1272210 -> 2213 [label=0.75]
+	2213 [label="V(s(127, [((-2.0, 1.2246467991473532e-16), 180)])) =
+-22.19\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2213 -> 1242213 [label=124]
+	1242213 [label=1242213 shape=point style=filled width=0.25]
+	1242213 -> 2299 [label=0.05]
+	2299 [label="V(s(124, [((-2.0, -0.9999999999999999), 270)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1262210 [label=1262210 shape=point style=filled width=0.25]
+	1262210 -> 2214 [label=0.05]
+	1262210 [label=1262210 shape=point style=filled width=0.25]
+	1262210 -> 2216 [label=0.75]
+	1262210 [label=1262210 shape=point style=filled width=0.25]
+	1262210 -> 2248 [label=0.05]
+	1262210 [label=1262210 shape=point style=filled width=0.25]
+	1262210 -> 2255 [label=0.05]
+	1262210 [label=1262210 shape=point style=filled width=0.25]
+	1262210 -> 2262 [label=0.05]
+	2214 [label="V(s(126, [((-1.0000000000000002, -1.0), 270)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2216 [label="V(s(126, [((-2.0, 1.2246467991473532e-16), 180)])) =
+-20.14\nN = 13" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2216 -> 1232216 [label=123]
+	2216 -> 1252216 [label=125]
+	2216 -> 1272216 [label=127]
+	2216 -> 1262216 [label=126]
+	2216 -> 1292216 [label=129]
+	1232216 [label=1232216 shape=point style=filled width=0.25]
+	1232216 -> 2217 [label=0.75]
+	2217 [label="V(s(123, [((-3.0, 2.4492935982947064e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1252216 [label=1252216 shape=point style=filled width=0.25]
+	1252216 -> 2218 [label=0.75]
+	2218 [label="V(s(125, [((-3.0, 2.4492935982947064e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1272216 [label=1272216 shape=point style=filled width=0.25]
+	1272216 -> 2219 [label=0.75]
+	2219 [label="V(s(127, [((-3.0, 2.4492935982947064e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1262216 [label=1262216 shape=point style=filled width=0.25]
+	1262216 -> 2220 [label=0.75]
+	2220 [label="V(s(126, [((-3.0, 2.4492935982947064e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1292216 [label=1292216 shape=point style=filled width=0.25]
+	1292216 -> 2250 [label=0.05]
+	1292216 [label=1292216 shape=point style=filled width=0.25]
+	1292216 -> 2252 [label=0.05]
+	1292216 [label=1292216 shape=point style=filled width=0.25]
+	1292216 -> 2257 [label=0.75]
+	1292216 [label=1292216 shape=point style=filled width=0.25]
+	1292216 -> 2260 [label=0.05]
+	2250 [label="V(s(129, [((-2.0, 1.0000000000000002), 90)])) =
+-5.94\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2250 -> 1262250 [label=126]
+	1262250 [label=1262250 shape=point style=filled width=0.25]
+	1262250 -> 2254 [label=0.75]
+	2254 [label="V(s(126, [((-2.0, 2.0), 90)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2252 [label="V(s(129, [((-2.0, -0.9999999999999999), 270)])) =
+-5.94\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2252 -> 1262252 [label=126]
+	1262252 [label=1262252 shape=point style=filled width=0.25]
+	1262252 -> 2253 [label=0.75]
+	2253 [label="V(s(126, [((-2.0, -2.0), 270)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2257 [label="V(s(129, [((-3.0, 2.4492935982947064e-16), 180)])) =
+-8.21\nN = 4" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2257 -> 1262257 [label=126]
+	2257 -> 1282257 [label=128]
+	2257 -> 1302257 [label=130]
+	2257 -> 1292257 [label=129]
+	1262257 [label=1262257 shape=point style=filled width=0.25]
+	1262257 -> 2258 [label=0.75]
+	2258 [label="V(s(126, [((-4.0, 3.6739403974420594e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1282257 [label=1282257 shape=point style=filled width=0.25]
+	1282257 -> 2259 [label=0.75]
+	2259 [label="V(s(128, [((-4.0, 3.6739403974420594e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1302257 [label=1302257 shape=point style=filled width=0.25]
+	1302257 -> 2266 [label=0.75]
+	2266 [label="V(s(130, [((-4.0, 3.6739403974420594e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1292257 [label=1292257 shape=point style=filled width=0.25]
+	1292257 -> 2267 [label=0.75]
+	2267 [label="V(s(129, [((-4.0, 3.6739403974420594e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2260 [label="V(s(129, [((-2.707106781186548, -0.7071067811865474), 225)])) =
+-5.94\nN = 2" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2260 -> 1262260 [label=126]
+	2260 -> 1302260 [label=130]
+	1262260 [label=1262260 shape=point style=filled width=0.25]
+	1262260 -> 2261 [label=0.75]
+	2261 [label="V(s(126, [((-3.414213562373096, -1.414213562373095), 225)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1302260 [label=1302260 shape=point style=filled width=0.25]
+	1302260 -> 2264 [label=0.05]
+	2264 [label="V(s(130, [((-2.0, 0.0), 405)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2248 [label="V(s(126, [((0.0, -2.4492935982947064e-16), 360)])) =
+-3.98\nN = 2" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2248 -> 1292248 [label=129]
+	2248 -> 1262248 [label=126]
+	1292248 [label=1292248 shape=point style=filled width=0.25]
+	1292248 -> 2249 [label=0.05]
+	2249 [label="V(s(129, [((-1.8369701987210297e-16, -1.0000000000000002), 270)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1262248 [label=1262248 shape=point style=filled width=0.25]
+	1262248 -> 2251 [label=0.05]
+	2251 [label="V(s(126, [((0.7071067811865474, -0.7071067811865479), 315)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2255 [label="V(s(126, [((-1.7071067811865477, -0.7071067811865475), 225)])) =
+-10.39\nN = 2" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2255 -> 1232255 [label=123]
+	2255 -> 1272255 [label=127]
+	1232255 [label=1232255 shape=point style=filled width=0.25]
+	1232255 -> 2256 [label=0.05]
+	2256 [label="V(s(123, [((-2.707106781186548, -0.7071067811865474), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1272255 [label=1272255 shape=point style=filled width=0.25]
+	1272255 -> 2265 [label=0.75]
+	2265 [label="V(s(127, [((-2.4142135623730954, -1.414213562373095), 225)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2262 [label="V(s(126, [((-1.7071067811865475, 0.7071067811865476), 135)])) =
+-7.88\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2262 -> 1232262 [label=123]
+	1232262 [label=1232262 shape=point style=filled width=0.25]
+	1232262 -> 2263 [label=0.75]
+	2263 [label="V(s(123, [((-2.414213562373095, 1.4142135623730951), 135)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1292210 [label=1292210 shape=point style=filled width=0.25]
+	1292210 -> 2215 [label=0.75]
+	1292210 [label=1292210 shape=point style=filled width=0.25]
+	1292210 -> 2269 [label=0.05]
+	2215 [label="V(s(129, [((-2.0, 1.2246467991473532e-16), 180)])) =
+-27.77\nN = 5" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2215 -> 1262215 [label=126]
+	2215 -> 1282215 [label=128]
+	2215 -> 1302215 [label=130]
+	2215 -> 1292215 [label=129]
+	2215 -> 1322215 [label=132]
+	1262215 [label=1262215 shape=point style=filled width=0.25]
+	1262215 -> 2268 [label=0.75]
+	2268 [label="V(s(126, [((-3.0, 2.4492935982947064e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1282215 [label=1282215 shape=point style=filled width=0.25]
+	1282215 -> 2271 [label=0.75]
+	2271 [label="V(s(128, [((-3.0, 2.4492935982947064e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1302215 [label=1302215 shape=point style=filled width=0.25]
+	1302215 -> 2272 [label=0.75]
+	2272 [label="V(s(130, [((-3.0, 2.4492935982947064e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1292215 [label=1292215 shape=point style=filled width=0.25]
+	1292215 -> 2273 [label=0.75]
+	2273 [label="V(s(129, [((-3.0, 2.4492935982947064e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	1322215 [label=1322215 shape=point style=filled width=0.25]
+	1322215 -> 2274 [label=0.75]
+	2274 [label="V(s(132, [((-3.0, 2.4492935982947064e-16), 180)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2269 [label="V(s(129, [((-1.7071067811865477, -0.7071067811865475), 225)])) =
+-5.94\nN = 1" fixedsize=True fontsize=8 height=1.5 width=1.5]
+	2269 -> 1262269 [label=126]
+	1262269 [label=1262269 shape=point style=filled width=0.25]
+	1262269 -> 2270 [label=0.75]
+	2270 [label="V(s(126, [((-2.4142135623730954, -1.414213562373095), 225)])) =
+-1000000.00\nN = 0" fixedsize=True fontsize=8 height=1.5 width=1.5]
 }

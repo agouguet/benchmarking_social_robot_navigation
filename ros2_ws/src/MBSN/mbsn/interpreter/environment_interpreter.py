@@ -35,7 +35,7 @@ class EnvironmentInterpreter(Node):
 
         # Agents
         self.robot_position_subscription_ = self.create_subscription(Odometry, 'robot_odom', self.robot_odom_callback, 10)
-        self.humans_position_subscription_ = self.create_subscription(AgentArray, 'social_sim/agents', self.humans_position_callback, 10)
+        self.humans_position_subscription_ = self.create_subscription(AgentArray, 'social_sim/agents', self.humans_callback, 10)
 
         # Goal
         self.goal_subscription_ = self.create_subscription(PoseStamped, 'global_goal', self.goal_callback, 10)

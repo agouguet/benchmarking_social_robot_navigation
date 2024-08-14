@@ -3,6 +3,8 @@ import os
 import time
 
 from matplotlib import pyplot as plt
+from mbsn.model.polygon.human import Human
+from mbsn.model.trajectory_prediction.human_trajctory_prediction_model import simple_human_trajectory_prediction
 from mbsn.solver.MCTS import MBSNAgentMCTS
 from mbsn.solver.multi_armed_bandit.ucb import UpperConfidenceBounds
 from mbsn.solver.qtable import QTable
@@ -43,6 +45,8 @@ class EnvironmentInterpreterToPolygon(EnvironmentInterpreter):
         self.local_bandit = UpperConfidenceBounds()
         self.can_publish_local_goal = True
 
+        self.humans_state = []
+
         self.polygon_publisher_ = self.create_publisher(MarkerArray, 'polygon_map', 10)
 
     def scene_info_callback(self, msg_scene_info):
@@ -50,7 +54,7 @@ class EnvironmentInterpreterToPolygon(EnvironmentInterpreter):
             self.scenario = msg_scene_info.environment.lower()
             self.get_logger().info('Scenario received: ' + str(self.scenario))
 
-            self.map_polygon = NavMap(self.scenario, type="hexagon")
+            self.map_polygon = NavMap(self.scenario, type="square")
             rooms = self.map_polygon.rooms
             self.global_mdp = NavPolygonMDP(rooms)
             self.global_solver = ValueIteration(self.global_mdp, 0.99)
@@ -78,9 +82,15 @@ class EnvironmentInterpreterToPolygon(EnvironmentInterpreter):
                 self.global_state_updated()
 
             if self.local_mdp is not None:
-                occupied_polygon = self.get_occupied_polygon()
-                local_state = State(self.local_mdp.get_state_from_continuous_position(self.current_pos), occupied_polygon)
-                if local_state != self.local_state and self.can_publish_local_goal:
+                # occupied_polygon = self.get_occupied_polygon()
+                humans_state = []
+                for human in self.humans:
+                    human_state = self.local_mdp.get_state_from_continuous_position(human.position)
+                    if human_state is not None:
+                        humans_state.append(human_state)
+                
+                if (self.local_mdp.get_state_from_continuous_position(self.current_pos) != self.local_state.robot or self.humans_state != humans_state) and self.can_publish_local_goal:
+                    self.humans_state = humans_state
                     self.local_state_updated()
             else:
                 self.local_state_updated()
@@ -90,11 +100,13 @@ class EnvironmentInterpreterToPolygon(EnvironmentInterpreter):
 
     def local_state_updated(self):
         self.can_publish_local_goal = False
-        self.local_mdp = NavRoomByVisibilityWithHumanMDP(self.map_polygon, self.current_pos, discount_factor=1.0, social_factor=1.0)
+        # self.local_mdp = NavRoomByVisibilityWithHumanMDP(self.map_polygon, self.current_pos, discount_factor=1.0, social_factor=1.0)
+        self.local_mdp = NavRoomByVisibilityWithHumanMDP(self.map_polygon, self.current_pos, human_trajectory_prediction_function=simple_human_trajectory_prediction, global_goal=self.goal ,distance_factor=3.0, social_factor=0.1)
         self.publish_polygon_map_vizualisation()
 
         # A* to find the local goal
-        grid = self.map_polygon.grid
+        # grid = self.map_polygon.grid
+        grid = self.map_polygon.test_grid
         current_state = get_cell_id_in_dict_from_continuous_position(grid, self.current_pos)
         goal_state = get_cell_id_in_dict_from_continuous_position(grid, self.global_mdp.goal)
         astar_path = astar(current_state, goal_state, grid)
@@ -108,7 +120,8 @@ class EnvironmentInterpreterToPolygon(EnvironmentInterpreter):
         # Human
         occupied_polygon = self.get_occupied_polygon()
 
-        local_state = State(self.local_mdp.get_state_from_continuous_position(self.current_pos), occupied_polygon)
+        # local_state = State(self.local_mdp.get_state_from_continuous_position(self.current_pos), occupied_polygon)
+        local_state = State(self.local_mdp.get_state_from_continuous_position(self.current_pos), self.humans)
 
         # print(self.map_polygon.grid[155].neighbors)
 
@@ -126,21 +139,21 @@ class EnvironmentInterpreterToPolygon(EnvironmentInterpreter):
         # MCTS
         self.local_solver = MBSNAgentMCTS(self.local_mdp, self.local_qfunction, self.local_bandit)
         
-        root_node, _ = self.local_solver.mcts(local_state, timeout=2.0)
+        root_node, _ = self.local_solver.mcts(local_state, timeout=0.5)
         self.local_action, _ = root_node.get_value()
         # self.robot_path.append(self.local_action)
 
         # print(self.local_solver.qfunction.qtable)
 
-        for (s, a), v in self.local_solver.qfunction.qtable.items():
-            print(s, a, v)
+        # for (s, a), v in self.local_solver.qfunction.qtable.items():
+        #     print(s, a, v)
 
         local_goal = self.local_mdp.polygons[self.local_action][0].centroid
         p1, p2 = nearest_points(self.local_mdp.polygons[self.local_action][0].polygon, self.local_mdp.polygons[local_goal_id][0].centroid)
-        print(p1, p2)
+        # print(p1, p2)
 
         self.get_logger().info('New local goal: ' + str(self.local_mdp.polygons[self.local_action][0].id))
-        self.publish_local_goal(p1)
+        self.publish_local_goal(p1) #p1
 
 
     def get_occupied_polygon(self):
@@ -151,11 +164,14 @@ class EnvironmentInterpreterToPolygon(EnvironmentInterpreter):
                 occupied_polygon[human_state] = 1
         return occupied_polygon
 
-    def humans_position_callback(self, msg_position):
-        pass
-
     def humans_callback(self, msg_agents):
-        pass
+        self.humans = []
+
+        for agent in msg_agents.agents:
+            if agent.visible_by_robot:
+                human = Human(agent.pose.position, agent.pose.orientation)
+                self.humans.append(human)
+
     
     def update(self, new_state):
         pass

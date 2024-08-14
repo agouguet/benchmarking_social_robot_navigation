@@ -31,7 +31,7 @@ class MBSNAgentNode:
         self.action = action
 
         # A dictionary from actions to a set of node-probability pairs
-        self.children = {}
+        self.children = defaultdict(list)
 
     """ Return true if and only if all child actions have been expanded """
     def is_fully_expanded(self):
@@ -53,13 +53,15 @@ class MBSNAgentNode:
 
 
     """ Expand a node if it is not a terminal node """
-    def expand(self):
+    def expand(self, heuristic_function=None):
         if not self.mdp.is_terminal(self.state):
             # Randomly select an unexpanded action to expand
+            
             actions = self.mdp.get_actions(self.state) - self.children.keys()
-            action = random.choice(list(actions))
-
-            self.children[action] = []
+            # print(self.state, actions)
+            # test
+            action = heuristic_function(self.mdp, self.state, actions = actions)             
+            # action = random.choice(list(actions))
             return self.get_outcome_child(action)
         return self
 
@@ -78,8 +80,8 @@ class MBSNAgentNode:
         self.qfunction.update(self.state, action, delta)
 
 
-        (next_state, test_reward) = self.mdp.execute(self.state, action)
-        # print("     BACK PROPA:", self.state, action, test_reward, reward, q_value, delta, self.qfunction.qtable[(self.state, action)])
+        # (next_state, test_reward) = self.mdp.execute(self.state, action)
+        print("     BACK PROPA:", self.state, action, reward, q_value, delta, self.qfunction.qtable[(self.state, action)])
 
         # print("\n")
 
@@ -94,7 +96,7 @@ class MBSNAgentNode:
         # Find the corresponding state and return if this already exists
         for (child, _) in self.children[action]:
             if next_state == child.state:
-                # print("STATE:", self.state, "CHILD:", child.state)
+                # print("state already exists:", self.state, "CHILD:", child.state)
                 return child
 
         # This outcome has not occured from this state-action pair previously
@@ -106,9 +108,10 @@ class MBSNAgentNode:
         probability = 0.0
         for (outcome, probability) in self.mdp.get_transitions(self.state, action):
             if outcome == next_state:
-                self.children[action] += [(new_child, probability)]
+                self.children[action].append((new_child, probability))
+                # print("NEW CHILD : ", new_child.state)
                 return new_child
-
+        
 
     """ Return the value of this node """
     def get_value(self):
@@ -149,17 +152,19 @@ class MBSNAgentMCTS:
             # Find a state node to expand
             selected_node = root_node.select()
             # if self.first:
-            #     print("SELECTION: ", selected_node.state, MBSNAgentNode.visits[selected_node.state])
+            
 
             if not self.mdp.is_terminal(selected_node.state):
-                child = selected_node.expand()
-                reward = self.simulate(child)
+                child = selected_node.expand(self._heuristic_function)
+                reward = self.simulate(selected_node, child)
                 selected_node.back_propagate(reward, child)
                 num_rollouts += 1
 
             current_time = time.time()
             if sleep:
                 time.sleep(0.000001)
+
+            # print("\n\nSELECTION: ", selected_node.state, MBSNAgentNode.visits[selected_node.state], self.mdp.get_actions(selected_node.state), len(selected_node.children)) #[sp[0][0].state for id, sp in selected_node.children.items()]
 
         return root_node, num_rollouts
 
@@ -169,15 +174,16 @@ class MBSNAgentMCTS:
         # if self.first:
         #     print(state, action_choosen)
         #     self.first=False
-        # print("MCTS: ", state, action_choosen)
+        print("MCTS: ", state, action_choosen)
         return action_choosen
 
     """ Simulate until a terminal state """
-    def simulate(self, node):
-        state = node.state
+    def simulate(self, parent_node, child_node):
+        parent_state = parent_node.state
+        state = child_node.state
         # if self.first:
-        # print("     CHILD:", state)
-        cumulative_reward = 0.0
+        # cumulative_reward = 0.0
+        cumulative_reward = self.mdp.get_reward(parent_state, child_node.action, state)
         depth = 0
         while not self.mdp.is_terminal(state):
             
@@ -192,7 +198,7 @@ class MBSNAgentMCTS:
             # Discount the reward
             cumulative_reward += pow(self.mdp.get_discount_factor(), depth) * reward
 
-            # print("         - ", action, next_state, reward, cumulative_reward)
+            print("         - ", action, next_state, reward, cumulative_reward)
             depth += 1
 
             state = next_state

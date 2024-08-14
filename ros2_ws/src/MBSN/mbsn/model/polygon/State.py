@@ -1,9 +1,11 @@
 import json
 
+
 class State():
-    def __init__(self, robot, occupied):
+    def __init__(self, robot, humans):
         self.robot = robot
-        self.occupied = occupied
+        self.humans = humans #TODO Make changement Occupied -> Human
+
 
     # @property
     # def robot(self, robot_state):
@@ -14,21 +16,21 @@ class State():
     #     return self.robot
 
     def __str__(self):
-        return "s" + "(" + str(self.robot) + ", " + str([id for id, o in self.occupied.items() if o == 1]) + ")"
+        return "s" + "(" + str(self.robot) + ", " + str(self.humans) + ")"
     
     def __repr__(self) -> str:
         return self.__str__()
 
     def __eq__(self, other):
-        return other != None and self.robot == other.robot and self.occupied == other.occupied
+        return other != None and self.robot == other.robot and self.humans == other.humans
 
     def __hash__(self):
-        return hash((self.robot, tuple(self.occupied)))
+        return hash((self.robot, tuple(self.humans)))
 
     def toJson(self):
         _dict ={
             "robot": self.robot,
-            "occupied": self.occupied,
+            "humans": self.humans,
         }
         return _dict
 

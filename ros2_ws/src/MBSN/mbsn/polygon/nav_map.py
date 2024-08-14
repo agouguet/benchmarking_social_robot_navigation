@@ -28,6 +28,8 @@ class NavMap(NavPolygon):
             self.grid = self.create_grid_of_squares(polygon=polygon, square_size=1.0)
         
         self.visibility_polygon = VisibilityPolygon(vertices, polygon)
+
+        self.test_grid = self.create_test_grid()
         
 
     def get_rooms(self, tolerance=1.0):
@@ -168,3 +170,39 @@ class NavMap(NavPolygon):
                             if hexagon.polygon.buffer(0.05).intersects(neighbor.polygon):
                                 hexagon.add_neighbor(neighbor)
         return grid
+    
+    def create_test_grid(self):
+        
+        grid = {}
+        id_to_id = defaultdict(list)
+        for id, room in self.rooms.items():
+            cells = room.get_cells_from_grid(self.grid)
+            for cell in cells:
+                poly = NavPolygon(cell.polygon)
+                # id_to_id[poly.id] = cell.id
+                id_to_id[cell.id].append(poly.id)
+                grid[poly.id] = poly
+        
+        for _ ,ids in id_to_id.items():
+            if len(ids) > 1:
+                for id1 in ids:
+                    poly1 = grid[id1]
+                    for id2 in ids:
+                        if id1 != id2:
+                            poly2 = grid[id2]
+                            if poly1.polygon.buffer(0.1).intersects(poly2.polygon):
+                                poly1.add_neighbor(poly2)
+
+
+
+        for id, poly in self.grid.items():
+            for new_poly_id in id_to_id[id]:
+                new_poly = grid[new_poly_id]
+                for n in poly.neighbors:
+                    for new_poly_n_id in id_to_id[n.id]:
+                        new_poly_n = grid[new_poly_n_id]
+                        if new_poly.polygon.buffer(0.1).intersects(new_poly_n.polygon):
+                            new_poly.add_neighbor(new_poly_n)
+
+        return grid
+                
