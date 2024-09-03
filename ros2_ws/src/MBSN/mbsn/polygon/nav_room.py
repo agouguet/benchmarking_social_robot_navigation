@@ -20,14 +20,14 @@ class NavRoom(NavPolygon):
                 inter = self.polygon.intersection(cell.polygon)
                 if isinstance(inter, MultiPolygon) or isinstance(inter, GeometryCollection):
                     for poly in inter.geoms:
-                        if isinstance(poly, Polygon) and self.polygon.intersects(poly): #TODO: Find half of hexagon area
+                        if isinstance(poly, Polygon) and self.polygon.intersects(poly) and poly.area >= 0.05: #TODO: Find half of hexagon area
                             new_cell = NavPolygon(poly, id=cell.id)
                             for n in cell.neighbors:
                                 if new_cell.polygon.buffer(buffer_size).intersects(n.polygon):
                                     new_cell.add_neighbor(n)
                             # new_cell.neighbors = cell.neighbors
                             cells.append(new_cell)
-                elif isinstance(inter, Polygon) and inter.area >= 0.2:
+                elif isinstance(inter, Polygon) and inter.area >= 0.35:
                         new_cell = NavPolygon(inter, id=cell.id)
                         for n in cell.neighbors:
                             if new_cell.polygon.buffer(buffer_size).intersects(n.polygon):

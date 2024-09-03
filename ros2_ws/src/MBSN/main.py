@@ -25,34 +25,36 @@ from mbsn.polygon.nav_map import NavMap
 from mbsn.solver.ValueIteration import ValueIteration
 
 
-SCENARIO = "door_passing"
+SCENARIO = "intersection"
 
-robot_pos = Point(-12.0, 0.0)
+robot_pos = Point(-11.0, 0.0)
 print("ROBOT =", robot_pos)
 
-human1 = Human(Point(12.0, 0.0), 180)
+human1 = Human(Point(12.0, 0.0), 180, [Point(12.0 - i, 0.0) for i in range(5)])
+# human1 = Human(Point(-7.0, -1.25), -90)
 # human2 = Human((2.0, -12.0))
 # human3 = Human((-0.0, -11.75))
 
-goal_pos = Point(12, 0.0)
+goal_pos = Point(11, 0.0)
 print("GOAL =", goal_pos)
 
 
 map_polygon = NavMap(SCENARIO, type="square")
 
-# matplotlib.use('Qt5Agg')
-# fig, ax = plt.subplots()
+print("uuu", len(map_polygon.test_grid.keys()))
 
-# map_polygon.plot(ax)
+matplotlib.use('Qt5Agg')
+fig, ax = plt.subplots()
 
-# for id, cell in map_polygon.test_grid.items():
-#     cell.plot(ax=ax, add_id=True)
+map_polygon.plot(ax)
 
-# ax.axis('off')
-# ax.set_aspect('equal', adjustable='box')
-# ax.invert_yaxis()
-# print(map_polygon.test_grid[141].neighbors)
-# plt.show()
+for id, cell in map_polygon.test_grid.items():
+    cell.plot(ax=ax, add_id=True)
+
+ax.axis('off')
+ax.set_aspect('equal', adjustable='box')
+ax.invert_yaxis()
+plt.show()
 
 
 
@@ -85,6 +87,7 @@ while 1:
     t = time.time()
 
     human1.move(-1.0, 0.0)
+    human1.future_predicted_position = [Point(human1.position.x - i, 0.0) for i in range(5)]
     test.human_updated([human1])
 
     action = test.robot_position_updated(MultiPolygon([p.polygon for p in next_cell]).centroid)

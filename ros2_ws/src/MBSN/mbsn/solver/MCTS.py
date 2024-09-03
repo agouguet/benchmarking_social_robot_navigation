@@ -1,7 +1,8 @@
+import itertools
 import math
 import time
 import random
-from collections import defaultdict
+from collections import defaultdict, deque
 from mbsn.solver.heuristicfunction import *
 
 class MBSNAgentNode:
@@ -55,13 +56,10 @@ class MBSNAgentNode:
     """ Expand a node if it is not a terminal node """
     def expand(self, heuristic_function=None):
         if not self.mdp.is_terminal(self.state):
-            # Randomly select an unexpanded action to expand
-            
             actions = self.mdp.get_actions(self.state) - self.children.keys()
-            # print(self.state, actions)
-            # test
-            action = heuristic_function(self.mdp, self.state, actions = actions)             
+            action = heuristic_function(self.mdp, self.state, [self.action], actions = actions)             
             # action = random.choice(list(actions))
+
             return self.get_outcome_child(action)
         return self
 
@@ -72,18 +70,11 @@ class MBSNAgentNode:
         MBSNAgentNode.visits[self.state] = MBSNAgentNode.visits[self.state] + 1
         MBSNAgentNode.visits[(self.state, action)] = MBSNAgentNode.visits[(self.state, action)] + 1
 
-        q_value = self.qfunction.get_q_value(self.state, action)
         delta = (1 / (MBSNAgentNode.visits[(self.state, action)])) * (
             reward - self.qfunction.get_q_value(self.state, action)
         )
         
         self.qfunction.update(self.state, action, delta)
-
-
-        # (next_state, test_reward) = self.mdp.execute(self.state, action)
-        print("     BACK PROPA:", self.state, action, reward, q_value, delta, self.qfunction.qtable[(self.state, action)])
-
-        # print("\n")
 
         if self.parent != None:
             self.parent.back_propagate(self.reward + reward, self)
@@ -147,17 +138,20 @@ class MBSNAgentMCTS:
         current_time = time.time()
         num_rollouts = 0
         while current_time < start_time + timeout:
-
-            # print("{:.2f}".format(current_time-start_time), root_node.state)
+            # print('-----')
+            # print("{:.2f}".format(current_time-start_time))
             # Find a state node to expand
             selected_node = root_node.select()
             # if self.first:
             
-
+            # print("{:.2f}".format(current_time-start_time))
             if not self.mdp.is_terminal(selected_node.state):
                 child = selected_node.expand(self._heuristic_function)
+                # print("{:.2f}".format(current_time-start_time))
                 reward = self.simulate(selected_node, child)
+                # print("{:.2f}".format(current_time-start_time))
                 selected_node.back_propagate(reward, child)
+                # print("{:.2f}".format(current_time-start_time))
                 num_rollouts += 1
 
             current_time = time.time()
@@ -169,12 +163,16 @@ class MBSNAgentMCTS:
         return root_node, num_rollouts
 
     """ Choose a random action. Heustics can be used here to improve simulations. """
-    def choose(self, state):
-        action_choosen = self._heuristic_function(self.mdp, state) #random.choice(self.mdp.get_actions(state))
+    def choose(self, state, prev_actions):
+        # print(" -- MCTS choose")
+        action_choosen = self._heuristic_function(self.mdp, state, prev_actions) #random.choice(self.mdp.get_actions(state))
         # if self.first:
         #     print(state, action_choosen)
         #     self.first=False
-        print("MCTS: ", state, action_choosen)
+        # print("List prev actions:", prev_actions)
+        # print("MCTS:", state, self.mdp.get_state_from_continuous_position(self.mdp.goal), prev_actions, action_choosen)
+
+        # action_choosen = random.choice(self.mdp.get_actions(state))
         return action_choosen
 
     """ Simulate until a terminal state """
@@ -184,11 +182,22 @@ class MBSNAgentMCTS:
         # if self.first:
         # cumulative_reward = 0.0
         cumulative_reward = self.mdp.get_reward(parent_state, child_node.action, state)
+
+        list_actions=deque(maxlen=3)
+        list_actions.append(parent_node.action)
+        list_actions.append(child_node.action)
+
         depth = 0
-        while not self.mdp.is_terminal(state):
+        while not self.mdp.is_terminal(state) and depth < 20:
             
             # Choose an action to execute
-            action = self.choose(state)
+            action_deque_slice = deque(itertools.islice(list_actions, 0, len(list_actions)-1))
+            t = time.time()
+            action = self.choose(state, action_deque_slice)
+            # print("TTTTTT ", time.time() - t)
+            list_actions.append(action)
+            # print("A = ", action)
+
             # if depth == 0:
             
 
@@ -198,7 +207,7 @@ class MBSNAgentMCTS:
             # Discount the reward
             cumulative_reward += pow(self.mdp.get_discount_factor(), depth) * reward
 
-            print("         - ", action, next_state, reward, cumulative_reward)
+            # print("         - ", depth, state, action, next_state, reward, cumulative_reward)
             depth += 1
 
             state = next_state

@@ -2,6 +2,7 @@ import heapq
 import math
 from scipy.spatial import distance
 from shapely.geometry import Point, Polygon, LineString, box
+from geometry_msgs.msg import Pose, Point as RosPoint # type: ignore
 import os, yaml, cv2, numpy as np, matplotlib
 
 def euclidean_distance(point1, point2):
@@ -143,11 +144,12 @@ def astar(start, goal, grid):
 
 
 def ros_point_to_shapely_point(ros_point):
+    if not isinstance(ros_point, Point) and not isinstance(ros_point, RosPoint):
+        ros_point = Point(ros_point[0], ros_point[1])
     return Point(ros_point.x, -ros_point.y)
 
 def shapely_point_to_ros_point(shapely_point):
-
-    return Point(shapely_point.x, shapely_point.y)
+    return Point(shapely_point.x, -shapely_point.y)
 
 
 def euler_from_quaternion(x, y, z, w):

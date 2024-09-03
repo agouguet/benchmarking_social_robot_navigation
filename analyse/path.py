@@ -9,7 +9,7 @@ import sys
 import os
 
 # CMAPS
-cmaps = ["Reds", "Blues", "Greens", "Purples", "Oranges", "cool", "hot"]
+cmaps = ["Reds", "Blues", "Greens", "Purples", "Oranges", "Greys", "RdPu", "GnBu", "BuGn", "YlOrRd"]
 
 # METHOD
 DWA = "DWA"
@@ -55,6 +55,7 @@ SUBPLOT_DIMENSION = {
     OVERTAKING: [-12, 12, -12, 12],
     STATIC: [-12, 12, -12, 12],
     FRONTAL: [-12, 12, -12, 12],
+    CORNER: [-12, 12, -12, 12],
     HOSPITAL: [-35, 35, -35, 35],
 }
 

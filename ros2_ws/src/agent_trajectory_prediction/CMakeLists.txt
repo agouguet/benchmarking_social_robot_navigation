@@ -40,8 +40,14 @@ ament_export_dependencies(rosidl_default_runtime)
 # Install Python modules
 ament_python_install_package(${PROJECT_NAME})
 
+install(DIRECTORY
+  ${PROJECT_NAME}
+  DESTINATION share/${PROJECT_NAME}/
+)
+
 install(PROGRAMS
   scripts/agent_trajectory_prediction_publisher.py
+  scripts/agent_trajectory_simple_prediction_publisher.py
   scripts/agent_trajectory_prediction_visualization.py
   DESTINATION lib/${PROJECT_NAME})
 

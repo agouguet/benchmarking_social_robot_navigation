@@ -18,9 +18,9 @@ class NavMap(NavPolygon):
     def __init__(self, scenario, type='hexagon'):
         self.scenario = scenario
         vertices, polygon, _ = load_map_as_polygon(scenario, scale=True)
+        
         super().__init__(polygon)
         self.rooms = self.get_rooms()
-
         if type == 'hexagon':
             # self.grid = self.create_grid_of_hexagon(polygon=polygon, hexagon_size=0.5)
             self.grid = self.create_grid_of_hexagon(polygon=polygon, hexagon_size=0.5)
@@ -29,7 +29,9 @@ class NavMap(NavPolygon):
         
         self.visibility_polygon = VisibilityPolygon(vertices, polygon)
 
-        self.test_grid = self.create_test_grid()
+        # self.test_grid = self.create_test_grid()
+
+        self.test_grid = self.create_test_grid_v2(polygon)
         
 
     def get_rooms(self, tolerance=1.0):
@@ -206,3 +208,49 @@ class NavMap(NavPolygon):
 
         return grid
                 
+    def create_test_grid_v2(self, polygon, buffer_size=0.05):
+        grid = {}
+        id_to_id = defaultdict(list)
+        
+        for id, cell in self.grid.items():
+            if polygon.intersects(cell.polygon):
+                inter = polygon.intersection(cell.polygon)
+                if isinstance(inter, MultiPolygon) or isinstance(inter, GeometryCollection):
+                    for poly in inter.geoms:
+                        if isinstance(poly, Polygon) and polygon.intersects(poly) and poly.area >= 0.1:
+                            new_cell = NavPolygon(poly)
+                            # for n in cell.neighbors:
+                            #     if new_cell.polygon.buffer(buffer_size).intersects(n.polygon):
+                            #         new_cell.add_neighbor(n)
+                            grid[new_cell.id] = new_cell
+                            id_to_id[cell.id].append(new_cell.id)
+                elif isinstance(inter, Polygon) and inter.area >= 0.35:
+                        new_cell = NavPolygon(inter)
+                        # for n in cell.neighbors:
+                        #     if new_cell.polygon.buffer(buffer_size).intersects(n.polygon):
+                        #         new_cell.add_neighbor(n)
+                        grid[new_cell.id] = new_cell
+                        id_to_id[cell.id].append(new_cell.id)
+
+        for _ ,ids in id_to_id.items():
+            if len(ids) > 1:
+                for id1 in ids:
+                    poly1 = grid[id1]
+                    for id2 in ids:
+                        if id1 != id2:
+                            poly2 = grid[id2]
+                            if poly1.polygon.buffer(0.01).intersects(poly2.polygon):
+                                poly1.add_neighbor(poly2)
+
+
+
+        for id, poly in self.grid.items():
+            for new_poly_id in id_to_id[id]:
+                new_poly = grid[new_poly_id]
+                for n in poly.neighbors:
+                    for new_poly_n_id in id_to_id[n.id]:
+                        new_poly_n = grid[new_poly_n_id]
+                        if new_poly.polygon.buffer(0.01).intersects(new_poly_n.polygon):
+                            new_poly.add_neighbor(new_poly_n)
+
+        return grid

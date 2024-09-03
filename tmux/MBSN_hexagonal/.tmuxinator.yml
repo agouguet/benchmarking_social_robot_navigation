@@ -28,10 +28,15 @@ windows:
         # - visualization_graph:
         #   - ros2 run mbsn graph_visualization.py
 
-        # - agent_trajectories:
-        #   - ros2 run agent_trajectory_prediction agent_trajectory_prediction_publisher.py 
-        # - visualization_trajs:
-        #   - ros2 run agent_trajectory_prediction agent_trajectory_prediction_visualization.py
+        - clear_global_costmap:
+          - ros2 service call /global_costmap/clear_entirely_global_costmap nav2_msgs/srv/ClearEntireCostmap -r 0.33
+        - clear_local_costmap:
+          - ros2 service call /local_costmap/clear_entirely_local_costmap nav2_msgs/srv/ClearEntireCostmap -r 0.33
+
+        - agent_trajectories:
+          - ros2 run agent_trajectory_prediction agent_trajectory_prediction_publisher.py 
+        - visualization_trajs:
+          - ros2 run agent_trajectory_prediction agent_trajectory_prediction_visualization.py
 
         - rviz:
           - ros2 launch unity_sim rviz.launch.py

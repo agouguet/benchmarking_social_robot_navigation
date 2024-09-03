@@ -8,7 +8,7 @@ from shapely import Point, Polygon
 from mbsn.model.polygon.NavRoomByVisibilityWithHumanMDP import NavRoomByVisibilityWithHumanMDP
 from mbsn.model.polygon.NavPolygonMDP import NavPolygonMDP
 from mbsn.model.polygon.State import State
-from mbsn.model.trajectory_prediction.human_trajctory_prediction_model import simple_human_trajectory_prediction
+from mbsn.model.trajectory_prediction.human_trajctory_prediction_model import pecnet_human_trajectory_prediction, simple_human_trajectory_prediction
 from mbsn.solver.MCTS import MBSNAgentMCTS, MBSNAgentNode
 from mbsn.solver.ValueIteration import ValueIteration
 from mbsn.solver.multi_armed_bandit.ucb import UpperConfidenceBounds
@@ -84,7 +84,7 @@ class EnvironmentState():
                                                          self.current_pos, 
                                                          human_trajectory_prediction_function=simple_human_trajectory_prediction, 
                                                          global_goal=self.global_goal, 
-                                                         distance_factor=20.0, 
+                                                         distance_factor=2.0, 
                                                          social_factor=1.0)
 
         # A* to find the local goal
@@ -92,6 +92,7 @@ class EnvironmentState():
         grid = self.map_polygon.test_grid
         current_state = get_cell_id_in_dict_from_continuous_position(grid, self.current_pos)
         goal_state = get_cell_id_in_dict_from_continuous_position(grid, self.global_goal)
+        print(current_state)
         astar_path = astar(current_state, goal_state, grid)
         local_goal_id = astar_path[0]
         for cell_id in astar_path:
@@ -127,15 +128,15 @@ class EnvironmentState():
 
 
 
-        print(local_state)
-        for a in self.local_mdp.get_actions(local_state):
-            print("    ", a)
-            for (new_state, probability) in self.local_mdp.get_transitions(local_state, a):
-                print("        ", new_state, probability, self.local_mdp.get_reward(local_state, a, new_state))
+        # print(local_state)
+        # for a in self.local_mdp.get_actions(local_state):
+        #     print("    ", a)
+        #     for (new_state, probability) in self.local_mdp.get_transitions(local_state, a):
+        #         print("        ", new_state, probability, self.local_mdp.get_reward(local_state, a, new_state))
 
-        for (s, a), v in self.local_solver.qfunction.qtable.items():
-            if s == local_state:
-                print(s, a, v)
+        # for (s, a), v in self.local_solver.qfunction.qtable.items():
+        #     if s == local_state:
+        #         print(s, a, v)
 
         # GV = GraphVisualisation()
         # g = GV.single_agent_mcts_to_graph(root_node)

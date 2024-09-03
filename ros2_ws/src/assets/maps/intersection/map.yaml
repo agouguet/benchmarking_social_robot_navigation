@@ -1,5 +1,5 @@
 image: short_map.jpg
-resolution: 0.01
+resolution: 0.02
 origin: [-13,-13,0]
 occupied_thresh: 0.5
 free_thresh: 0.5

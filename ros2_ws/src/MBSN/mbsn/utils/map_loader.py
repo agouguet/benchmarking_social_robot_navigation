@@ -55,6 +55,7 @@ def load_segmented_map(scenario_name):
     
 def save_segmented_map(scenario_name, segmented_map):
     cv2.imwrite(MAPS_DIRECTORY + scenario_name + "/segmented.png", segmented_map) # Save the image
+    print("Segemted image saved in share folder.")
 
 def load_map_as_polygon(scenario_name, scale=True):
     map_config_exist, map_config = get_map_config(scenario_name)

@@ -1,19 +1,24 @@
+from collections import deque
 import itertools
 import math
 
 from matplotlib import pyplot as plt
 import numpy as np
 from shapely import Point
-from geometry_msgs.msg import Point as ROSMsgPoint, Quaternion
-from mbsn.utils.util import euler_from_quaternion# type: ignore
+from geometry_msgs.msg import Point as ROSMsgPoint, Quaternion # type: ignore
+from mbsn.utils.util import euler_from_quaternion # type: ignore
 
 class Human():
 
     id_iter = itertools.count()
 
-    def __init__(self, position, orientation=0.0, id=None):
+    def __init__(self, position, orientation=0.0, future_predicted_position = [], id=None):
+        self.previous_position_ = deque(maxlen=10)
+
         self.position = position
         self.orientation = orientation
+        self.future_predicted_position = future_predicted_position
+
         self.id = next(self.id_iter) if id is None else id
 
     @property
@@ -22,13 +27,22 @@ class Human():
     
     @position.setter
     def position(self, position):
-        if isinstance(position, tuple):
+        if isinstance(position, tuple) or isinstance(position, list):
             self._position = Point(position[0], position[1])
         elif isinstance(position, Point):
             self._position = position
         elif isinstance(position, ROSMsgPoint):
             self._position = Point(position.x, position.y)
 
+        self.previous_position_.append(self._position)
+
+    @property
+    def future_predicted_position(self):
+        return self._future_predicted_position
+    
+    @future_predicted_position.setter
+    def future_predicted_position(self, future_predicted_position):
+        self._future_predicted_position = future_predicted_position
 
     @property
     def orientation(self):
@@ -44,6 +58,10 @@ class Human():
 
     def move(self, x, y):
         self._position = Point(self.position.x + x, self.position.y + y)
+
+
+    def rviz_publisher(self, node):
+        pass
 
     def plot(self, ax):
         circle = plt.Circle((self.position.x, self.position.y), radius=0.2, color="blue")

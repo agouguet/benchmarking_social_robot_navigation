@@ -14,6 +14,7 @@ import random
 
 PENALITY_DISTANCE_GOAL = 1
 PENALITY_COLLISION_HUMAN = 1000
+PENALITY_FUTURE_COLLISION_HUMAN = 100
 PENALITY_PROXIMITY_HUMAN = 0.1
 REWARD_GOAL = 1000
 PENALITY_WAIT = 10
@@ -34,19 +35,23 @@ class NavRoomByVisibilityWithHumanMDP(MDP):
     ):
         self.polygons = defaultdict(list)
 
-        _, self.visibility_polygon = map_polygon.visibility_polygon.build(robot_position.x, robot_position.y, range=3.0)
+        _, self.visibility_polygon = map_polygon.visibility_polygon.build(robot_position.x, robot_position.y, range=5.0)
 
         visible_rooms=[]
 
-        for id, room in map_polygon.rooms.items():
-            if room.polygon.intersects(self.visibility_polygon):
-                visible_rooms.append(room)
+        # for id, room in map_polygon.rooms.items():
+        #     if room.polygon.intersects(self.visibility_polygon):
+        #         visible_rooms.append(room)
 
-        for room in visible_rooms:
-            cells = room.get_cells_from_grid(map_polygon.test_grid)
-            for cell in cells:
-                if cell.polygon.intersects(self.visibility_polygon):
-                    self.polygons[cell.id].append(cell)
+        # for room in visible_rooms:
+        #     cells = room.get_cells_from_grid(map_polygon.test_grid)
+        #     for cell in cells:
+        #         if cell.polygon.intersects(self.visibility_polygon):
+        #             self.polygons[cell.id].append(cell)
+
+        for id, cell in map_polygon.test_grid.items():
+            if cell.polygon.intersects(self.visibility_polygon):
+                self.polygons[cell.id].append(cell)
 
         self.goal = goal
         self.global_goal = global_goal
@@ -71,7 +76,6 @@ class NavRoomByVisibilityWithHumanMDP(MDP):
     def get_actions(self, state):
         if self.get_state_from_continuous_position(self.global_goal) == state.robot:
             return ["find_goal"]
-        #     return [state.robot]
         actions = [state.robot]
         polygons = self.polygons[state.robot]
         for poly in polygons:
@@ -83,24 +87,7 @@ class NavRoomByVisibilityWithHumanMDP(MDP):
 
     def get_next_states(self, state, action):
         next_states = [State(action, state.humans)]
-
         return self.human_trajectory_prediction_function(self, state, action)
-
-
-
-
-        for occupied_state in [idx for idx, value in state.occupied.items() if value == 1]:
-            for polygon in self.polygons[occupied_state]:
-                neighbors = [i for i in polygon.neighbors]
-                for n in neighbors:
-                    if n.id in self.polygons:
-                        occupied = state.occupied.copy()
-                        occupied[occupied_state] = 0
-                        occupied[n.id] = 1
-                        next_state = State(action, occupied)
-                        if next_state not in next_states:
-                            next_states.append(next_state)
-        return next_states
 
     """ Return all non-zero probability transitions for this action
         from this state, as a list of (state, probability) pairs
@@ -127,7 +114,6 @@ class NavRoomByVisibilityWithHumanMDP(MDP):
 
         # Penalty Distance
         reward += self._distance_factor * (self.goal.distance(self.get_position_of_state(state.robot)) - self.goal.distance(self.get_position_of_state(next_state.robot)))
-        # print("R:", state, action, next_state, self.goal.distance(self.get_position_of_state(state.robot)), self.goal.distance(self.get_position_of_state(next_state.robot)), self._distance_factor * (self.goal.distance(self.get_position_of_state(state.robot)) - self.goal.distance(self.get_position_of_state(next_state.robot))))
 
         # Penalty Human
         for human in state.humans:
@@ -135,6 +121,13 @@ class NavRoomByVisibilityWithHumanMDP(MDP):
             if state.robot == human_state or action == human_state:
                 reward -= self._social_factor * PENALITY_COLLISION_HUMAN
                 break
+
+        # for human in state.humans:
+        #     for traj in human.future_predicted_position:
+        #         traj_state = self.get_state_from_continuous_position(traj)
+        #         if state.robot == traj_state or action == traj_state:
+        #             reward -= self._social_factor * PENALITY_FUTURE_COLLISION_HUMAN
+        #             break
 
         for polygon in self.polygons[state.robot]:
             if polygon.intersects(self.goal.buffer(0.05)):
@@ -146,8 +139,6 @@ class NavRoomByVisibilityWithHumanMDP(MDP):
     def is_terminal(self, state):
         if len(self.get_actions(state)) == 0:
             return True
-        # if len(self.polygons[state]) >=2:
-        #     return True
 
         if self.get_state_from_continuous_position(self.goal) == state.robot:
             return True
@@ -166,8 +157,9 @@ class NavRoomByVisibilityWithHumanMDP(MDP):
 
         if isinstance(self.polygons, dict):
             for id, polygon in self.polygons.items():
+                # print(id, polygon[0].centroid, position)
                 for poly in polygon:
-                    if poly.buffer(0.1).contains(position):
+                    if poly.buffer(0.1).contains(position) or poly.buffer(0.1).intersects(position):
                         return id
         return None
     

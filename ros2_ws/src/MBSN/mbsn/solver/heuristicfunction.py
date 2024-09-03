@@ -58,13 +58,14 @@ def avoid_humans(mdp, state):
             return action
 
 
-def astar(start, goal, mdp):
+def astar(start, goal, mdp, limited_action_of_start_state=None):
 
     def heuristic(cell1, cell2):
         # Utilisation de la distance de Manhattan comme heuristique
         a = mdp.polygons[cell1][0].centroid
         b = mdp.polygons[cell2][0].centroid
-        return abs(a.x - b.x) + abs(a.y - b.y)
+        return a.distance(b)
+        return abs(a.x - b.x) + abs(a.y - b.y) + mdp.polygons[cell1][0].area
 
     open_set = []
     heapq.heappush(open_set, (0, start.robot))
@@ -85,7 +86,11 @@ def astar(start, goal, mdp):
             path.reverse()
             return path
 
-        for neighbor in mdp.get_actions(State(current,start.humans)):
+        actions = mdp.get_actions(State(current,start.humans))
+        if limited_action_of_start_state is not None and current == start.robot:
+            actions = limited_action_of_start_state
+        
+        for neighbor in actions:
             tentative_g_score = g_score[current] + 1
             if neighbor not in g_score or tentative_g_score < g_score[neighbor]:
                 came_from[neighbor] = current
@@ -95,87 +100,93 @@ def astar(start, goal, mdp):
 
     return None  # Aucun chemin trouvé
 
-def closest_to_goal(mdp, state):
+def closest_to_goal(mdp, state, limited_action_of_start_state=None):
     cell_goal = mdp.get_state_from_continuous_position(mdp.goal)
-    astar_path = astar(state, cell_goal, mdp)
+    astar_path = astar(state, cell_goal, mdp, limited_action_of_start_state=limited_action_of_start_state)
     if astar_path is not None:
         return astar_path[1]
-    return state
+    return state.robot
 
-def social_heuristic(mdp, state, actions=None):
+def social_heuristic(mdp, state, prev_actions=None, actions=None):
     if len(state.humans) == 0:
+        # print("closest_to_goal : ", closest_to_goal(mdp, state))
         return closest_to_goal(mdp, state)
-
 
     cell_goal = mdp.get_state_from_continuous_position(mdp.goal)
     if actions is None:
         actions = mdp.get_actions(state)
-    sorted_actions = []
-
-    for action in actions:
-        astar_path = astar(State(action, state.humans), cell_goal, mdp)
-        if astar_path is None:
-            continue
-        dist = 0
-        for i in range(1, len(astar_path)):
-            cell = astar_path[i-1]
-            next_cell = astar_path[i]
-            dist += mdp.polygons[cell][0].centroid.distance(mdp.polygons[next_cell][0].centroid)
-        sorted_actions.append((action, dist))
-
-    # actions = sorted(sorted_actions, key=lambda a: a[1])
-    actions = [a[0] for a in sorted(sorted_actions, key=lambda a:a[1])]
-
-    for action in actions:
-        astar_path = astar(State(action, state.humans), cell_goal, mdp)
-        human_on_path = False
-        for cell in astar_path:
-            for h in state.humans:
-                if mdp.polygons[cell][0].centroid.distance(h.position) <= 1.2:
-                    human_on_path = True
-
-
-            # for h in [h for h, o in state.occupied.items() if o == 1]:
-            #     if mdp.polygons[cell][0].centroid.distance(mdp.polygons[h][0].centroid) <= 1.2:
-            #         human_on_path = True
-        
-        if not human_on_path:
-            return action
     
+    if prev_actions is not None:
+        for a in prev_actions:
+            if a is not None and a != state.robot and a in actions:
+                actions.remove(a)
+                
+    for human in state.humans:
+        for pos in human.future_predicted_position:
+            pos_traj_state = mdp.get_state_from_continuous_position(pos)
+            if pos_traj_state in actions:
+                actions.remove(pos_traj_state)
+
+    # sorted_actions = []
+
+    # for action in actions:
+    #     astar_path = astar(State(action, state.humans), cell_goal, mdp)
+    #     if astar_path is None:
+    #         continue
+    #     dist = 0
+    #     for i in range(1, len(astar_path)):
+    #         cell = astar_path[i-1]
+    #         next_cell = astar_path[i]
+    #         dist += mdp.polygons[cell][0].centroid.distance(mdp.polygons[next_cell][0].centroid)
+    #     sorted_actions.append((action, dist))
+
+    # # actions = sorted(sorted_actions, key=lambda a: a[1])
+    # actions = [a[0] for a in sorted(sorted_actions, key=lambda a:a[1])]
+
+    # for action in actions:
+    #     astar_path = astar(State(action, state.humans), cell_goal, mdp)
+    #     human_on_path = False
+    #     for cell in astar_path:
+    #         for h in state.humans:
+    #             if mdp.polygons[cell][0].centroid.distance(h.position) <= 1.2:
+    #                 human_on_path = True
+    #     if not human_on_path:
+    #         return action
 
     #                     |||
     # NEED TO CHANGE THIS vvv
     #
-    best_action = actions[0]
-    _, max_value = mdp.execute(state, best_action)
+
+    # print("S:", state, actions)
+
+    for h in state.humans:
+        if h.position.distance(mdp.polygons[state.robot][0].centroid) < 1.0:
+            return state.robot
+    
+    
+
+    actions = list(actions)
+    if len(actions) == 0:
+        return state.robot
+    return closest_to_goal(mdp, state, limited_action_of_start_state=actions)
+    
+    _, max_value = mdp.execute(state, actions[0])
+    best_actions = [actions[0]]
 
     for i in range(1, len(actions)):
         _, v = mdp.execute(state, actions[i])
+        print("--->", actions[i], v)
         if v > max_value:
             max_value = v
-            best_action = actions[i]
+            best_actions = [actions[i]]
+        elif v == max_value:
+            best_actions.append(actions[i])
 
+    
 
-    return best_action
-
-    return closest_to_goal(mdp, state)
-
-    def min_dist_with_human(s):
-        human_pos = [h.position for h in state.humans]
-        dist_from_each_human = [mdp.polygons[s][0].centroid.distance(h_pos) for h_pos in human_pos]
-        return min(dist_from_each_human)
-
-    farthest_action_to_human = actions[0]
-    dist_of_farthest_action_to_human = min_dist_with_human(farthest_action_to_human)
-
-    for i in range(1, len(actions)):
-        dist = min_dist_with_human(actions[i])
-        if dist > dist_of_farthest_action_to_human:
-            farthest_action_to_human = actions[i]
-            dist_of_farthest_action_to_human = dist
-
-    return farthest_action_to_human
-
+    actions = sorted(best_actions, key=lambda a: -mdp.polygons[a][0].area)
+    # print("BA --> ", actions)
+    return actions[0]
     
     
 
