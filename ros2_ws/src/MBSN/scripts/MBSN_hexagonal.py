@@ -7,6 +7,7 @@ from matplotlib import pyplot as plt
 from mbsn.model.polygon.human import Human
 from mbsn.model.trajectory_prediction.human_trajctory_prediction_model import pecnet_human_trajectory_prediction, simple_human_trajectory_prediction
 from mbsn.solver.MCTS import MBSNAgentMCTS
+from mbsn.solver.heuristicfunction import heuristic_rules_based
 from mbsn.solver.multi_armed_bandit.ucb import UpperConfidenceBounds
 from mbsn.solver.qtable import QTable
 import rclpy # type: ignore
@@ -101,7 +102,7 @@ class EnvironmentInterpreterToPolygon(EnvironmentInterpreter):
                 state_of_published_local_goal = self.local_mdp.get_state_from_continuous_position(self.published_local_goal)
                 test_if_changement_state_of_published_local_goal = (state_of_published_local_goal in humans_state and state_of_published_local_goal not in self.humans_state) or (state_of_published_local_goal not in humans_state and state_of_published_local_goal in self.humans_state)
 
-                if (self.local_mdp.get_state_from_continuous_position(self.current_pos) != self.local_state.robot or test_if_changement_state_of_published_local_goal) and self.can_publish_local_goal:
+                if (self.local_mdp.get_state_from_continuous_position(self.current_pos) != self.local_state.robot or test_if_changement_state_of_published_local_goal or self.local_mdp.get_state_from_continuous_position(self.current_pos) == state_of_published_local_goal) and self.can_publish_local_goal:
                     self.humans_state = humans_state
                     self.local_state_updated()
             else:
@@ -114,7 +115,8 @@ class EnvironmentInterpreterToPolygon(EnvironmentInterpreter):
         self.can_publish_local_goal = False
         self.local_mdp = NavRoomByVisibilityWithHumanMDP(self.map_polygon, 
                                                          self.current_pos, 
-                                                         human_trajectory_prediction_function=pecnet_human_trajectory_prediction,
+                                                        #  human_trajectory_prediction_function=pecnet_human_trajectory_prediction,
+                                                         human_trajectory_prediction_function=simple_human_trajectory_prediction,
                                                          global_goal=self.goal,
                                                          distance_factor=2.0,
                                                          social_factor=1.0)
@@ -126,22 +128,6 @@ class EnvironmentInterpreterToPolygon(EnvironmentInterpreter):
 
         if current_state is None or goal_state is None:
             return
-
-        # astar_path = astar(current_state, goal_state, grid)
-        # local_goal_id = astar_path[0]
-        # for cell_id in astar_path:
-        #     if cell_id in self.local_mdp.polygons:
-        #         local_goal_id = cell_id
-        # self.local_goal_id = local_goal_id
-        # self.local_mdp.goal = self.local_mdp.polygons[local_goal_id][0].centroid
-        # print("MDP LOCAL GOAL = ", local_goal_id)
-
-        # TODO: BETTER LOCAL MDP GOAL
-        # astar_path = astar(current_state, goal_state, grid)
-        # local_goal_astar_id = astar_path[0]
-        # for cell_id in astar_path:
-        #     if cell_id in self.local_mdp.polygons:
-        #         local_goal_astar_id = cell_id
 
         local_goal_closest_id = current_state
         min_dist = grid[local_goal_closest_id].centroid.distance(grid[goal_state].centroid)
@@ -168,11 +154,14 @@ class EnvironmentInterpreterToPolygon(EnvironmentInterpreter):
         self.local_state_timed = time.time()
         self.get_logger().info('New local state: ' + str(self.local_state) + "  Human state:" + str(self.humans_state))
 
-        # MCTS
+        # MCTS 
         self.local_solver = MBSNAgentMCTS(self.local_mdp, self.local_qfunction, self.local_bandit)
         
         root_node, _ = self.local_solver.mcts(local_state, timeout=0.5)
         self.local_action, _ = root_node.get_value()
+
+        ### TEST ###
+        # self.local_action = social_heuristic(self.local_mdp, local_state)
 
         # print("ACTIONS = ", self.local_mdp.get_actions(local_state))
 

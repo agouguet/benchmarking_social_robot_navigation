@@ -7,17 +7,34 @@ import torch
 from mbsn.model.polygon.State import State
 from mbsn.model.polygon.human import Human
 
-from mbsn.model.trajectory_prediction.utils.models import PECNet
 from ament_index_python.packages import get_package_share_directory
 
 
 human_movements = {
-    0: 0.75,
+    0: 0.8,
     45: 0.05,
-    90: 0.05,
+    90: 0.035,
     -45: 0.05,
-    -90: 0.05,
+    -90: 0.035,
+    180: 0.03,
+}
+
+human_movements_02 = {
+    0: 0.6,
+    45: 0.1,
+    90: 0.075,
+    -45: 0.1,
+    -90: 0.075,
     180: 0.05,
+}
+
+human_movements_03 = {
+    0: 1/6,
+    60: 1/6,
+    120: 1/6,
+    180: 1/6,
+    240: 1/6,
+    300: 1/6,
 }
 
 
@@ -30,7 +47,7 @@ def simple_human_trajectory_prediction(state, action):
 
     # humans = state.humans.copy()
     for human in state.humans:
-        for angle, probability in human_movements.items():
+        for angle, probability in human_movements_02.items():
             new_humans = []
             future_pos = future_position(human.position.x, human.position.y, human.orientation + angle)
 

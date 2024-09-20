@@ -12,12 +12,13 @@ class Human():
 
     id_iter = itertools.count()
 
-    def __init__(self, position, orientation=0.0, future_predicted_position = [], id=None):
+    def __init__(self, position, orientation=0.0, future_predicted_position = [], goal=None, id=None):
         self.previous_position_ = deque(maxlen=10)
 
         self.position = position
         self.orientation = orientation
         self.future_predicted_position = future_predicted_position
+        self.goal = goal
 
         self.id = next(self.id_iter) if id is None else id
 
@@ -63,8 +64,8 @@ class Human():
     def rviz_publisher(self, node):
         pass
 
-    def plot(self, ax):
-        circle = plt.Circle((self.position.x, self.position.y), radius=0.2, color="blue")
+    def plot(self, ax, color="blue"):
+        circle = plt.Circle((self.position.x, self.position.y), radius=0.2, color=color, label="Human " + str(self.id))
         ax.add_patch(circle)
         label = ax.annotate("H", xy=(self.position.x, self.position.y), fontsize=10, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
 

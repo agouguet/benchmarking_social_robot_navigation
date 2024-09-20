@@ -13,7 +13,7 @@ from agents_msgs.msg import AgentArray, AgentTrajectories, AgentTrajectory
 
 from ament_index_python.packages import get_package_share_directory
 
-TIME_INTERVAL = 1.0 # seconds
+TIME_INTERVAL = 0.75 # seconds
 PREDICT_RATE = 0.1 # seconds
 
 np.set_printoptions(formatter={'float': lambda x: "{0:0.2f}".format(x)})
@@ -31,7 +31,7 @@ class AgentTrajectoryPublisher(Node):
         if torch.cuda.is_available():
             torch.cuda.set_device(0)
 
-        checkpoint = torch.load(package_share_directory+'/agent_trajectory_prediction/saved_models/{}'.format("PECNET_social_model.pt"), map_location=self.device, weights_only=True)
+        checkpoint = torch.load(package_share_directory+'/agent_trajectory_prediction/saved_models/{}'.format("PECNET_social_model3.pt"), map_location=self.device, weights_only=True)
         hyper_params = self.hyper_params = checkpoint["hyper_params"]
         self.prediction_model = PECNet(hyper_params["enc_past_size"], 
                                        hyper_params["enc_dest_size"], 
@@ -51,12 +51,12 @@ class AgentTrajectoryPublisher(Node):
                                        False)
         self.prediction_model = self.prediction_model.double().to(self.device)
         self.prediction_model.load_state_dict(checkpoint["model_state_dict"])
-        self.prediction_model.eval()
+        self.prediction_model.eval()    
 
         self.agents_subscription_ = self.create_subscription(AgentArray, 'social_sim/agents', self.agents_callback, 10)
         self.agents_trajectories_publisher_ = self.create_publisher(AgentTrajectories, 'agent/trajectories', 10)
 
-        self.human_trajectories = defaultdict(lambda: deque(maxlen=5))
+        self.human_trajectories = defaultdict(lambda: deque(maxlen=hyper_params["past_length"]))
         self.human_last_time_trajectory = defaultdict(int)
 
         self.published_human_trajectories = deque(maxlen=3)
@@ -67,6 +67,8 @@ class AgentTrajectoryPublisher(Node):
         with torch.no_grad():
             for i, (id, traj, mask, initial_pos) in enumerate(zip(ids, trajectories, masks, positions)):
                 traj, mask, initial_pos_torch = torch.DoubleTensor(traj).to(self.device), torch.DoubleTensor(mask).to(self.device), torch.DoubleTensor(initial_pos).to(self.device)
+
+                # print("TRAJ = ", traj)
 
                 x = traj[:, :self.hyper_params["past_length"], :]
                 y = traj[:, self.hyper_params["past_length"]:, :]
@@ -89,6 +91,10 @@ class AgentTrajectoryPublisher(Node):
                 all_l2_errors_dest = np.array(all_l2_errors_dest)
                 all_guesses = np.array(all_guesses)
 
+                # average error
+                l2error_avg_dest = np.mean(all_l2_errors_dest)
+                # print("AVG ERROR : ", l2error_avg_dest)
+
                 # choosing the best guess
                 indices = np.argmin(all_l2_errors_dest, axis = 0)
 
@@ -101,6 +107,9 @@ class AgentTrajectoryPublisher(Node):
                 interpolated_future = self.prediction_model.predict(x, best_guess_dest, mask, initial_pos_torch)
                 interpolated_future = interpolated_future.cpu().numpy()
                 best_guess_dest = best_guess_dest.cpu().numpy()
+
+                # print("IF = ", interpolated_future)
+                # print("BGD = ", best_guess_dest)
 
                 # final overall prediction
                 predicted_future = np.concatenate((interpolated_future, best_guess_dest), axis = 1)
@@ -141,6 +150,7 @@ class AgentTrajectoryPublisher(Node):
                 traj = np.round(np.array(queue) * 1000)
                 if len(traj) >= self.hyper_params["past_length"]:
                     trajectories.append(traj)
+                    # print(traj)
                     masks[0].append([0])
                     initial_pos.append(queue[-1])
                     ids.append(id)

@@ -35,7 +35,8 @@ class NavRoomByVisibilityWithHumanMDP(MDP):
     ):
         self.polygons = defaultdict(list)
 
-        _, self.visibility_polygon = map_polygon.visibility_polygon.build(robot_position.x, robot_position.y, range=5.0)
+        self.visibility_polygon = robot_position.buffer(3.0)
+        # _, self.visibility_polygon = map_polygon.visibility_polygon.build(robot_position.x, robot_position.y, range=3.0)
 
         visible_rooms=[]
 
@@ -113,6 +114,7 @@ class NavRoomByVisibilityWithHumanMDP(MDP):
             reward -= PENALITY_WAIT
 
         # Penalty Distance
+        reward -= (self.get_position_of_state(state.robot).distance(self.get_position_of_state(next_state.robot)))
         reward += self._distance_factor * (self.goal.distance(self.get_position_of_state(state.robot)) - self.goal.distance(self.get_position_of_state(next_state.robot)))
 
         # Penalty Human

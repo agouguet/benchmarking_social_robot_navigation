@@ -57,7 +57,7 @@ class MBSNAgentNode:
     def expand(self, heuristic_function=None):
         if not self.mdp.is_terminal(self.state):
             actions = self.mdp.get_actions(self.state) - self.children.keys()
-            action = heuristic_function(self.mdp, self.state, [self.action], actions = actions)             
+            action = heuristic_function(self.mdp, self.state, prev_actions=[self.action], actions = actions)             
             # action = random.choice(list(actions))
 
             return self.get_outcome_child(action)
@@ -165,7 +165,7 @@ class MBSNAgentMCTS:
     """ Choose a random action. Heustics can be used here to improve simulations. """
     def choose(self, state, prev_actions):
         # print(" -- MCTS choose")
-        action_choosen = self._heuristic_function(self.mdp, state, prev_actions) #random.choice(self.mdp.get_actions(state))
+        action_choosen = self._heuristic_function(self.mdp, state, prev_actions=prev_actions) #random.choice(self.mdp.get_actions(state))
         # if self.first:
         #     print(state, action_choosen)
         #     self.first=False

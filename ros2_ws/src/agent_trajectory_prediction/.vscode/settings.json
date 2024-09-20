@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./agent_trajectory_prediction/utils",
+        "./agent_trajectory_prediction"
+    ]
+}
