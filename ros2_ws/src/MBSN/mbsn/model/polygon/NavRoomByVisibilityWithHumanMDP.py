@@ -98,7 +98,7 @@ class NavRoomByVisibilityWithHumanMDP(MDP):
             next_states = self.get_next_states(state, action)
             list_state_probability = [(nx, 1.0/len(next_states)) for nx in next_states]
             return list_state_probability
-        return self.human_trajectory_prediction_function(state, action)
+        return self.human_trajectory_prediction_function(self, state, action)
 
     """ Return the reward for transitioning from state to
         nextState via action

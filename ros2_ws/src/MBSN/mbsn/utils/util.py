@@ -1,5 +1,6 @@
 import heapq
 import math
+from matplotlib import pyplot as plt
 from scipy.spatial import distance
 from shapely.geometry import Point, Polygon, LineString, box
 from geometry_msgs.msg import Pose, Point as RosPoint # type: ignore
@@ -50,6 +51,9 @@ def image_to_polygon(map):
             poly.append(n)
         if len(poly)>=4:
             polygons.append(Polygon(poly))
+
+    if len(polygons) == 1:
+        return vertices, Polygon(list(polygons[0].exterior.coords)), []
 
     outer = polygons[1]
     inners = polygons[2:]

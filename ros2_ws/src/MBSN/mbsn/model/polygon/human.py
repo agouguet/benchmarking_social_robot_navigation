@@ -65,9 +65,9 @@ class Human():
         pass
 
     def plot(self, ax, color="blue"):
-        circle = plt.Circle((self.position.x, self.position.y), radius=0.2, color=color, label="Human " + str(self.id))
+        circle = plt.Circle((self.position.x, self.position.y), radius=0.2, color=color, label="Human id " + str(self.id))
         ax.add_patch(circle)
-        label = ax.annotate("H", xy=(self.position.x, self.position.y), fontsize=10, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
+        label = ax.annotate("H", xy=(self.position.x, self.position.y), fontsize=6, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
 
         # Convertir l'angle de degrés en radians
         angle_rad = np.radians(self.orientation)

@@ -1,0 +1,18 @@
+[0mmbsn: You did not request a specific build type: Choosing 'Release' for maximum performance[0m
+[31mCMake Error at CMakeLists.txt:25 (find_package):
+  By not providing "Findrclpy.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "rclpy", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "rclpy" with any of
+  the following names:
+
+    rclpyConfig.cmake
+    rclpy-config.cmake
+
+  Add the installation prefix of "rclpy" to CMAKE_PREFIX_PATH or set
+  "rclpy_DIR" to a directory containing one of the above files.  If "rclpy"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+
+[0m

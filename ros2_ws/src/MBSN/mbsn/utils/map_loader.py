@@ -62,7 +62,7 @@ def load_map_as_polygon(scenario_name, scale=True):
     
     if map_config_exist:
         if not os.path.exists(MAPS_DIRECTORY + scenario_name + "/" + map_config["image"]):
-            return False, None
+            return False, None, None
         map = cv2.imread(MAPS_DIRECTORY + scenario_name + "/" + map_config["image"])
         vertices, polygon, inners = image_to_polygon(map)
         if scale:

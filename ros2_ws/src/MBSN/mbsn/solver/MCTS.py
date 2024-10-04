@@ -57,8 +57,8 @@ class MBSNAgentNode:
     def expand(self, heuristic_function=None):
         if not self.mdp.is_terminal(self.state):
             actions = self.mdp.get_actions(self.state) - self.children.keys()
-            action = heuristic_function(self.mdp, self.state, prev_actions=[self.action], actions = actions)             
-            # action = random.choice(list(actions))
+            # action = heuristic_function(self.mdp, self.state, prev_actions=[self.action], actions = actions)             
+            action = random.choice(list(actions))
 
             return self.get_outcome_child(action)
         return self

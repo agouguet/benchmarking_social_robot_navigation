@@ -1,5 +1,6 @@
 import heapq
 import time
+from matplotlib import pyplot as plt
 from shapely import MultiPolygon
 import os, sys, math, random, copy, yaml, cv2, warnings, pickle, numpy as np, networkx as nx
 from scipy.spatial import distance
@@ -13,7 +14,7 @@ HEURISTIC_FUNCTIONS = [
     "social_heuristic",
 ]
 
-LIMIT_DISTANCE_TO_OTHER_AGENT = 1.2
+LIMIT_DISTANCE_TO_OTHER_AGENT = 1.0
 
 def random_function(mdp, state):
     return random.choice(mdp.get_actions(state))
@@ -157,8 +158,10 @@ def heuristic_score_based(mdp, state, w1=1.0, w2=1.5, w3=0.1, w4=1.0, debug=Fals
         mean_min_dist /= len(mdp.get_transitions(state, action))
         dnear = min_dist_with_human(state, action) #+ mean_min_dist
         # return dnear_dict[action]/limit
-        return dnear/limit
+        return dnear#/limit #LAST VERSION
         # return dnear_dict[action]/limit if dnear_dict[action]<=limit else 1.0
+
+        return dnear
 
     def score_for_direction_passage_with_humans(state, action):
         if len(state.humans) == 0:
@@ -182,14 +185,22 @@ def heuristic_score_based(mdp, state, w1=1.0, w2=1.5, w3=0.1, w4=1.0, debug=Fals
         
         cross_product = (x2 - x1) * (y3 - y1) - (y2 - y1) * (x3 - x1)
         
-        if cross_product >= 0:
+        if cross_product == 0:
+            return 0.0
+        elif cross_product > 0:
             return 1.0
         elif cross_product < 0:
             return 0.99
 
     def standard_deviation(state, action, k=0.5, alpha=0.8):
         dg = score_from_goal(state, action)
-        dnear = 1-math.exp(-alpha*score_from_closest_agent(state, action))
+        # dnear = 1-math.exp(-alpha*score_from_closest_agent(state, action))
+
+        dist = score_from_closest_agent(state, action)
+        limit = LIMIT_DISTANCE_TO_OTHER_AGENT
+        dnear = np.where(dist >= limit, 1.0, dist/limit * np.exp(-alpha*(limit-dist)**2))
+        # print("DNEAR=", dnear, dist)
+
         dm = score_of_movement(state, action)
         do = score_for_direction_passage_with_humans(state, action)
 
@@ -204,14 +215,16 @@ def heuristic_score_based(mdp, state, w1=1.0, w2=1.5, w3=0.1, w4=1.0, debug=Fals
             print("\n", state)
             print("", action, score, "%.2f" % mean, "%.2f" % weighted_standard_deviation)
             print("     ", "%.2f" % dg, "%.2f" % dnear, "%.2f" % dm, "%.2f" % do)
-            print("score_from_closest_agent", score_from_closest_agent(state, action), 1-math.exp(-alpha*score_from_closest_agent(state, action)))
+            print("score_from_closest_agent", score_from_closest_agent(state, action), dnear)
 
         return score
 
     max_actions = []
     max_value = float("-inf")
+    # print(state)
     for action in actions:
         value = round(standard_deviation(state, action), 3)
+        # print("     ", action, value)
         if value > max_value:
             max_actions = [action]
             max_value = value

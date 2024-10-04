@@ -1,0 +1,2 @@
+Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/src/MBSN/build/mbsn': /home/adam/.local/bin/cmake /home/adam/Desktop/SBSN/ros2_ws/src/MBSN -DCMAKE_INSTALL_PREFIX=/home/adam/Desktop/SBSN/ros2_ws/src/MBSN/install/mbsn
+Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/src/MBSN/build/mbsn' returned '1': /home/adam/.local/bin/cmake /home/adam/Desktop/SBSN/ros2_ws/src/MBSN -DCMAKE_INSTALL_PREFIX=/home/adam/Desktop/SBSN/ros2_ws/src/MBSN/install/mbsn

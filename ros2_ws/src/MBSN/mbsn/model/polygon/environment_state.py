@@ -25,8 +25,12 @@ random.shuffle(colors)
 
 class EnvironmentState():
 
-    def __init__(self, map_polygon):
+    def __init__(self, map_polygon, mcts=True, timeout_mcts=1.0, heuristic=heuristic_score_based, prediction_function=simple_human_trajectory_prediction):
         self.map_polygon = map_polygon
+        self.mcts=mcts
+        self.timeout_mcts = timeout_mcts
+        self.heuristic = heuristic
+        self.prediction_function = prediction_function
 
         rooms = map_polygon.rooms
         self.global_mdp = NavPolygonMDP(rooms)
@@ -86,8 +90,7 @@ class EnvironmentState():
         
         self.local_mdp = NavRoomByVisibilityWithHumanMDP(self.map_polygon, 
                                                          self.current_pos, 
-                                                        #  human_trajectory_prediction_function=simple_human_trajectory_prediction, 
-                                                         human_trajectory_prediction_function=pecnet_human_trajectory_prediction,
+                                                         human_trajectory_prediction_function=self.prediction_function,
                                                          global_goal=self.global_goal, 
                                                          distance_factor=3.0, 
                                                          social_factor=1.0)
@@ -117,25 +120,21 @@ class EnvironmentState():
         visible_human = []
 
         for h in self.humans:
-            if h.position.distance(self.current_pos) <= 5.0:
+            if h.position.distance(self.current_pos) <= 3.0:
                 visible_human.append(h)
 
         # local_state = State(self.local_mdp.get_state_from_continuous_position(self.current_pos), occupied_polygon)
         local_state = State(self.local_mdp.get_state_from_continuous_position(self.current_pos), visible_human)
 
         # MCTS
-        # self.local_solver = MBSNAgentMCTS(self.local_mdp, self.local_qfunction, self.local_bandit, heuristic_function=heuristic_score_based)
-        
-        # root_node, _ = self.local_solver.mcts(local_state, timeout=1.0)
-        # self.local_action, _ = root_node.get_value()
+        if self.mcts:
+            self.local_solver = MBSNAgentMCTS(self.local_mdp, self.local_qfunction, self.local_bandit, heuristic_function=self.heuristic)
+            
+            root_node, _ = self.local_solver.mcts(local_state, timeout=self.timeout_mcts)
+            self.local_action, _ = root_node.get_value()
+        else:
+            self.local_action = self.heuristic(self.local_mdp, local_state)
 
-        # print("Result ==== > ", furthest_from_human(self.local_mdp, local_state, debug=True))
-
-        ### TEST ###
-        self.local_action = heuristic_rules_based(self.local_mdp, local_state)
-        # self.local_action = heuristic_score_based(self.local_mdp, local_state)
-
-        
         self.robot_path.append(self.local_action)
 
 
@@ -145,11 +144,17 @@ class EnvironmentState():
         return 
     
 
-    def plot(self, ax, plot_circle_previous_pos=True):
+    def plot(self, ax, plot_circle_previous_pos=True, debug=False):
+        font_size = 28
+        circle_path_size = 0.2
+        offset_robot = 0.0
+        offset_human = -0.0
+
+
         self.map_polygon.plot(ax=ax, add_points=False)
 
-        # for id, cell in self.map_polygon.grid.items():
-        #     cell.plot(ax=ax, add_id=False)
+        for id, cell in self.map_polygon.grid.items():
+            cell.plot(ax=ax, add_id=False)
         #     plot_polygon(cell.polygon, ax=ax)
 
         # for id, room in self.global_mdp.polygons.items():
@@ -157,67 +162,74 @@ class EnvironmentState():
 
         for poly in self.local_mdp.polygons.values():
             for p in poly:
-                p.plot(ax=ax, add_id=False)
+                p.plot(ax=ax, add_id=debug)
 
         if self.current_pos is not None:
-            circle = plt.Circle((self.current_pos.x, self.current_pos.y), radius=0.15, color="orange")
+            circle = plt.Circle((self.current_pos.x, self.current_pos.y), radius=0.15, color="orange", label="Robot")
             ax.add_patch(circle)
-            label = ax.annotate("R", xy=(self.current_pos.x, self.current_pos.y), fontsize=10, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
+            label = ax.annotate("R", xy=(self.current_pos.x, self.current_pos.y), fontsize=font_size, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
             # ax.plot(self.current_pos.x, self.current_pos.y, marker="o",  markersize=10)
 
         if self.global_goal is not None:
-            circle = plt.Circle((self.global_goal.x, self.global_goal.y), radius=0.2, color="purple")
+            circle = plt.Circle((self.global_goal.x, self.global_goal.y), radius=0.2, color="purple", label="Goal", zorder=10000)
             ax.add_patch(circle)
-            label = ax.annotate("G", xy=(self.global_goal.x, self.global_goal.y), fontsize=10, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
+            label = ax.annotate("G", xy=(self.global_goal.x, self.global_goal.y), fontsize=font_size, ha="center", color="white", verticalalignment="center", horizontalalignment="center", zorder=10001)
 
         if self.local_mdp.goal is not None:
-            circle = plt.Circle((self.local_mdp.goal.x, self.local_mdp.goal.y), radius=0.2, color="red")
-            ax.add_patch(circle)
-            label = ax.annotate("L", xy=(self.local_mdp.goal.x, self.local_mdp.goal.y), fontsize=10, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
+            # circle = plt.Circle((self.local_mdp.goal.x, self.local_mdp.goal.y), radius=0.2, color="red")
+            # ax.add_patch(circle)
+            # label = ax.annotate("L", xy=(self.local_mdp.goal.x, self.local_mdp.goal.y), fontsize=font_size, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
 
-            if isinstance(self.local_mdp.visibility_polygon, Polygon):
-                x, y = self.local_mdp.visibility_polygon.exterior.xy
-                ax.fill(x, y, alpha=0.5, fc='g', ec='black')
-            elif isinstance(self.local_mdp.visibility_polygon, MultiPolygon):
-                for p in self.local_mdp.visibility_polygon.geoms:
-                    x, y = p.exterior.xy
+            if debug:
+                if isinstance(self.local_mdp.visibility_polygon, Polygon):
+                    x, y = self.local_mdp.visibility_polygon.exterior.xy
                     ax.fill(x, y, alpha=0.5, fc='g', ec='black')
+                elif isinstance(self.local_mdp.visibility_polygon, MultiPolygon):
+                    for p in self.local_mdp.visibility_polygon.geoms:
+                        x, y = p.exterior.xy
+                        ax.fill(x, y, alpha=0.5, fc='g', ec='black')
             
+        
+
         if plot_circle_previous_pos:
-            for i in range(len(self.plot_previous_position)-1):
+            for i in range(len(self.plot_previous_position)):
                 p = self.plot_previous_position[i]
-                circle = plt.Circle((p.x, p.y), radius=0.1, color="orange")
+                circle = plt.Circle((p.x+offset_robot, p.y+offset_robot), radius=circle_path_size, color="orange")
                 ax.add_patch(circle)
-                label = ax.annotate(str(i), xy=(p.x, p.y), fontsize=10, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
+                label = ax.annotate(str(i), xy=(p.x+offset_robot, p.y+offset_robot), fontsize=font_size, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
                 # ax.scatter(p.x, p.y, color="orange", zorder=1000)
 
-        for i in range(1, len(self.plot_previous_position)-1):
+        for i in range(1, len(self.plot_previous_position)):
             p1 = self.plot_previous_position[i-1]
             p2 = self.plot_previous_position[i]
-            ax.plot((p1.x, p2.x), (p1.y, p2.y), color="orange", alpha=0.5, linewidth=4)
+            ax.plot((p1.x+offset_robot, p2.x+offset_robot), (p1.y+offset_robot, p2.y+offset_robot), color="orange", alpha=0.5, linewidth=4)
 
 
-        for h in self.humans:
-            h.plot(ax, color=colors[h.id])
+        # for h in self.humans:
+            # h.plot(ax, color=colors[h.id])
+            # h.plot(ax)
             # for pos in h.future_predicted_position:
             #     circle = plt.Circle((pos.x, pos.y), radius=0.1, color=colors[h.id])
             #     ax.add_patch(circle)
 
         for id, positions in self.plot_previous_position_humans.items():
+            
             if plot_circle_previous_pos:
                 for i in range(len(positions)-1):
                     p = positions[i]
-                    circle = plt.Circle((p.x, p.y), radius=0.1, color=colors[id], alpha=i/len(positions))
+                    circle = plt.Circle((p.x+offset_human, p.y+offset_human), radius=circle_path_size, color=colors[id], alpha=i/len(positions))
+                    # circle = plt.Circle((p.x+offset_human, p.y+offset_human), radius=circle_path_size, color="blue", alpha=i/len(positions))
                     ax.add_patch(circle)
-                    label = ax.annotate(str(i), xy=(p.x, p.y), fontsize=10, ha="center", color="white", verticalalignment="center", horizontalalignment="center", alpha=i/len(positions))
+                    label = ax.annotate(str(i), xy=(p.x+offset_human, p.y+offset_human), fontsize=font_size, ha="center", color="white", verticalalignment="center", horizontalalignment="center", alpha=i/len(positions))
             
             for i in range(1, len(positions)-1):
                 p1 = positions[i-1]
                 p2 = positions[i]
-                ax.plot((p1.x, p2.x), (p1.y, p2.y), color=colors[id], alpha=i/len(positions))
+                ax.plot((p1.x+offset_human, p2.x+offset_human), (p1.y+offset_human, p2.y+offset_human), color=colors[id], alpha=i/len(positions))
+                # ax.plot((p1.x+offset_human, p2.x+offset_human), (p1.y+offset_human, p2.y+offset_human), color="blue", alpha=i/len(positions))
         
-        handles, labels = ax.get_legend_handles_labels()
-        ax.legend(loc='center left', bbox_to_anchor=(1, 0.5), handles=handles)
+        # handles, labels = ax.get_legend_handles_labels()
+        # ax.legend(loc='center left', bbox_to_anchor=(1, 0.5), handles=handles)
 
 def get_cell_id_in_dict_from_continuous_position(grid_dict, position):
     if not isinstance(position, Point):

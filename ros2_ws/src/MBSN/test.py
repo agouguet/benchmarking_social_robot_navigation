@@ -1,35 +1,103 @@
-import matplotlib as mpl
+import math
 import matplotlib.pyplot as plt
 import numpy as np
-import matplotlib.colors as colors
 
-cmap = mpl.colormaps['coolwarm']
+def f_alpha(x, y, alpha=1.0):
+    dnear = (np.linalg.norm(np.array((0, 0, 0)) - np.array((x, y, 0)))) + 10e-6
+    return 1-np.exp(-alpha*dnear)
 
-def truncate_colormap(cmap, minval=0.0, maxval=1.0, n=100):
-    new_cmap = colors.LinearSegmentedColormap.from_list(
-        'trunc({n},{a:.2f},{b:.2f})'.format(n=cmap.name, a=minval, b=maxval),
-        cmap(np.linspace(minval, maxval, n)))
-    return new_cmap
+def f_limit(x, y, limit=1.0):
+    dnear = ((np.linalg.norm(np.array((0, 0, 0)) - np.array((x, y, 0)))) + 10e-6) / limit
+    return 1-np.exp(-dnear)
 
-def draw_rectangle_gradient(ax, x1, y1, width, height, min_val=0.0, max_val=1.0, n=100, direction="horizontal"):
-    new_cmap = truncate_colormap(cmap, min_val, max_val)
-    gradient_colors = new_cmap(np.linspace(0, 1, n))
+def f(x, y, alpha=1.0, limit=1.0):
+    dist = np.linalg.norm(np.array((0, 0, 0)) - np.array((x, y, 0)))# + 10e-6
+    return f_with_dist(dist, alpha=alpha, limit=limit)
+    # return np.exp(-alpha*(dist/limit))
+    # return np.where(dist >= limit, 1.0, np.exp(-alpha*(dist)))
+    # return 1-(1/(1+np.exp(-alpha*(dist-limit))))
+    # return 1-np.exp(-alpha*(dist-limit))
+    # dnear = np.where(dist >= limit, 1.0, dist/limit)
+    # return 1-np.exp(-alpha*dnear)
+    # return np.where(dist >= limit, 1.0, 1-np.exp(-alpha*(dist/limit)))
+    # return 1-np.exp(-alpha*dist)
 
-    if direction == "horizontal":
-        for i, color in enumerate(gradient_colors):
-            ax.add_patch(plt.Rectangle((x1 + width/n * i, y1), width/n, height, color=color, linewidth=0, zorder=0))
-    else:
-        for i, color in enumerate(gradient_colors):
-            ax.add_patch(plt.Rectangle((x1, y1 + height/n * i), width, height/n, color=color, linewidth=0, zorder=0))
-    return ax
+def f_with_dist(dist, alpha=1.0, limit=1.0):
+    return np.where(dist >= limit, 1.0, dist/limit * np.exp(-alpha*(limit-dist)**2))
 
-# SAMPLE
-fig, ax = plt.subplots(figsize=(4, 2))
-ax.set_xlim(0, 100)
-ax.set_ylim(0, 40)
+DETAILS = 200
+LIMIT_AXES = 1.5
+LOW_FONT_SIZE = 24
+FONT_SIZE = 32
 
-draw_rectangle_gradient(ax, 0, 0, 10, 40, min_val=0.5, max_val=1.0)
-draw_rectangle_gradient(ax, 10, 0, 10, 40, min_val=0.0, max_val=0.5)
-draw_rectangle_gradient(ax, 30, 0, 10, 40, n=1000, direction="vertical")
+# set up a figure twice as wide as it is tall
+# fig, axs = plt.subplots(3, 3, subplot_kw={"projection": "3d"}, figsize=(10, 5))
+fig = plt.figure(figsize=plt.figaspect(2.))
+
+limit = 1.2
+
+ax = fig.add_subplot(2, 3, 1, projection='3d')
+r = np.linspace(-LIMIT_AXES, LIMIT_AXES, DETAILS)
+X, Y = np.meshgrid(r, r)
+Z = f(X, Y, alpha=0.1, limit=limit)
+ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap='viridis', edgecolor='none')
+
+ax.set_xlabel('Robot x', fontsize=LOW_FONT_SIZE)
+ax.set_ylabel('Robot y', fontsize=LOW_FONT_SIZE)
+ax.set_zlabel('$score_{near}$', fontsize=LOW_FONT_SIZE)
+ax.set_zlim(0, 1)
+ax.set_title("Human Personal Space=1.2; $\\alpha=0.1$ \n Human Position = (0.0, 0.0)", fontsize=FONT_SIZE)
+
+
+ax = fig.add_subplot(2, 3, 2, projection='3d')
+r = np.linspace(-LIMIT_AXES, LIMIT_AXES, DETAILS)
+X, Y = np.meshgrid(r, r)
+Z = f(X, Y, alpha=1.0, limit=limit)
+ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap='viridis', edgecolor='none')
+
+ax.set_xlabel('Robot x', fontsize=LOW_FONT_SIZE)
+ax.set_ylabel('Robot y', fontsize=LOW_FONT_SIZE)
+ax.set_zlabel('$score_{near}$', fontsize=LOW_FONT_SIZE)
+ax.set_zlim(0, 1)
+ax.set_title("Human Personal Space=1.2; $\\alpha=1.0$ \n Human Position = (0.0, 0.0)", fontsize=FONT_SIZE)
+
+
+ax = fig.add_subplot(2, 3, 3, projection='3d')
+r = np.linspace(-LIMIT_AXES, LIMIT_AXES, DETAILS)
+X, Y = np.meshgrid(r, r)
+Z = f(X, Y, alpha=10.0, limit=limit)
+ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap='viridis', edgecolor='none')
+
+ax.set_xlabel('Robot x', fontsize=LOW_FONT_SIZE)
+ax.set_ylabel('Robot y', fontsize=LOW_FONT_SIZE)
+ax.set_zlabel('$score_{near}$', fontsize=LOW_FONT_SIZE)
+ax.set_zlim(0, 1)
+ax.set_title("Human Personal Space=1.2; $\\alpha=10.0$ \n Human Position = (0.0, 0.0)", fontsize=FONT_SIZE)
+
+
+ax = fig.add_subplot(2, 3, 4)
+x = np.linspace(0, LIMIT_AXES, 60)
+y = f_with_dist(x, alpha=0.1, limit=limit)
+ax.plot(x, y, label="$score_{near}$")
+ax.axvline(x = limit, color = 'r', label = "Human Personal Space")
+ax.set_xlabel('Distance Human-Robot', fontsize=FONT_SIZE)
+ax.legend(fontsize=LOW_FONT_SIZE)
+
+ax = fig.add_subplot(2, 3, 5)
+x = np.linspace(0, LIMIT_AXES, 60)
+y = f_with_dist(x, alpha=1.0, limit=limit)
+ax.plot(x, y, label="$score_{near}$")
+ax.axvline(x = limit, color = 'r', label = "Human Personal Space")
+ax.set_xlabel('Distance Human-Robot', fontsize=FONT_SIZE)
+ax.legend(fontsize=LOW_FONT_SIZE)
+
+ax = fig.add_subplot(2, 3, 6)
+x = np.linspace(0, LIMIT_AXES, 60)
+y = f_with_dist(x, alpha=10.0, limit=limit)
+ax.plot(x, y, label="$score_{near}$")
+ax.axvline(x = limit, color = 'r', label = "Human Personal Space")
+ax.set_xlabel('Distance Human-Robot', fontsize=FONT_SIZE)
+ax.legend(fontsize=LOW_FONT_SIZE)
+
 
 plt.show()

@@ -13,6 +13,9 @@ from mbsn.polygon.nav_room import NavRoom
 from mbsn.utils.util import image_to_polygon, scale_polygon
 from mbsn.polygon.visibility import VisibilityPolygon
 
+POURCENTAGE_AREA_OF_POLYGON_ACCEPTABLE = 0.1
+
+
 class NavMap(NavPolygon):
 
     def __init__(self, scenario, type='hexagon'):
@@ -130,13 +133,13 @@ class NavMap(NavPolygon):
                     inter = polygon.intersection(hexagon_polygon)
                     if isinstance(inter, MultiPolygon) or isinstance(inter, GeometryCollection):
                         for poly in inter.geoms:
-                            if isinstance(poly, Polygon) and polygon.intersects(poly) and poly.area >= hexagon_polygon.area / 2:
+                            if isinstance(poly, Polygon) and polygon.intersects(poly) and poly.area >= hexagon_polygon.area * POURCENTAGE_AREA_OF_POLYGON_ACCEPTABLE:
                                 new_cell = NavPolygon(poly)
                                 grid[new_cell.id] = new_cell
                                 hexagons.append(new_cell)
                                 hexagon_dict[(x, y)].append(new_cell)
                     elif isinstance(inter, Polygon):
-                        if inter.area >= hexagon_polygon.area / 2:
+                        if inter.area >= hexagon_polygon.area * POURCENTAGE_AREA_OF_POLYGON_ACCEPTABLE:
                             new_cell = NavPolygon(inter)
                             grid[new_cell.id] = new_cell
                             hexagons.append(new_cell)
@@ -224,7 +227,7 @@ class NavMap(NavPolygon):
                             #         new_cell.add_neighbor(n)
                             grid[new_cell.id] = new_cell
                             id_to_id[cell.id].append(new_cell.id)
-                elif isinstance(inter, Polygon) and inter.area >= 0.35:
+                elif isinstance(inter, Polygon) and inter.area >= 0.1:
                         new_cell = NavPolygon(inter)
                         # for n in cell.neighbors:
                         #     if new_cell.polygon.buffer(buffer_size).intersects(n.polygon):

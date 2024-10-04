@@ -1,0 +1,33 @@
+[0.009s] Invoking command in '/home/adam/Desktop/SBSN/ros2_ws/src/MBSN/build/mbsn': /home/adam/.local/bin/cmake /home/adam/Desktop/SBSN/ros2_ws/src/MBSN -DCMAKE_INSTALL_PREFIX=/home/adam/Desktop/SBSN/ros2_ws/src/MBSN/install/mbsn
+[0.235s] -- The C compiler identification is GNU 11.4.0
+[0.361s] -- The CXX compiler identification is GNU 11.4.0
+[0.382s] -- Detecting C compiler ABI info
+[0.484s] -- Detecting C compiler ABI info - done
+[0.506s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.507s] -- Detecting C compile features
+[0.509s] -- Detecting C compile features - done
+[0.515s] -- Detecting CXX compiler ABI info
+[0.618s] -- Detecting CXX compiler ABI info - done
+[0.653s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.654s] -- Detecting CXX compile features
+[0.654s] -- Detecting CXX compile features - done
+[0.655s] [0mmbsn: You did not request a specific build type: Choosing 'Release' for maximum performance[0m
+[0.672s] [31mCMake Error at CMakeLists.txt:25 (find_package):
+[0.672s]   By not providing "Findrclpy.cmake" in CMAKE_MODULE_PATH this project has
+[0.672s]   asked CMake to find a package configuration file provided by "rclpy", but
+[0.673s]   CMake did not find one.
+[0.673s] 
+[0.673s]   Could not find a package configuration file provided by "rclpy" with any of
+[0.673s]   the following names:
+[0.673s] 
+[0.673s]     rclpyConfig.cmake
+[0.674s]     rclpy-config.cmake
+[0.674s] 
+[0.674s]   Add the installation prefix of "rclpy" to CMAKE_PREFIX_PATH or set
+[0.674s]   "rclpy_DIR" to a directory containing one of the above files.  If "rclpy"
+[0.674s]   provides a separate development package or SDK, be sure it has been
+[0.675s]   installed.
+[0.675s] 
+[0.675s] [0m
+[0.675s] -- Configuring incomplete, errors occurred!
+[0.696s] Invoked command in '/home/adam/Desktop/SBSN/ros2_ws/src/MBSN/build/mbsn' returned '1': /home/adam/.local/bin/cmake /home/adam/Desktop/SBSN/ros2_ws/src/MBSN -DCMAKE_INSTALL_PREFIX=/home/adam/Desktop/SBSN/ros2_ws/src/MBSN/install/mbsn
