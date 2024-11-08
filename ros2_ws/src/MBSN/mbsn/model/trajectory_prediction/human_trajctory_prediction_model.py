@@ -53,7 +53,7 @@ def simple_human_trajectory_prediction(mdp, state, action):
         return [(State(action, state.humans), 1.0)]
     
     humans = sorted(state.humans, key=lambda h: mdp.polygons[state.robot][0].centroid.distance(h.position))
-    humans = humans[:3]
+    humans = humans[:5]
     # print(humans)
 
 
@@ -78,7 +78,7 @@ def simple_human_trajectory_prediction(mdp, state, action):
     all_probabilities = [np.prod(prob) for prob in list(itertools.product(*list_of_probabilities))] 
 
     all = [(State(action, all_possibility[i]), all_probabilities[i]) for i in range(len(all_possibility))]
-    print(np.array(all).shape, len(humans))
+    # print(np.array(all).shape, len(humans))
     return all
 
 

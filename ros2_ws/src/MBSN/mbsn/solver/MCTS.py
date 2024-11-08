@@ -165,7 +165,8 @@ class MBSNAgentMCTS:
     """ Choose a random action. Heustics can be used here to improve simulations. """
     def choose(self, state, prev_actions):
         # print(" -- MCTS choose")
-        action_choosen = self._heuristic_function(self.mdp, state, prev_actions=prev_actions) #random.choice(self.mdp.get_actions(state))
+        action_choosen = self._heuristic_function(self.mdp, state, debug=False)
+        # action_choosen = self._heuristic_function(self.mdp, state, prev_actions=prev_actions) #random.choice(self.mdp.get_actions(state))
         # if self.first:
         #     print(state, action_choosen)
         #     self.first=False
@@ -188,7 +189,7 @@ class MBSNAgentMCTS:
         list_actions.append(child_node.action)
 
         depth = 0
-        while not self.mdp.is_terminal(state) and depth < 20:
+        while not self.mdp.is_terminal(state):# and depth < 20:
             
             # Choose an action to execute
             action_deque_slice = deque(itertools.islice(list_actions, 0, len(list_actions)-1))

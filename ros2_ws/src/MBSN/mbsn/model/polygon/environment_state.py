@@ -20,7 +20,7 @@ from shapely.plotting import plot_line, plot_points, plot_polygon
 from mbsn.utils.graph_visualisation import GraphVisualisation
 from mbsn.utils.util import astar
 
-colors = [plt.cm.hsv(i) for i in np.linspace(0, 1, 600)]
+colors = [plt.cm.hsv(i) for i in np.linspace(0, 1, 1000)]
 random.shuffle(colors)
 
 class EnvironmentState():
@@ -52,6 +52,8 @@ class EnvironmentState():
 
         self.plot_previous_position = []
         self.plot_previous_position_humans = defaultdict(list)
+
+        self.number_roolout_by_number_of_humans = defaultdict(list)
 
     def start_navigation(self, goal):
         self.global_goal_updated(goal)
@@ -108,6 +110,7 @@ class EnvironmentState():
                 local_goal_id = cell_id
         self.local_goal_id = local_goal_id
         self.local_mdp.goal = self.local_mdp.polygons[local_goal_id][0].centroid
+        # self.local_mdp.goal = self.global_goal
 
         # Human
         # occupied_polygon = {poly_id:0 for poly_id in self.local_mdp.polygons.keys()}
@@ -130,7 +133,8 @@ class EnvironmentState():
         if self.mcts:
             self.local_solver = MBSNAgentMCTS(self.local_mdp, self.local_qfunction, self.local_bandit, heuristic_function=self.heuristic)
             
-            root_node, _ = self.local_solver.mcts(local_state, timeout=self.timeout_mcts)
+            root_node, num_rollouts = self.local_solver.mcts(local_state, timeout=self.timeout_mcts)
+            self.number_roolout_by_number_of_humans[len(local_state.humans)].append(num_rollouts)
             self.local_action, _ = root_node.get_value()
         else:
             self.local_action = self.heuristic(self.local_mdp, local_state)
@@ -145,10 +149,11 @@ class EnvironmentState():
     
 
     def plot(self, ax, plot_circle_previous_pos=True, debug=False):
-        font_size = 28
-        circle_path_size = 0.2
-        offset_robot = 0.0
-        offset_human = -0.0
+        font_size = 48
+        color_font = "black"
+        circle_path_size = 0.27
+        offset_robot = 0.1
+        offset_human = -0.1
 
 
         self.map_polygon.plot(ax=ax, add_points=False)
@@ -164,16 +169,16 @@ class EnvironmentState():
             for p in poly:
                 p.plot(ax=ax, add_id=debug)
 
-        if self.current_pos is not None:
-            circle = plt.Circle((self.current_pos.x, self.current_pos.y), radius=0.15, color="orange", label="Robot")
-            ax.add_patch(circle)
-            label = ax.annotate("R", xy=(self.current_pos.x, self.current_pos.y), fontsize=font_size, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
+        # if self.current_pos is not None:
+        #     circle = plt.Circle((self.current_pos.x, self.current_pos.y), radius=0.15, color="orange", label="Robot")
+        #     ax.add_patch(circle)
+        #     label = ax.annotate("R", xy=(self.current_pos.x, self.current_pos.y), fontsize=font_size, ha="center", color=color_font, verticalalignment="center", horizontalalignment="center")
             # ax.plot(self.current_pos.x, self.current_pos.y, marker="o",  markersize=10)
 
         if self.global_goal is not None:
-            circle = plt.Circle((self.global_goal.x, self.global_goal.y), radius=0.2, color="purple", label="Goal", zorder=10000)
+            circle = plt.Circle((self.global_goal.x, self.global_goal.y), radius=0.2, color="red", label="Goal", zorder=10000)
             ax.add_patch(circle)
-            label = ax.annotate("G", xy=(self.global_goal.x, self.global_goal.y), fontsize=font_size, ha="center", color="white", verticalalignment="center", horizontalalignment="center", zorder=10001)
+            label = ax.annotate("G", xy=(self.global_goal.x, self.global_goal.y), fontsize=font_size, ha="center", color=color_font, verticalalignment="center", horizontalalignment="center", zorder=10001)
 
         if self.local_mdp.goal is not None:
             # circle = plt.Circle((self.local_mdp.goal.x, self.local_mdp.goal.y), radius=0.2, color="red")
@@ -196,7 +201,7 @@ class EnvironmentState():
                 p = self.plot_previous_position[i]
                 circle = plt.Circle((p.x+offset_robot, p.y+offset_robot), radius=circle_path_size, color="orange")
                 ax.add_patch(circle)
-                label = ax.annotate(str(i), xy=(p.x+offset_robot, p.y+offset_robot), fontsize=font_size, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
+                label = ax.annotate(str(i), xy=(p.x+offset_robot, p.y+offset_robot), fontsize=font_size, ha="center", color=color_font, verticalalignment="center", horizontalalignment="center")
                 # ax.scatter(p.x, p.y, color="orange", zorder=1000)
 
         for i in range(1, len(self.plot_previous_position)):
@@ -207,8 +212,7 @@ class EnvironmentState():
 
         # for h in self.humans:
             # h.plot(ax, color=colors[h.id])
-            # h.plot(ax)
-            # for pos in h.future_predicted_position:
+        self.window = None
             #     circle = plt.Circle((pos.x, pos.y), radius=0.1, color=colors[h.id])
             #     ax.add_patch(circle)
 
@@ -217,16 +221,16 @@ class EnvironmentState():
             if plot_circle_previous_pos:
                 for i in range(len(positions)-1):
                     p = positions[i]
-                    circle = plt.Circle((p.x+offset_human, p.y+offset_human), radius=circle_path_size, color=colors[id], alpha=i/len(positions))
-                    # circle = plt.Circle((p.x+offset_human, p.y+offset_human), radius=circle_path_size, color="blue", alpha=i/len(positions))
+                    # circle = plt.Circle((p.x+offset_human, p.y+offset_human), radius=circle_path_size, color=colors[id], alpha=i/len(positions))
+                    circle = plt.Circle((p.x+offset_human, p.y+offset_human), radius=circle_path_size, color="blue", alpha=i/len(positions))
                     ax.add_patch(circle)
-                    label = ax.annotate(str(i), xy=(p.x+offset_human, p.y+offset_human), fontsize=font_size, ha="center", color="white", verticalalignment="center", horizontalalignment="center", alpha=i/len(positions))
+                    label = ax.annotate(str(i), xy=(p.x+offset_human, p.y+offset_human), fontsize=font_size, ha="center", color=color_font, verticalalignment="center", horizontalalignment="center", alpha=i/len(positions))
             
             for i in range(1, len(positions)-1):
                 p1 = positions[i-1]
                 p2 = positions[i]
-                ax.plot((p1.x+offset_human, p2.x+offset_human), (p1.y+offset_human, p2.y+offset_human), color=colors[id], alpha=i/len(positions))
-                # ax.plot((p1.x+offset_human, p2.x+offset_human), (p1.y+offset_human, p2.y+offset_human), color="blue", alpha=i/len(positions))
+                # ax.plot((p1.x+offset_human, p2.x+offset_human), (p1.y+offset_human, p2.y+offset_human), color=colors[id], alpha=i/len(positions))
+                ax.plot((p1.x+offset_human, p2.x+offset_human), (p1.y+offset_human, p2.y+offset_human), color="blue", alpha=i/len(positions))
         
         # handles, labels = ax.get_legend_handles_labels()
         # ax.legend(loc='center left', bbox_to_anchor=(1, 0.5), handles=handles)

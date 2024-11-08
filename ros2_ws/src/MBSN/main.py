@@ -40,7 +40,7 @@ HEURISTIC_FUNCTION = heuristic_score_based
 PREDICTION_FUNCTION = pecnet_human_trajectory_prediction
 USE_MCTS = True
 TIMEOUT_MCTS = 1.0
-CORRECT_PREDICTED_GOAL = False
+CORRECT_PREDICTED_GOAL = True
 
 
 
@@ -243,32 +243,31 @@ def scenario_open(number_of_human):
         Point(-12.0, 3.25),
     ]
 
-    pos_pool = [Point(-12.0, i) for i in np.linspace(-6.5, 6.5, num=50)] + [Point(12.0, i) for i in np.linspace(-6.5, 6.5, num=50)]# + [Point(i, -6.5) for i in range(-12, 12, 0.5)] + [Point(i, 6.5) for i in range(-12, 12, 0.5)] + [Point(12.0, i) for i in range(-6.5, 6.5, 0.5)]
-
-    def get_random_pos_in_pool(pool):
-        g1 = random.choice(pool)
-        pool.remove(g1)
-        return g1
-
+    pos_pool = [Point(-12.0, i) for i in np.linspace(-6.5, 6.5, num=50)] + [Point(12.0, i) for i in np.linspace(-6.5, 6.5, num=50)] + [Point(i, -6.5) for i in np.linspace(-12, 12, num=50)] + [Point(i, 6.5) for i in np.linspace(-12, 12, num=50)]
 
     humans_goal_predicted = {}
-    robot_pos = get_random_pos_in_pool(pos_pool)
-    goal_pos = get_random_pos_in_pool(pos_pool)
-    while goal_pos.x == robot_pos.x:
-        goal_pos = get_random_pos_in_pool(pos_pool)
+    robot_pos = random.choice(pos_pool)
+    pos_pool.remove(robot_pos)
+
+    goal_pos = random.choice(pos_pool)
+    while goal_pos.x == robot_pos.x or goal_pos.y == robot_pos.y:
+        goal_pos = random.choice(pos_pool)
+    pos_pool.remove(goal_pos)
 
     humans = []
 
     for i in range(number_of_human):
-        pos = get_random_pos_in_pool(pos_pool)
+        pos = random.choice(pos_pool)
         while pos.distance(robot_pos) < 1.5:
-            pos = get_random_pos_in_pool(pos_pool)
+            pos = random.choice(pos_pool)
+        pos_pool.remove(pos)
 
-        g1 = get_random_pos_in_pool(pos_pool)
-        while g1.distance(goal_pos) < 1.5:
-            g1 = get_random_pos_in_pool(pos_pool)
+        g1 = random.choice(pos_pool)
+        while g1.distance(goal_pos) < 1.5 or g1.x == pos.x or g1.y == pos.y:
+            g1 = random.choice(pos_pool)
+        pos_pool.remove(g1)
 
-        gf1 = get_random_pos_in_pool(pos_pool)
+        gf1 = random.choice(pos_pool)
         ori = 180 if pos.x == 12 else 0
         human = Human(pos, ori, goal=[g1])
         humans_goal_predicted[human.id] = [gf1]
@@ -302,7 +301,7 @@ def move_a_human(map_polygon, human, human_goal_detected_by_robot):
 
 
 
-# map_polygon, goal_pos, robot_pos, humans, humans_goal_predicted = scenario_open(4)
+# map_polygon, goal_pos, robot_pos, humans, humans_goal_predicted = scenario_open(5)
 map_polygon, goal_pos, robot_pos, humans, humans_goal_predicted = scenario_small()
 
 
@@ -372,7 +371,7 @@ while test.current_pos.distance(goal_pos) > 0.5  and i < 50:
         ax.invert_yaxis()
         figManager = plt.get_current_fig_manager()
         figManager.window.showMaximized()
-        # plt.show()
+        plt.show()
         break
     
     print("PATH=", test.robot_path)
@@ -385,12 +384,12 @@ px = 10
 fig, ax = plt.subplots(figsize=(1.9*px, 2*px))
 test.plot(ax, plot_circle_previous_pos=True)
 
-if PREDICTION_FUNCTION.__name__ == pecnet_human_trajectory_prediction.__name__:
-    for id, goals_predicted in humans_goal_predicted.items():
-        pos = goals_predicted[0]
-        circle = plt.Circle((pos.x, pos.y), radius=0.15, color="green", label="Predicted Goal")
-        ax.add_patch(circle)
-        label = ax.annotate("PG", xy=(pos.x, pos.y), fontsize=24, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
+# if PREDICTION_FUNCTION.__name__ == pecnet_human_trajectory_prediction.__name__:
+#     for id, goals_predicted in humans_goal_predicted.items():
+#         pos = goals_predicted[0]
+#         circle = plt.Circle((pos.x, pos.y), radius=0.15, color="green", label="Predicted Goal")
+#         ax.add_patch(circle)
+#         label = ax.annotate("PG", xy=(pos.x, pos.y), fontsize=24, ha="center", color="white", verticalalignment="center", horizontalalignment="center")
 # ax.set_xlim(test.current_pos.x-8, test.current_pos.x+8)
 # ax.set_ylim(test.current_pos.y-8, test.current_pos.y+8)
 ax.axis('off')

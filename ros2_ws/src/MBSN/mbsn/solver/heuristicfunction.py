@@ -23,9 +23,11 @@ def astar(start, goal, mdp, limited_action_of_start_state=None):
 
     def heuristic(cell1, cell2):
         # Utilisation de la distance de Manhattan comme heuristique
-        a = mdp.polygons[cell1][0].centroid
-        b = mdp.polygons[cell2][0].centroid
-        return a.distance(b)
+        if cell1 in mdp.polygons and cell2 in mdp.polygons:
+            a = mdp.polygons[cell1][0].centroid
+            b = mdp.polygons[cell2][0].centroid
+            return a.distance(b)
+        return math.inf
         return abs(a.x - b.x) + abs(a.y - b.y) + mdp.polygons[cell1][0].area
 
     open_set = []
@@ -190,7 +192,7 @@ def heuristic_score_based(mdp, state, w1=1.0, w2=1.5, w3=0.1, w4=1.0, debug=Fals
         elif cross_product > 0:
             return 1.0
         elif cross_product < 0:
-            return 0.99
+            return 0.9
 
     def standard_deviation(state, action, k=0.5, alpha=0.8):
         dg = score_from_goal(state, action)

@@ -8,9 +8,10 @@ from shapely import Point
 from geometry_msgs.msg import Point as ROSMsgPoint, Quaternion # type: ignore
 from mbsn.utils.util import euler_from_quaternion # type: ignore
 
+
 class Human():
 
-    id_iter = itertools.count()
+    id_iter= itertools.count()
 
     def __init__(self, position, orientation=0.0, future_predicted_position = [], goal=None, id=None):
         self.previous_position_ = deque(maxlen=10)

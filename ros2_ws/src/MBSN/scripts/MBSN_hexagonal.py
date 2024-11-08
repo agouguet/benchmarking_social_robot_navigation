@@ -234,6 +234,7 @@ class EnvironmentInterpreterToPolygon(EnvironmentInterpreter):
         for poly in self.local_mdp.polygons.values():
         # poly = list(self.local_mdp.polygons.values())[0]
             for p in poly:
+                print(type(p))
                 b = p.boundary.coords
                 linestrings = [LineString(b[k:k+2]) for k in range(len(b) - 1)]
                 for l in linestrings:

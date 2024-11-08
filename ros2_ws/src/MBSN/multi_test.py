@@ -40,12 +40,12 @@ HEURISTIC_FUNCTION = heuristic_score_based
 
 PREDICTION_FUNCTION = simple_human_trajectory_prediction
 # PREDICTION_FUNCTION = pecnet_human_trajectory_prediction
-USE_MCTS = True
+USE_MCTS = False
 TIMEOUT_MCTS = 1.0
-CORRECT_PREDICTED_GOAL = False
-NUMBER_HUMAN = 50
+CORRECT_PREDICTED_GOAL = True
+NUMBER_HUMAN = 20
 
-NB_TIME = 1
+NB_TIME = 50
 
 
 def move_a_human(map_polygon, human, human_goal_detected_by_robot):
@@ -73,12 +73,13 @@ def move_a_human(map_polygon, human, human_goal_detected_by_robot):
 def make_scenario_n_time(n):
     map_polygon = NavMap(SCENARIO, type=TYPE_MAP)
 
+    all_steps = []
     all_minimum_distance = []
     all_nodes_visited = []
+    all_nodes_visited_per_action = defaultdict(list)
 
     for id_test in range(n):
         MBSNAgentNode.reset_visits()
-        print(MBSNAgentNode.visits)
         pos_pool = [Point(-12.0, i) for i in np.linspace(-6.5, 6.5, num=50)] + [Point(12.0, i) for i in np.linspace(-6.5, 6.5, num=50)] + [Point(i, -6.5) for i in np.linspace(-12, 12, num=50)] + [Point(i, 6.5) for i in np.linspace(-12, 12, num=50)]
 
         humans_goal_predicted = {}
@@ -144,9 +145,21 @@ def make_scenario_n_time(n):
             i+=1
 
         print("Node visited:", MBSNAgentNode.next_node_id)
+        print("Node visited/action:", MBSNAgentNode.next_node_id/max(1, i))
 
+        for nb_human, rollout_numbers in test.number_roolout_by_number_of_humans.items():
+            for rollout in rollout_numbers:
+                all_nodes_visited_per_action[nb_human].append(rollout)
+
+        all_steps.append(i)
         all_minimum_distance.append(total_minimum_distance)
         all_nodes_visited.append(MBSNAgentNode.next_node_id)
+        # all_nodes_visited_per_action.append(MBSNAgentNode.next_node_id/i)
+
+        all_nodes_visited_per_action_mean = {}
+        for number_human, rollouts in all_nodes_visited_per_action.items():
+            all_nodes_visited_per_action_mean[number_human] = np.mean(rollouts)
+        print(all_nodes_visited_per_action_mean)
 
         dpi = 100
         px = 10
@@ -160,16 +173,25 @@ def make_scenario_n_time(n):
         # figManager.window.showMaximized()
         # plt.show()
         fig.savefig('./results/path/multi_test/'+str(id_test)+'.svg', format='svg', dpi=dpi)
-    
-    return all_minimum_distance, all_nodes_visited
+
+    return all_minimum_distance, all_nodes_visited, all_nodes_visited_per_action, all_steps
 
 
 
-all_minimum_distance, all_nodes_visited = make_scenario_n_time(NB_TIME)
+all_minimum_distance, all_nodes_visited, all_nodes_visited_per_action, all_steps = make_scenario_n_time(NB_TIME)
+
+print(all_nodes_visited_per_action)
+
+all_nodes_visited_per_action_mean = {}
+
+for number_human, rollouts in all_nodes_visited_per_action.items():
+    all_nodes_visited_per_action_mean[number_human] = np.mean(rollouts)
 
 print(all_minimum_distance, all_nodes_visited)
+print(all_steps)
 
 all_minimum_distance = np.array(all_minimum_distance)
 all_nodes_visited = np.array(all_nodes_visited)
+# all_nodes_visited_per_action = np.array(all_nodes_visited_per_action)
 
-print(np.mean(all_minimum_distance), np.mean(all_nodes_visited))
+print(np.mean(all_minimum_distance), np.mean(all_nodes_visited), all_nodes_visited_per_action_mean)
